@@ -57,6 +57,18 @@ If a hypothetical counterexample never drops below its odd starting value `n`, t
 
 This is a necessary constraint on a non-descending orbit, not a proof that one cannot exist. The next global proof obligation is to derive a structural lower bound on the cumulative valuations along any such orbit that contradicts this upper bound, without enumerating residue classes.
 
+This can be stated as a precise prefix-crossing target. For a fixed odd `n>1`, if some `j` satisfies
+
+`A_j > j log_2(3+1/n)`,
+
+then a smaller odd iterate has already occurred by time `j`. Indeed, if every `x_i≥n` through `j`, the exact product identity gives
+
+`2^{A_j}x_j = n∏_{i=0}^{j−1}(3+1/x_i) ≤ n(3+1/n)^j`,
+
+and `x_j≥n` would imply the opposite inequality `A_j≤j log_2(3+1/n)`. Thus the Collatz conjecture is equivalent to proving that every odd `n>1` has a finite prefix crossing this line: crossing gives descent and strong induction; if the conjecture holds, continuing after reaching `1` adds valuation `2` at every Syracuse step, eventually crossing because `log_2(3+1/n)<2`.
+
+The remaining task is therefore deterministic: prove this crossing for each fixed orbit from the block transition law. Density estimates do not supply it. Tao's 2019 theorem proves that almost every starting value, in logarithmic density, eventually reaches below any function tending to infinity; the paper explains that the relevant measures are not invariant under Collatz, so typicality cannot simply be propagated from one iterate to the next ([Tao, *Almost all orbits of the Collatz map attain almost bounded values*](https://arxiv.org/abs/1909.03562)). The exceptional individual orbit is exactly what the project still has to rule out.
+
 ## Exact length of a run with valuation one
 
 Let `x_0=n` be odd, set `x_{i+1}=S(x_i)`, and write `a_{i+1}=v_2(3x_i+1)`. For every integer `r ≥ 0`,
