@@ -482,7 +482,7 @@ flowchart TD
     I --> U1["Iterate-based non-descent cap"]
     N --> B["Return blocks — formulas proved"]
     B --> L["Local mean thresholds — proved; u matters in the gap"]
-    L --> X["Exceptional-gap expansions have bounded consecutive runs — proved"]
+    L --> X["Exceptional expansion chains have a square-root bound — proved"]
     B --> J["Exact logarithmic block drift — proved"]
     J --> U2["Block-length-sensitive cap"]
     U1 --> G["OPEN: prove a global lower bound that violates the caps"]
