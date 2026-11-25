@@ -169,6 +169,8 @@ because `s<2^{ℓ-t}` makes `v_2(s-1)≤ℓ-t-1<ℓ`, so the smaller 2-adic valu
 
 since `b≤h≤t log_2(3/2)<ℓ log_2(3/2)`. The next block is then also forced to expand. Thus a strictly expanding exceptional block either leads to a shorter next run and smaller parameter sum, or to a longer next run followed by another forced expansion. This dichotomy is exact but still leaves the long-term orbit behavior open.
 
+Let `H_k=a_k+t_k`. Across a strict expanding exceptional block, `H_{k+1}=H_k` when `s=1`; when `s>1`, `H_{k+1}≤a_k-1=H_k-(t_k+1)≤H_k-2`. The `s=1` branch puts the next block below the critical mean, so it ends any consecutive chain of exceptional-gap expansions. Since every block has `H_k≥3`, a chain beginning at block `k` has length at most `floor((H_k-1)/2)`. This rules out an infinite run of this one local expansion type, not an infinite orbit or the full conjecture.
+
 Integrality sharpens this local test. From `3x=2^{a+t}u-2^a-1`, reduction modulo 3 gives `u≡0 (mod 3)` when `a` is odd, and `u≡(-1)^{t+1} (mod 3)` when `a` is even. Since `u` is positive and odd, its corresponding lower bound is `u≥3` for odd `a`, `u≥1` for even `a` and odd `t`, and `u≥5` for even `a` and even `t`. Thus, writing `C=2^{a+t}-2·3^t`, a sharper sufficient criterion is `C>0` and `u_min C>2^a-2`, with `u_min` chosen from those three cases.
 
 This is only a local block criterion. For example, `9 → 7 → 11 → 17` is a block with `a=2`, `t=3`, and it grows from 9 to 17.
@@ -470,11 +472,13 @@ flowchart TD
     I --> U1["Iterate-based non-descent cap"]
     N --> B["Return blocks — formulas proved"]
     B --> L["Local mean thresholds — proved; u matters in the gap"]
+    L --> X["Exceptional-gap expansions have bounded consecutive runs — proved"]
     B --> J["Exact logarithmic block drift — proved"]
     J --> U2["Block-length-sensitive cap"]
     U1 --> G["OPEN: prove a global lower bound that violates the caps"]
     U2 --> G
     L --> G
+    X --> G
     G -.-> D
 ```
 

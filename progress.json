@@ -1,5 +1,5 @@
 {
-  "updatedAt": "Nov 24, 2026",
+  "updatedAt": "Nov 25, 2026",
   "stage": "Collatz · first proof steps",
   "aiEstimate": {
     "percent": 0,
@@ -8,7 +8,7 @@
   "focus": {
     "status": "Pure-math strategy · global descent theorem open",
     "title": "Derive an orbit-wide bound from block dynamics",
-    "summary": "At the sole possible mean-test gap, a genuine expansion has two exact branches: either the next run is shorter and a_next+t_next≤a_k−1, or the run grows while u is preserved and the following block is also forced to expand. Neutral equality is a periodic return. The global task remains an all-starting-values bound from the coupled transitions.",
+    "summary": "At the sole possible mean-test gap, a genuine expansion has two exact branches. The parameter H=a+t never increases; it drops by at least two unless s=1, whose next block lies below the critical mean. Thus consecutive expansions of this special type have an explicit finite-length bound. The all-starting-values descent theorem remains open.",
     "next": "Prove a structural lower bound on Σ(a_k−1) from the transition law and compare it with the non-descent cap."
   },
   "accomplishments": [
@@ -101,6 +101,11 @@
       "date": "Nov 25, 2026",
       "title": "The long-run branch forces a second expansion",
       "detail": "In the s=1 branch after a strict gap-block expansion, t_next≥t+1, u_next=u, and q_next=1+b/t_next<log₂3. The critical mean test therefore forces the next block to expand too. This is still only a local sequence constraint."
+    },
+    {
+      "date": "Nov 25, 2026",
+      "title": "Consecutive exceptional expansion runs are finite",
+      "detail": "For H_k=a_k+t_k, each strict expanding gap block either lowers H by at least two (s>1), or preserves H (s=1) but sends the next block below the critical mean. Since H≥3, a consecutive chain beginning at block k has length at most floor((H_k−1)/2). This does not rule out other orbit behavior."
     }
   ],
   "notes": [
@@ -163,6 +168,11 @@
       "date": "Nov 25, 2026",
       "speaker": "Codex · next-block update",
       "text": "The s=1 branch has a further consequence: b≤h≤t log₂(3/2), while t_next=ℓ≥t+1, so q_next=1+b/ℓ<log₂3. Hence the following block is forced to expand too. In the s>1 branch, t_next<t and a_next+t_next≤a_k−1. No global descent follows yet."
+    },
+    {
+      "date": "Nov 25, 2026",
+      "speaker": "Codex · potential update",
+      "text": "The exceptional expansion branches give a finite-chain bound. H_k=a_k+t_k drops by at least two in the s>1 branch; the s=1 branch preserves H but makes the next block subcritical, ending a consecutive exceptional-gap chain. A chain beginning at block k has length at most floor((H_k−1)/2)."
     }
   ]
 }
