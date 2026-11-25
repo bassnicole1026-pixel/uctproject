@@ -155,6 +155,16 @@ Because `r` is even, `r≤2^{h+1}`, and `v_2(2^t M u)=t+h+1>v_2(r)`, taking the 
 
 So a genuinely expanding block at the only possible gap forces `a_{k+1}≤h+1=a_k-1`. In the equality case `uD=M-1`, the block returns to its starting point, `S^t(x_k)=x_k`, and gives a periodic orbit with period dividing `t`. This constrains a local transition but does not rule out an arbitrary non-descending orbit.
 
+For a strict expansion, this next-block restriction has a two-case refinement. Put `b=v_2(Du+1)=a_{k+1}-1`, `s=(Du+1)/2^b` (odd), and `ℓ=t+h+1-b`. Then
+
+`S(x_{k+1})=2^ℓu-s`.
+
+Since `Du+1<M`, we have `b≤h` and `ℓ≥t+1`. If `s>1`, then
+
+`t_{k+1}=v_2(s-1)≤h-b`,
+
+because `s<2^{ℓ-t}` makes `v_2(s-1)≤ℓ-t-1<ℓ`, so the smaller 2-adic valuation in `S(x_{k+1})+1=2^ℓu-(s-1)` is `v_2(s-1)`. Therefore `a_{k+1}+t_{k+1}≤h+1=a_k-1`. If `s=1`, then `t_{k+1}=ℓ≥t+1` and `u_{k+1}=u`. Thus a strictly expanding exceptional block either forces a smaller next parameter sum or passes the same `u` into a longer next run. This dichotomy is exact but still leaves the long-term orbit behavior open.
+
 Integrality sharpens this local test. From `3x=2^{a+t}u-2^a-1`, reduction modulo 3 gives `u≡0 (mod 3)` when `a` is odd, and `u≡(-1)^{t+1} (mod 3)` when `a` is even. Since `u` is positive and odd, its corresponding lower bound is `u≥3` for odd `a`, `u≥1` for even `a` and odd `t`, and `u≥5` for even `a` and even `t`. Thus, writing `C=2^{a+t}-2·3^t`, a sharper sufficient criterion is `C>0` and `u_min C>2^a-2`, with `u_min` chosen from those three cases.
 
 This is only a local block criterion. For example, `9 → 7 → 11 → 17` is a block with `a=2`, `t=3`, and it grows from 9 to 17.

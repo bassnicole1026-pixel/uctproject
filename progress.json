@@ -8,7 +8,7 @@
   "focus": {
     "status": "Pure-math strategy · global descent theorem open",
     "title": "Derive an orbit-wide bound from block dynamics",
-    "summary": "Exact identities bound each block’s logarithmic drift and constrain hypothetical non-descending orbits. At the only possible mean-test gap, a genuine block expansion forces the next high valuation to drop; equality is a periodic return. The global task is still an all-starting-values bound from the coupled transitions.",
+    "summary": "At the sole possible mean-test gap, a genuine expansion forces the next high valuation down. More precisely, either a_next+t_next≤a_k−1, or the next run length grows while u is preserved. Neutral equality is a periodic return. The global task remains an all-starting-values bound from the coupled transitions.",
     "next": "Prove a structural lower bound on Σ(a_k−1) from the transition law and compare it with the non-descent cap."
   },
   "accomplishments": [
@@ -91,6 +91,11 @@
       "date": "Nov 24, 2026",
       "title": "An expanding gap block forces the next valuation down",
       "detail": "For a=h+2 and uD≤2^{h+1}−1, the transition law gives a_next−1=v₂(Du+1). Strict expansion implies a_next≤a−1; equality in the block test is a periodic return. This is a local transition constraint, not a global descent proof."
+    },
+    {
+      "date": "Nov 25, 2026",
+      "title": "Expanding gap blocks split into two exact transitions",
+      "detail": "For a strict expansion, write r=Du+1=2^b s with s odd and ℓ=t+h+1−b. If s>1, then a_next+t_next≤a_k−1; if s=1, then t_next=ℓ≥t+1 and u_next=u. This is an exact local dichotomy, not a global descent proof."
     }
   ],
   "notes": [
@@ -143,6 +148,11 @@
       "date": "Nov 24, 2026",
       "speaker": "Codex · transition update",
       "text": "At the sole possible mean-test gap, put M=2^{h+1} and D=2^{h+t+1}−3^t. If uD<M−1, the block expands but the exact transition gives a_next−1=v₂(Du+1)≤h, so the next high valuation is at least one smaller. Equality uD=M−1 returns to the same block start and is periodic. This does not settle the global orbit."
+    },
+    {
+      "date": "Nov 25, 2026",
+      "speaker": "Codex · transition refinement",
+      "text": "A strict expansion at the exceptional valuation has two exact next-block forms. With r=Du+1=2^b s and ℓ=t+h+1−b: s>1 forces a_next+t_next≤a_k−1; s=1 gives t_next=ℓ≥t+1 and preserves u_next=u. This narrows the local recurrence but leaves global orbit control open."
     }
   ]
 }
