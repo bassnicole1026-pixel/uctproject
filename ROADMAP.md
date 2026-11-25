@@ -23,7 +23,7 @@ It would suffice to prove the **descent property**:
 
 If this property holds, strong induction finishes the proof: the smaller odd iterate is below `n`, so by induction it reaches 1, and therefore so does `n`. Conversely, if the Collatz conjecture is true, every odd `n > 1` eventually reaches 1 and hence has a smaller iterate. Thus this is an equivalent target, not an easier theorem already established.
 
-## First proved descent regions
+## Proved descent regions
 
 ### Lemma 1: `n ≡ 1 (mod 4)`
 
@@ -60,13 +60,22 @@ If `n = 64k + 11`, where `k ≥ 0`, then `S^3(n) < n`.
 
 Then `3S^2(n) + 1 = 216k + 40 = 8(27k + 5)`, so `S^3(n) ≤ 27k + 5 < 64k + 11 = n`.
 
-The three lemmas cover all odd classes `1, 5, 9, 13 (mod 16)`, all of `3 (mod 16)`, and the sub-class `11 (mod 64)`. Classes `7` and `15 (mod 16)`, along with `27, 43, 59 (mod 64)`, remain unresolved by these lemmas.
+### Lemma 4: `n ≡ 23, 43, or 55 (mod 64)`
+
+For each of these three classes, `S^3(n) < n`.
+
+**Proof.** Write `n = 64k + r`, with `k ≥ 0`.
+
+- If `r = 23`, then `S(n) = 96k + 35` and `S^2(n) = 144k + 53`. Since `3S^2(n) + 1 = 432k + 160 = 16(27k + 10)`, we have `S^3(n) ≤ 27k + 10 < 64k + 23`.
+- If `r = 43`, then `S(n) = 96k + 65`, `S^2(n) = 72k + 49`, and `S^3(n) = 54k + 37 < 64k + 43`.
+- If `r = 55`, then `S(n) = 96k + 83` and `S^2(n) = 144k + 125`. Since `3S^2(n) + 1 = 432k + 376 = 8(54k + 47)`, we have `S^3(n) ≤ 54k + 47 < 64k + 55`.
+The six proved regions cover 24 of the 32 odd residue classes modulo 64: all classes `1, 5, 9, 13 (mod 16)`, all of `3 (mod 16)`, and `11, 23, 43, 55 (mod 64)`. The eight classes `7, 15, 27, 31, 39, 47, 59, 63 (mod 64)` remain unresolved by these certificates.
 
 ## Work plan
 
 1. **Fix the definitions and proof target.** Keep the original map and odd-only map explicit. The descent property above is the global obligation.
 2. **Build exact, reproducible checks.** A small program can verify a finite starting interval with arbitrary-precision integer arithmetic. A finite check is evidence about that interval only; it cannot establish the universal statement.
-3. **Grow the residue-class descent table.** Start with the unresolved classes `7` and `15 (mod 16)`, and `27, 43, 59 (mod 64)`. Split classes into finer powers-of-two classes, derive exact formulas for each fixed parity/valuation path, and record which classes provably reach a smaller odd value.
+3. **Grow the residue-class descent table.** Start with the unresolved classes `7, 15, 27, 31, 39, 47, 59, 63 (mod 64)`. Split classes into finer powers-of-two classes, derive exact formulas for each fixed parity/valuation path, and record which classes provably reach a smaller odd value.
 4. **Seek a global argument.** Prove that every remaining odd integer has a smaller odd iterate, or find a different well-founded quantity that yields the same strong-induction finish. A shallow residue search that leaves classes uncovered is not a proof.
 5. **Audit all cases.** Check boundary values, exact divisibility, class coverage, and every induction dependency independently. Keep conjectures, experiments, and theorems labeled separately.
 

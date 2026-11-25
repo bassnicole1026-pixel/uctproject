@@ -3,9 +3,9 @@ Collatz Project — A step-by-step effort to prove that every positive integer e
 Current milestone:
 - One-step strict descent for odd n ≡ 1 (mod 4).
 - Two-step strict descent for n ≡ 3 (mod 16).
-- Three-step strict descent for n ≡ 11 (mod 64).
+- Three-step strict descent for n ≡ 11, 23, 43, and 55 (mod 64).
 - Exact computational verification for every starting value from 1 through 100,000.
 
-The full Collatz conjecture has not been proved by this project. Finite computation and partial descent results are not a universal proof.
+These certificates cover 24 of the 32 odd residue classes modulo 64. The full Collatz conjecture has not been proved by this project. Finite computation and partial descent results are not a universal proof.
 
 Research map: https://github.com/bassnicole1026-pixel/uctproject/blob/main/ROADMAP.md

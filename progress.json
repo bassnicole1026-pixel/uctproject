@@ -2,10 +2,10 @@
   "updatedAt": "Nov 24, 2026",
   "stage": "Collatz · first proof steps",
   "focus": {
-    "status": "Three local descent regions proved",
-    "title": "Close the remaining odd residue classes",
-    "summary": "We proved strict descent for n ≡ 1 mod 4 in one Syracuse step, n ≡ 3 mod 16 in two, and n ≡ 11 mod 64 in three. An exact program also checked every start through 100,000. These are partial results, not a proof for all integers.",
-    "next": "Find a descent certificate for one of the remaining classes: 7 or 15 mod 16, or 27, 43, 59 mod 64."
+    "status": "Six descent regions proved",
+    "title": "Close the remaining odd classes modulo 64",
+    "summary": "Six residue families now have strict-descent proofs, covering 24 of the 32 odd classes modulo 64. A separate exact computation checked every start through 100,000. These are partial results, not a proof for all integers.",
+    "next": "Find a descent certificate for one of the remaining classes: 7, 15, 27, 31, 39, 47, 59, or 63 modulo 64."
   },
   "accomplishments": [
     {
@@ -30,6 +30,11 @@
     },
     {
       "date": "Nov 24, 2026",
+      "title": "Three more mod-64 classes proved",
+      "detail": "For n ≡ 23, 43, or 55 mod 64, three accelerated odd steps produce a value below n."
+    },
+    {
+      "date": "Nov 24, 2026",
       "title": "Exact finite check through 100,000",
       "detail": "All starts reached 1. Maximum stopping time: 350 at 77,031. Maximum value observed: 1,570,824,736 from 77,671. This finite computation is not a general proof."
     }
@@ -43,7 +48,7 @@
     {
       "date": "Nov 24, 2026",
       "speaker": "Codex · research update",
-      "text": "The roadmap now has three proved descent regions plus an exact check through 100,000. Remaining targets include 7 and 15 modulo 16, and 27, 43, and 59 modulo 64."
+      "text": "Six descent regions now cover 24 of the 32 odd residue classes modulo 64. The eight classes without a certificate at this level are 7, 15, 27, 31, 39, 47, 59, and 63."
     }
   ]
 }
