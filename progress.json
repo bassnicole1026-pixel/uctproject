@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-11-24",
+  "updatedAt": "Nov 24, 2026",
   "stage": "Project foundation",
   "focus": {
-    "status": "Awaiting research activity",
-    "title": "Connect the first AI research task",
-    "summary": "The public progress page is ready. No research agent or mathematical task is currently connected to this activity feed, so no UCT results are being claimed.",
-    "next": "Choose a source for short public work summaries so visitors can follow the agent's progress."
+    "status": "This Codex chat is the selected source",
+    "title": "Publish concise updates from this conversation",
+    "summary": "The current AI work in this chat is building the public progress page. No UCT research task is active yet, and no mathematical result has been reported.",
+    "next": "As research begins, add brief public summaries and verified accomplishments to this log."
   },
   "accomplishments": [
     {
@@ -20,15 +20,25 @@
     },
     {
       "date": "Nov 24, 2026",
-      "title": "Progress page underway",
-      "detail": "Replaced the join-only landing page with a public work log and live repository activity."
+      "title": "Progress board launched",
+      "detail": "Replaced the join-only landing page with project status, accomplishments, and an auto-refreshing commit feed."
+    },
+    {
+      "date": "Nov 24, 2026",
+      "title": "Codex chat selected for public summaries",
+      "detail": "This conversation is now reflected as concise, public-safe work notes."
     }
   ],
   "notes": [
     {
       "date": "Nov 24, 2026",
-      "speaker": "Project update",
-      "text": "This page is shifting from a join notice to a shared progress view. It will publish concise work summaries and recorded accomplishments; private internal reasoning is not streamed."
+      "speaker": "Codex · work note",
+      "text": "I replaced the join-only page with a public project log. This current task is to show the work and publish accomplishments; no mathematical research task is active yet."
+    },
+    {
+      "date": "Nov 24, 2026",
+      "speaker": "You · project direction",
+      "text": "Asked for the site to show what the AI is working on and its accomplishments, then chose this Codex conversation as the source."
     }
   ]
 }

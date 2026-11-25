@@ -163,11 +163,11 @@
 
         <div class="stack">
           <article class="panel" id="work-log" aria-labelledby="work-log-heading">
-            <div class="panel-head"><h2 id="work-log-heading">AI work notes</h2><span class="count">Public summaries</span></div>
+            <div class="panel-head"><h2 id="work-log-heading">This Codex chat</h2><span class="count">Public summaries</span></div>
             <div id="notes-list" aria-live="polite">
               <div class="work-note"><div class="note-top"><span class="speaker"><span class="speaker-mark" aria-hidden="true">AI</span>Project update</span><span class="note-date">Loading…</span></div><p>Loading the latest public work note.</p></div>
             </div>
-            <p class="feed-status">Short summaries and outcomes are shared here. Private internal reasoning is not streamed.</p>
+            <p class="feed-status">This page shows concise summaries after they are published to the project log. It cannot stream the private Codex transcript directly.</p>
           </article>
 
           <article class="panel" aria-labelledby="activity-heading" style="margin-top:16px">
@@ -301,7 +301,7 @@
         const synced = new Date().toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
         setText("sync-status", `Synced ${synced}`);
         status.classList.remove("error");
-        status.textContent = "Public GitHub commits · checks every minute.";
+        status.textContent = "Public GitHub commits · checks once a minute.";
       } catch (error) {
         setText("sync-status", "Feed unavailable");
         status.classList.add("error");
@@ -318,3 +318,4 @@
   </script>
 </body>
 </html>
+
