@@ -1150,7 +1150,23 @@ The margin must be nonnegative because `2^D≤R_T`. The period-`3` row is indepe
 
 `T∈{5,10,17,22,29,34}`.
 
-This is a finite reduction, not an exclusion of the exactly-three-high-block profile. The six remaining totals still have to satisfy the exact three-block transition numerators; profiles with four or more high valuations remain open.
+This is a finite reduction, not an exclusion of the exactly-three-high-block profile. The remaining totals still have to satisfy the exact three-block transition numerators; profiles with four or more high valuations remain open.
+
+#### A closed numerator for three-block cycles
+
+Write `s_i=b_i+t_i` and `c_i=2^(b_i)−1`. The exact transition law is equivalently
+
+`2^(s_(i+1))u_(i+1)=3^(t_i)u_i+c_(i+1)`.
+
+Composing the three equations cyclically and collecting the `u_1` term gives
+
+`Q u_1=N`,  `Q=2^(B+T)−3^T`,
+
+where
+
+`N=3^(t_2+t_3)c_2 + 3^(t_3)2^(b_2+t_2)c_3 + 2^(b_2+t_2+b_3+t_3)c_1`.
+
+Here `Q>0` because the cycle-excess identity gives `B>T log_2(3/2)`. Thus every three-block cycle must satisfy the exact divisibility `Q|N`; cyclic relabeling gives the corresponding conditions for `u_2` and `u_3`. This is a symbolic consequence of the transition equations and applies independently of any orbit search.
 
 #### Excluding the `T=5` profile
 
@@ -1158,11 +1174,11 @@ For `T=5`, the fixed-sum formula gives `B=floor(5α)+1=3`. Since there are three
 
 `2^(t_(i+1)+1)u_(i+1)=3^(t_i)u_i+1`.
 
-Compose the three equations cyclically, taking indices modulo `3`. With `t_1+t_2+t_3=5`, this gives
+The closed-numerator identity above specializes to
 
-`(2^8−3^5)u_1 = 3^(t_2+t_3)+3^(t_3)2^(t_2+1)+2^(t_2+t_3+2)`,
+`13u_1=N(t_2,t_3)`,  `N(t_2,t_3)=3^(t_2+t_3)+3^(t_3)2^(t_2+1)+2^(t_2+t_3+2)`,
 
-so `13u_1=N(t_2,t_3)`. Positivity of `t_1` means `t_2+t_3≤4`. The six possible ordered pairs yield:
+since `2^8−3^5=13`. Positivity of `t_1` means `t_2+t_3≤4`. The six possible ordered pairs yield:
 
 | `(t_2,t_3)` | `t_1` | `N(t_2,t_3) mod 13` |
 |---:|---:|---:|
@@ -1174,6 +1190,8 @@ so `13u_1=N(t_2,t_3)`. Positivity of `t_1` means `t_2+t_3≤4`. The six possible
 | `(2,2)` | `1` | `9` |
 
 None is divisible by `13`, contradicting the required integer `u_1`. Thus no exactly-three-high-block cycle has `T=5`. This is a six-case modular check of the exact cycle equations, not a search through Collatz trajectories. The remaining period totals are `T∈{10,17,22,29,34}`.
+
+For the next remaining total, `T=10` and `B=6`, so the same identity gives `Q=2^16−3^10=6487=13·499`. Any such cycle must make the exact numerator `N` divisible by both `13` and `499`. This is a necessary modular target only; `T=10` has not been excluded.
 
 ## Auxiliary finite congruence certificates
 

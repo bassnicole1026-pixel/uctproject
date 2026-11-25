@@ -3,15 +3,20 @@
   "stage": "Collatz · exact cycle constraints",
   "aiEstimate": {
     "percent": 0,
-    "basis": "Strict full-conjecture proof-completion estimate: 0%. Exact cycle-profile arguments exclude one- and two-high-valuation cycles. For exactly three high blocks, all quotients are at least 3, T≤34, and the exact transitions exclude T=5; five period totals remain. Profiles with four or more high valuations and nonperiodic descent failures remain unresolved."
+    "basis": "Strict full-conjecture proof-completion estimate: 0%. Exact cycle-profile arguments exclude one- and two-high-valuation cycles. For exactly three high blocks, all quotients are at least 3, T≤34, and T=5 is excluded. Five period totals remain; profiles with four or more high valuations and nonperiodic descent failures remain unresolved."
   },
   "focus": {
-    "status": "Pure math · exact cycle equations",
-    "title": "Eliminate the T=5 three-block cycle case",
-    "summary": "Composing the three exact block transitions gives 13u₁=N(t₂,t₃). The six positive ordered pairs with t₂+t₃≤4 all give N nonzero modulo 13, so T=5 is impossible. This is a finite modular proof from the cycle equations, with no Collatz orbit search.",
-    "next": "Derive similarly compact divisibility or congruence obstructions for T=10, then continue through T=17, 22, 29, and 34. After the three-block profile, handle cycles with four or more high valuations."
+    "status": "Pure math · three-block divisibility",
+    "title": "Derive a modular obstruction for T=10",
+    "summary": "Composing the three exact transitions gives Q u₁=N with Q=2^(B+T)−3^T and an explicit positive integer N. For the remaining total T=10, B=6 and Q=6487=13·499, so the exact transition numerator must be divisible by both factors. This is a necessary condition, not an exclusion of T=10.",
+    "next": "Use the structure of the exact numerator and the transition congruences to rule out T=10 without enumerating Collatz trajectories; then address T=17, 22, 29, 34 and profiles with four or more high valuations."
   },
   "accomplishments": [
+    {
+      "date": "Nov 25, 2026",
+      "title": "Composed the three-block transitions into an exact closure divisibility",
+      "detail": "For a three-high-block cycle, composing the exact transitions yields Q u₁=N, where Q=2^(B+T)−3^T and N=3^(t₂+t₃)(2^b₂−1)+3^t₃·2^(b₂+t₂)(2^b₃−1)+2^(b₂+t₂+b₃+t₃)(2^b₁−1). The same identity excludes T=5 modulo 13. At the next candidate T=10, B=6 and Q=6487=13·499, giving two exact divisibility conditions on N. This sets up the next arithmetic subcase but does not yet exclude T=10. Full-conjecture proof estimate: 0%. Significance: 12/100."
+    },
     {
       "date": "Nov 25, 2026",
       "title": "Excluded the T=5 three-high-block cycle case",
@@ -344,6 +349,11 @@
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "speaker": "Codex · three-block closure equation",
+      "text": "Exact algebraic reduction: composing the three block transitions gives Q u₁=N with Q=2^(B+T)−3^T and an explicit positive numerator N. For T=10, B=6, hence Q=2^16−3^10=6487=13·499; any cycle must satisfy both congruence conditions on N. T=10 remains open; this is a necessary condition, not a proof. Significance: 12/100."
+    },
     {
       "date": "Nov 25, 2026",
       "speaker": "Codex · T=5 exact cycle exclusion",
