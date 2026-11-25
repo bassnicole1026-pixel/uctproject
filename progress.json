@@ -7,9 +7,9 @@
   },
   "focus": {
     "status": "Pure math · global descent theorem open",
-    "title": "Use the coupled index to constrain the next run length",
-    "summary": "On the exact residue progression, the next valuation-one run length is 1+v₂(Θ_k+c_kj_k). Large next run lengths occupy a single 2-adic class of candidate indices, giving local thinning but no orbit-wide frequency bound.",
-    "next": "Connect the allowed 2-adic index classes across consecutive blocks to seek a deterministic obstruction to long non-contracting runs."
+    "title": "Encode finite block itineraries as 2-adic cylinders",
+    "summary": "A prescribed finite word of run lengths and following valuations selects one class of the coupled index modulo 2^N, with N the sum of those labels. This is exact local coding, not a statement about actual orbit frequencies.",
+    "next": "Intersect these itinerary cylinders with block contraction windows and seek a deterministic bound on non-descending prefixes."
   },
   "accomplishments": [
     {
@@ -176,9 +176,19 @@
       "date": "Nov 25, 2026",
       "detail": "With u_k=Λ_k+2^{b_k+1}M_kj_k, the next transition satisfies 2^{t_{k+1}−1}u_{k+1}=Θ_k+c_kj_k, where Θ_k=(3^{t_k}Λ_k+2^{b_k}−1)/2^{b_k+1} and c_k=3^{t_k}M_k is odd. Thus t_{k+1}=1+v₂(Θ_k+c_kj_k); each lower bound on t_{k+1} selects one residue class of j_k modulo a power of 2. This gives only local branch counts.",
       "title": "The coupled index determines the next run length"
+    },
+    {
+      "date": "Nov 25, 2026",
+      "detail": "For a prescribed finite word of pairs (t_{k+i},b_{k+i}), each pair successively fixes one residue class modulo 2^{t_{k+i}+b_{k+i}}. The normalized next index changes affinely with an odd coefficient, so the full word selects one class modulo 2^N, N=Σ(t+b). Any J-index interval has at most ceil(J/2^N) representatives. This exact local coding does not imply actual orbit frequencies or descent.",
+      "title": "Finite block itineraries form exact 2-adic cylinders"
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "text": "A prescribed finite word of block pairs (s_i,d_i) selects one class of the initial coupled index modulo 2^N, N=Σ(s_i+d_i). This follows by fixing each run length and exact following valuation through affine congruences with odd coefficient. Any J-index interval contains at most ceil(J/2^N) representatives. This is local symbolic coding only, not orbit-frequency control. Significance: 18/100.",
+      "speaker": "Codex · finite itinerary update"
+    },
     {
       "date": "Nov 25, 2026",
       "text": "Substituting the coupled progression into the transition yields 2^{t_{k+1}−1}u_{k+1}=Θ_k+c_kj_k, with Θ_k=(3^{t_k}Λ_k+2^{b_k}−1)/2^{b_k+1} and odd c_k=3^{t_k}M_k. Hence t_{k+1}≥r+1 is one residue class of j_k mod 2^r; exact equality is one class mod 2^{r+1}. Among the finite non-contracting index range, this bounds candidate counts, not actual orbit frequency. Significance: 24/100.",

@@ -363,6 +363,20 @@ The parity choice `δ_k` makes `Θ_k` an integer: using `r_k=(3^{t_k}L_k−1)/2^
 
 so `t_{k+1}=1+v_2(Θ_k+c_kj_k)`. Since `c_k` is odd, for every `r≥0` the condition `t_{k+1}≥r+1` selects exactly one residue class of `j_k` modulo `2^r`; exact equality `t_{k+1}=r+1` selects one class modulo `2^{r+1}`. Therefore, among the `J_k^{min}` candidate indices for a non-contracting block when `C_k>0`, at most `ceil(J_k^{min}/2^r)` can produce `t_{k+1}≥r+1`. This is a deterministic local branch-counting statement. It does not bound which index an actual orbit follows or prove a global descent.
 
+### Finite block itineraries form exact 2-adic cylinders
+
+Prescribe a finite future word of exact pairs `(s_i,d_i)=(t_{k+i},b_{k+i})`, `1≤i≤m`, where each run length `s_i≥1` and each following valuation `d_i=b_{k+i}≥1`. For the first pair, there is a unique `ρ (mod 2^{s_1})` satisfying `Θ_k+c_kρ≡2^{s_1−1} (mod 2^{s_1})`, since `c_k` is odd. Writing `j_k=ρ+2^{s_1}q` fixes `t_{k+1}=s_1` and gives `u_{k+1}=u_0+2c_kq` with `u_0` positive odd. The condition `b_{k+1}=d_1` is then
+
+`(3^{s_1}u_0−1)/2 + 3^{s_1}c_kq ≡ 2^{d_1−1} (mod 2^{d_1})`.
+
+Its odd coefficient selects one residue class of `q (mod 2^{d_1})`; hence the pair selects one class of `j_k (mod 2^{s_1+d_1})`.
+
+After fixing this pair, let `σ_1` be the least representative of the resulting class and write `j_k=σ_1+2^{s_1+d_1}ℓ`. The transition formula makes `u_{k+1}` affine in `ℓ` with increment `2^{d_1+1}3^{t_k}M_k`, where `M_k=3^{t_{k-1}}`. Since the next incoming modulus is `M_{k+1}=3^{t_k}`, its coupled index is affine in `ℓ` with odd coefficient `M_k`. Repeating the same argument for each prescribed pair therefore gives exactly one class of initial `j_k` modulo
+
+`2^{N}`,  `N=Σ_{i=1}^m(s_i+d_i)`.
+
+Thus any interval of `J` consecutive initial indices contains at most `ceil(J/2^N)` representatives of a specified finite itinerary. This is exact local 2-adic counting, not an estimate of which indices an actual orbit visits; it does not establish global descent.
+
 On an orbit that never falls below `n`, its final logarithm is nonnegative, so
 
 `Σ(a_k-1) ≤ j log_2(3/2) + Σ ε_k`.
