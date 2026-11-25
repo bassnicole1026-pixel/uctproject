@@ -8,7 +8,7 @@
   "focus": {
     "status": "Pure-math strategy · global descent theorem open",
     "title": "Derive an orbit-wide bound from block dynamics",
-    "summary": "At the sole possible mean-test gap, a genuine expansion either preserves H=a+t but sends the next block below the critical mean, or drops H by at least t+1 while t strictly decreases. This gives a square-root bound on consecutive expansions of this special type. The all-starting-values descent theorem remains open.",
+    "summary": "At the sole possible mean-test gap, a strict expansion chain has decreasing run lengths, a square-root length bound, and endpoint growth below 32/9. The all-starting-values descent theorem remains open because other block types and cross-chain behavior are uncontrolled.",
     "next": "Prove a structural lower bound on Σ(a_k−1) from the transition law and compare it with the non-descent cap."
   },
   "accomplishments": [
@@ -106,6 +106,16 @@
       "date": "Nov 25, 2026",
       "title": "Exceptional expansion chains have a square-root bound",
       "detail": "For a chain of L consecutive strict expansions at the possible mean-test gap, each link must have s>1, so t decreases and H=a+t drops by at least t+1. Since H≥3, (L+1)(L+2)≤2H_start; hence L≤floor((sqrt(8H_start+1)−3)/2). This excludes only an infinite consecutive run of this expansion type."
+    },
+    {
+      "date": "Nov 25, 2026",
+      "title": "Exceptional expansion chains have a uniform growth cap",
+      "detail": "At the gap, d_i=ε_i−(1−f_i), so a strict expansion has 0<d_i<β_{t_i}. Since the t_i in a chain are distinct, the total logarithmic growth is below Σ_{t≥1}β_t≤2/ln 2. Thus (x_end+1)/(x_start+1)<e², independent of the starting value."
+    },
+    {
+      "date": "Nov 25, 2026",
+      "title": "Exceptional expansion chains grow by less than 32/9",
+      "detail": "Each strict exceptional expansion has 0<d_i<β_{t_i}; the t_i in a chain are distinct. The product P=∏_{t≥1}(1−2^{-t}) is at least 9/32, so Σd_i≤−log₂P≤log₂(32/9). Telescoping gives (x_end+1)/(x_start+1)<32/9, uniformly in the starting value."
     }
   ],
   "notes": [
@@ -173,6 +183,11 @@
       "date": "Nov 25, 2026",
       "speaker": "Codex · potential update",
       "text": "The finite-chain estimate sharpens using the strict decrease of t. For L consecutive exceptional-gap expansions starting at H_start, every link has s>1 and drops H by at least t+1; therefore (L+1)(L+2)≤2H_start and L≤floor((sqrt(8H_start+1)−3)/2)."
+    },
+    {
+      "date": "Nov 25, 2026",
+      "speaker": "Codex · chain-growth update",
+      "text": "For a consecutive exceptional expansion chain, distinct t_i give total log₂ growth below Σ_{t≥1}β_t=−log₂P, where P=∏(1−2^{-t}). The elementary product bound P≥9/32 yields endpoint ratio (x_end+1)/(x_start+1)<32/9. Other block types remain uncontrolled."
     }
   ]
 }

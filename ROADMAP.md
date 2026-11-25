@@ -181,6 +181,20 @@ Since every block has `H_L≥3`, this is equivalent to `(L+1)(L+2)≤2H_1`, or
 
 Here `H_1` is the value at the chain's first block. This bounds only consecutive expansions of this exceptional type; it does not rule out other orbit behavior or prove the full conjecture.
 
+There is also a uniform cap on the total growth across such a chain. For block `i`, put `c=log_2(3/2)`, `h_i=floor(t_i c)`, and `f_i=t_i c-h_i`. At the exceptional valuation `a_i=h_i+2`, the exact logarithmic drift is
+
+`d_i=t_i(log_2 3-q_i)+ε_i=ε_i-(1-f_i)`.
+
+Since the block expands, `d_i>0`; hence `d_i<ε_i<β_{t_i}`, where `β_t=-log_2(1-2^{-t})`. The chain's `t_i` are distinct positive integers, so
+
+`Σ d_i < Σ_{t=1}^∞ β_t = -log_2 P`,  where  `P=∏_{t=1}^∞(1-2^{-t})`.
+
+For `0≤x_i≤1`, `∏(1-x_i)≥1-Σx_i`. Applying this to the tail gives `∏_{t=3}^∞(1-2^{-t})≥1-Σ_{t=3}^∞2^{-t}=3/4`, and hence `P≥(1/2)(3/4)(3/4)=9/32`. Therefore `Σd_i≤log_2(32/9)`, and telescoping gives
+
+`(x_end+1)/(x_start+1)<32/9`.
+
+Thus a consecutive run of these exceptional expansions can increase its endpoint by less than a factor `32/9`, independently of its starting value. Other block types remain uncontrolled.
+
 Integrality sharpens this local test. From `3x=2^{a+t}u-2^a-1`, reduction modulo 3 gives `u≡0 (mod 3)` when `a` is odd, and `u≡(-1)^{t+1} (mod 3)` when `a` is even. Since `u` is positive and odd, its corresponding lower bound is `u≥3` for odd `a`, `u≥1` for even `a` and odd `t`, and `u≥5` for even `a` and even `t`. Thus, writing `C=2^{a+t}-2·3^t`, a sharper sufficient criterion is `C>0` and `u_min C>2^a-2`, with `u_min` chosen from those three cases.
 
 This is only a local block criterion. For example, `9 → 7 → 11 → 17` is a block with `a=2`, `t=3`, and it grows from 9 to 17.
@@ -482,7 +496,7 @@ flowchart TD
     I --> U1["Iterate-based non-descent cap"]
     N --> B["Return blocks — formulas proved"]
     B --> L["Local mean thresholds — proved; u matters in the gap"]
-    L --> X["Exceptional expansion chains have a square-root bound — proved"]
+    L --> X["Exceptional expansion chains: square-root length and <32/9 growth cap — proved"]
     B --> J["Exact logarithmic block drift — proved"]
     J --> U2["Block-length-sensitive cap"]
     U1 --> G["OPEN: prove a global lower bound that violates the caps"]
