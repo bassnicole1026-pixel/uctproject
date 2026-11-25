@@ -16,9 +16,9 @@
   },
   "focus": {
     "status": "Global proof target remains open",
-    "title": "Control growth between valuation resets",
-    "summary": "For any odd n, the initial run of valuation-one Syracuse steps has exactly v2(n+1)-1 terms, then the next valuation is at least 2. Thus every infinite orbit has infinitely many valuations at least 2, but this alone gives no positive-density or descent bound.",
-    "next": "Relate the lengths of valuation-one runs to the sizes of the valuations that end them, toward a cumulative-valuation bound for a hypothetical non-descending orbit."
+    "title": "Bound cumulative excess across return blocks",
+    "summary": "Each complete block has length t_k and valuation sum a_k+t_k−1. Thus after m blocks, A_j−j=Σ(a_k−1). A hypothetical non-descending orbit must satisfy Σ(a_k−1)≤j log₂((3+1/n)/2) at every block boundary. We have not proved the contradictory lower bound.",
+    "next": "Derive a dynamics-based lower bound on cumulative block excess that contradicts the necessary upper bound, accounting for expanding blocks such as 9→7→11→17."
   },
   "accomplishments": [
     {
@@ -35,6 +35,16 @@
       "date": "Nov 24, 2026",
       "title": "Exact run length of valuation-one steps proved",
       "detail": "Starting from odd n, exactly v2(n+1)−1 consecutive Syracuse steps have valuation 1; the following step has valuation at least 2. This proves larger valuations recur, but not often enough yet to force descent."
+    },
+    {
+      "date": "Nov 24, 2026",
+      "title": "Exact return-block descent criterion derived",
+      "detail": "For a valuation-a≥2 step followed by its forced run of t−1 valuation-one steps, the endpoint satisfies 3(z−x)=2^a−2−u(2^{a+t}−2·3^t). This gives an exact local test, while allowing some blocks to grow."
+    },
+    {
+      "date": "Nov 24, 2026",
+      "title": "Cumulative block-excess constraint derived",
+      "detail": "Across m complete blocks, A_j−j=Σ(a_k−1). If the orbit never drops below n, this excess must be at most j log₂((3+1/n)/2) at each block boundary. Proving a contradictory lower bound remains open."
     },
     {
       "date": "Nov 24, 2026",
@@ -141,7 +151,7 @@
     {
       "date": "Nov 24, 2026",
       "speaker": "Codex · theory update",
-      "text": "A valuation-one run from odd n has exactly v2(n+1)−1 steps, followed by a valuation of at least 2. So such larger valuations recur infinitely often, though this alone gives no density bound. Next, we need to relate the run lengths to the sizes of those ending valuations."
+      "text": "We grouped the orbit into blocks: each has length t and valuation sum a+t−1, so A_j−j=Σ(a_k−1). A non-descending orbit must keep this excess below j log₂((3+1/n)/2) at block boundaries. The missing step is a dynamics-based lower bound; blocks can expand, as 9→7→11→17 shows."
     }
   ]
 }
