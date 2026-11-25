@@ -603,6 +603,20 @@ Consequently any `m` with `2^{δ_m}>P_m` is impossible as a cycle period. The ga
 
 for a positive constant `C`, so `P_m` eventually exceeds `2`. Because `2^{δ_m}<2`, this product filter can exclude only finitely many periods; ruling out long cycles requires additional information from the transition congruences.
 
+### A sharper cycle product filter from the modulo-three obstruction
+
+No value in an odd-only cycle is divisible by `3`: if `3|x_{i+1}`, then `2^{a_i}x_{i+1}=3x_i+1` would give `0≡1 (mod 3)`. If `n` is the minimum of a nontrivial cycle, its next value is strictly larger than `n`. Thus its valuation is `1`, since `a≥2` would give `S(n)=(3n+1)/2^a≤(3n+1)/4<n` for `n>1`. Hence `n≡3 (mod 4)`; together with `3∤n`, this implies `n≥7`.
+
+The increasing list of odd integers at least `7` that are not divisible by `3` is `r_0=7,r_1=11,r_2=13,r_3=17,…`, with `r_{2k}=6k+7` and `r_{2k+1}=6k+11`. Sort the `m` distinct cycle values as `y_0<…<y_{m−1}`. Since each is in this admissible list, `y_j≥r_j`. The cycle product identity therefore yields the sharper necessary condition
+
+`2^{δ_m} ≤ ∏_i(1+1/(3x_i)) ≤ Q_m`,
+
+where
+
+`Q_m=∏_{0≤2k<m}(1+1/(3(6k+7))) · ∏_{0≤2k+1<m}(1+1/(3(6k+11)))`.
+
+Pairing the two factors for each `k` gives `(1+1/(18k+21))(1+1/(18k+33))=1+1/(9k)+O(k^{−2})`; consequently `Q_m~C m^{1/9}` for a positive constant `C`. This improves the coarser `m^{1/6}` product bound, but `Q_m` still grows beyond `2`, whereas `2^{δ_m}<2`. Thus the sharpened product filter also has finite scope: the exact valuation transitions are still needed to exclude arbitrary periods.
+
 ### Large-minimum cycles force a continued-fraction convergent
 
 For any nontrivial odd-only cycle of period `m` and minimum `n`, its average valuation satisfies
