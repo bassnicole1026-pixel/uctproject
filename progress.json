@@ -3,13 +3,13 @@
   "stage": "Collatz · first proof steps",
   "aiEstimate": {
     "percent": 0,
-    "basis": "Strict proof-completion estimate: 0%. Exact identities, local descent cases, necessary frequency constraints, and a positive logarithmic transition correction are recorded, but no argument establishes descent for every starting integer. These restrictions do not give a meaningful percentage of the full theorem."
+    "basis": "Strict proof-completion estimate: 0%. Exact identities, local descent cases, and necessary restrictions on hypothetical descent failures are recorded, but no argument establishes descent for every starting integer. Re-expressing existing drift terms does not give a meaningful percentage of the full theorem."
   },
   "focus": {
     "status": "Pure math · global descent theorem open",
-    "title": "Control transition corrections and terminal block growth",
-    "summary": "The exact block recurrence telescopes to a positive correction δ_k. Combined with the non-descent cap, the accumulated correction must be absorbed by terminal run/odd parameters, apart from a small allowance log₂(1+1/(3n)) per block length. No independent bound on that terminal growth is known yet.",
-    "next": "Bound the cumulative positive transition correction from below and control terminal t_{m+1}+log₂(u_{m+1}) independently."
+    "title": "Find independent control of block drift",
+    "summary": "The logarithmic transition correction is exactly ε_{k+1}, the next-block state-dependent drift term. The telescope rewrites existing drift using t and u parameters; an independent bound on cumulative drift or terminal parameters is still missing.",
+    "next": "Derive a transition-law estimate on Σε_k or terminal parameters that is not already implied by the block logarithmic drift identity."
   },
   "accomplishments": [
     {
@@ -134,11 +134,16 @@
     },
     {
       "date": "Nov 25, 2026",
-      "title": "Block transitions yield a positive logarithmic telescope",
-      "detail": "The transition law gives b_k−t_k log₂(3/2)=t_k−t_{k+1}+log₂(u_k/u_{k+1})+δ_k, where b_k=a_{k+1}−1 and δ_k=log₂(1+(2^{b_k}−1)/(3^{t_k}u_k)) lies in (0,1). Summing telescopes the intermediate parameters; with the no-descent cap it forces terminal run/odd-parameter growth to absorb accumulated corrections. No contradiction is known yet."
+      "title": "Transition telescope matched to next-block drift correction",
+      "detail": "The logarithmic transition correction δ_k equals ε_{k+1} exactly, using x_{k+1}+1=2·3^{t_k−1}u_k. This telescopes the known block-drift correction in (t,u) coordinates and gives a necessary endpoint-parameter inequality under non-descent. It supplies no independent bound or contradiction."
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "speaker": "Codex · identity audit",
+      "text": "Formula audit: the positive transition correction δ_k is exactly the existing next-block drift correction ε_{k+1}. The telescope is a transition-coordinate re-expression of the known block drift, not an independent estimate. The remaining task is to bound cumulative drift or terminal parameters independently. Significance: 8/100."
+    },
     {
       "date": "Nov 25, 2026",
       "text": "Taking logarithms in the exact block transition gives a telescoping identity with strictly positive correction δ_k. Combined with the no-descent valuation cap, it yields a necessary inequality: terminal (1+c_n)t+log₂u must absorb the accumulated corrections beyond allowance (c_n−log₂(3/2))Σt. Significance: 16/100 — a sharper structural relation, but no contradiction yet.",

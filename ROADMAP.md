@@ -221,7 +221,11 @@ Here `0<δ_k<1`, because `b_k≥1` and `2^{b_k}≤3^{t_k}u_k−1`. Summing over 
 
 `Σ_{k=1}^m(a_{k+1}−1) = log_2(3/2) Σ_{k=1}^m t_k + t_1−t_{m+1}+log_2(u_1/u_{m+1})+Σ_{k=1}^m δ_k`.
 
-This exposes a positive transition correction, but the endpoint terms can grow; the identity alone does not force descent.
+Using `x_{k+1}+1=2·3^{t_k−1}u_k`, this correction is exactly the existing next-block drift term:
+
+`δ_k = log_2(1+(2^{a_{k+1}}−2)/(3(x_{k+1}+1))) = ε_{k+1}`.
+
+Thus the telescope expresses the known block-drift correction in transition coordinates. Its endpoint terms can grow, so this re-expression alone does not force descent or provide an independent bound.
 
 ## Exact logarithmic drift across blocks
 
