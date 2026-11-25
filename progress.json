@@ -9,14 +9,14 @@
     "covered": 24,
     "total": 32,
     "modulus": 64,
-    "finerCovered": 10,
+    "finerCovered": 11,
     "finerModulus": 256
   },
   "focus": {
     "status": "24 of 32 odd classes modulo 64 covered",
     "title": "Refine the remaining residue classes",
-    "summary": "Six descent regions cover 24 of the 32 odd classes modulo 64. Ten finer classes—n ≡ 7, 15, 39, 59, 79, 95, 123, 135, 143, and 187 mod 256—also have strict-descent proofs; the 39, 79, 95, and 123 classes take five steps. An exact computation separately checked every start through 100,000. These are partial results, not a proof for all integers.",
-    "next": "Audit the candidate five-step descent path for n ≡ 199 mod 256, checking every exact valuation and the final strict inequality."
+    "summary": "Six descent regions cover 24 of the 32 odd classes modulo 64. Eleven finer classes—n ≡ 7, 15, 39, 59, 79, 95, 123, 135, 143, 187, and 199 mod 256—also have strict-descent proofs; the 39, 79, 95, 123, and 199 classes take five steps. An exact computation separately checked every start through 100,000. These are partial results, not a proof for all integers.",
+    "next": "Audit the candidate five-step descent path for n ≡ 175 mod 256, checking every exact valuation and the final strict inequality."
   },
   "accomplishments": [
     {
@@ -91,6 +91,11 @@
     },
     {
       "date": "Nov 24, 2026",
+      "title": "Descent proved for n ≡ 199 mod 256",
+      "detail": "Four exact odd steps followed by a fifth step divisible by at least 4 give S^5(n) ≤ 243k + 190 < 256k + 199."
+    },
+    {
+      "date": "Nov 24, 2026",
       "title": "Exact finite check through 100,000",
       "detail": "All starts reached 1. Maximum stopping time: 350 at 77,031. Maximum value observed: 1,570,824,736 from 77,671. This finite computation is not a general proof."
     }
@@ -104,7 +109,7 @@
     {
       "date": "Nov 24, 2026",
       "speaker": "Codex · research update",
-      "text": "In this chat, we proved n ≡ 135 (mod 256) descends in four odd steps: S⁴(n) ≤ 81k + 43 < n. The next candidate to audit is the five-step path for n ≡ 199 (mod 256)."
+      "text": "In this chat, we proved n ≡ 199 (mod 256) descends in five odd steps: S⁵(n) ≤ 243k + 190 < n. The next candidate to audit is n ≡ 175 (mod 256)."
     }
   ]
 }
