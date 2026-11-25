@@ -3,15 +3,20 @@
   "stage": "Collatz · first proof steps",
   "aiEstimate": {
     "percent": 0,
-    "basis": "Strict full-conjecture proof-completion estimate: 0%. The exactly-one-high- and exactly-two-high-valuation cycle profiles are excluded. Profiles with three or more high valuations remain open; by the cycle-exclusion reduction, excluding every nontrivial odd-only cycle would prove Collatz."
+    "basis": "Strict full-conjecture proof-completion estimate: 0%. The exactly-one-high- and exactly-two-high-valuation cycle profiles are excluded. For exactly three high blocks, at most one quotient u_i can equal 1 and the cycle excess has a strict fractional-part bound; that profile is not yet excluded. Profiles with four or more high valuations remain open."
   },
   "focus": {
-    "status": "Pure math · cycle profile analysis",
-    "title": "Control cycles with 3+ high valuations",
-    "summary": "A continued-fraction bootstrap reduced the exactly-two-high-block cycle case to T≤23, where exact product bounds and congruences excluded every candidate. The full conjecture remains open.",
-    "next": "Find uniform transition inequalities or congruences that exclude cycle profiles with three or more high-valuation blocks, without searching Collatz trajectories."
+    "status": "Pure math · three-block cycle analysis",
+    "title": "Strengthen exactly-three-block constraints",
+    "summary": "For a nontrivial cycle with exactly three high blocks, at most one quotient u_i can equal 1; if it does, the next run has length 1 and the following block parameter is b_(i+2)=v₂(t_i+1). This gives D≤log₂(1024/675), B=floor(T log₂(3/2))+1, and {T log₂(3/2)}≥log₂(675/512). It is a necessary condition, not an exclusion.",
+    "next": "Combine the fractional-part bound with the exact three-block transition equations to derive a period bound or exclude this profile; then address profiles with four or more high valuations."
   },
   "accomplishments": [
+    {
+      "date": "Nov 25, 2026",
+      "title": "Three-high-block cycle parameters narrowed",
+      "detail": "For a nontrivial odd-only cycle with exactly three high-valuation blocks, u_i=1 forces the next b to equal 1 and the run length to be odd. The transition equations rule out two u_i=1 values, using the order of 2 modulo powers of 3 and the fixed-sum formula. If one u_i=1, then the next t is 1, the next quotient is at least 7, and the following b equals v₂(t_i+1). Thus at least two u_i≥3, giving D≤log₂(1024/675), B=floor(T log₂(3/2))+1, and {T log₂(3/2)}≥log₂(675/512). This is a necessary restriction only; the profile remains open. Significance: 14/100."
+    },
     {
       "date": "Nov 25, 2026",
       "title": "Exactly two high-valuation cycle profile excluded",
@@ -334,6 +339,11 @@
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "speaker": "Codex · three-high-block parameter bound",
+      "text": "Pure-math constraint for exactly three high-valuation blocks: at most one quotient u_i can equal 1. If one does, its successor has t=1, quotient at least 7, and the following block parameter is b_(i+2)=v₂(t_i+1). Consequently D≤log₂(1024/675)<1, so B=floor(T log₂(3/2))+1 and {T log₂(3/2)}≥log₂(675/512). If none of the u_i equals 1, the stronger bound is {T log₂(3/2)}≥log₂(3375/2048). This narrows parameters but does not exclude the profile. Significance: 14/100."
+    },
     {
       "date": "Nov 25, 2026",
       "speaker": "Codex · two-high-block cycle exclusion",

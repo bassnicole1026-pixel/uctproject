@@ -1003,6 +1003,46 @@ Each difference is positive, contradicting the required inequality. The three fi
 
 This is a pure-arithmetic exclusion of one full cycle profile: its only finite checks are small exact integer, rational, and modular comparisons after the analytic bound `T≤23`. It does not exclude cycles with three or more high valuations. By the cycle-exclusion reduction above, completing those remaining cycle cases would prove Collatz; the full conjecture remains open.
 
+### Necessary constraints for exactly three high-valuation blocks
+
+Consider a nontrivial odd-only cycle with exactly three valuations at least `2`. Index its high blocks cyclically by `i∈{1,2,3}` and write their transition equations as
+
+`3^(t_i)u_i−1 = 2^(b_(i+1))(2^(t_(i+1))u_(i+1)−1)`,
+
+where `b_i=a_i−1≥1`, `t_i≥1`, `u_i` is positive odd, and indices are modulo `3`. Set `T=t_1+t_2+t_3`, `B=b_1+b_2+b_3`, and `α=log₂(3/2)`. Telescoping the logarithms gives
+
+`D := B−Tα = Σ_i η(t_i,u_i)`,  `η(t,u)=log₂((1−1/(3^t u))/(1−1/(2^t u)))`.
+
+The modulo-three restriction from the incoming transition says `b_i even ⇒ 3|u_i`, while `b_i odd ⇒ u_i≡(−1)^(t_i+1) (mod 3)`. Therefore `u_i=1` forces `b_i` and `t_i` odd. The outgoing transition then gives `b_(i+1)=v₂(3^(t_i)−1)=1`.
+
+If all three `u_i` were `1`, each transition would reduce to `3^(t_i)+1=2^(t_(i+1)+1)`. Since odd `t_i` gives `v₂(3^(t_i)+1)=2`, this forces every `t_i=1`; each high step then maps to `1`, so the cycle is trivial. A nontrivial cycle must therefore have at least one `u_i≥3`. Using `η(t,1)≤log₂(4/3)` and `η(t,u)≤log₂(16/15)` for `u≥3` gives
+
+`0<D≤2log₂(4/3)+log₂(16/15)=log₂(256/135)<1`.
+
+Consequently `B=floor(Tα)+1` for any nontrivial cycle with exactly three high blocks.
+
+In fact, at most one of the three `u_i` can equal `1`. If two did, they would be consecutive after cyclic relabeling; take `u_1=u_2=1`. The first transition gives `3^(t_1)+1=2^(t_2+1)`, hence `t_1=t_2=1`. Also `b_2=b_3=1`, so `b_1=B−2`. The third transition becomes
+
+`3^(t_3)u_3=2^(b_1)+1`,
+
+which implies `2^(b_1)≡−1 (mod 3^(t_3))`. For `t_3≥2`, the order of `2` modulo `3^(t_3)` is `2·3^(t_3−1)`, so `b_1≥3^(t_3−1)≥t_3`. But the fixed-sum formula gives `b_1=floor((t_3+2)α)−1<t_3`, a contradiction. For `t_3=1`, `1<3α<2` gives `B=2`, hence `b_1=0`, also impossible.
+
+Thus at least two of the three parameters satisfy `u_i≥3`. If none equals `1`, the stronger bounds are
+
+`D≤3log₂(16/15)=log₂(4096/3375)`,  `{Tα}≥log₂(3375/2048)`.
+
+If one equals `1`, then
+
+`D≤log₂(4/3)+2log₂(16/15)=log₂(1024/675)`,  `{Tα}≥log₂(675/512)`.
+
+There is also an exact local pattern in the one-`1` case. If `u_i=1`, then `t_i` is odd and `b_(i+1)=1`. Its outgoing transition reads
+
+`3^(t_i)+1=2^(t_(i+1)+1)u_(i+1)`.
+
+The left side has 2-adic valuation `2`, so `t_(i+1)=1` and `u_(i+1)=(3^(t_i)+1)/4`. Since two `u` values cannot be `1`, this forces `t_i≥3` and `u_(i+1)≥7`. The next high valuation also satisfies `b_(i+2)=v₂(3u_(i+1)−1)=v₂(t_i+1)`, by the 2-adic LTE formula. Thus the exceptional quotient `1` fixes the next run length and valuation exactly.
+
+In particular, every nontrivial three-high-block cycle must satisfy `B=floor(Tα)+1` and `{Tα}≥log₂(675/512)`. This is a necessary parameter restriction only; it does not yet bound `T` or exclude the exactly-three-high profile.
+
 ## Auxiliary finite congruence certificates
 
 The following exact congruence arguments establish descent on selected classes. They are valid side results, but extending a residue list is not the active proof strategy and does not address the remaining all-integers argument.
@@ -1221,7 +1261,7 @@ Lemmas 1–4 cover 24 of the 32 odd residue classes modulo 64: all classes `1, 5
 
 1. **Fix the definitions and proof target.** Keep the original map and odd-only map explicit. The descent property above is the global obligation.
 2. **Work from exact identities.** Derive consequences of the Syracuse recurrence symbolically, keeping each equality and inequality justified for arbitrary odd starting values. The iterate identity, exact valuation-one run length, return-block formulas, modulo-3 restriction, transition law, logarithmic block drift, and state-dependent block contraction threshold are proved above.
-3. **Exclude cycle profiles by their number of high valuations.** The exactly-one-high and exactly-two-high profiles are excluded above. The remaining cycle task is to control profiles with three or more high blocks. Ruling out every nontrivial odd-only cycle is sufficient for the full conjecture by the cycle-exclusion reduction.
+3. **Exclude cycle profiles by their number of high valuations.** The exactly-one-high and exactly-two-high profiles are excluded above. For exactly three high blocks, the parameters obey a strict excess and fractional-part bound, but the profile is not excluded. Turn these restrictions into a period bound or contradiction, then handle profiles with four or more high blocks. Ruling out every nontrivial odd-only cycle is sufficient for the full conjecture by the cycle-exclusion reduction.
 4. **Keep the proof uniform in the starting value.** Seek identities and inequalities that apply to every odd `n`. Treat the finite congruence certificates below as supplementary lemmas; do not use more residue enumeration as a substitute for the global argument.
 5. **Audit the complete argument.** Check boundary values, the valuation recurrence, and every induction dependency. Keep conjectures, computational observations, and proved statements labeled separately.
 
@@ -1241,7 +1281,8 @@ flowchart TD
     I --> B["Return-block and transition formulas — proved"]
     B --> H1["One high-valuation block — excluded"]
     H1 --> H2["Two high-valuation blocks — excluded"]
-    H2 --> O["OPEN: control profiles with 3+ high valuations"]
+    H2 --> H3["Three high-valuation blocks — necessary fractional-part bound"]
+    H3 --> O["OPEN: exclude the three-high profile and control profiles with 4+ high valuations"]
     B --> O
 ```
 
@@ -1257,4 +1298,4 @@ A 2026 exploratory paper on burst/gap dynamics explicitly leaves its key orbitwi
 
 ## Status
 
-Several exact iterate, valuation, and return-block identities are proved, along with supplementary descent results on selected congruence classes. The exactly-one-high and exactly-two-high cycle profiles are excluded, but profiles with three or more high valuations remain open. The full Collatz conjecture has not been proved in this project; the strict proof-completion estimate is 0%.
+Several exact iterate, valuation, and return-block identities are proved, along with supplementary descent results on selected congruence classes. The exactly-one-high and exactly-two-high cycle profiles are excluded. The exactly-three-high profile has a necessary fractional-part bound but remains unresolved, as do profiles with four or more high valuations. The full Collatz conjecture has not been proved in this project; the strict proof-completion estimate is 0%.
