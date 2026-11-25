@@ -9,14 +9,14 @@
     "covered": 24,
     "total": 32,
     "modulus": 64,
-    "finerCovered": 6,
+    "finerCovered": 7,
     "finerModulus": 256
   },
   "focus": {
     "status": "24 of 32 odd classes modulo 64 covered",
     "title": "Refine the remaining residue classes",
-    "summary": "Six descent regions cover 24 of the 32 odd classes modulo 64. Six finer classes—n ≡ 7, 15, 39, 79, 143, and 187 mod 256—also have strict-descent proofs; the 39 and 79 classes take five steps. An exact computation separately checked every start through 100,000. These are partial results, not a proof for all integers.",
-    "next": "Audit the candidate five-step descent path for n ≡ 95 mod 256, checking every exact valuation and the final strict inequality."
+    "summary": "Six descent regions cover 24 of the 32 odd classes modulo 64. Seven finer classes—n ≡ 7, 15, 39, 79, 95, 143, and 187 mod 256—also have strict-descent proofs; the 39, 79, and 95 classes take five steps. An exact computation separately checked every start through 100,000. These are partial results, not a proof for all integers.",
+    "next": "Audit the candidate five-step descent path for n ≡ 123 mod 256, checking every exact valuation and the final strict inequality."
   },
   "accomplishments": [
     {
@@ -71,6 +71,11 @@
     },
     {
       "date": "Nov 24, 2026",
+      "title": "Descent proved for n ≡ 95 mod 256",
+      "detail": "Four exact odd steps followed by a fifth step divisible by at least 16 give S^5(n) ≤ 243k + 91 < 256k + 95."
+    },
+    {
+      "date": "Nov 24, 2026",
       "title": "Exact finite check through 100,000",
       "detail": "All starts reached 1. Maximum stopping time: 350 at 77,031. Maximum value observed: 1,570,824,736 from 77,671. This finite computation is not a general proof."
     }
@@ -84,7 +89,7 @@
     {
       "date": "Nov 24, 2026",
       "speaker": "Codex · research update",
-      "text": "In this chat, we proved n ≡ 79 (mod 256) descends in five odd steps: S⁵(n) ≤ 243k + 76 < n. The next candidate to audit is n ≡ 95 (mod 256)."
+      "text": "In this chat, we proved n ≡ 95 (mod 256) descends in five odd steps: S⁵(n) ≤ 243k + 91 < n. The next candidate to audit is n ≡ 123 (mod 256)."
     }
   ]
 }
