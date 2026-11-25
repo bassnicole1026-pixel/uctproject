@@ -263,6 +263,26 @@ so `A_j-j = Σ_{k=1}^m (a_k-1)`. If the orbit never falls below its starting val
 
 at every such block boundary. This is a necessary upper bound for a hypothetical non-descending orbit. Proving a contradictory lower bound from the dynamics, while allowing expanding blocks such as the one from 9, is still open.
 
+## Odd-only cycles of period at most two
+
+The only periodic orbit of the odd-only Syracuse map with period dividing two is the fixed point `1`.
+
+**Proof.** Suppose positive odd integers `x,y` satisfy `S(x)=y` and `S(y)=x`. Put `a=v₂(3x+1)≥1` and `b=v₂(3y+1)≥1`. Then
+
+`2^a y=3x+1`,  `2^b x=3y+1`.
+
+Eliminating `y` and then `x` gives
+
+`D x=2^a+3`,  `D y=2^b+3`,  where `D=2^{a+b}−9`.
+
+The right-hand sides are positive, so `D>0` and `a+b≥4`. If `a=1`, then `b≥3` and `x=5/(2^{b+1}−9)<1`, impossible for a positive integer; the case `b=1` is symmetric. Otherwise `a,b≥2`, and
+
+`D−(2^a+3)=2^a(2^b−1)−12≥0`,
+
+with the symmetric inequality `D≥2^b+3`. Hence `0<x≤1` and `0<y≤1`, so `x=y=1`. Indeed `S(1)=1`.
+
+This excludes nontrivial fixed points and two-cycles for the odd-only map. It says nothing about longer cycles or nonperiodic orbits, and does not establish the Collatz conjecture.
+
 ## Auxiliary finite congruence certificates
 
 The following exact congruence arguments establish descent on selected classes. They are valid side results, but extending a residue list is not the active proof strategy and does not address the remaining all-integers argument.

@@ -6,9 +6,9 @@
     "basis": "Strict proof-completion estimate: 0%. Exact identities and local descent cases are proved, but no argument establishes descent for every starting integer. Finite coverage does not give a meaningful percentage of the full theorem."
   },
   "focus": {
-    "status": "Pure-math strategy · global descent theorem open",
-    "title": "Derive an orbit-wide bound from block dynamics",
-    "summary": "At the sole possible mean-test gap, a strict expansion chain has decreasing run lengths, a square-root length bound, and endpoint growth below 32/9. The all-starting-values descent theorem remains open because other block types and cross-chain behavior are uncontrolled.",
+    "status": "Pure math · global descent theorem open",
+    "title": "Prove universal descent from the block transition law",
+    "summary": "A separate exact algebraic lemma excludes odd-only cycles of period 1 or 2 other than 1. The main task remains an orbit-wide descent argument; this side result does not control longer cycles or nonperiodic orbits.",
     "next": "Prove a structural lower bound on Σ(a_k−1) from the transition law and compare it with the non-descent cap."
   },
   "accomplishments": [
@@ -116,9 +116,19 @@
       "date": "Nov 25, 2026",
       "title": "Exceptional expansion chains grow by less than 32/9",
       "detail": "Each strict exceptional expansion has 0<d_i<β_{t_i}; the t_i in a chain are distinct. The product P=∏_{t≥1}(1−2^{-t}) is at least 9/32, so Σd_i≤−log₂P≤log₂(32/9). Telescoping gives (x_end+1)/(x_start+1)<32/9, uniformly in the starting value."
+    },
+    {
+      "detail": "If S(x)=y and S(y)=x for positive odd x,y, exact elimination gives (2^(a+b)−9)x=2^a+3 and (2^(a+b)−9)y=2^b+3. The valuation cases force x=y=1. This excludes only periods 1 and 2, not longer cycles or divergent orbits.",
+      "title": "Nontrivial odd-only cycles of period at most two excluded",
+      "date": "Nov 25, 2026"
     }
   ],
   "notes": [
+    {
+      "text": "Pure-algebra side result: the odd-only Syracuse map has no nontrivial orbit whose period divides 2. Eliminating the two step equations forces x=y=1. Significance: 12/100; it closes only the smallest cycle cases and does not prove descent or rule out longer cycles.",
+      "speaker": "Codex · cycle lemma",
+      "date": "Nov 25, 2026"
+    },
     {
       "date": "Nov 24, 2026",
       "speaker": "Project direction",
