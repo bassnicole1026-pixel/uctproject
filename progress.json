@@ -7,9 +7,9 @@
   },
   "focus": {
     "status": "Pure math · global descent theorem open",
-    "title": "Isolate the equivalent prefix-crossing target",
-    "summary": "For odd n>1, a prefix with A_j>j log₂(3+1/n) forces descent; proving every orbit crosses this line is equivalent to Collatz. The remaining step is deterministic control of block transitions.",
-    "next": "Derive an orbitwise prefix-crossing theorem from the exact block recurrence, without averaging over starting residues."
+    "title": "Use transition congruences beyond average bounds",
+    "summary": "The non-descent prefix cap admits abstract Beatty-type schedules A_j=floor(j log₂(3+1/n)); average estimates alone cannot force crossing. The Syracuse transition law must rule out realizable schedules.",
+    "next": "Combine the prefix cap with a_{k+1}−1=v₂(3^{t_k}u_k−1) and carry constraints to force a pointwise crossing."
   },
   "accomplishments": [
     {
@@ -221,9 +221,19 @@
       "date": "Nov 25, 2026",
       "title": "Equivalent prefix-valuation crossing criterion isolated",
       "detail": "The exact product identity is 2^{A_j}x_j=n∏_{i<j}(3+1/x_i). If all odd iterates through j stay at least n, then A_j≤j log₂(3+1/n). Therefore any strict prefix crossing forces descent. Requiring such a crossing for every odd n>1 is equivalent to Collatz: descent plus induction proves the conjecture, while a solved orbit continued at 1 has valuation 2 per step and eventually crosses the line. The block recurrence has not yet been shown to force a crossing."
+    },
+    {
+      "date": "Nov 25, 2026",
+      "title": "Prefix cap shown insufficient without transition constraints",
+      "detail": "For λ_n=log₂(3+1/n)∈(1,2), the abstract schedule A_j=floor(jλ_n), a_j=A_j−A_{j−1} has every a_j∈{1,2}, satisfies A_j≤jλ_n at every prefix, and has mean tending to λ_n. It need not be realized by an orbit; it proves that the necessary average cap alone cannot force crossing. Any proof must use the exact transition and carry congruences."
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "text": "For λ_n=log₂(3+1/n)∈(1,2), A_j=floor(jλ_n) has increments a_j∈{1,2}, obeys the non-descent cap A_j≤jλ_n for every j, and satisfies A_j/j→λ_n. This is only an abstract schedule, not an asserted Syracuse orbit. It shows why prefix-average bounds alone cannot prove Collatz; the transition congruences must eliminate unrealizable low-mean schedules. Significance: 12/100.",
+      "speaker": "Codex · transition-law proof map update"
+    },
     {
       "date": "Nov 25, 2026",
       "text": "Orbitwise certificate: if A_j>j log₂(3+1/n), then not all odd iterates through j can be ≥n, since 2^{A_j}x_j=n∏_{i<j}(3+1/x_i)≤n(3+1/n)^j under that assumption. Every n having such a prefix is equivalent to Collatz via strong induction; the converse follows by continuing the orbit at 1, where each Syracuse valuation is 2. Density bounds do not force this fixed-orbit crossing. Significance: 17/100.",

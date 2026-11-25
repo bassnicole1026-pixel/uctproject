@@ -69,6 +69,12 @@ and `x_j≥n` would imply the opposite inequality `A_j≤j log_2(3+1/n)`. Thus t
 
 The remaining task is therefore deterministic: prove this crossing for each fixed orbit from the block transition law. Density estimates do not supply it. Tao's 2019 theorem proves that almost every starting value, in logarithmic density, eventually reaches below any function tending to infinity; the paper explains that the relevant measures are not invariant under Collatz, so typicality cannot simply be propagated from one iterate to the next ([Tao, *Almost all orbits of the Collatz map attain almost bounded values*](https://arxiv.org/abs/1909.03562)). The exceptional individual orbit is exactly what the project still has to rule out.
 
+The prefix cap alone cannot force a crossing. For any odd `n≥3`, put `λ_n=log_2(3+1/n)`, so `1<λ_n<2`, and define the abstract integer sequence
+
+`A_j=floor(jλ_n)`,  `a_j=A_j−A_{j−1}`.
+
+Then every `a_j` is `1` or `2`, `A_j≤jλ_n` for every prefix, and `A_j/j→λ_n`. Thus the necessary non-descent cap admits perfectly regular low-mean valuation schedules. This construction does not claim that the schedule is realized by a Syracuse orbit; it shows why a proof must use the transition congruences, not only a stronger average bound. The next target is to combine the prefix cap with `a_{k+1}−1=v_2(3^{t_k}u_k−1)` and the carry constraints to rule out every realizable schedule that stays below the crossing line.
+
 ## Exact length of a run with valuation one
 
 Let `x_0=n` be odd, set `x_{i+1}=S(x_i)`, and write `a_{i+1}=v_2(3x_i+1)`. For every integer `r ≥ 0`,
