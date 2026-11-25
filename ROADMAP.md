@@ -413,6 +413,18 @@ by multiplying each word by `(8/3)^{8m/5-s}` and summing the resulting geometric
 
 In particular the infinite-stopping-time set has a power-saving upper bound in counting function. This still allows infinitely many exceptions; the estimate only shows that any such set is sparse.
 
+The cutoff can be optimized. Put `c=log_2 3` and choose any fixed `α` with `c<α<2`. For all sufficiently large `m`, `A_m≥αm` and `n≥3^m` force descent by step `m`, since `3/2^α<1`. Define
+
+`κ(α)=α^α/(α−1)^{α−1}`.
+
+The number of positive integer valuation words with sum below `αm` is at most `κ(α)^m`: multiply each word of total `s` by `(α/(α−1))^{αm−s}` and sum the geometric series. Chernoff with `e^θ=α/(2(α−1))` gives `P(A_m<αm)≤(κ(α)/2^α)^m`. Since `2^α>3`, the weighted residue-class contribution is smaller than the word-count error, and the interval `[3^m,3^{m+1})` contributes at most `2κ(α)^m` candidates. Therefore, for each fixed `α>c`, `E(X)=O(X^{log_3κ(α)})`.
+
+Since `d(ln κ)/dα=ln(α/(α−1))>0`, `κ` increases with `α`. Taking `α` down toward `c` shows that for every `β>β_0`,
+
+`E(X)=O_β(X^β)`,  `β_0=log_3(κ(c))≈0.94996`.
+
+This improves the fixed `α=8/5` exponent `0.9635`, but the exponent remains positive; the bound still permits infinitely many non-descending starts.
+
 On an orbit that never falls below `n`, its final logarithm is nonnegative, so
 
 `Σ(a_k-1) ≤ j log_2(3/2) + Σ ε_k`.

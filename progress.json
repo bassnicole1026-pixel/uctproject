@@ -7,9 +7,9 @@
   },
   "focus": {
     "status": "Pure math · global descent theorem open",
-    "title": "Get a power-saving count for long-stopping starts",
-    "summary": "Combining the exponential valuation tail with exact residue-class counts gives E(X)=O(X^β), β<1, for odd starts that avoid descent through floor(log₃ n) steps. This still permits infinitely many exceptions.",
-    "next": "Strengthen the count or find a pointwise contradiction for an individual non-descending orbit."
+    "title": "Optimize the power-saving exponent",
+    "summary": "Varying the valuation cutoff α toward log₂3 gives E(X)=O_beta(X^beta) for every beta>beta₀≈0.94996. This improves the fixed-cutoff exponent but still permits infinitely many exceptions.",
+    "next": "Find a pointwise obstruction for an individual non-descending orbit; density exponents alone cannot finish Collatz."
   },
   "accomplishments": [
     {
@@ -201,9 +201,19 @@
       "date": "Nov 25, 2026",
       "detail": "For n in [3^m,3^{m+1}) that has no descent by m, A_m<8m/5. Counting each low-sum valuation word's single residue class gives at most (3ρ)^m+κ^m candidates, with ρ=(3/5)(4/3)^{8/5}<1 and κ=(8/3)^{8/5}/(5/3)<3. Therefore E(X)=O(X^β), β=log₃(max(3ρ,κ))≈0.9635. This is sublinear but does not exclude infinitely many exceptions.",
       "title": "Power-saving count for long-stopping starts"
+    },
+    {
+      "date": "Nov 25, 2026",
+      "detail": "For any fixed α in (log₂3,2), the number of valuation words with sum <αm is at most κ(α)^m, κ(α)=α^α/(α−1)^{α−1}, while Chernoff gives weighted tail κ(α)^m/2^{αm}. Since 2^α>3, interval counts are O(κ(α)^m), hence E(X)=O(X^{log₃κ(α)}). Letting α↓log₂3 gives E(X)=O_beta(X^beta) for every beta>beta₀≈0.94996. Still no pointwise elimination.",
+      "title": "Power-saving exponent optimized toward the drift threshold"
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "text": "Vary the cutoff to any α>c=log₂3. With κ(α)=α^α/(α−1)^{α−1}, composition counting costs κ^m while the Chernoff weighted tail is κ^m/2^{αm}; multiplying by interval scale 3^m leaves a smaller term because 2^α>3. Since κ increases, α↓c yields E(X)=Oβ(X^β) for every β>β₀=log₃κ(c)≈0.94996. Sparse candidates remain; no pointwise proof. Significance: 25/100.",
+      "speaker": "Codex · optimized exception exponent"
+    },
     {
       "date": "Nov 25, 2026",
       "text": "Partition n≤X into [3^m,3^{m+1}). A start avoiding descent through m must have A_m<8m/5. Summing the residue-class counts over these words gives ≤(3ρ)^m+κ^m, where ρ=(3/5)(4/3)^{8/5}<1 and κ=(8/3)^{8/5}/(5/3)<3. Hence the candidate count E(X)=O(X^β), β=log₃(max(3ρ,κ))<1. Sparse-set bound only; no pointwise resolution. Significance: 27/100.",
