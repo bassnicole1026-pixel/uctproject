@@ -6,12 +6,17 @@
     "basis": "Strict proof-completion estimate: 0%. Cycles with one high-valuation block reduce to an explicit divisibility and exponential-approximation condition, but that condition has not been ruled out for every run length; multi-block cycles also remain open."
   },
   "focus": {
-    "status": "Pure math · single-block cycle condition",
-    "title": "Reduce one-block cycles to an exact divisibility condition",
-    "summary": "A cycle with one valuation a≥2 must have b=a−1=floor(t log₂(3/2))+1 and 2^(b+t)−3^t dividing 2^b−1. This is an exact characterization of the one-block subcase, not its exclusion.",
-    "next": "Rule out the divisibility condition for every t≥2 using a uniform Diophantine argument, then extend the method to cycles with multiple high-valuation blocks."
+    "status": "Pure math · modular one-block constraints",
+    "title": "Convert the one-block condition into modular order constraints",
+    "summary": "Writing M=2^(b+t)−3^t, A=2^b−1, and B=3^t−2^t, the exact condition M|A is equivalent to M|B. Every prime p|M must satisfy ord_p(2)|b and ord_p(3/2)|t. This exposes simultaneous order constraints but does not yet exclude the case.",
+    "next": "Use the simultaneous order constraints and the size of M to rule out the one-block condition uniformly in t, without trajectory enumeration."
   },
   "accomplishments": [
+    {
+      "date": "Nov 25, 2026",
+      "title": "One-block divisibility converted to simultaneous order constraints",
+      "detail": "With M=2^(b+t)−3^t, A=2^b−1, and B=3^t−2^t, the identity B=2^t A−M and gcd(M,2^t)=1 show M|A iff M|B. For every prime p|M, p is odd and p≠3; the divisibilities force ord_p(2)|b and ord_p(3·2^−1)|t. This is a modular reformulation, not an exclusion of all such cycles."
+    },
     {
       "date": "Nov 25, 2026",
       "title": "One-block cycles reduced to a Diophantine divisibility condition",
@@ -304,6 +309,11 @@
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "text": "Modular one-block reduction: for M=2^(b+t)−3^t, A=2^b−1, B=3^t−2^t, we have B=2^tA−M and gcd(M,2^t)=1, hence M|A iff M|B. Thus each prime p|M obeys ord_p(2)|b and ord_p(3/2)|t. No contradiction follows yet. Significance: 8/100.",
+      "speaker": "Codex · modular one-block constraints"
+    },
     {
       "date": "Nov 25, 2026",
       "text": "Single-block cycle reduction: closure forces (2^{b+t}−3^t)u=2^b−1, hence b=floor(t log₂(3/2))+1 and an exponentially close upper-integer approximation to t log₂(3/2). The subcase is equivalent to the divisibility 2^{b+t}−3^t | 2^b−1 for t≥2; this has not been ruled out for every t. Significance: 15/100.",

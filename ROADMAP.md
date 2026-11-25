@@ -742,6 +742,8 @@ The last ratio factor lies strictly between `1` and `2`; therefore `b<tα+1`. As
 
 Thus a one-block cycle must satisfy both this exponentially close upper-integer approximation and the exact divisibility `2^{b+t}−3^t | 2^b−1`. More precisely, the one-block case is equivalent to `t≥2`, `b=floor(tα)+1`, and this divisibility: given them, `u=(2^b−1)/(2^{b+t}−3^t)` is positive odd. Set `y=2^t u−1` and `x=2·3^{t−1}u−1`; then `S(x)=y` with valuation `b+1`, and the next `t−1` steps have valuation `1` and return to `x`, giving the cycle. This characterizes the one-block case but does not rule it out for every `t`; cycles with two or more high-valuation blocks remain open as well.
 
+There is an equivalent modular form that exposes constraints on every prime divisor of the modulus. Put `M=2^{b+t}−3^t`, `A=2^b−1`, and `B=3^t−2^t`. Then `B=2^tA−M`, and `M` is odd, so `gcd(M,2^t)=1`. Consequently `M|A` if and only if `M|B`. Every prime `p|M` is odd and not `3`; the equivalent divisibilities imply `ord_p(2)|b` and `ord_p(3·2^{−1})|t`. These simultaneous order constraints are a number-theoretic reformulation, not yet a contradiction.
+
 ## Auxiliary finite congruence certificates
 
 The following exact congruence arguments establish descent on selected classes. They are valid side results, but extending a residue list is not the active proof strategy and does not address the remaining all-integers argument.
