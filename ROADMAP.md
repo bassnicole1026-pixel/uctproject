@@ -77,13 +77,26 @@ For each of these two classes, `S^4(n) < n`.
 
 - If `r = 7`, the first three odd iterates are `384k + 11`, `576k + 17`, and `432k + 13`. Since `3S^3(n) + 1 = 1296k + 40 = 8(162k + 5)`, we have `S^4(n) ≤ 162k + 5 < 256k + 7`.
 - If `r = 15`, the first three odd iterates are `384k + 23`, `576k + 35`, and `864k + 53`. Since `3S^3(n) + 1 = 2592k + 160 = 16(162k + 10)`, we have `S^4(n) ≤ 162k + 10 < 256k + 15`.
-The first four lemmas cover 24 of the 32 odd residue classes modulo 64: all classes `1, 5, 9, 13 (mod 16)`, all of `3 (mod 16)`, and `11, 23, 43, 55 (mod 64)`. Lemma 5 additionally covers `7` and `15 (mod 256)`, two sub-classes inside the remaining modulo-64 families. The other six full classes at this level are `27, 31, 39, 47, 59, 63 (mod 64)`; the three other sub-classes of `7` and of `15 (mod 64)` also remain open.
+
+### Lemma 6: `n ≡ 143 (mod 256)`
+
+If `n = 256k + 143`, where `k ≥ 0`, then `S^4(n) < n`.
+
+**Proof.** The first three odd iterates are exact:
+
+- `3n + 1 = 768k + 430 = 2(384k + 215)`, so `S(n) = 384k + 215`;
+- `3S(n) + 1 = 1152k + 646 = 2(576k + 323)`, so `S^2(n) = 576k + 323`;
+- `3S^2(n) + 1 = 1728k + 970 = 2(864k + 485)`, so `S^3(n) = 864k + 485`.
+
+Finally, `3S^3(n) + 1 = 2592k + 1456 = 16(162k + 91)`. Since `162k + 91` is odd, this valuation is exactly 4 and `S^4(n) = 162k + 91 < 256k + 143 = n`.
+
+Lemmas 1–4 cover 24 of the 32 odd residue classes modulo 64: all classes `1, 5, 9, 13 (mod 16)`, all of `3 (mod 16)`, and `11, 23, 43, 55 (mod 64)`. Lemmas 5–6 additionally cover `7`, `15`, and `143 (mod 256)`. These are three finer classes within the remaining modulo-64 families. The other six full classes at this level are `27, 31, 39, 47, 59, 63 (mod 64)`; the other three sub-classes of `7 (mod 64)` and two sub-classes of `15 (mod 64)` also remain open.
 
 ## Work plan
 
 1. **Fix the definitions and proof target.** Keep the original map and odd-only map explicit. The descent property above is the global obligation.
 2. **Build exact, reproducible checks.** A small program can verify a finite starting interval with arbitrary-precision integer arithmetic. A finite check is evidence about that interval only; it cannot establish the universal statement.
-3. **Grow the residue-class descent table.** Split the remaining classes modulo 64 into finer powers-of-two classes, derive exact formulas for each fixed parity/valuation path, and record which classes provably reach a smaller odd value. The sub-classes `7` and `15 (mod 256)` are already covered.
+3. **Grow the residue-class descent table.** Split the remaining classes modulo 64 into finer powers-of-two classes, derive exact formulas for each fixed parity/valuation path, and record which classes provably reach a smaller odd value. The classes `7`, `15`, and `143 (mod 256)` are already covered. A next candidate to audit is `187 (mod 256)`.
 4. **Seek a global argument.** Prove that every remaining odd integer has a smaller odd iterate, or find a different well-founded quantity that yields the same strong-induction finish. A shallow residue search that leaves classes uncovered is not a proof.
 5. **Audit all cases.** Check boundary values, exact divisibility, class coverage, and every induction dependency independently. Keep conjectures, experiments, and theorems labeled separately.
 
@@ -99,4 +112,4 @@ A 2026 exploratory paper on burst/gap dynamics explicitly leaves its key orbitwi
 
 ## Status
 
-The three local descent lemmas above are proved. The finite computation is bounded evidence. The global descent property—and therefore the full Collatz conjecture—has not been proved in this project.
+Lemmas 1–6 prove strict descent on the listed residue classes. The finite computation is bounded evidence. The global descent property—and therefore the full Collatz conjecture—has not been proved in this project.
