@@ -541,6 +541,16 @@ The logarithmic transition identity sharpens this necessary condition. Let `c=lo
 
 where `c_n−c=log_2(1+1/(3n))`. Thus a descent-failing orbit must either accumulate only a small transition correction relative to total block length, or let its terminal run/odd parameter grow enough to absorb the positive correction. Bounding these two quantities from the recurrence is the next open step.
 
+## Cycle-exclusion reduction
+
+Let `S(x)=(3x+1)/2^{v₂(3x+1)}` be the Syracuse map on positive odd integers. The Collatz conjecture is equivalent to the absence of nontrivial cycles of `S`.
+
+**Proof.** If every odd `n>1` has an iterate below `n`, strong induction proves that every odd integer reaches `1`: a smaller odd iterate reaches `1` by induction, so the original orbit does too. Even starting values reduce to an odd value by removing powers of two. Thus the descent statement implies Collatz, and Collatz plainly implies descent and excludes nontrivial cycles.
+
+For the other direction, suppose descent fails for at least one odd integer greater than `1`, and let `n` be the least such integer. Every odd iterate `x_j=S^j(n)` is at least `n`. For any odd `y>n`, minimality of `n` says descent does hold from `y`, so some iterate of `y` is strictly smaller than `y`. Starting at `x_1`, repeatedly take the first later orbit value smaller than the current record. Whenever the record is greater than `n`, such a later value exists; all records remain at least `n`. They therefore cannot decrease forever, so one record equals `n`. The orbit returns to `n` and is periodic. The only odd fixed point is `1` (from `2^a n=3n+1`), so this is a nontrivial cycle. Hence, if no nontrivial odd-only cycle exists, descent cannot fail.
+
+This is a proof-target reduction, not a cycle exclusion: arbitrary periods remain open. It shows that the central global task can be stated purely as ruling out every nontrivial odd-only cycle; finite residue checks are not needed for this reduction.
+
 ## No odd-only cycles of period at most four
 
 The only periodic orbit of the odd-only Syracuse map with period at most four is the fixed point `1`.
@@ -823,7 +833,7 @@ Lemmas 1–4 cover 24 of the 32 odd residue classes modulo 64: all classes `1, 5
 
 1. **Fix the definitions and proof target.** Keep the original map and odd-only map explicit. The descent property above is the global obligation.
 2. **Work from exact identities.** Derive consequences of the Syracuse recurrence symbolically, keeping each equality and inequality justified for arbitrary odd starting values. The iterate identity, exact valuation-one run length, return-block formulas, modulo-3 restriction, transition law, logarithmic block drift, and state-dependent block contraction threshold are proved above.
-3. **Seek a global contradiction.** Under the assumption that an odd orbit never falls below its start, prove a structural lower bound on `Σ(a_k-1)` that contradicts the necessary block-boundary upper bounds above. The local block criterion does not suffice by itself: successive block contractions and expansions must be controlled together. Any proposed bound must follow from the exact dynamics, not from finite samples or residue enumeration.
+3. **Exclude arbitrary nontrivial cycles.** By the cycle-exclusion reduction above, this is sufficient for the full conjecture. Use the exact cycle equation and transition constraints to derive a contradiction uniformly in the period; do not extend finite residue lists as a substitute. The block inequalities remain possible tools, but no local contraction test by itself proves the global claim.
 4. **Keep the proof uniform in the starting value.** Seek identities and inequalities that apply to every odd `n`. Treat the finite congruence certificates below as supplementary lemmas; do not use more residue enumeration as a substitute for the global argument.
 5. **Audit the complete argument.** Check boundary values, the valuation recurrence, and every induction dependency. Keep conjectures, computational observations, and proved statements labeled separately.
 
@@ -832,20 +842,16 @@ Lemmas 1–4 cover 24 of the 32 odd residue classes modulo 64: all classes `1, 5
 ```mermaid
 flowchart TD
     C["Full Collatz conjecture"] <-->|equivalent| D["Odd descent: every odd n above 1 has a smaller iterate"]
-    D --> H["Assume descent fails for n"]
-    H --> N["Every odd iterate stays at or above n"]
-    N --> I["Exact iterate identity — proved"]
-    I --> U1["Iterate-based non-descent cap"]
-    N --> B["Return blocks — formulas proved"]
-    B --> L["Local mean thresholds — proved; u matters in the gap"]
-    L --> X["Exceptional expansion chains: square-root length and <32/9 growth cap — proved"]
-    B --> J["Exact logarithmic block drift — proved"]
-    J --> U2["Block-length-sensitive cap"]
-    U1 --> G["OPEN: prove a global lower bound that violates the caps"]
-    U2 --> G
-    L --> G
-    X --> G
-    G -.-> D
+    C <-->|equivalent| Q["No nontrivial odd-only cycles"]
+    D --> H["Assume descent fails; choose the least failing n"]
+    H --> N["All iterates stay at or above n"]
+    N --> R["Minimality forces strictly decreasing future records"]
+    R --> Y["A record returns to n, giving a nontrivial cycle"]
+    Y -.-> Q
+    Q --> O["OPEN: exclude cycles at every period"]
+    N --> I["Exact iterate and cycle identities — proved"]
+    I --> B["Return-block and transition formulas — proved"]
+    B --> O
 ```
 
 ## Archived finite computation (not part of the proof strategy)

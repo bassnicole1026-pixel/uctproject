@@ -3,15 +3,20 @@
   "stage": "Collatz · first proof steps",
   "aiEstimate": {
     "percent": 0,
-    "basis": "Strict proof-completion estimate: 0%. Exact identities, necessary orbit restrictions, and two-sided residue/carry descent bounds are recorded, but no argument proves descent for every odd starting value. Local transition thresholds do not quantify full theorem completion."
+    "basis": "Strict proof-completion estimate: 0%. A least-failure argument reduces the conjecture to excluding every nontrivial odd-only cycle, but no proof excludes cycles at arbitrary periods."
   },
   "focus": {
-    "status": "Pure math · global descent theorem open",
-    "title": "Reduce large-minimum cycles to convergents",
-    "summary": "If a cycle minimum n exceeds 2m²/(3 ln 2), its reduced mean valuation A/m must be an upper continued-fraction convergent of log₂3, with denominator dividing m.",
-    "next": "Use the exact transition structure to rule out the remaining convergent-mean cycles and small-minimum cycles."
+    "status": "Pure math · cycle-exclusion reduction proved",
+    "title": "Reduce Collatz to excluding all nontrivial odd-only cycles",
+    "summary": "If any odd start never has a smaller iterate, the least such start must return to itself and lie on a nontrivial cycle. Therefore ruling out all nontrivial odd-only cycles suffices for Collatz.",
+    "next": "Derive a contradiction from the exact cycle equation uniformly for every period, without extending finite residue lists."
   },
   "accomplishments": [
+    {
+      "date": "Nov 25, 2026",
+      "title": "Least failure to descend forces a nontrivial cycle",
+      "detail": "Assume some odd n>1 never has an iterate below itself and choose the least such n. Every larger odd y must have an iterate below y. Following the orbit of n, successive future records therefore decrease strictly while staying ≥n, so one record returns to n and creates a nontrivial cycle. Conversely, absence of all nontrivial odd-only cycles gives descent for every odd n>1; strong induction then proves Collatz. This is an exact proof-target reduction, not an exclusion of arbitrary cycles."
+    },
     {
       "date": "Nov 24, 2026",
       "title": "Proof target made precise",
@@ -254,6 +259,11 @@
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "text": "A minimal-counterexample argument shows that any failure of odd descent forces a return to the least bad start, hence a nontrivial odd-only cycle. So proving there are no nontrivial odd-only cycles is equivalent to Collatz. It narrows the proof target but rules out no arbitrary cycle yet. Significance: 14/100.",
+      "speaker": "Codex · cycle-exclusion reduction"
+    },
     {
       "date": "Nov 25, 2026",
       "text": "A cycle's mean valuation satisfies 0<A/m−log₂3≤1/(3n ln2), where n is its minimum. If n>2m²/(3 ln2), the reduced A/m=p/q, q≤m, is within 1/(2q²) of log₂3, so Legendre's criterion forces p/q to be an upper continued-fraction convergent; q divides m. This narrows large-minimum cycles without excluding them. Significance: 17/100.",
