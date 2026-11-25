@@ -589,6 +589,27 @@ Using `log_2(1+z)≤z/ln 2` and `n+2k≥n` yields the simple necessary bound
 
 Thus a cycle with a large minimum requires `m log_2 3` to lie unusually close below an integer. The bound narrows possible cycle parameters but does not exclude the exceptional periods where `δ_m` is small.
 
+### A sharper minimum-period bound from admissible-state spacing
+
+The preceding estimate counts every odd integer, although a cycle cannot contain multiples of `3`. The minimum `n` is `1` modulo `6` or `5` modulo `6`. The increasing list of odd integers at least `n` that are not divisible by `3` is exactly
+
+- `n,n+4,n+6,n+10,…` if `n≡1 (mod 6)`;
+- `n,n+2,n+6,n+8,…` if `n≡5 (mod 6)`.
+
+Let `r_j(n)` be the `j`th value in this list, starting at `j=0`, and sort the cycle values as `y_0<…<y_{m−1}`. Then `y_j≥r_j(n)`, so the exact cycle identity gives
+
+`2^{δ_m} ≤ ∏_i(1+1/(3x_i)) ≤ ∏_{j=0}^{m−1}(1+1/(3r_j(n)))`.
+
+With `ε=0` for `n≡1 (mod 6)` and `ε=1` for `n≡5 (mod 6)`, the spacing gives `r_0(n)=n` and `r_j(n)≥n−ε+3j` for `j≥1`. Applying `log_2(1+z)≤z/ln 2` then implies
+
+`δ_m ≤ (1/(3 ln 2))(1/n + Σ_{j=1}^{m−1}1/(n−ε+3j))`.
+
+Put `N=n−ε`. The function `t↦1/(N+3t)` is convex; applying the midpoint integral bound on each unit interval gives the closed necessary condition
+
+`δ_m ≤ (1/(3 ln 2))(1/n + (1/3) ln((N+3m−3/2)/(N+3/2)))`.
+
+For `m≥3` the reciprocal sum is strictly sharper term-by-term than the earlier sum over all odd values `n+2j`. This refines the minimum-period restriction using only exact state exclusions and an analytic inequality. It still allows parameters when `δ_m` is small, so it is not a cycle exclusion.
+
 The same argument gives a period-only exclusion test. Since every nontrivial cycle value is an odd integer at least `3`,
 
 `2^{δ_m} ≤ ∏_{i=0}^{m−1}(1+1/(3x_i)) ≤ P_m`,
