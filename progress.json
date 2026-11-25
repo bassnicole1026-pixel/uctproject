@@ -3,15 +3,20 @@
   "stage": "Collatz · first proof steps",
   "aiEstimate": {
     "percent": 0,
-    "basis": "Strict proof-completion estimate: 0%. Admissible-state spacing sharpens necessary cycle bounds, but small integer gaps δ_m still leave possible parameters and no proof excludes every nontrivial cycle."
+    "basis": "Strict proof-completion estimate: 0%. Large-minimum cycles must satisfy an additional continued-fraction denominator jump condition, but neither this branch nor the small-minimum branch is eliminated."
   },
   "focus": {
-    "status": "Pure math · refined cycle bound",
-    "title": "Sharpen the minimum-versus-period constraint analytically",
-    "summary": "Cycle values are odd and not divisible by 3, so their sorted spacing above the minimum is 2,4,2,4,… or 4,2,4,2,… . This gives a tighter logarithmic necessary inequality linking the minimum n, period m, and integer gap δ_m.",
-    "next": "Combine this n-dependent inequality with the continued-fraction restriction on A/m and derive a uniform exclusion or isolate the remaining exact branch."
+    "status": "Pure math · large-cycle Diophantine constraint",
+    "title": "Large-minimum cycles force a large next-convergent gap",
+    "summary": "If A/m=p/q is the upper convergent forced by a large cycle minimum and m=qr, the next convergent denominator q′ must satisfy q′/q>2r²−1. The refined state-spacing bound strengthens the threshold.",
+    "next": "Seek a transition-based or irrationality-measure contradiction to the required denominator jump, while separately covering the small-minimum branch without finite convergent enumeration."
   },
   "accomplishments": [
+    {
+      "date": "Nov 25, 2026",
+      "title": "Large-minimum cycles force a large next-convergent gap",
+      "detail": "In the large-minimum branch, A/m=p/q is an upper convergent of c=log₂3, q|m, and m=qr. If q′ is the next convergent denominator, standard error bounds give 1/(q(q+q′))<p/q−c. Thus the cycle excess D=A−mc satisfies r/(q+q′)<D. The exact admissible-state bound gives D≤B_{m,n}≤m/(3n ln 2); combining with n>2m²/(3 ln 2) yields q′/q>2r²−1. This is an added necessary condition, not an exclusion of all cycles; r=1 and the small-minimum branch remain open."
+    },
     {
       "date": "Nov 25, 2026",
       "title": "Admissible-state spacing tightens the minimum-period bound",
@@ -269,6 +274,11 @@
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "text": "Combining the exact cycle-spacing upper bound with convergent error estimates: if A/m=p/q is the large-minimum upper convergent and m=qr, the next denominator q′ must obey q′/q>2r²−1. This narrows the large-minimum branch but excludes neither r=1 nor all possible cycles. No finite CF enumeration was used. Significance: 18/100.",
+      "speaker": "Codex · convergent-gap constraint"
+    },
     {
       "date": "Nov 25, 2026",
       "text": "The modulo-three restriction gives exact spacing for possible cycle values above minimum n. This sharpens the reciprocal-sum constraint to δ_m≤(1/(3 ln 2))(1/n+Σ_{j=1}^{m−1}1/(n−ε+3j)), with ε=0 or 1 according to n mod 6; convexity yields a closed logarithmic bound. It is stronger than counting all odd values, but small δ_m remains open. Significance: 12/100.",

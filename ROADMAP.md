@@ -650,6 +650,24 @@ Therefore
 
 Write `A/m=p/q` in lowest terms, with `q≤m`. If `n>2m^2/(3 ln 2)`, then `|p/q−c|<1/(2m^2)≤1/(2q^2)`. Legendre's continued-fraction criterion implies that `p/q` is a convergent of `c`, and it must be an upper convergent. In particular, its denominator `q` divides `m`. Thus every cycle is in one of two cases: `n≤2m^2/(3 ln 2)`, or its mean valuation is one of these restricted rational approximants. This reduces the large-minimum branch to Diophantine structure but does not eliminate either case. Continued-fraction and logarithmic-form methods are classical in cycle analysis; stronger published cycle bounds combine them with computational lower bounds ([Simons–de Weger, *Theoretical and computational bounds for m-cycles*](https://math.deweger.net/papers/%5B35a%5DSidW-3n%2B1-v1.44%5B2010%5D.pdf)).
 
+### Large-minimum cycles force a large next-convergent gap
+
+In the large-minimum case, write `A/m=p/q` in lowest terms and let `q'` be the denominator of the next convergent of `c=log_2 3` after `p/q`. Since `q|m`, write `m=qr`. For a convergent, the standard error bounds give
+
+`1/(q(q+q')) < p/q−c < 1/(q q')`.
+
+The cycle logarithmic excess is `D=A−mc=m(p/q−c)`, so `r/(q+q')<D`. On the other hand, the admissible-state spacing above gives
+
+`D ≤ B_{m,n}:=(1/(3 ln 2))(1/n + Σ_{j=1}^{m−1}1/(n−ε+3j)) ≤ m/(3n ln 2)`,
+
+where `ε=0` if `n≡1 (mod 6)` and `ε=1` if `n≡5 (mod 6)`; the final inequality follows by comparing each denominator with `n+2j`.
+
+Combining these inequalities yields the necessary denominator condition
+
+`q+q' > r/B_{m,n} ≥ 3n ln(2)/q > 2q r^2`,
+
+or equivalently `q'/q>2r^2−1`. Thus a large-minimum cycle whose reduced mean has denominator `q` and period `m=qr` requires the next continued-fraction denominator to jump by a factor exceeding `2r^2−1`. The condition is automatic when `r=1`, and it does not exclude the small-minimum branch or all large-minimum cycles; it isolates a further Diophantine obstruction without enumerating convergents.
+
 ## Auxiliary finite congruence certificates
 
 The following exact congruence arguments establish descent on selected classes. They are valid side results, but extending a residue list is not the active proof strategy and does not address the remaining all-integers argument.
