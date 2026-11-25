@@ -656,6 +656,8 @@ In the large-minimum case, write `A/m=p/q` in lowest terms and let `q'` be the d
 
 `1/(q(q+q')) < p/q−c < 1/(q q')`.
 
+Indeed, for the convergent `p_k/q_k=p/q` and next denominator `q_{k+1}=q'`, the exact error has denominator `q(q'+θq)` for some `0<θ<1`.
+
 The cycle logarithmic excess is `D=A−mc=m(p/q−c)`, so `r/(q+q')<D`. On the other hand, the admissible-state spacing above gives
 
 `D ≤ B_{m,n}:=(1/(3 ln 2))(1/n + Σ_{j=1}^{m−1}1/(n−ε+3j)) ≤ m/(3n ln 2)`,

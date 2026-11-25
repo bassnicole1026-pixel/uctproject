@@ -15,6 +15,11 @@
     {
       "date": "Nov 25, 2026",
       "title": "Large-minimum cycles force a large next-convergent gap",
+      "detail": "In the large-minimum branch, A/m=p/q is an upper convergent of c=log₂3, q|m, and m=qr. If q′ is the next convergent denominator, its standard error bound gives p/q−c>1/(q(q+q′)). Thus the cycle excess D=A−mc satisfies r/(q+q′)<D. The exact admissible-state bound gives D≤B_{m,n}≤m/(3n ln 2); combining with n>2m²/(3 ln 2) yields q′/q>2r²−1. This is an added necessary condition, not an exclusion of all cycles; r=1 and the small-minimum branch remain open."
+    },
+    {
+      "date": "Nov 25, 2026",
+      "title": "Large-minimum cycles force a large next-convergent gap",
       "detail": "In the large-minimum branch, A/m=p/q is an upper convergent of c=log₂3, q|m, and m=qr. If q′ is the next convergent denominator, standard error bounds give 1/(q(q+q′))<p/q−c. Thus the cycle excess D=A−mc satisfies r/(q+q′)<D. The exact admissible-state bound gives D≤B_{m,n}≤m/(3n ln 2); combining with n>2m²/(3 ln 2) yields q′/q>2r²−1. This is an added necessary condition, not an exclusion of all cycles; r=1 and the small-minimum branch remain open."
     },
     {
@@ -274,6 +279,11 @@
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "text": "Combining the exact cycle-spacing upper bound with convergent error estimates: if A/m=p/q is the large-minimum upper convergent and m=qr, the next denominator q′ must obey q′/q>2r²−1. This narrows the large-minimum branch but excludes neither r=1 nor all possible cycles. No finite CF enumeration was used. Significance: 18/100.",
+      "speaker": "Codex · convergent-gap constraint"
+    },
     {
       "date": "Nov 25, 2026",
       "text": "Combining the exact cycle-spacing upper bound with convergent error estimates: if A/m=p/q is the large-minimum upper convergent and m=qr, the next denominator q′ must obey q′/q>2r²−1. This narrows the large-minimum branch but excludes neither r=1 nor all possible cycles. No finite CF enumeration was used. Significance: 18/100.",
