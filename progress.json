@@ -7,9 +7,9 @@
   },
   "focus": {
     "status": "Pure math · global descent theorem open",
-    "title": "Derive the critical mean bound for unbounded exceptions",
-    "summary": "Any unbounded Syracuse orbit tends to infinity; if it never drops below n, the exact log identity forces limsup A_j/j≤log₂3. Bounded orbits become cycles with mean valuation >log₂3.",
-    "next": "Rule out realizable unbounded orbits at or below critical mean, and separately eliminate all nontrivial odd cycles."
+    "title": "Separate strict subcritical escape from the critical case",
+    "summary": "If an unbounded non-descender has limsup A_j/j<c, its orbit grows exponentially and the logarithmic correction sum converges. The unresolved boundary case has limsup exactly log₂3.",
+    "next": "Use the block transition law to rule out both strict subcritical escape and critical-mean unbounded orbits; separately eliminate nontrivial cycles."
   },
   "accomplishments": [
     {
@@ -231,9 +231,19 @@
       "date": "Nov 25, 2026",
       "title": "Critical mean bound for an unbounded non-descender",
       "detail": "Any unbounded deterministic Syracuse orbit tends to infinity; otherwise a bounded value repeats and the orbit becomes bounded and eventually periodic. In the exact logarithmic identity, ε_i=log₂(1+1/(3x_i)) then tends to zero; its Cesàro mean vanishes. Since x_j≥n, this yields limsup A_j/j≤log₂3, hence valuation-one steps have lower density at least 2−log₂3≈0.4150. Any eventual cycle instead has mean valuation A/m=mean_i log₂(3+1/x_i)>log₂3. This separates the unbounded and cycle cases."
+    },
+    {
+      "date": "Nov 25, 2026",
+      "title": "Strict subcritical non-descenders must escape exponentially",
+      "detail": "If an unbounded non-descending orbit has limsup A_j/j<c=log₂3, choose δ>0 with A_j≤(c−δ)j eventually. Then the exact log identity gives x_j≥n2^{δj}. Hence ε_i=log₂(1+1/(3x_i))≤1/(3x_i ln2) is summable, and log₂(x_j/n)=jc−A_j+R∞+o(1), R∞=Σ ε_i<∞. The remaining unbounded case is critical limsup A_j/j=c; neither case is excluded yet."
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "text": "For a non-descending orbit with limsup A_j/j<c, choose δ>0 below the mean gap. The product identity yields log₂(x_j/n)≥δj, so x_j≥n2^{δj}; then ε_i≤1/(3x_i ln2) and Σ ε_i converges. The exact relation becomes log₂(x_j/n)=j log₂3−A_j+R∞+o(1). This isolates strict subcritical exponential escape from the unresolved critical limsup case. Significance: 14/100.",
+      "speaker": "Codex · subcritical escape refinement"
+    },
     {
       "date": "Nov 25, 2026",
       "text": "For an unbounded non-descending orbit, determinism implies x_i→∞: returning to any bounded set infinitely often repeats a value and makes the orbit eventually periodic. The exact identity A_j/j=log₂3+(1/j)Σ_{i<j}log₂(1+1/(3x_i))−(1/j)log₂(x_j/n) then gives limsup A_j/j≤log₂3. Thus liminf frequency(a_i=1)≥2−log₂3≈0.4150, and limsup N_s(j)/j≤(log₂3−1)/(s−1). An eventual cycle instead has mean valuation strictly above log₂3. Significance: 20/100.",

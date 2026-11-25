@@ -85,6 +85,16 @@ Here `ε_i→0`, so its Cesàro mean tends to zero, while the last term is nonne
 
 In particular, valuation-one steps have lower density at least `2−log_2 3≈0.4150`, and `limsup N_s(j)/j≤(log_2 3−1)/(s−1)` for `N_s(j)=#{i≤j:a_i≥s}`. A bounded orbit is eventually periodic, and its eventual cycle has the opposite strict inequality: over a period `m`, `2^A=∏_{i=0}^{m−1}(3+1/x_i)>3^m`, so `A/m>log_2 3`. Thus the unresolved cases split into unbounded non-descenders with at most critical asymptotic valuation mean and nontrivial cycles. The abstract schedule `A_j=floor(j log_2 3)` also meets the critical cap, so the exact transition law is still needed.
 
+The unbounded case has two distinct mean regimes. Suppose a non-descending orbit is strictly subcritical, so `limsup A_j/j<c`; choose `δ>0` with `A_j≤(c−δ)j` for all sufficiently large `j`. The exact identity then yields
+
+`log_2(x_j/n)=jc−A_j+Σ_{i<j}ε_i ≥ δj`,  `ε_i=log_2(1+1/(3x_i))`.
+
+Thus `x_j≥n2^{δj}` eventually. Since `ε_i≤1/(3x_i ln 2)`, the correction series `Σ ε_i` converges, and more precisely
+
+`log_2(x_j/n)=jc−A_j+R_∞+o(1)`,  `R_∞=Σ_{i=0}^{∞}ε_i<∞`.
+
+Consequently a strict subcritical non-descender would have exponential growth, with lower rate at least `δ` and upper rate at most `c−1` because `A_j≥j`. The remaining unbounded boundary case has `limsup A_j/j=c`; its correction sum need not converge. A pointwise proof must address both regimes through the transition law.
+
 ## Exact length of a run with valuation one
 
 Let `x_0=n` be odd, set `x_{i+1}=S(x_i)`, and write `a_{i+1}=v_2(3x_i+1)`. For every integer `r ≥ 0`,
