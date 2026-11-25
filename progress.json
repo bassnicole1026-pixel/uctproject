@@ -43,6 +43,11 @@
     },
     {
       "date": "Nov 24, 2026",
+      "title": "Modulo-three restriction on return blocks proved",
+      "detail": "The block integrality equation forces 3|u for odd a, and u≡(−1)^{t+1} mod 3 for even a. This raises the minimum possible u and sharpens sufficient local descent conditions."
+    },
+    {
+      "date": "Nov 24, 2026",
       "title": "Cumulative block-excess constraint derived",
       "detail": "Across m complete blocks, A_j−j=Σ(a_k−1). If the orbit never drops below n, this excess must be at most j log₂((3+1/n)/2) at each block boundary. Proving a contradictory lower bound remains open."
     },
@@ -152,6 +157,11 @@
       "date": "Nov 24, 2026",
       "speaker": "Codex · theory update",
       "text": "We grouped the orbit into blocks: each has length t and valuation sum a+t−1, so A_j−j=Σ(a_k−1). A non-descending orbit must keep this excess below j log₂((3+1/n)/2) at block boundaries. The missing step is a dynamics-based lower bound; blocks can expand, as 9→7→11→17 shows."
+    },
+    {
+      "date": "Nov 24, 2026",
+      "speaker": "Codex · algebra update",
+      "text": "Using 3x=2^{a+t}u−2^a−1, integrality forces u to be divisible by 3 when a is odd, and fixes u modulo 3 when a is even. This sharpens which return blocks can contract; the global cumulative bound is still open."
     }
   ]
 }
