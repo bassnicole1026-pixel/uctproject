@@ -3,13 +3,13 @@
   "stage": "Collatz · first proof steps",
   "aiEstimate": {
     "percent": 0,
-    "basis": "Strict proof-completion estimate: 0%. Exact identities, local descent cases, and necessary frequency constraints for a hypothetical non-descending orbit are recorded, but no argument establishes descent for every starting integer. Finite coverage and density restrictions do not give a meaningful percentage of the full theorem."
+    "basis": "Strict proof-completion estimate: 0%. Exact identities, local descent cases, necessary frequency constraints, and a positive logarithmic transition correction are recorded, but no argument establishes descent for every starting integer. These restrictions do not give a meaningful percentage of the full theorem."
   },
   "focus": {
     "status": "Pure math · global descent theorem open",
-    "title": "Derive a global run-length bound from block transitions",
-    "summary": "A hypothetical orbit that never drops below its start must have valuation-one steps with lower density at least log₂(6/5), and its mean return-block length is at least 1/c_n. The transition law has not yet contradicted this required run-length pattern.",
-    "next": "Use 3^{t_k}u_k−1=2^{a_{k+1}−1}(2^{t_{k+1}}u_{k+1}−1) to derive a run-length bound incompatible with the required mean."
+    "title": "Control transition corrections and terminal block growth",
+    "summary": "The exact block recurrence telescopes to a positive correction δ_k. Combined with the non-descent cap, the accumulated correction must be absorbed by terminal run/odd parameters, apart from a small allowance log₂(1+1/(3n)) per block length. No independent bound on that terminal growth is known yet.",
+    "next": "Bound the cumulative positive transition correction from below and control terminal t_{m+1}+log₂(u_{m+1}) independently."
   },
   "accomplishments": [
     {
@@ -131,9 +131,19 @@
       "date": "Nov 25, 2026",
       "detail": "If no odd iterate falls below n, then Σ(a_i−1)≤j c_n, where c_n=log₂((3+1/n)/2). Therefore the count of a_i≥s is at most floor(j c_n/(s−1)), valuation-one steps have lower density at least log₂(6/5), and the mean return-block length has lower limit at least 1/c_n. These necessary conditions do not yet contradict the transition law.",
       "title": "Necessary valuation frequencies for a descent failure derived"
+    },
+    {
+      "date": "Nov 25, 2026",
+      "title": "Block transitions yield a positive logarithmic telescope",
+      "detail": "The transition law gives b_k−t_k log₂(3/2)=t_k−t_{k+1}+log₂(u_k/u_{k+1})+δ_k, where b_k=a_{k+1}−1 and δ_k=log₂(1+(2^{b_k}−1)/(3^{t_k}u_k)) lies in (0,1). Summing telescopes the intermediate parameters; with the no-descent cap it forces terminal run/odd-parameter growth to absorb accumulated corrections. No contradiction is known yet."
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "text": "Taking logarithms in the exact block transition gives a telescoping identity with strictly positive correction δ_k. Combined with the no-descent valuation cap, it yields a necessary inequality: terminal (1+c_n)t+log₂u must absorb the accumulated corrections beyond allowance (c_n−log₂(3/2))Σt. Significance: 16/100 — a sharper structural relation, but no contradiction yet.",
+      "speaker": "Codex · transition potential"
+    },
     {
       "speaker": "Codex · orbit-frequency bound",
       "date": "Nov 25, 2026",

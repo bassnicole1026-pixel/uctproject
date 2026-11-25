@@ -209,6 +209,20 @@ and, on writing `y_{k+1}=2^{t_{k+1}}u_{k+1}-1`,
 
 Indeed, `3x_{k+1}+1=2(3^{t_k}u_k-1)`, and dividing by its exact power of 2 gives `y_{k+1}`. Thus adjacent block parameters cannot be chosen independently. This is an exact recurrence, but it does not yet bound their long-run averages.
 
+Taking logarithms gives a telescoping form of this transition. Put `b_k=a_{k+1}−1` and
+
+`δ_k=log_2(1+(2^{b_k}−1)/(3^{t_k}u_k))`.
+
+Adding `2^{b_k}` to the transition equation yields `2^{b_k+t_{k+1}}u_{k+1}=3^{t_k}u_k+2^{b_k}−1`, and hence
+
+`b_k−t_k log_2(3/2) = t_k−t_{k+1}+log_2(u_k/u_{k+1})+δ_k`.
+
+Here `0<δ_k<1`, because `b_k≥1` and `2^{b_k}≤3^{t_k}u_k−1`. Summing over `k=1,…,m` cancels the intermediate run and `u` terms:
+
+`Σ_{k=1}^m(a_{k+1}−1) = log_2(3/2) Σ_{k=1}^m t_k + t_1−t_{m+1}+log_2(u_1/u_{m+1})+Σ_{k=1}^m δ_k`.
+
+This exposes a positive transition correction, but the endpoint terms can grow; the identity alone does not force descent.
+
 ## Exact logarithmic drift across blocks
 
 For block `k`, define
@@ -284,6 +298,12 @@ There is an equivalent constraint on complete return blocks. If `r` is the initi
 `(1/m)Σ_{k=1}^m t_k ≥ 1/c_n−r/m`,
 
 and the lower limit of the mean block length is at least `1/c_n`. This is a necessary frequency condition, not a contradiction: the transition law has not yet supplied an incompatible upper bound on these run lengths.
+
+The logarithmic transition identity sharpens this necessary condition. Let `c=log_2(3/2)`, `T_m=Σ_{k=1}^m t_k`, and `Δ_m=Σ_{k=1}^m δ_k`. Applying the non-descent cap at the endpoint after `m+1` blocks and substituting the telescoped transition identity gives
+
+`(1+c_n)t_{m+1}+log_2 u_{m+1} ≥ Δ_m−(c_n−c)T_m+(a_1−1)+t_1+log_2 u_1−c_n r`,
+
+where `c_n−c=log_2(1+1/(3n))`. Thus a descent-failing orbit must either accumulate only a small transition correction relative to total block length, or let its terminal run/odd parameter grow enough to absorb the positive correction. Bounding these two quantities from the recurrence is the next open step.
 
 ## No odd-only cycles of period at most four
 
