@@ -343,6 +343,14 @@ Put `r_k=(3^{t_k}L_k−1)/2^{b_k}`. The exact valuation condition requires `r_k+
 
 Thus `u_k≥L_k+2^{b_k}M_kδ_k`, a lower bound that combines the incoming 3-adic residue with the outgoing exact 2-adic valuation. Taking the maximum of this bound, `U_k^*`, and the successor-derived `W_k` further sharpens the correction estimate for `ε_k`. This is a local adjacent-transition constraint; it does not yet control the frequency or cumulative effect of carries along an entire orbit.
 
+### Contraction threshold on the coupled progression
+
+Write the exact progression as `u_k=Λ_k+P_kj_k`, where `Λ_k=L_k+2^{b_k}M_kδ_k` and `P_k=2^{b_k+1}M_k`. The endpoint difference is `3(x_{k+1}−x_k)=B_k−C_ku_k`, with `B_k=2^{a_k}−2` and `C_k=2^{a_k+t_k}−2·3^{t_k}`. If `C_k≤0`, the block strictly expands. If `C_k>0`, put `H_k=floor(B_k/C_k)`. Then the block strictly contracts exactly when
+
+`j_k≥J_k^{min}:=max(0, floor((H_k−Λ_k)/P_k)+1)`.
+
+Consequently, if `Λ_k>H_k` every parameter in this coupled residue class contracts; otherwise only the finite index range `0≤j_k<J_k^{min}` can be non-contracting. This is an exact local test using both neighboring transitions. It does not show that non-contracting blocks are too sparse or that their total drift is bounded along a full orbit.
+
 On an orbit that never falls below `n`, its final logarithm is nonnegative, so
 
 `Σ(a_k-1) ≤ j log_2(3/2) + Σ ε_k`.

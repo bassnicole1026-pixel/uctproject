@@ -7,9 +7,9 @@
   },
   "focus": {
     "status": "Pure math · global descent theorem open",
-    "title": "Combine adjacent residues into an exact carry class",
-    "summary": "The incoming 3-adic residue and outgoing exact 2-adic valuation constrain u_k to an explicit arithmetic progression. This sharpens a local lower bound, but no argument controls carry frequencies over every orbit.",
-    "next": "Use the coupled progression to sharpen summed block-drift bounds and constrain runs of noncontracting blocks."
+    "title": "Apply the coupled residue class to block drift",
+    "summary": "Intersecting the two-sided residue progression with the exact endpoint equation gives an exact index threshold for contraction when C_k>0; C_k≤0 forces expansion. This remains local and gives no orbit-wide frequency bound.",
+    "next": "Use these thresholds and the transition law to constrain accumulation of non-contracting blocks without assuming statistical randomness."
   },
   "accomplishments": [
     {
@@ -166,9 +166,19 @@
       "date": "Nov 25, 2026",
       "detail": "Combining the incoming residue u_k mod 3^{t_{k−1}} with the outgoing condition v₂(3^{t_k}u_k−1)=a_{k+1}−1 yields an explicit arithmetic progression for u_k, including the parity restriction required for the exact 2-adic valuation. This sharpens the local lower bound for ε_k; orbit-wide carry control remains open.",
       "title": "Adjacent residues constrain an exact carry class"
+    },
+    {
+      "date": "Nov 25, 2026",
+      "detail": "Writing the coupled class as u_k=Λ_k+P_kj_k and using 3(x_{k+1}−x_k)=B_k−C_ku_k gives, for C_k>0, the exact threshold j_k≥max(0,floor((floor(B_k/C_k)−Λ_k)/P_k)+1) for strict contraction. For C_k≤0 the block expands. This narrows possible non-contracting parameters locally but gives no orbit-wide count.",
+      "title": "Exact contraction threshold on the coupled residue progression"
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "text": "Intersecting the exact adjacent-transition progression u_k=Λ_k+P_kj with 3(x_{k+1}−x_k)=B_k−C_ku_k yields a precise index threshold: for C_k>0, strict contraction iff j≥max(0,floor((floor(B_k/C_k)−Λ_k)/P_k)+1); for C_k≤0, the block expands. This is local and does not bound the frequency of expanding blocks. Significance: 22/100.",
+      "speaker": "Codex · coupled contraction threshold"
+    },
     {
       "date": "Nov 25, 2026",
       "text": "The incoming mod-3^{t_{k−1}} residue and outgoing exact valuation b_k=v₂(3^{t_k}u_k−1) combine by CRT: u_k lies in an explicit progression L_k+2^{b_k}M_k(δ_k+2j), j≥0, with M_k=3^{t_{k−1}} and δ_k enforcing exact valuation b_k. This sharpens a one-block lower bound only; no orbit-wide control follows. Significance: 21/100.",
