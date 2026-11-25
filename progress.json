@@ -7,9 +7,9 @@
   },
   "focus": {
     "status": "Pure math · global descent theorem open",
-    "title": "Recover density-one descent; isolate the exceptional set",
-    "summary": "Exact valuation cylinders give independent geometric valuations in natural density; a variance bound proves almost every start drops below itself. This classical result leaves a zero-density exceptional set, so full Collatz remains open.",
-    "next": "Find a deterministic argument that eliminates the zero-density non-descending set without relying on average behavior."
+    "title": "Bound the exceptional stopping-time tail exponentially",
+    "summary": "A Chernoff bound on the exact geometric valuation law gives upper density at most ρ^m for odd starts whose first descent takes more than m Syracuse steps. This still permits individual exceptional orbits.",
+    "next": "Use structural orbit constraints to eliminate individual members of the zero-density exceptional set, not merely bound its density."
   },
   "accomplishments": [
     {
@@ -191,9 +191,19 @@
       "date": "Nov 25, 2026",
       "detail": "For each fixed m, the exact valuation word (a_1,…,a_m) has density 2^{-Σa_i} among odd starts, so A_m has mean 2m and variance 2m. The iterate correction bound shows A_m≥9m/5 and n≥3^m force descent by m; Chebyshev gives an exceptional density at most 50/m. Letting m grow recovers the classical density-one finite-stopping-time result, but leaves a zero-density exceptional set.",
       "title": "Density-one descent recovered from valuation cylinders"
+    },
+    {
+      "date": "Nov 25, 2026",
+      "detail": "Using A_m≥8m/5 still forces descent for n≥3^m once m is large, since 2^{8/5}>3. The geometric valuation law and Chernoff with θ=ln(4/3) give P(A_m<8m/5)≤ρ^m, ρ=(3/5)(4/3)^{8/5}<1. Thus the upper density of odd starts with Syracuse stopping time >m decays exponentially, but individual exceptions remain possible.",
+      "title": "Exponential tail for odd-step stopping time"
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "text": "For A_m≥8m/5 and n≥3^m, the exact iterate bound gives x_m<n for all large m. Chernoff on geometric a_i with θ=ln(4/3) yields P(A_m<8m/5)≤ρ^m, ρ=(3/5)(4/3)^{8/5}<1 (equivalent to 4^8<5^5·3^3). Hence the upper density of odd starts with Syracuse stopping time >m is at most ρ^m; zero-density individual exceptions are not eliminated. Significance: 24/100.",
+      "speaker": "Codex · exponential tail update"
+    },
     {
       "date": "Nov 25, 2026",
       "text": "Recovered a classical milestone without orbit search: exact valuation cylinders make a_i independent geometric variables in natural density (mean 2, variance 2). If A_m≥9m/5 and n≥3^m, the iterate formula forces x_m<n; Chebyshev bounds the exceptional density by 50/m, hence non-descenders have density zero. This does not remove the exceptional set. Significance: 30/100. Source: Terras (1976).",

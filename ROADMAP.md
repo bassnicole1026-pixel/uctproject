@@ -397,6 +397,12 @@ for all sufficiently large `m`, so the orbit has a smaller odd iterate by time `
 
 For each fixed sufficiently large `m`, the finite set `n<3^m` has density zero. Hence the upper density of odd starts with stopping time greater than `m` is at most `50/m`; letting `m→∞` proves that the set of odd starts that never fall below their start has density zero. Even starts immediately decrease under Collatz, so finite stopping time has natural density one among all positive integers. This recovers the classical Terras result by a short valuation-distribution argument; it does **not** eliminate the exceptional zero-density set and therefore does not prove Collatz. See [Terras, “A stopping time problem on the positive integers” (1976)](https://matwbn.icm.edu.pl/ksiazki/aa/aa30/aa3034.pdf).
 
+The same argument gives an exponential tail. Since `2^{8/5}>3`, if `A_m≥8m/5` and `n≥3^m`, then `x_m/n≤(3/2^{8/5})^m+1/2<1` for all sufficiently large `m`. For the geometric valuation law, Chernoff's inequality with `θ=ln(4/3)` gives
+
+`P(A_m<8m/5)≤ρ^m`,  `ρ=(3/5)(4/3)^{8/5}<1`.
+
+Indeed, `ρ<1` is equivalent to `4^8<5^5·3^3`. The finitely many starts below `3^m` have zero natural density for each fixed `m`, so the upper density of odd starts whose first smaller Syracuse iterate occurs after `m` is at most `ρ^m` for sufficiently large `m`. This is a quantitative density statement only: it still allows an individual exceptional orbit with infinite stopping time.
+
 On an orbit that never falls below `n`, its final logarithm is nonnegative, so
 
 `Σ(a_k-1) ≤ j log_2(3/2) + Σ ε_k`.
