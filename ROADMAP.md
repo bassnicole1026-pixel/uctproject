@@ -283,6 +283,20 @@ where `j=r+Σ t_k` is the total number of odd steps at that block boundary. This
 
 is exactly the condition that this block-boundary value `x_{m+1}` lies below `n`. Finding such a boundary would prove descent; it is sufficient but not necessary, since an intermediate iterate may fall below `n` before the block ends.
 
+The 3-adic transition constraint gives a sharper sufficient version by bounding each `u_k` from below. Set
+
+`U_k = 3` if `k=1` and `a_k` is odd; `U_k = 3^{min(t_{k-1},1+v_3(a_k−1))}` if `k≥2` and `a_k` is odd; `U_k = 1` if `a_k` is even and `t_k` is odd; and `U_k = 5` if `a_k` and `t_k` are both even.
+
+The modulo-3 block condition and the transition lemma ensure `u_k≥U_k`. Since
+
+`ε_k=−log_2(1−(1−2^{1−a_k})/(2^{t_k}u_k))`,
+
+we have `ε_k<Γ_k`, where `Γ_k=−log_2(1−1/(2^{t_k}U_k))`. Therefore the transition-aware inequality
+
+`Σ_{k=1}^m (t_k(log_2 3-q_k)+Γ_k) < -r log_2(3/2)`
+
+also guarantees `x_{m+1}<n`. This improves the available finite-prefix descent certificate when inherited 3-adic divisibility makes `U_k>1`; it still does not show that such a prefix must occur on every orbit.
+
 On an orbit that never falls below `n`, its final logarithm is nonnegative, so
 
 `Σ(a_k-1) ≤ j log_2(3/2) + Σ ε_k`.
