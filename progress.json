@@ -3,15 +3,20 @@
   "stage": "Collatz · first proof steps",
   "aiEstimate": {
     "percent": 0,
-    "basis": "Strict full-conjecture proof-completion estimate: 0%. The exactly-one-high-valuation cycle profile is excluded. The exactly-two-high-block profile has a fixed exponent sum, explicit mod-3 residue constraints, and an exact two-divisibility closure test, but these conditions are not ruled out for all T. Profiles with more high valuations and unbounded non-descending orbits remain open."
+    "basis": "Strict full-conjecture proof-completion estimate: 0%. The exactly-one-high-valuation cycle profile is excluded. For exactly two high blocks, Matveev and the exact transition numerators give T<10^11, but simultaneous divisibility conditions remain unresolved below that bound. Profiles with more high valuations and unbounded non-descending orbits remain open."
   },
   "focus": {
-    "status": "Pure math · two-block cycle equations",
-    "title": "Exploit the exact two-block divisibilities",
-    "summary": "For two high-valuation blocks, b₁+b₂=floor((t₁+t₂) log₂(3/2))+1. Mod-3 constraints rule out both block quotients being 1 in any nontrivial cycle, yielding {T log₂(3/2)}≥log₂(45/32); closure still requires two divisibilities by Q=2^(B+T)−3^T.",
-    "next": "Exploit the mod-3 residues and fractional-part bound to eliminate the simultaneous Q-divisibilities uniformly in T; then extend the analysis to three or more high valuations."
+    "status": "Pure math · two-block cycle bound",
+    "title": "Eliminate the bounded two-block cases",
+    "summary": "A logarithmic-form lower bound and exact transition numerators show that any cycle with exactly two high-valuation blocks must have total odd period T<10^11. The remaining cases still have to satisfy two explicit divisibilities by Q=2^(B+T)−3^T.",
+    "next": "Find an analytic obstruction to the residual Q-divisibilities for T<10^11 without enumerating Collatz trajectories; then handle profiles with three or more high valuations."
   },
   "accomplishments": [
+    {
+      "date": "Nov 25, 2026",
+      "title": "Two-high-block cycle period bounded by 10^11",
+      "detail": "For exactly two high-valuation blocks, write D=B−T log₂(3/2) and F=2^D−1. Matveev gives F>exp(−6·10^8(1+ln(2T))). The exact two-block numerators give F<2^(b₂−t₁ log₂3)+2^(D−t₁) and its cyclic counterpart. A threshold split at t_i=(6·10^8(1+ln(2T)))/ln2+3 forces either an impossible pair of large blocks or T<(log₂3)L+C. Elementary bounds reduce this to T<2.3·10^9(1+ln(2T))+6, hence T<10^11. This is only a finite period bound for the two-block profile; the exact divisibilities and all other profiles remain open."
+    },
     {
       "date": "Nov 25, 2026",
       "title": "Two-high-block cycles reduced to exact divisibilities",
@@ -324,6 +329,11 @@
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "speaker": "Codex · two-block period bound",
+      "text": "Pure-math period bound: Matveev’s lower bound for (B+T)ln 2−T ln 3, combined with the exact two-block numerators, forces any exactly-two-high-valuation cycle to have T<10^11. This does not eliminate the remaining finite-range divisibilities or any other cycle profile. Significance: 18/100."
+    },
     {
       "date": "Nov 25, 2026",
       "speaker": "Codex · two-block cycle reduction",

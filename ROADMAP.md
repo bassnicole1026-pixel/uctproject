@@ -874,6 +874,36 @@ The two transitions are a linear system in `u_1,u_2`. Its determinant is `−Q`,
 
 Thus any two-block cycle must have `b_1,b_2≥1`, the displayed fixed sum `B`, and both right-hand sides divisible by `Q` with positive odd quotients. Conversely, such positive odd quotients solve the transition system and reconstruct the two high steps and their forced unit-valuation runs. This is an exact arithmetic characterization of the two-block case; the simultaneous divisibilities have not been ruled out for all `T`, and this result excludes no general cycle profile.
 
+#### A finite period bound for the two-block profile
+
+The same equations give a finite, though still large, upper bound on `T`. Put `c=log_2 3`, `D=B−T log_2(3/2)`, and `F=2^D−1`; we have `0<D<1`. The positive linear form
+
+`Λ=(B+T)ln 2−T ln 3=D ln 2`
+
+has coefficients bounded by `B+T≤2T`, since `B=ceil(T log_2(3/2))≤T`. Matveev's explicit bound ([Matveev, 2000](https://www.mathnet.ru/php/archive.phtml?jrnid=im&option_lang=eng&paperid=314&wshow=paper)) with `K=1.4·30^5·2^{4.5}ln 2 ln 3<6·10^8` therefore gives
+
+`Λ>exp(−H)`,  `H=6·10^8(1+ln(2T))`.
+
+Because `F=e^Λ−1>Λ`, we also have `F>exp(−H)`. Divide the first exact numerator identity by `3^T`; using `u_1≥1` and replacing each `2^b−1` by `2^b` gives
+
+`F<2^{b_2−ct_1}+2^{D−t_1}`.
+
+The other identity gives `F<2^{b_1−ct_2}+2^{D−t_2}`. Let
+
+`L=H/ln 2+3`,  `C=H/ln 2+log_2(4/3)`.
+
+Whenever `t_i≥L`, the second term in its inequality is less than `exp(−H)/4<F/4`, because `D<1`. The first term must then exceed `3F/4`, so the opposite exponent obeys `b_{i+1}>ct_i−C` (cyclic indices).
+
+Both block lengths cannot be at least `L`: that would give `B>cT−2C`, hence `T<2C+1`, while `T≥2L>2C+1` because `L−C=3−log_2(4/3)>5/2`. If `T≥2L`, exactly one block is long and the other has length less than `L`; using the long-block bound and the other `b_i≥1` yields `T<cL+C`. If `T<2L`, the same conclusion holds because `cL+C−2L=(c−1)L−3+log_2(4/3)>0` (`L>6` and `c−1=log_2(3/2)>1/2`). Thus every two-block cycle would satisfy
+
+`T<cL+C=(c+1)H/ln 2+3c+log_2(4/3)<2.3·10^9(1+ln(2T))+6`.
+
+Here the last estimate follows from `c<8/5` (since `3^5<2^8`), `ln 2>56/81` (the first two positive terms of its atanh series), and `log_2(4/3)<1/2`. At `T=10^{11}`, using `ln(2·10^{11})<27`, the right side is less than `6.5·10^{10}`; its derivative is less than `1` for all larger `T`. Therefore
+
+`T<10^{11}`.
+
+This rules out arbitrarily large periods within the exactly-two-high-valuation profile, without enumerating Collatz orbits. The remaining finite range is still governed by the simultaneous divisibility conditions above; no exclusion of every two-block cycle or of general cycles has been obtained.
+
 ## Auxiliary finite congruence certificates
 
 The following exact congruence arguments establish descent on selected classes. They are valid side results, but extending a residue list is not the active proof strategy and does not address the remaining all-integers argument.
@@ -1092,7 +1122,7 @@ Lemmas 1–4 cover 24 of the 32 odd residue classes modulo 64: all classes `1, 5
 
 1. **Fix the definitions and proof target.** Keep the original map and odd-only map explicit. The descent property above is the global obligation.
 2. **Work from exact identities.** Derive consequences of the Syracuse recurrence symbolically, keeping each equality and inequality justified for arbitrary odd starting values. The iterate identity, exact valuation-one run length, return-block formulas, modulo-3 restriction, transition law, logarithmic block drift, and state-dependent block contraction threshold are proved above.
-3. **Exclude cycle profiles by their number of high valuations.** The exactly-one-high profile is excluded above. For exactly two high blocks, the total `b`-sum is fixed and closure is reduced to two simultaneous divisibilities by `Q`; eliminating those divisibilities uniformly in `T` is the current subproblem. Profiles with three or more high blocks still need uniform constraints. Ruling out every nontrivial odd-only cycle is sufficient for the full conjecture.
+3. **Exclude cycle profiles by their number of high valuations.** The exactly-one-high profile is excluded above. For exactly two high blocks, Matveev's estimate gives `T<10^{11}`, and closure is reduced to two simultaneous divisibilities by `Q`; rule out the remaining range analytically, without trajectory enumeration. Profiles with three or more high blocks still need uniform constraints. Ruling out every nontrivial odd-only cycle is sufficient for the full conjecture.
 4. **Keep the proof uniform in the starting value.** Seek identities and inequalities that apply to every odd `n`. Treat the finite congruence certificates below as supplementary lemmas; do not use more residue enumeration as a substitute for the global argument.
 5. **Audit the complete argument.** Check boundary values, the valuation recurrence, and every induction dependency. Keep conjectures, computational observations, and proved statements labeled separately.
 
@@ -1111,7 +1141,7 @@ flowchart TD
     Q --> I
     I --> B["Return-block and transition formulas — proved"]
     B --> H1["One high-valuation block — excluded"]
-    H1 --> H2["Two high-valuation blocks — exact divisibility system"]
+    H1 --> H2["Two high-valuation blocks — T < 10^11; exact divisibilities remain"]
     H2 --> O["OPEN: eliminate two-block divisibilities and control profiles with 3+ high valuations"]
     B --> O
 ```
