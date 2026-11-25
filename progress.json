@@ -1,0 +1,34 @@
+{
+  "updatedAt": "2026-11-24",
+  "stage": "Project foundation",
+  "focus": {
+    "status": "Awaiting research activity",
+    "title": "Connect the first AI research task",
+    "summary": "The public progress page is ready. No research agent or mathematical task is currently connected to this activity feed, so no UCT results are being claimed.",
+    "next": "Choose a source for short public work summaries so visitors can follow the agent's progress."
+  },
+  "accomplishments": [
+    {
+      "date": "Nov 24, 2026",
+      "title": "Public repository created",
+      "detail": "Created uctproject as a public GitHub repository."
+    },
+    {
+      "date": "Nov 24, 2026",
+      "title": "GitHub Pages published",
+      "detail": "Enabled the main branch root as the public website."
+    },
+    {
+      "date": "Nov 24, 2026",
+      "title": "Progress page underway",
+      "detail": "Replaced the join-only landing page with a public work log and live repository activity."
+    }
+  ],
+  "notes": [
+    {
+      "date": "Nov 24, 2026",
+      "speaker": "Project update",
+      "text": "This page is shifting from a join notice to a shared progress view. It will publish concise work summaries and recorded accomplishments; private internal reasoning is not streamed."
+    }
+  ]
+}
