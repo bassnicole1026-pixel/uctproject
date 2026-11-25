@@ -123,6 +123,14 @@ so `η_t=(1/t)log_2(1+δ_t)`. Since `0<δ_t<2^{1-t}`, the elementary inequality 
 
 Thus the guaranteed-descent threshold gap is `O(2^{-t}/t)`. Means at most `log_2 3` force expansion; means above `λ_t` guarantee descent regardless of `u`; between these thresholds the coarse test is inconclusive, and the exact `u`-dependent test or its modulo-3 refinement is needed.
 
+Because `R_t≤R_1=4/3<2`, the width of this inconclusive band, measured in the integer parameter `a-1`, is `log_2 R_t<1`. Put `c=log_2(3/2)`. For a fixed block length `t`, the mean tests therefore give the following integer classification:
+
+- If `a≤floor(tc)+1`, then `q≤log_2 3`, so the block expands.
+- If `a≥floor(tc)+3`, then `q>λ_t`, so the block contracts for every `u`.
+- Only the single intermediate integer `a=floor(tc)+2` can fall into the inconclusive band; whether it does depends on the fractional part of `tc`. If it does, the exact `u`-dependent criterion decides that block.
+
+This isolates the local ambiguity to at most one valuation level per block length. It still gives no bound on how often the orbit chooses that level or on the combined drift of successive blocks.
+
 Integrality sharpens this local test. From `3x=2^{a+t}u-2^a-1`, reduction modulo 3 gives `u≡0 (mod 3)` when `a` is odd, and `u≡(-1)^{t+1} (mod 3)` when `a` is even. Since `u` is positive and odd, its corresponding lower bound is `u≥3` for odd `a`, `u≥1` for even `a` and odd `t`, and `u≥5` for even `a` and even `t`. Thus, writing `C=2^{a+t}-2·3^t`, a sharper sufficient criterion is `C>0` and `u_min C>2^a-2`, with `u_min` chosen from those three cases.
 
 This is only a local block criterion. For example, `9 → 7 → 11 → 17` is a block with `a=2`, `t=3`, and it grows from 9 to 17.
