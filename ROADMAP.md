@@ -744,6 +744,37 @@ Thus a one-block cycle must satisfy both this exponentially close upper-integer 
 
 There is an equivalent modular form that exposes constraints on every prime divisor of the modulus. Put `M=2^{b+t}−3^t`, `A=2^b−1`, and `B=3^t−2^t`. Then `B=2^tA−M`, and `M` is odd, so `gcd(M,2^t)=1`. Consequently `M|A` if and only if `M|B`. Every prime `p|M` is odd and not `3`; the equivalent divisibilities imply `ord_p(2)|b` and `ord_p(3·2^{−1})|t`. These simultaneous order constraints are a number-theoretic reformulation, not yet a contradiction.
 
+The exact equation also gives
+
+`3^t u−1=2^b(2^t u−1)`,
+
+so `b=v_2(3^t u−1)`; the other factor on the right is odd. Also `u|2^b−1`, so every prime `p|u` has `ord_p(2)|b`.
+
+These two facts give a parity-sensitive lower bound on `u`. First, `u≠1`: that would give `2^b(2^t−1)=3^t−1`. Even `t` contradicts reduction modulo `3`; odd `t` forces `b` odd, then 2-adic valuations force `b=1`, contrary to `b≥2`.
+
+If `b` is odd and `u<23`, every prime factor of `u` must have odd order under multiplication by `2`. Among odd primes below `23`, only `7` has odd order (`ord_7(2)=3`; the orders for `3,5,11,13,17,19` are even). Thus `u` would be `1` or `7`. The first was excluded; for `u=7`, `3|b` but `b=v_2(7·3^t−1)≤2`, using residues modulo `8` and `16`. Hence odd `b` forces `u≥23`.
+
+If `b` is even, then `3|2^b−1`; since `3∤M`, this forces `3|u`. The only odd multiples of `3` below `27` are `3,9,15,21`. For `u=3`, even `t` forces `b=1`; for odd `t`, it gives `b=2+v_2(t+1)`. For `t≥10`, `tα>2+log_2(t+1)` (the difference is increasing there and is positive at `10`), which is impossible. The remaining odd values give
+
+| `t` | `b=floor(tα)+1` | `2+v_2(t+1)` |
+| ---: | ---: | ---: |
+| 3 | 2 | 4 |
+| 5 | 3 | 3 |
+| 7 | 5 | 5 |
+| 9 | 6 | 3 |
+
+Since `u=3` requires even `b`, the table rules out all four. For the other candidates, LTE gives `9|b` when `u=9`, while `b=v_2(9·3^t−1)≤4`; `u=15` gives `4|b` but `b=v_2(15·3^t−1)≤2`; and `u=21` gives `6|b` but `b=v_2(21·3^t−1)≤2`. These bounds follow from the residues of `3^t` modulo `8` or `16`. Therefore even `b` forces `u≥27`.
+
+Set `q=23` for odd `b` and `q=27` for even `b`. Since `u≥q` and `uM=A`,
+
+`2^b≤(q·3^t−1)/(q·2^t−1)=(3/2)^t (1−1/(q·3^t))/(1−1/(q·2^t))`.
+
+Consequently,
+
+`0<b−tα≤log_2((1−1/(q·3^t))/(1−1/(q·2^t)))<2^{1−t}/(q ln 2)`.
+
+This tightens the elementary exponential-approximation bound by a factor of at least `23`, depending on the parity of `b`. It still does not exclude all run lengths, and cycles with multiple high-valuation blocks remain open.
+
 ## Auxiliary finite congruence certificates
 
 The following exact congruence arguments establish descent on selected classes. They are valid side results, but extending a residue list is not the active proof strategy and does not address the remaining all-integers argument.

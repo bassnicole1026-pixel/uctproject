@@ -3,15 +3,20 @@
   "stage": "Collatz · first proof steps",
   "aiEstimate": {
     "percent": 0,
-    "basis": "Strict proof-completion estimate: 0%. Cycles with one high-valuation block reduce to an explicit divisibility and exponential-approximation condition, but that condition has not been ruled out for every run length; multi-block cycles also remain open."
+    "basis": "Strict proof-completion estimate: 0%. In the one-high-valuation subcase, prime-order and 2-adic constraints force the odd quotient u to be at least 23 or 27 according to parity, giving a much tighter exponential approximation bound; the resulting condition is still not excluded uniformly. Multi-block cycles and unbounded non-descending orbits also remain open."
   },
   "focus": {
-    "status": "Pure math · modular one-block constraints",
-    "title": "Convert the one-block condition into modular order constraints",
-    "summary": "Writing M=2^(b+t)−3^t, A=2^b−1, and B=3^t−2^t, the exact condition M|A is equivalent to M|B. Every prime p|M must satisfy ord_p(2)|b and ord_p(3/2)|t. This exposes simultaneous order constraints but does not yet exclude the case.",
-    "next": "Use the simultaneous order constraints and the size of M to rule out the one-block condition uniformly in t, without trajectory enumeration."
+    "status": "Pure math · parity-sensitive cycle quotient",
+    "title": "Lower-bound the one-block quotient by parity",
+    "summary": "The exact cycle equation gives b=v₂(3^t u−1), while each prime divisor of u has order dividing b. These force u≥23 for odd b and u≥27 for even b, tightening the required upper-integer approximation by factors 23 or 27. The one-block case is not yet excluded.",
+    "next": "Find a bound on u that grows with t, or otherwise contradict the one-block divisibility for every t; then handle multiple high-valuation blocks and unbounded non-descending orbits."
   },
   "accomplishments": [
+    {
+      "date": "Nov 25, 2026",
+      "title": "Parity-sensitive lower bound for one-block cycle quotients",
+      "detail": "For a one-block cycle, closure gives 3^t u−1=2^b(2^t u−1), so b=v₂(3^t u−1), and u divides 2^b−1. If b is odd, every prime divisor of u must have odd order under 2; among primes below 23 only 7 qualifies, and u=1 or 7 is excluded by the equation and 2-adic valuation, so u≥23. If b is even, 3 divides u; the candidates u=3,9,15,21 below 27 are excluded by the same equation, LTE, and residues modulo 8 or 16, so u≥27. Consequently, with q=23 for odd b or q=27 for even b, 0<b−t log₂(3/2)≤log₂((1−1/(q·3^t))/(1−1/(q·2^t)))<2^(1−t)/(q ln 2). This is a sharper necessary bound, not an exclusion of all one-block cycles."
+    },
     {
       "date": "Nov 25, 2026",
       "title": "One-block divisibility converted to simultaneous order constraints",
@@ -309,6 +314,11 @@
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "text": "Parity-sensitive quotient bound: the one-block equation implies b=v₂(3^t u−1) and p-order constraints for every prime p|u. Exact exclusions force u≥23 for odd b and u≥27 for even b. Hence b−t log₂(3/2)≤log₂((1−1/(q·3^t))/(1−1/(q·2^t)))<2^(1−t)/(q ln 2), q∈{23,27}. The divisibility remains unresolved for unrestricted t. Significance: 16/100.",
+      "speaker": "Codex · parity-sensitive quotient bound"
+    },
     {
       "date": "Nov 25, 2026",
       "text": "Modular one-block reduction: for M=2^(b+t)−3^t, A=2^b−1, B=3^t−2^t, we have B=2^tA−M and gcd(M,2^t)=1, hence M|A iff M|B. Thus each prime p|M obeys ord_p(2)|b and ord_p(3/2)|t. No contradiction follows yet. Significance: 8/100.",
