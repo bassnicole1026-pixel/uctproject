@@ -23,6 +23,38 @@ It would suffice to prove the **descent property**:
 
 If this property holds, strong induction finishes the proof: the smaller odd iterate is below `n`, so by induction it reaches 1, and therefore so does `n`. Conversely, if the Collatz conjecture is true, every odd `n > 1` eventually reaches 1 and hence has a smaller iterate. Thus this is an equivalent target, not an easier theorem already established.
 
+## Exact iterate formula and global descent condition
+
+For an odd starting value `x_0 = n`, define its Syracuse orbit by `x_i = S(x_{i-1})`, the exact 2-adic valuation at step `i` by `a_i = v_2(3x_{i-1}+1)`, and the cumulative valuation by `A_0=0` and `A_j = a_1 + ··· + a_j`. Define `c_0=0` and `c_{j+1}=3c_j+2^{A_j}`. Then for every `j ≥ 1`,
+
+`2^{A_j} x_j = 3^j n + c_j`,
+
+and hence
+
+`c_j = Σ_{i=0}^{j-1} 3^{j-1-i} 2^{A_i}`.
+
+**Proof.** The identity holds at `j=0`. If `2^{A_j}x_j=3^j n+c_j`, then
+
+`2^{A_j+a_{j+1}}x_{j+1} = 3(2^{A_j}x_j)+2^{A_j} = 3^{j+1}n+(3c_j+2^{A_j})`.
+
+This is the same identity at `j+1`; expanding the recurrence for `c_j` gives the sum.
+
+Therefore an iterate is strictly smaller exactly when
+
+`x_j < n  ⇔  (2^{A_j}-3^j)n > c_j`.
+
+In particular, `A_j log 2 > j log 3` is necessary, but it is not by itself sufficient: the positive correction `c_j` must also fit inside the descent margin.
+
+The same condition has a useful logarithmic form:
+
+`log(x_j/n) = j log 3 - A_j log 2 + Σ_{i=0}^{j-1} log(1 + 1/(3x_i))`.
+
+If a hypothetical counterexample never drops below its odd starting value `n`, then `x_i ≥ n` for every `i`, so for every `j` it must satisfy
+
+`A_j log 2 ≤ j log(3 + 1/n)`.
+
+This is a necessary constraint on a non-descending orbit, not a proof that one cannot exist. The next global proof obligation is to derive a structural lower bound on the cumulative valuations along any such orbit that contradicts this upper bound, without enumerating residue classes.
+
 ## Proved descent regions
 
 ### Lemma 1: `n ≡ 1 (mod 4)`
@@ -238,12 +270,12 @@ Lemmas 1–4 cover 24 of the 32 odd residue classes modulo 64: all classes `1, 5
 ## Work plan
 
 1. **Fix the definitions and proof target.** Keep the original map and odd-only map explicit. The descent property above is the global obligation.
-2. **Build exact, reproducible checks.** A small program can verify a finite starting interval with arbitrary-precision integer arithmetic. A finite check is evidence about that interval only; it cannot establish the universal statement.
-3. **Grow the residue-class descent table.** Split the remaining classes modulo 256 into finer powers-of-two classes, derive exact formulas for each fixed parity/valuation path, and record which classes provably reach a smaller odd value. The classes `7`, `15`, `39`, `59`, `79`, `95`, `123`, `135`, `143`, `175`, `187`, `199`, and `219 (mod 256)` are covered, and `2587 (mod 4096)` is a proved sub-class of `27`. Continue splitting the other open branches and audit each resulting path.
-4. **Seek a global argument.** Prove that every remaining odd integer has a smaller odd iterate, or find a different well-founded quantity that yields the same strong-induction finish. A shallow residue search that leaves classes uncovered is not a proof.
-5. **Audit all cases.** Check boundary values, exact divisibility, class coverage, and every induction dependency independently. Keep conjectures, experiments, and theorems labeled separately.
+2. **Work from exact identities.** Derive consequences of the Syracuse recurrence symbolically, keeping each equality and inequality justified for arbitrary odd starting values.
+3. **Seek a global contradiction.** Under the assumption that an odd orbit never falls below its start, prove a structural lower bound on `A_j` strong enough to contradict `A_j log 2 ≤ j log(3+1/n)`. Any proposed bound must follow from the exact dynamics, not from finite samples or residue enumeration.
+4. **Use local descent certificates as supporting lemmas.** The residue classes listed below are valid partial results and may support a broader proof, but extending the table alone does not close the global descent obligation.
+5. **Audit the complete argument.** Check boundary values, the valuation recurrence, and every induction dependency. Keep conjectures, computational observations, and proved statements labeled separately.
 
-## First exact computation
+## Historical finite check (not a proof strategy)
 
 Reproduce the check with `python collatz_verify.py --limit 100000`. It verifies every starting value from 1 through 100,000 using exact integer arithmetic. The run passed: the largest stopping time was 350 steps at `n = 77,031`, and the largest value observed was 1,570,824,736 from `n = 77,671`. The program memoizes verified tails and stops if it detects a cycle not reaching 1. This is a finite check, not a proof outside the tested interval.
 
@@ -255,4 +287,4 @@ A 2026 exploratory paper on burst/gap dynamics explicitly leaves its key orbitwi
 
 ## Status
 
-Lemmas 1–17 prove strict descent on the listed residue classes. The finite computation is bounded evidence. The global descent property—and therefore the full Collatz conjecture—has not been proved in this project.
+The exact iterate identity is proved, and Lemmas 1–17 prove strict descent on their listed residue classes. The required global valuation bound remains open; the finite computation is bounded evidence. The full Collatz conjecture has not been proved in this project.

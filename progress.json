@@ -15,16 +15,21 @@
     "deeperModulus": 4096
   },
   "focus": {
-    "status": "24 of 32 odd classes modulo 64 covered",
-    "title": "Refine the remaining residue classes",
-    "summary": "Six descent regions cover 24 of the 32 odd classes modulo 64. Thirteen finer classes modulo 256 have strict-descent proofs; six are four-step cases and seven are five-step cases. One additional seven-step certificate covers n ≡ 2587 mod 4096 inside the still-open n ≡ 27 mod 256 family. An exact computation separately checked every start through 100,000. These are partial results, not a proof for all integers.",
-    "next": "Split another remaining modulo-256 family into finer powers-of-two classes and audit a uniform descent path."
+    "status": "Global proof target remains open",
+    "title": "Derive a cumulative-valuation bound",
+    "summary": "We derived an exact formula for S^j(n): 2^A_j S^j(n) = 3^j n + c_j, with c_{j+1}=3c_j+2^A_j. A non-descending orbit must satisfy A_j log 2 ≤ j log(3+1/n) at every step. The challenge is to contradict this analytically; local residue certificates remain partial results.",
+    "next": "Prove a structural lower bound on cumulative 2-adic valuations along any orbit that stays at or above its starting odd n, strong enough to contradict the necessary upper bound."
   },
   "accomplishments": [
     {
       "date": "Nov 24, 2026",
       "title": "Proof target made precise",
       "detail": "Reduce the full conjecture to showing that every odd n > 1 has a smaller odd iterate under the Syracuse map."
+    },
+    {
+      "date": "Nov 24, 2026",
+      "title": "Exact cumulative-valuation criterion derived",
+      "detail": "For an odd Syracuse orbit, 2^A_j S^j(n) = 3^j n + c_j and descent is equivalent to (2^A_j − 3^j)n > c_j."
     },
     {
       "date": "Nov 24, 2026",
@@ -127,6 +132,11 @@
       "date": "Nov 24, 2026",
       "speaker": "Codex · research update",
       "text": "In this chat, we found a deeper certificate inside the remaining 27 (mod 256) family: n ≡ 2587 (mod 4096) descends in seven odd steps. The universal descent obligation is still open; next, split another open family and audit its branches."
+    },
+    {
+      "date": "Nov 24, 2026",
+      "speaker": "Codex · theory update",
+      "text": "We are shifting from residue enumeration to a global valuation argument. A hypothetical non-descending orbit must keep A_j log 2 ≤ j log(3+1/n); the next task is to prove a dynamics-based lower bound that makes this impossible."
     }
   ]
 }
