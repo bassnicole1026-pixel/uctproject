@@ -263,25 +263,27 @@ so `A_j-j = Σ_{k=1}^m (a_k-1)`. If the orbit never falls below its starting val
 
 at every such block boundary. This is a necessary upper bound for a hypothetical non-descending orbit. Proving a contradictory lower bound from the dynamics, while allowing expanding blocks such as the one from 9, is still open.
 
-## Odd-only cycles of period at most two
+## No odd-only cycles of period at most four
 
-The only periodic orbit of the odd-only Syracuse map with period dividing two is the fixed point `1`.
+The only periodic orbit of the odd-only Syracuse map with period at most four is the fixed point `1`.
 
-**Proof.** Suppose positive odd integers `x,y` satisfy `S(x)=y` and `S(y)=x`. Put `a=v₂(3x+1)≥1` and `b=v₂(3y+1)≥1`. Then
+**Proof.** Consider a nontrivial cycle of exact odd-step period `m`, with odd values `x_0,…,x_{m-1}>1`, indices taken modulo `m`, and `a_i=v₂(3x_i+1)`. Since `S(1)=1`, a nontrivial cycle contains no `1`; thus each `x_i≥3`. From `2^{a_i}x_{i+1}=3x_i+1`, multiplication around the cycle gives
 
-`2^a y=3x+1`,  `2^b x=3y+1`.
+`2^A = ∏_{i=0}^{m−1}(3+1/x_i)`,  where `A=Σ a_i`.
 
-Eliminating `y` and then `x` gives
+Each factor exceeds `3` and is at most `10/3`. At least one `x_i≥5`, since `S(3)=5`, so at least one factor is strictly below `10/3`. Therefore
 
-`D x=2^a+3`,  `D y=2^b+3`,  where `D=2^{a+b}−9`.
+`3^m < 2^A < (10/3)^m`.
 
-The right-hand sides are positive, so `D>0` and `a+b≥4`. If `a=1`, then `b≥3` and `x=5/(2^{b+1}−9)<1`, impossible for a positive integer; the case `b=1` is symmetric. Otherwise `a,b≥2`, and
+For `m=1`, `2^A` would lie strictly between `3` and `10/3`, which contains no power of two. For `m=2`, it would lie between `9` and `100/9`, also containing no power of two. For `m=4`, it would lie between `81` and `10000/81`, strictly between `2^6=64` and `2^7=128`. These periods are impossible.
 
-`D−(2^a+3)=2^a(2^b−1)−12≥0`,
+For `m=3`, the same bounds force `A=5`, since `27<2^A<1000/27` and the only power of two in that interval is `32`. Write `a=a_0`, `b=a_1`, and `c=a_2`. Eliminating the intermediate orbit values from the three step equations gives
 
-with the symmetric inequality `D≥2^b+3`. Hence `0<x≤1` and `0<y≤1`, so `x=y=1`. Indeed `S(1)=1`.
+`(2^{a+b+c}−27)x_0 = 2^{a+b}+3·2^a+9`.
 
-This excludes nontrivial fixed points and two-cycles for the odd-only map. It says nothing about longer cycles or nonperiodic orbits, and does not establish the Collatz conjecture.
+With `A=5`, this becomes `5x_0=2^a(2^b+3)+9`. Reduction modulo `5` requires `2^a(2^b+3)≡1 (mod 5)`. Since `a,b,c≥1` and `a+b+c=5`, we have `b∈{1,2,3}`. If `b=1`, the left side is `0 mod 5`. If `b=2`, the congruence requires `a≡3 (mod 4)`, but `a≤2`. If `b=3`, it requires `a≡0 (mod 4)`, but `a=1`. All cases are impossible.
+
+Thus no nontrivial odd-only cycle has period at most four. This cycle exclusion does not rule out longer cycles or nonperiodic orbits and does not establish the Collatz conjecture.
 
 ## Auxiliary finite congruence certificates
 

@@ -8,7 +8,7 @@
   "focus": {
     "status": "Pure math · global descent theorem open",
     "title": "Prove universal descent from the block transition law",
-    "summary": "A separate exact algebraic lemma excludes odd-only cycles of period 1 or 2 other than 1. The main task remains an orbit-wide descent argument; this side result does not control longer cycles or nonperiodic orbits.",
+    "summary": "An exact multiplicative identity now excludes all nontrivial odd-only cycles of period at most four. The main task remains proving universal descent for every odd start; cycle exclusions do not address nonperiodic orbits.",
     "next": "Prove a structural lower bound on Σ(a_k−1) from the transition law and compare it with the non-descent cap."
   },
   "accomplishments": [
@@ -121,9 +121,19 @@
       "detail": "If S(x)=y and S(y)=x for positive odd x,y, exact elimination gives (2^(a+b)−9)x=2^a+3 and (2^(a+b)−9)y=2^b+3. The valuation cases force x=y=1. This excludes only periods 1 and 2, not longer cycles or divergent orbits.",
       "title": "Nontrivial odd-only cycles of period at most two excluded",
       "date": "Nov 25, 2026"
+    },
+    {
+      "title": "Odd-only cycles of period at most four excluded",
+      "detail": "Multiplying cycle step ratios gives 3^m<2^A<(10/3)^m for any nontrivial m-cycle. This excludes m=1,2,4; for m=3 it forces A=5, and the exact cycle equation modulo 5 rules out every positive valuation triple. Longer cycles and nonperiodic orbits remain open.",
+      "date": "Nov 25, 2026"
     }
   ],
   "notes": [
+    {
+      "speaker": "Codex · cycle bound",
+      "text": "Exact cycle result: for any nontrivial odd-only cycle of period m, multiplying the step ratios yields 3^m<2^A<(10/3)^m. This rules out periods 1, 2, and 4 directly; period 3 forces A=5 and is excluded by its exact equation modulo 5. Significance: 14/100 — a small-cycle exclusion only; longer cycles and nonperiodic orbits remain open.",
+      "date": "Nov 25, 2026"
+    },
     {
       "text": "Pure-algebra side result: the odd-only Syracuse map has no nontrivial orbit whose period divides 2. Eliminating the two step equations forces x=y=1. Significance: 12/100; it closes only the smallest cycle cases and does not prove descent or rule out longer cycles.",
       "speaker": "Codex · cycle lemma",
