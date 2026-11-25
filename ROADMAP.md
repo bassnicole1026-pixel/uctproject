@@ -323,6 +323,26 @@ where
 
 The residue defining `U_{k+1}^*` ensures that `W_k` is an integer; its numerator is `2^{b_k}(2^{t_{k+1}}U_{k+1}^*−1)+1`, so `W_k` is positive and odd. Hence `u_k≥W_k`, and the current block's correction can use the stronger lower bound `V_k=max(U_k^*,W_k)`, giving `ε_k<−log_2(1−1/(2^{t_k}V_k))`. Equivalently, the next-block contraction threshold `Q_k≥Q_k^{min}` can be read as the incoming-parameter threshold `u_k≥W_k+2^{b_k+t_{k+1}+1}Q_k^{min}` when `C_{k+1}>0`. This is a one-step look-ahead refinement; the orbit-wide carry frequency remains uncontrolled.
 
+### Exact residue class from both neighboring transitions
+
+For `k≥2`, the transition into block `k` fixes `u_k` modulo `M_k=3^{t_{k-1}}`; let `U_k^*` be its least positive odd representative. The transition out of block `k` fixes its exact 2-adic valuation: with `b_k=a_{k+1}−1`,
+
+`v_2(3^{t_k}u_k−1)=b_k`.
+
+Let `s_k` be the unique odd integer in `[1,2^{b_k}−1]` satisfying `3^{t_k}s_k≡1 (mod 2^{b_k})`. There is a unique `q_k` in `[0,2^{b_k−1}−1]` satisfying
+
+`M_k q_k ≡ (s_k−U_k^*)/2 (mod 2^{b_k−1})`,
+
+with the modulus-one case `b_k=1` interpreted as `q_k=0`. Then `L_k=U_k^*+2M_kq_k` is the least positive representative satisfying both neighboring congruences. In particular, every positive odd `u_k` satisfying them has the form
+
+`u_k=L_k+2^{b_k}M_k h`,  `h≥0`.
+
+Put `r_k=(3^{t_k}L_k−1)/2^{b_k}`. The exact valuation condition requires `r_k+h` to be odd, so if `δ_k=0` for odd `r_k` and `δ_k=1` for even `r_k`, every actual transition parameter lies in the more restrictive progression
+
+`u_k=L_k+2^{b_k}M_k(δ_k+2j_k)`,  `j_k≥0`.
+
+Thus `u_k≥L_k+2^{b_k}M_kδ_k`, a lower bound that combines the incoming 3-adic residue with the outgoing exact 2-adic valuation. Taking the maximum of this bound, `U_k^*`, and the successor-derived `W_k` further sharpens the correction estimate for `ε_k`. This is a local adjacent-transition constraint; it does not yet control the frequency or cumulative effect of carries along an entire orbit.
+
 On an orbit that never falls below `n`, its final logarithm is nonnegative, so
 
 `Σ(a_k-1) ≤ j log_2(3/2) + Σ ε_k`.

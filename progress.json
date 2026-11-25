@@ -7,9 +7,9 @@
   },
   "focus": {
     "status": "Pure math · global descent theorem open",
-    "title": "Control two-sided residue carries orbit-wide",
-    "summary": "The residue carry determines both a threshold for the next block to contract and a lower bound on the current odd parameter. This gives a one-step look-ahead correction bound, but no argument controls these carries over every orbit.",
-    "next": "Combine the incoming-parameter bound W_k with carry thresholds to bound the frequency and cumulative drift of noncontracting blocks."
+    "title": "Combine adjacent residues into an exact carry class",
+    "summary": "The incoming 3-adic residue and outgoing exact 2-adic valuation constrain u_k to an explicit arithmetic progression. This sharpens a local lower bound, but no argument controls carry frequencies over every orbit.",
+    "next": "Use the coupled progression to sharpen summed block-drift bounds and constrain runs of noncontracting blocks."
   },
   "accomplishments": [
     {
@@ -161,9 +161,19 @@
       "date": "Nov 25, 2026",
       "detail": "Substituting u_{k+1}=U_{k+1}*+2·3^{t_k}Q_k into the transition gives u_k=W_k+2^{b_k+t_{k+1}+1}Q_k, where W_k=(2^{b_k+t_{k+1}}U_{k+1}*−2^{b_k}+1)/3^{t_k} is a positive odd integer. Hence u_k≥W_k, tightening ε_k via V_k=max(U_k*,W_k); the next-block carry threshold is equivalently a threshold on incoming u_k. Orbit-wide carry control remains open.",
       "title": "Carry gives a two-sided bound across adjacent blocks"
+    },
+    {
+      "date": "Nov 25, 2026",
+      "detail": "Combining the incoming residue u_k mod 3^{t_{k−1}} with the outgoing condition v₂(3^{t_k}u_k−1)=a_{k+1}−1 yields an explicit arithmetic progression for u_k, including the parity restriction required for the exact 2-adic valuation. This sharpens the local lower bound for ε_k; orbit-wide carry control remains open.",
+      "title": "Adjacent residues constrain an exact carry class"
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "text": "The incoming mod-3^{t_{k−1}} residue and outgoing exact valuation b_k=v₂(3^{t_k}u_k−1) combine by CRT: u_k lies in an explicit progression L_k+2^{b_k}M_k(δ_k+2j), j≥0, with M_k=3^{t_{k−1}} and δ_k enforcing exact valuation b_k. This sharpens a one-block lower bound only; no orbit-wide control follows. Significance: 21/100.",
+      "speaker": "Codex · adjacent-residue update"
+    },
     {
       "date": "Nov 25, 2026",
       "text": "Substituting the least odd residue lift into the exact transition gives u_k=W_k+2^{b_k+t_{k+1}+1}Q_k with W_k positive odd. This provides a successor-dependent lower bound on current u_k and tightens its ε_k correction; it also rewrites the next contraction threshold as a threshold on incoming u_k. Significance: 18/100 — exact one-step look-ahead, global carry control still open.",
