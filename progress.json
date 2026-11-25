@@ -7,9 +7,9 @@
   },
   "focus": {
     "status": "Pure math · global descent theorem open",
-    "title": "Encode finite block itineraries as 2-adic cylinders",
-    "summary": "A prescribed finite word of run lengths and following valuations selects one class of the coupled index modulo 2^N, with N the sum of those labels. This is exact local coding, not a statement about actual orbit frequencies.",
-    "next": "Intersect these itinerary cylinders with block contraction windows and seek a deterministic bound on non-descending prefixes."
+    "title": "Separate cylinder density from orbit frequency",
+    "summary": "A fixed itinerary has exact density 2^{-N} as the coupled index varies through compatible parameters, with discrepancy under one. This parameter density does not describe how one orbit samples its indices.",
+    "next": "Find a deterministic bridge from local 2-adic cylinders and state-size drift to frequencies along one orbit."
   },
   "accomplishments": [
     {
@@ -181,9 +181,19 @@
       "date": "Nov 25, 2026",
       "detail": "For a prescribed finite word of pairs (t_{k+i},b_{k+i}), each pair successively fixes one residue class modulo 2^{t_{k+i}+b_{k+i}}. The normalized next index changes affinely with an odd coefficient, so the full word selects one class modulo 2^N, N=Σ(t+b). Any J-index interval has at most ceil(J/2^N) representatives. This exact local coding does not imply actual orbit frequencies or descent.",
       "title": "Finite block itineraries form exact 2-adic cylinders"
+    },
+    {
+      "date": "Nov 25, 2026",
+      "detail": "A fixed finite itinerary is one residue class modulo 2^N, so in any J consecutive compatible indices its count is floor(J/2^N) or ceil(J/2^N), with density exactly 2^{-N}. This counts starting-parameter choices, not time visits by a single orbit; connecting those is still open.",
+      "title": "Candidate-index cylinders have exact natural density"
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "text": "A finite itinerary class modulo 2^N has exactly floor(J/2^N) or ceil(J/2^N) representatives in any J consecutive coupled indices; its parameter density is 2^{-N}. This does not imply that a single orbit samples that distribution, so no average-drift conclusion follows. Significance: 13/100.",
+      "speaker": "Codex · cylinder-density clarification"
+    },
     {
       "date": "Nov 25, 2026",
       "text": "A prescribed finite word of block pairs (s_i,d_i) selects one class of the initial coupled index modulo 2^N, N=Σ(s_i+d_i). This follows by fixing each run length and exact following valuation through affine congruences with odd coefficient. Any J-index interval contains at most ceil(J/2^N) representatives. This is local symbolic coding only, not orbit-frequency control. Significance: 18/100.",

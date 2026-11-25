@@ -377,6 +377,8 @@ After fixing this pair, let `σ_1` be the least representative of the resulting 
 
 Thus any interval of `J` consecutive initial indices contains at most `ceil(J/2^N)` representatives of a specified finite itinerary. This is exact local 2-adic counting, not an estimate of which indices an actual orbit visits; it does not establish global descent.
 
+More precisely, because the compatible indices form one class modulo `2^N`, among any `J` consecutive indices the count is either `floor(J/2^N)` or `ceil(J/2^N)`. Its discrepancy from `J/2^N` is less than one, so the natural density in this parameter family is exactly `2^{-N}`. This is density across compatible starting parameters; it gives no time-frequency statement for a single Syracuse orbit. Bridging that distinction is the next obstacle for any argument that tries to turn local 2-adic coding into average drift control.
+
 On an orbit that never falls below `n`, its final logarithm is nonnegative, so
 
 `Σ(a_k-1) ≤ j log_2(3/2) + Σ ε_k`.
