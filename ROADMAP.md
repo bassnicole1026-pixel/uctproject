@@ -103,7 +103,15 @@ The threshold satisfies
 
 `λ_t = log_2 3 + η_t`,  where  `η_t=(1/t)log_2((1-3^{-t})/(1-2^{-t})) > 0`,
 
-and `η_t → 0` as `t → ∞`. Hence the block-mean ranges are now separated: means at most `log_2 3` force expansion; means above `λ_t` guarantee descent regardless of `u`; between these thresholds the coarse test is inconclusive, and the exact `u`-dependent test or its modulo-3 refinement is needed.
+and `η_t → 0` as `t → ∞`. More quantitatively, define
+
+`δ_t=(2^{-t}-3^{-t})/(1-2^{-t})`,
+
+so `η_t=(1/t)log_2(1+δ_t)`. Since `0<δ_t<2^{1-t}`, the elementary inequality `log_2(1+δ)≤δ/ln 2` gives
+
+`0 < η_t < 2^{1-t}/(t ln 2)`.
+
+Thus the guaranteed-descent threshold gap is `O(2^{-t}/t)`. Means at most `log_2 3` force expansion; means above `λ_t` guarantee descent regardless of `u`; between these thresholds the coarse test is inconclusive, and the exact `u`-dependent test or its modulo-3 refinement is needed.
 
 Integrality sharpens this local test. From `3x=2^{a+t}u-2^a-1`, reduction modulo 3 gives `u≡0 (mod 3)` when `a` is odd, and `u≡(-1)^{t+1} (mod 3)` when `a` is even. Since `u` is positive and odd, its corresponding lower bound is `u≥3` for odd `a`, `u≥1` for even `a` and odd `t`, and `u≥5` for even `a` and even `t`. Thus, writing `C=2^{a+t}-2·3^t`, a sharper sufficient criterion is `C>0` and `u_min C>2^a-2`, with `u_min` chosen from those three cases.
 
@@ -348,6 +356,23 @@ Lemmas 1–4 cover 24 of the 32 odd residue classes modulo 64: all classes `1, 5
 3. **Seek a global contradiction.** Under the assumption that an odd orbit never falls below its start, prove a structural lower bound on `Σ(a_k-1)` that contradicts the block-boundary upper bound above. The local block criterion does not suffice by itself: successive block contractions and expansions must be controlled together. Any proposed bound must follow from the exact dynamics, not from finite samples or residue enumeration.
 4. **Use local descent certificates as supporting lemmas.** The residue classes listed below are valid partial results and may support a broader proof, but extending the table alone does not close the global descent obligation.
 5. **Audit the complete argument.** Check boundary values, the valuation recurrence, and every induction dependency. Keep conjectures, computational observations, and proved statements labeled separately.
+
+## Proof map
+
+```mermaid
+flowchart TD
+    C["Full Collatz conjecture"] <-->|equivalent| D["Odd descent: every odd n above 1 has a smaller iterate"]
+    D --> H["Assume descent fails for n"]
+    H --> N["Every odd iterate stays at or above n"]
+    N --> I["Exact iterate identity — proved"]
+    I --> U["Necessary cumulative-valuation upper bound"]
+    N --> B["Return blocks — formulas proved"]
+    B --> L["Local mean thresholds — proved; u matters in the gap"]
+    U --> G["OPEN: prove a global lower bound that violates the cap"]
+    L --> G
+    G -.-> D
+    R["Residue descent certificates for listed classes only"] -.-> D
+```
 
 ## Historical finite check (not a proof strategy)
 

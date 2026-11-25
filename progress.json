@@ -16,9 +16,9 @@
   },
   "focus": {
     "status": "Global proof target remains open",
-    "title": "Narrow the block-average gap",
-    "summary": "Mean valuation q≤log₂3 forces a block to expand. If q>λ_t=log₂3+η_t, where η_t>0 tends to 0, the block is guaranteed to descend; between these thresholds the coarse test is inconclusive. The global cumulative bound remains open.",
-    "next": "Use the return-block transition law and integrality constraints to control the average across many blocks, not just each block separately."
+    "title": "Build an aggregate block bound",
+    "summary": "The guaranteed-descent threshold is λ_t=log₂3+η_t with 0<η_t<2^{1−t}/(t ln 2). This narrows the local mean gap, but local block tests do not control the full orbit; the proof map isolates the missing global lower bound.",
+    "next": "Use the return-block transition law and integrality constraints to prove a long-run lower bound that contradicts the necessary cap for a non-descending orbit."
   },
   "accomplishments": [
     {
@@ -60,6 +60,11 @@
       "date": "Nov 24, 2026",
       "title": "Guaranteed-descent mean threshold derived",
       "detail": "A block is guaranteed to contract when q=(a+t−1)/t exceeds λ_t=1+(1/t)log₂((3^t−1)/(2^t−1))=log₂3+η_t, with η_t positive and tending to zero. The coarse test is inconclusive in the band between thresholds."
+    },
+    {
+      "date": "Nov 24, 2026",
+      "title": "Explicit bound on the threshold gap derived",
+      "detail": "Writing η_t=(1/t)log₂(1+δ_t), where δ_t=(2^{-t}−3^{-t})/(1−2^{-t}), gives 0<η_t<2^{1−t}/(t ln 2). The local uncertainty shrinks exponentially with block length."
     },
     {
       "date": "Nov 24, 2026",
@@ -181,7 +186,7 @@
     {
       "date": "Nov 24, 2026",
       "speaker": "Codex · dynamics update",
-      "text": "We derived a guaranteed-contraction threshold λ_t=log₂3+η_t, with η_t>0 tending to zero. Blocks at or below log₂3 expand; blocks above λ_t contract regardless of u. In the middle band, use the exact u-dependent test; the global average remains unresolved."
+      "text": "We bounded the threshold gap by 0<η_t<2^{1−t}/(t ln 2), and added a proof map showing how the local block lemmas feed the open global valuation bound. The gap shrinks with t; the cumulative contradiction is still missing."
     }
   ]
 }
