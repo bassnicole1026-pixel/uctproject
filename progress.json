@@ -16,9 +16,9 @@
   },
   "focus": {
     "status": "Global proof target remains open",
-    "title": "Bound cumulative excess across return blocks",
-    "summary": "Adjacent blocks obey a_{k+1}−1=v2(3^{t_k}u_k−1) and 3^{t_k}u_k−1=2^{a_{k+1}−1}(2^{t_{k+1}}u_{k+1}−1). The parameters are linked, but we do not yet have a long-run bound on their average.",
-    "next": "Use the block transition law and integrality constraints to bound cumulative excess Σ(a_k−1) strongly enough to contradict the non-descent upper bound."
+    "title": "Balance expanding and contracting blocks",
+    "summary": "A return block with mean valuation (a+t−1)/t≤log₂3 must expand; strict block descent requires a mean above log₂3 and also depends on u. A hypothetical non-descending orbit has cumulative mean at most log₂(3+1/n), so a narrow gap remains.",
+    "next": "Use the block transition law and integrality constraints to prove a cumulative lower bound that beats the non-descent cap, while tracking the exact descent correction."
   },
   "accomplishments": [
     {
@@ -50,6 +50,11 @@
       "date": "Nov 24, 2026",
       "title": "Exact transition law between return blocks derived",
       "detail": "Successive blocks satisfy a_{k+1}−1=v2(3^{t_k}u_k−1), equivalently 3^{t_k}u_k−1=2^{a_{k+1}−1}(2^{t_{k+1}}u_{k+1}−1). The long-run consequence is still open."
+    },
+    {
+      "date": "Nov 24, 2026",
+      "title": "Critical mean for local block descent proved",
+      "detail": "If a block's mean valuation (a+t−1)/t is at most log₂3, its endpoint is strictly larger than its start. Therefore a contracting block must exceed this mean, but that condition alone is not sufficient."
     },
     {
       "date": "Nov 24, 2026",
@@ -171,7 +176,7 @@
     {
       "date": "Nov 24, 2026",
       "speaker": "Codex · dynamics update",
-      "text": "Successive return blocks satisfy a_{k+1}−1=v2(3^{t_k}u_k−1) and 3^{t_k}u_k−1=2^{a_{k+1}−1}(2^{t_{k+1}}u_{k+1}−1). This exact transition law links the blocks; the challenge is to turn it into a global cumulative bound."
+      "text": "A return block with mean valuation (a+t−1)/t≤log₂3 must expand; contraction requires a mean above log₂3 and still depends on u. A non-descending orbit is capped at log₂(3+1/n) on cumulative means, leaving the key gap: prove a global lower bound."
     }
   ]
 }

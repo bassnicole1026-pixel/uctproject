@@ -85,6 +85,12 @@ Consequently this block strictly descends from its own starting value `x` exactl
 
 `u(2^{a+t} - 2·3^t) > 2^a - 2`.
 
+This gives a critical threshold for possible block descent. Since
+
+`2^{a+t} - 2·3^t = 2^{t+1}(2^{a-1} - (3/2)^t)`,
+
+if `(a+t-1)/t ≤ log_2 3`, then the parenthesized term is nonpositive, so `z-x>0`: the block necessarily expands. Thus a block can strictly descend only if its mean valuation `(a+t-1)/t` is greater than `log_2 3`. This condition is necessary, not sufficient, because the exact descent test still depends on `u`.
+
 A sufficient condition that guarantees descent for every possible odd `u≥1` is
 
 `2^a(2^t - 1) > 2·3^t - 2`.
