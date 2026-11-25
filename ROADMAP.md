@@ -403,6 +403,16 @@ The same argument gives an exponential tail. Since `2^{8/5}>3`, if `A_m≥8m/5` 
 
 Indeed, `ρ<1` is equivalent to `4^8<5^5·3^3`. The finitely many starts below `3^m` have zero natural density for each fixed `m`, so the upper density of odd starts whose first smaller Syracuse iterate occurs after `m` is at most `ρ^m` for sufficiently large `m`. This is a quantitative density statement only: it still allows an individual exceptional orbit with infinite stopping time.
 
+The same cutoff yields a power-saving count up to a height bound. Let `E(X)` count odd `n≤X` that have not fallen below their start by `m=floor(log_3 n)` Syracuse steps. For `3^m≤n<3^{m+1}`, every such `n` must have `A_m<8m/5`. Each valuation word of total `s` occupies one odd class modulo `2^{s+1}`, so it contributes at most `3^m2^{-s}+1` values in this interval. The weighted sum over these words is at most `ρ^m`; their number is at most
+
+`κ^m`,  `κ=(8/3)^{8/5}/(5/3)<3`,
+
+by multiplying each word by `(8/3)^{8m/5-s}` and summing the resulting geometric series. Thus the interval contributes at most `(3ρ)^m+κ^m`. With `K=max(3ρ,κ)<3` and `β=log_3 K<1`, summing over `m≤log_3 X` gives
+
+`E(X)=O(X^β)`,  `β=log_3 K≈0.9635`.
+
+In particular the infinite-stopping-time set has a power-saving upper bound in counting function. This still allows infinitely many exceptions; the estimate only shows that any such set is sparse.
+
 On an orbit that never falls below `n`, its final logarithm is nonnegative, so
 
 `Σ(a_k-1) ≤ j log_2(3/2) + Σ ε_k`.

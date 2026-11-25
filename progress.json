@@ -7,9 +7,9 @@
   },
   "focus": {
     "status": "Pure math · global descent theorem open",
-    "title": "Bound the exceptional stopping-time tail exponentially",
-    "summary": "A Chernoff bound on the exact geometric valuation law gives upper density at most ρ^m for odd starts whose first descent takes more than m Syracuse steps. This still permits individual exceptional orbits.",
-    "next": "Use structural orbit constraints to eliminate individual members of the zero-density exceptional set, not merely bound its density."
+    "title": "Get a power-saving count for long-stopping starts",
+    "summary": "Combining the exponential valuation tail with exact residue-class counts gives E(X)=O(X^β), β<1, for odd starts that avoid descent through floor(log₃ n) steps. This still permits infinitely many exceptions.",
+    "next": "Strengthen the count or find a pointwise contradiction for an individual non-descending orbit."
   },
   "accomplishments": [
     {
@@ -196,9 +196,19 @@
       "date": "Nov 25, 2026",
       "detail": "Using A_m≥8m/5 still forces descent for n≥3^m once m is large, since 2^{8/5}>3. The geometric valuation law and Chernoff with θ=ln(4/3) give P(A_m<8m/5)≤ρ^m, ρ=(3/5)(4/3)^{8/5}<1. Thus the upper density of odd starts with Syracuse stopping time >m decays exponentially, but individual exceptions remain possible.",
       "title": "Exponential tail for odd-step stopping time"
+    },
+    {
+      "date": "Nov 25, 2026",
+      "detail": "For n in [3^m,3^{m+1}) that has no descent by m, A_m<8m/5. Counting each low-sum valuation word's single residue class gives at most (3ρ)^m+κ^m candidates, with ρ=(3/5)(4/3)^{8/5}<1 and κ=(8/3)^{8/5}/(5/3)<3. Therefore E(X)=O(X^β), β=log₃(max(3ρ,κ))≈0.9635. This is sublinear but does not exclude infinitely many exceptions.",
+      "title": "Power-saving count for long-stopping starts"
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "text": "Partition n≤X into [3^m,3^{m+1}). A start avoiding descent through m must have A_m<8m/5. Summing the residue-class counts over these words gives ≤(3ρ)^m+κ^m, where ρ=(3/5)(4/3)^{8/5}<1 and κ=(8/3)^{8/5}/(5/3)<3. Hence the candidate count E(X)=O(X^β), β=log₃(max(3ρ,κ))<1. Sparse-set bound only; no pointwise resolution. Significance: 27/100.",
+      "speaker": "Codex · sublinear exception-count update"
+    },
     {
       "date": "Nov 25, 2026",
       "text": "For A_m≥8m/5 and n≥3^m, the exact iterate bound gives x_m<n for all large m. Chernoff on geometric a_i with θ=ln(4/3) yields P(A_m<8m/5)≤ρ^m, ρ=(3/5)(4/3)^{8/5}<1 (equivalent to 4^8<5^5·3^3). Hence the upper density of odd starts with Syracuse stopping time >m is at most ρ^m; zero-density individual exceptions are not eliminated. Significance: 24/100.",
