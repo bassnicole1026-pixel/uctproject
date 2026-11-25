@@ -726,6 +726,22 @@ and
 
 The formulas are complementary: the first retains the run-length factor, while the second has a simpler denominator. Neither sum has yet been bounded sharply enough, in terms of only the cycle period and minimum, to contradict the convergent lower bound.
 
+### Exact restriction for cycles with one high-valuation block
+
+Suppose a nontrivial odd-only cycle has exactly one valuation `a≥2`; all other `t−1` valuations are `1`. Let `b=a−1` and let `u` be the positive odd block parameter, so the value immediately after the high-valuation step is `2^t u−1`. After the forced run of `t−1` valuation-one steps, the cycle returns to the start of the high-valuation step at `2·3^{t−1}u−1`. Equating this return with the high-step equation gives
+
+`(2^{b+t}−3^t)u=2^b−1`.
+
+Positivity requires `b>tα`, where `α=log_2(3/2)`. Since `u` is a positive integer, `2^{b+t}−3^t≤2^b−1`, hence
+
+`2^b≤(3^t−1)/(2^t−1)=2^{tα}(1−3^{−t})/(1−2^{−t})`.
+
+The last ratio factor lies strictly between `1` and `2`; therefore `b<tα+1`. As `b` is an integer and `tα` is irrational, it follows that `b=floor(tα)+1`. Writing `{tα}` for the fractional part, the same inequality forces
+
+`0<1−{tα}≤log_2((1−3^{−t})/(1−2^{−t})) < 2^{1−t}/ln 2`.
+
+Thus a one-block cycle must satisfy both this exponentially close upper-integer approximation and the exact divisibility `2^{b+t}−3^t | 2^b−1`. More precisely, the one-block case is equivalent to `t≥2`, `b=floor(tα)+1`, and this divisibility: given them, `u=(2^b−1)/(2^{b+t}−3^t)` is positive odd. Set `y=2^t u−1` and `x=2·3^{t−1}u−1`; then `S(x)=y` with valuation `b+1`, and the next `t−1` steps have valuation `1` and return to `x`, giving the cycle. This characterizes the one-block case but does not rule it out for every `t`; cycles with two or more high-valuation blocks remain open as well.
+
 ## Auxiliary finite congruence certificates
 
 The following exact congruence arguments establish descent on selected classes. They are valid side results, but extending a residue list is not the active proof strategy and does not address the remaining all-integers argument.
