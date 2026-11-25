@@ -7,9 +7,9 @@
   },
   "focus": {
     "status": "Pure math · global descent theorem open",
-    "title": "Identify the limit of product-only cycle bounds",
-    "summary": "Distinct odd cycle values give 2^{δ_m}≤P_m with P_m∼C m^{1/6}. Since P_m eventually exceeds 2, this product filter can exclude only finitely many periods; long-cycle control needs transition congruences.",
-    "next": "Find a cycle-wide invariant from the exact valuation transition law that handles arbitrarily large periods."
+    "title": "Reduce large-minimum cycles to convergents",
+    "summary": "If a cycle minimum n exceeds 2m²/(3 ln 2), its reduced mean valuation A/m must be an upper continued-fraction convergent of log₂3, with denominator dividing m.",
+    "next": "Use the exact transition structure to rule out the remaining convergent-mean cycles and small-minimum cycles."
   },
   "accomplishments": [
     {
@@ -246,9 +246,19 @@
       "date": "Nov 25, 2026",
       "title": "Period-only cycle filter and its finite scope derived",
       "detail": "For a nontrivial cycle, 2^{δ_m}≤∏(1+1/(3x_i))≤P_m, with δ_m=ceil(m log₂3)−m log₂3 and P_m=∏_{k=0}^{m−1}(k+5/3)/(k+3/2)=Γ(m+5/3)Γ(3/2)/(Γ(5/3)Γ(m+3/2))∼C m^{1/6}. Thus 2^{δ_m}>P_m excludes that period, but P_m eventually exceeds 2 while 2^{δ_m}<2, so this product filter cannot handle arbitrarily large periods. Transition congruences remain necessary."
+    },
+    {
+      "date": "Nov 25, 2026",
+      "title": "Large-minimum cycles reduced to convergents",
+      "detail": "For an odd-only cycle of period m and minimum n, c=log₂3<A/m≤log₂(3+1/n), so 0<A/m−c≤1/(3n ln2). If n>2m²/(3 ln2), then the reduced fraction A/m=p/q, q≤m, satisfies |p/q−c|<1/(2m²)≤1/(2q²). Legendre's criterion makes p/q an upper convergent of log₂3, and q divides m. Cycles with smaller n are not excluded either."
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "text": "A cycle's mean valuation satisfies 0<A/m−log₂3≤1/(3n ln2), where n is its minimum. If n>2m²/(3 ln2), the reduced A/m=p/q, q≤m, is within 1/(2q²) of log₂3, so Legendre's criterion forces p/q to be an upper continued-fraction convergent; q divides m. This narrows large-minimum cycles without excluding them. Significance: 17/100.",
+      "speaker": "Codex · cycle convergent reduction"
+    },
     {
       "date": "Nov 25, 2026",
       "text": "Using the m distinct odd cycle values ≥3+2k gives the period-only necessary condition 2^{δ_m}≤P_m, P_m=∏_{k<m}(k+5/3)/(k+3/2)=Γ(m+5/3)Γ(3/2)/(Γ(5/3)Γ(m+3/2))∼C m^{1/6}. Since P_m eventually exceeds 2 and 2^{δ_m}<2, product bounds alone exclude only finitely many periods. The next cycle attack must use transition congruences. Significance: 16/100.",

@@ -593,6 +593,18 @@ Consequently any `m` with `2^{δ_m}>P_m` is impossible as a cycle period. The ga
 
 for a positive constant `C`, so `P_m` eventually exceeds `2`. Because `2^{δ_m}<2`, this product filter can exclude only finitely many periods; ruling out long cycles requires additional information from the transition congruences.
 
+### Large-minimum cycles force a continued-fraction convergent
+
+For any nontrivial odd-only cycle of period `m` and minimum `n`, its average valuation satisfies
+
+`c < A/m = (1/m)Σ_i log_2(3+1/x_i) ≤ log_2(3+1/n)`,  `c=log_2 3`.
+
+Therefore
+
+`0 < A/m−c ≤ log_2(1+1/(3n)) ≤ 1/(3n ln 2)`.
+
+Write `A/m=p/q` in lowest terms, with `q≤m`. If `n>2m^2/(3 ln 2)`, then `|p/q−c|<1/(2m^2)≤1/(2q^2)`. Legendre's continued-fraction criterion implies that `p/q` is a convergent of `c`, and it must be an upper convergent. In particular, its denominator `q` divides `m`. Thus every cycle is in one of two cases: `n≤2m^2/(3 ln 2)`, or its mean valuation is one of these restricted rational approximants. This reduces the large-minimum branch to Diophantine structure but does not eliminate either case. Continued-fraction and logarithmic-form methods are classical in cycle analysis; stronger published cycle bounds combine them with computational lower bounds ([Simons–de Weger, *Theoretical and computational bounds for m-cycles*](https://math.deweger.net/papers/%5B35a%5DSidW-3n%2B1-v1.44%5B2010%5D.pdf)).
+
 ## Auxiliary finite congruence certificates
 
 The following exact congruence arguments establish descent on selected classes. They are valid side results, but extending a residue list is not the active proof strategy and does not address the remaining all-integers argument.
