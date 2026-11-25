@@ -16,9 +16,9 @@
   },
   "focus": {
     "status": "Global proof target remains open",
-    "title": "Build an aggregate block bound",
-    "summary": "The guaranteed-descent threshold is λ_t=log₂3+η_t with 0<η_t<2^{1−t}/(t ln 2). This narrows the local mean gap, but local block tests do not control the full orbit; the proof map isolates the missing global lower bound.",
-    "next": "Use the return-block transition law and integrality constraints to prove a long-run lower bound that contradicts the necessary cap for a non-descending orbit."
+    "title": "Exploit the block log-drift identity",
+    "summary": "At complete block boundaries, Σ(a_k−1)=j log₂(3/2)+Σε_k−log₂((x_{m+1}+1)/(n+1)), with 0<ε_k<−log₂(1−2^{-t_k}). This yields a block-length-sensitive upper cap for any non-descending orbit; the missing lower bound remains open.",
+    "next": "Use the inter-block recurrence to prove a lower bound on cumulative excess that violates one of the necessary caps."
   },
   "accomplishments": [
     {
@@ -65,6 +65,11 @@
       "date": "Nov 24, 2026",
       "title": "Explicit bound on the threshold gap derived",
       "detail": "Writing η_t=(1/t)log₂(1+δ_t), where δ_t=(2^{-t}−3^{-t})/(1−2^{-t}), gives 0<η_t<2^{1−t}/(t ln 2). The local uncertainty shrinks exponentially with block length."
+    },
+    {
+      "date": "Nov 24, 2026",
+      "title": "Exact logarithmic block-drift identity derived",
+      "detail": "The endpoint ratio telescopes to Σ(a_k−1)=j log₂(3/2)+Σε_k−log₂((x_{m+1}+1)/(n+1)), where each ε_k is positive and bounded by −log₂(1−2^{-t_k}). This gives a block-length-sensitive necessary cap, not a proof of descent."
     },
     {
       "date": "Nov 24, 2026",
@@ -186,7 +191,7 @@
     {
       "date": "Nov 24, 2026",
       "speaker": "Codex · dynamics update",
-      "text": "We bounded the threshold gap by 0<η_t<2^{1−t}/(t ln 2), and added a proof map showing how the local block lemmas feed the open global valuation bound. The gap shrinks with t; the cumulative contradiction is still missing."
+      "text": "We derived an exact block log-drift identity: cumulative excess equals j log₂(3/2), plus positive block corrections, minus endpoint growth. This gives another necessary cap for non-descending orbits; a contradictory lower bound is still the open step."
     }
   ]
 }

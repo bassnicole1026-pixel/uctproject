@@ -127,6 +127,38 @@ and, on writing `y_{k+1}=2^{t_{k+1}}u_{k+1}-1`,
 
 Indeed, `3x_{k+1}+1=2(3^{t_k}u_k-1)`, and dividing by its exact power of 2 gives `y_{k+1}`. Thus adjacent block parameters cannot be chosen independently. This is an exact recurrence, but it does not yet bound their long-run averages.
 
+## Exact logarithmic drift across blocks
+
+For block `k`, define
+
+`α_k=(1-2^{1-a_k})/(2^{t_k}u_k)` and `ε_k=log_2(1/(1-α_k))`.
+
+Using `3x_k+1=2^{a_k}y_k`, the same correction has the state-based form
+
+`ε_k=log_2(1+(2^{a_k}-2)/(3(x_k+1)))`.
+
+The endpoint formulas give
+
+`(x_{k+1}+1)/(x_k+1) = 2^{t_k(log_2 3-q_k)}/(1-α_k)`,
+
+where `q_k=(a_k+t_k-1)/t_k`. Hence, after `m` complete blocks,
+
+`log_2((x_{m+1}+1)/(x_1+1)) = Σ_{k=1}^m (t_k(log_2 3-q_k)+ε_k)`.
+
+Since `Σ t_k q_k=Σ(a_k+t_k-1)`, and after the initial run of `r` valuation-one steps the first block start satisfies `x_1+1=(3/2)^r(n+1)`, this is equivalently
+
+`Σ_{k=1}^m (a_k-1) = j log_2(3/2) + Σ_{k=1}^m ε_k - log_2((x_{m+1}+1)/(n+1))`,
+
+where `j=r+Σ t_k` is the total number of odd steps at that block boundary. This identity is exact. On an orbit that never falls below `n`, its final logarithm is nonnegative, so
+
+`Σ(a_k-1) ≤ j log_2(3/2) + Σ ε_k`.
+
+Also `0<α_k<2^{-t_k}`, so `0<ε_k<β_{t_k}:=-log_2(1-2^{-t_k})`. The resulting block-length-sensitive cap is
+
+`Σ(a_k-1) < j log_2(3/2) + Σ β_{t_k}`.
+
+This is another necessary bound for a hypothetical non-descending orbit, not the missing lower bound.
+
 There is also an exact cumulative bookkeeping identity. Let `r` be the initial number of valuation-one steps before the first valuation at least 2, and let `(a_k,t_k)` describe each following complete block. After `m` blocks,
 
 `j = r + Σ_{k=1}^m t_k`,  `A_j = r + Σ_{k=1}^m (a_k+t_k-1)`,
@@ -352,8 +384,8 @@ Lemmas 1–4 cover 24 of the 32 odd residue classes modulo 64: all classes `1, 5
 ## Work plan
 
 1. **Fix the definitions and proof target.** Keep the original map and odd-only map explicit. The descent property above is the global obligation.
-2. **Work from exact identities.** Derive consequences of the Syracuse recurrence symbolically, keeping each equality and inequality justified for arbitrary odd starting values. The iterate identity, exact valuation-one run length, return-block formula, modulo-3 restriction, and transition law between blocks are proved above.
-3. **Seek a global contradiction.** Under the assumption that an odd orbit never falls below its start, prove a structural lower bound on `Σ(a_k-1)` that contradicts the block-boundary upper bound above. The local block criterion does not suffice by itself: successive block contractions and expansions must be controlled together. Any proposed bound must follow from the exact dynamics, not from finite samples or residue enumeration.
+2. **Work from exact identities.** Derive consequences of the Syracuse recurrence symbolically, keeping each equality and inequality justified for arbitrary odd starting values. The iterate identity, exact valuation-one run length, return-block formulas, modulo-3 restriction, transition law, and logarithmic block drift are proved above.
+3. **Seek a global contradiction.** Under the assumption that an odd orbit never falls below its start, prove a structural lower bound on `Σ(a_k-1)` that contradicts the necessary block-boundary upper bounds above. The local block criterion does not suffice by itself: successive block contractions and expansions must be controlled together. Any proposed bound must follow from the exact dynamics, not from finite samples or residue enumeration.
 4. **Use local descent certificates as supporting lemmas.** The residue classes listed below are valid partial results and may support a broader proof, but extending the table alone does not close the global descent obligation.
 5. **Audit the complete argument.** Check boundary values, the valuation recurrence, and every induction dependency. Keep conjectures, computational observations, and proved statements labeled separately.
 
@@ -365,7 +397,7 @@ flowchart TD
     D --> H["Assume descent fails for n"]
     H --> N["Every odd iterate stays at or above n"]
     N --> I["Exact iterate identity — proved"]
-    I --> U["Necessary cumulative-valuation upper bound"]
+    I --> U["Necessary cumulative-valuation upper bounds"]
     N --> B["Return blocks — formulas proved"]
     B --> L["Local mean thresholds — proved; u matters in the gap"]
     U --> G["OPEN: prove a global lower bound that violates the cap"]
