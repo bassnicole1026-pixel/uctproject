@@ -1,3 +1,10 @@
-UCT Project — A collaborative research effort to solve the Universal Coefficient Theorem conjecture for separable nuclear C*-algebras.
+Collatz Project — A step-by-step effort to prove that every positive integer eventually reaches 1 under the Collatz map.
 
-The research coordination system is currently under development. Agent joining instructions will be available soon.
+Current milestone:
+- A strict-descent proof for odd n ≡ 1 (mod 4).
+- A two-step strict-descent proof for n ≡ 3 (mod 16).
+- Exact computational verification for every starting value from 1 through 100,000.
+
+The full Collatz conjecture has not been proved by this project. Finite computation and partial descent results are not a universal proof.
+
+Research map: https://github.com/bassnicole1026-pixel/uctproject/blob/main/ROADMAP.md

@@ -1,49 +1,44 @@
 {
   "updatedAt": "Nov 24, 2026",
-  "stage": "Project foundation",
+  "stage": "Collatz · first proof steps",
   "focus": {
-    "status": "Awaiting the first UCT research task",
-    "title": "The public progress page is live",
-    "summary": "This Codex chat has published the project progress page and its first public work summaries. No UCT research task is currently active, so no mathematical result has been reported.",
-    "next": "Send the first research question to begin analysis and record its progress here."
+    "status": "Two local descent regions proved",
+    "title": "Close the remaining odd residue classes",
+    "summary": "We proved strict descent for odd n congruent to 1 mod 4 in one Syracuse step, and for n congruent to 3 mod 16 in two. An exact program also verified every start through 100,000. These are partial results, not a proof for all integers.",
+    "next": "Analyze the remaining classes 7, 11, and 15 modulo 16 and derive one new exact descent certificate."
   },
   "accomplishments": [
     {
       "date": "Nov 24, 2026",
-      "title": "Public repository created",
-      "detail": "Created uctproject as a public GitHub repository."
+      "title": "Proof target made precise",
+      "detail": "Reduce the full conjecture to showing that every odd n > 1 has a smaller odd iterate under the Syracuse map."
     },
     {
       "date": "Nov 24, 2026",
-      "title": "GitHub Pages published",
-      "detail": "Enabled the main branch root as the public website."
+      "title": "Descent proved for n ≡ 1 mod 4",
+      "detail": "For every odd n > 1 in this class, one accelerated odd step is strictly smaller than n."
     },
     {
       "date": "Nov 24, 2026",
-      "title": "Progress board launched",
-      "detail": "Replaced the join-only landing page with project status, accomplishments, and an auto-refreshing commit feed."
+      "title": "Descent proved for n ≡ 3 mod 16",
+      "detail": "For every n in this class, two accelerated odd steps produce a value below n."
     },
     {
       "date": "Nov 24, 2026",
-      "title": "Codex chat selected for public summaries",
-      "detail": "This conversation is now reflected as concise, public-safe work notes."
+      "title": "Exact finite check through 100,000",
+      "detail": "All starts reached 1. Maximum stopping time: 350 at 77,031. Maximum value observed: 1,570,824,736 from 77,671. This finite computation is not a general proof."
     }
   ],
   "notes": [
     {
       "date": "Nov 24, 2026",
-      "speaker": "Codex · project update",
-      "text": "The public progress page is live with repository activity, milestones, and concise summaries from this Codex chat. No UCT research result has been claimed."
+      "speaker": "Project direction",
+      "text": "The project is pivoting from the UCT conjecture to Collatz. The plan is to move slowly, use small checkable tasks, and build a map toward a full proof."
     },
     {
       "date": "Nov 24, 2026",
-      "speaker": "You · project direction",
-      "text": "Asked for the site to show what the AI is working on and its accomplishments, then chose this Codex conversation as the source."
-    },
-    {
-      "date": "Nov 24, 2026",
-      "speaker": "Codex · work note",
-      "text": "I replaced the join-only page with a public project log. The current project task was to show the work and publish accomplishments; no mathematical research task was active."
+      "speaker": "Codex · research update",
+      "text": "The first map is in ROADMAP.md. Two infinite residue families now have direct descent proofs, and a separate exact computation covers starts through 100,000. The unresolved classes modulo 16 are 7, 11, and 15."
     }
   ]
 }
