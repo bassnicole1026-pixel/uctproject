@@ -7,8 +7,8 @@
   },
   "focus": {
     "status": "Pure math · global descent theorem open",
-    "title": "Attain the endpoint power-saving exponent",
-    "summary": "Using the exact iterate correction, the cutoff becomes A_m≥m log₂3+1; this attains E(X)=O(X^β₀), β₀≈0.94996. The bound remains sublinear and permits exceptions.",
+    "title": "Sharpen the endpoint count by a logarithmic factor",
+    "summary": "Exact stars-and-bars and weighted residue counts refine the exceptional-start bound to E(X)=O(X^β₀/√log X), β₀≈0.94996. This remains sparse-set information and allows exceptions.",
     "next": "Find a pointwise obstruction for an individual non-descending orbit; even the endpoint count cannot finish Collatz."
   },
   "accomplishments": [
@@ -211,9 +211,19 @@
       "date": "Nov 25, 2026",
       "title": "Endpoint exponent attained using the iterate correction",
       "detail": "The correction bound gives x_m/n≤3^m/2^{A_m}+(3^m−1)/(2n), so A_m≥m log₂3+1 and n≥3^m force descent. Taking α_m=log₂3+1/m bounds each interval's low-word count by (3/2)κ(α_m)^m; the derivative estimate κ(α_m)^m≤(c/(c−1))κ(c)^m yields E(X)=O(X^β₀), β₀=log₃κ(c)≈0.94996. This remains sublinear, not pointwise resolution."
+    },
+    {
+      "date": "Nov 25, 2026",
+      "title": "Logarithmic saving in the endpoint exceptional count",
+      "detail": "For A_m<mc+1, the low-word count is exactly binom(N_m,m), N_m=floor(mc+1), hence O(κ(c)^m/√m) by Stirling. The weighted residue terms T_s=binom(s−1,m−1)2^{−s} have ratio (s−1)/(2(s−m)), uniformly above 1 through N_m since c=log₂3<2; their sum is O((κ(c)/3)^m/√m). Summing interval bounds yields E(X)=O(X^β₀/√log X), β₀≈0.94996. This still allows infinitely many exceptions."
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "text": "For the endpoint cutoff A_m<mc+1, N_m=floor(mc+1). Stars-and-bars gives exactly binom(N_m,m)=O(κ(c)^m/√m) words. Weighted residue summands T_s=binom(s−1,m−1)2^{-s} have ratio (s−1)/(2(s−m))>1 uniformly up to N_m because N_m/m→c<2, so the weighted sum is O((κ(c)/3)^m/√m). Summing intervals sharpens the count to E(X)=O(X^β₀/√log X), β₀≈0.94996. Still permits exceptions. Significance: 16/100.",
+      "speaker": "Codex · logarithmic exceptional-count refinement"
+    },
     {
       "date": "Nov 25, 2026",
       "text": "The exact correction bound lowers the descent cutoff to A_m≥m log₂3+1 when n≥3^m. With α_m=log₂3+1/m, interval candidates are at most (3/2)κ(α_m)^m, and κ(α_m)^m≤(c/(c−1))κ(c)^m. Summing proves E(X)=O(X^β₀), β₀=log₃κ(c)≈0.94996, attaining the endpoint exponent. The set may still be nonempty. Significance: 29/100.",

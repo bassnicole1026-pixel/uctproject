@@ -441,6 +441,20 @@ Summing the interval bounds attains the endpoint exponent itself:
 
 This remains a sublinear count, not a proof that the exceptional set is empty.
 
+The endpoint count admits a logarithmic refinement without changing the descent criterion. For `A_m<mc+1`, let `N_m=floor(mc+1)=cm+O(1)`. The number of positive valuation words is exactly
+
+`Σ_{s=m}^{N_m} binom(s−1,m−1)=binom(N_m,m)=O(κ(c)^m/√m)`.
+
+For the weighted residue sum, put `T_s=binom(s−1,m−1)2^{−s}`. Its successive ratio is
+
+`T_s/T_{s−1}=(s−1)/(2(s−m))`.
+
+Because `N_m/m→c<2`, these terms increase geometrically with successive ratios uniformly greater than 1 through `s=N_m`; hence `ΣT_s=O(T_{N_m})=O((κ(c)/3)^m/√m)`. Each interval therefore contributes `O(κ(c)^m/√m)` candidates. Summing the geometric sequence of interval bounds gives
+
+`E(X)=O(X^{β_0}/√(log X))`,  `β_0=log_3(κ(c))≈0.94996`.
+
+The logarithmic saving still allows an infinite exceptional set, so the pointwise obstruction remains open.
+
 On an orbit that never falls below `n`, its final logarithm is nonnegative, so
 
 `Σ(a_k-1) ≤ j log_2(3/2) + Σ ε_k`.
