@@ -1,24 +1,13 @@
-Collatz Project — A step-by-step effort to prove that every positive integer eventually reaches 1 under the Collatz map.
+Collatz Project — a step-by-step effort to prove that every positive integer eventually reaches 1 under the Collatz map.
 
-Current milestone:
-- One-step strict descent for odd n ≡ 1 (mod 4).
-- Two-step strict descent for n ≡ 3 (mod 16).
-- Three-step strict descent for n ≡ 11, 23, 43, and 55 (mod 64).
-- Four-step strict descent for n ≡ 7 or 15 (mod 256).
-- Four-step strict descent for n ≡ 143 (mod 256).
-- Four-step strict descent for n ≡ 187 (mod 256).
-- Five-step strict descent for n ≡ 39 (mod 256).
-- Five-step strict descent for n ≡ 79 (mod 256).
-- Five-step strict descent for n ≡ 95 (mod 256).
-- Five-step strict descent for n ≡ 123 (mod 256).
-- Four-step strict descent for n ≡ 59 (mod 256).
-- Four-step strict descent for n ≡ 135 (mod 256).
-- Five-step strict descent for n ≡ 199 (mod 256).
-- Five-step strict descent for n ≡ 175 (mod 256).
-- Five-step strict descent for n ≡ 219 (mod 256).
-- Seven-step strict descent for n ≡ 2587 (mod 4096).
-- Exact computational verification for every starting value from 1 through 100,000.
+Current pure-math milestone:
+- The exact odd-only transition and cycle identities are recorded in the research roadmap.
+- Nontrivial odd cycles with exactly one or exactly two high-valuation blocks are excluded.
+- For exactly three high-valuation blocks, the quotient-one case is excluded and the total run length satisfies T ≤ 34.
+- The exact transition equations exclude T=5, leaving T ∈ {10, 17, 22, 29, 34} unresolved.
+- Cycles with four or more high valuations, and the general descent problem, remain open.
 
-The descent certificates cover 24 of the 32 odd residue classes modulo 64, with thirteen finer classes modulo 256 and one additional class modulo 4096 covered. The full Collatz conjecture has not been proved by this project. Finite computation and partial descent results are not a universal proof.
+The strict estimate of completed proof is 0%: these partial results do not prove the Collatz conjecture. The active work uses exact identities and pure arithmetic; finite orbit computation is not part of the proof strategy.
 
+Live project status: https://bassnicole1026-pixel.github.io/uctproject/
 Research map: https://github.com/bassnicole1026-pixel/uctproject/blob/main/ROADMAP.md
