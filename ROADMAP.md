@@ -694,23 +694,19 @@ Let `U_k^*` be the least positive odd representative of this residue class. Then
 
 In the large-minimum convergent branch this combines with the previous lower bound `r/(q+q')<D` and the state-spacing cap `D≤B_{m,n}`. The resulting comparison is a symbolic necessary condition linking continued-fraction gaps to cyclic block carries. It has not yet produced a contradiction, and the small-minimum branch remains open.
 
-The incoming congruence gives a residue-independent lower bound as well. Write `M_k=3^{t_{k−1}}`. For some integer `ℓ_k`,
+The lift in the incoming congruence is exactly the preceding block parameter. Put `b_k=a_k−1`; the transition from block `k−1` to block `k` gives
 
-`2^{a_k−1+t_k}u_k = 2^{a_k−1}−1+ℓ_k M_k`.
+`2^{b_k}(2^{t_k}u_k−1)=3^{t_{k−1}}u_{k−1}−1`.
 
-Because `t_k≥1` and `u_k≥1`, the left side exceeds `2^{a_k−1}−1`, so `ℓ_k≥1`. Hence
+Substitution into `η` therefore yields the exact adjacent-block expression
 
-`2^{t_k}u_k−1 ≥ (3^{t_{k−1}}−1)/2^{a_k−1}`.
+`η(t_k,u_k)=log_2(1 + 2^{b_k}(1−(2/3)^{t_k})/(3^{t_{k−1}}u_{k−1}−1))`.
 
-Substitution into `η` yields the explicit cyclic upper bound
+The incoming and outgoing congruences above give `u_{k−1}≥V_{k−1}`, where `V_j=max(U_j^*,W_j)` is the two-neighbor lower bound. Since the displayed expression decreases with `u_{k−1}`, cyclically
 
-`D ≤ Σ_k log_2(1 + 2^{a_k−1}(1−(2/3)^{t_k})/(3^{t_{k−1}}−1))`.
+`D ≤ Σ_k log_2(1 + 2^{b_k}(1−(2/3)^{t_k})/(3^{t_{k−1}}V_{k−1}−1))`.
 
-Consequently, in the large-minimum convergent branch,
-
-`r/(q+q') < Σ_k log_2(1 + 2^{a_k−1}(1−(2/3)^{t_k})/(3^{t_{k−1}}−1))`.
-
-This removes the need to evaluate each least residue `U_k^*` for this particular upper bound. The remaining task is to control the cyclic sum from the exact valuation pattern; the inequality alone does not rule out a cycle.
+In the large-minimum convergent branch this combines with `r/(q+q')<D`. Replacing `V_{k−1}` by the weaker bound `1` recovers the previous residue-independent inequality. The strengthened comparison still requires a global bound on the cyclic valuation pattern and does not rule out a cycle by itself.
 
 ## Auxiliary finite congruence certificates
 
