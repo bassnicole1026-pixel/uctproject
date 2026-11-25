@@ -69,13 +69,21 @@ For each of these three classes, `S^3(n) < n`.
 - If `r = 23`, then `S(n) = 96k + 35` and `S^2(n) = 144k + 53`. Since `3S^2(n) + 1 = 432k + 160 = 16(27k + 10)`, we have `S^3(n) ≤ 27k + 10 < 64k + 23`.
 - If `r = 43`, then `S(n) = 96k + 65`, `S^2(n) = 72k + 49`, and `S^3(n) = 54k + 37 < 64k + 43`.
 - If `r = 55`, then `S(n) = 96k + 83` and `S^2(n) = 144k + 125`. Since `3S^2(n) + 1 = 432k + 376 = 8(54k + 47)`, we have `S^3(n) ≤ 54k + 47 < 64k + 55`.
-The six proved regions cover 24 of the 32 odd residue classes modulo 64: all classes `1, 5, 9, 13 (mod 16)`, all of `3 (mod 16)`, and `11, 23, 43, 55 (mod 64)`. The eight classes `7, 15, 27, 31, 39, 47, 59, 63 (mod 64)` remain unresolved by these certificates.
+### Lemma 5: `n ≡ 7 or 15 (mod 256)`
+
+For each of these two classes, `S^4(n) < n`.
+
+**Proof.** Write `n = 256k + r`, where `k ≥ 0`.
+
+- If `r = 7`, the first three odd iterates are `384k + 11`, `576k + 17`, and `432k + 13`. Since `3S^3(n) + 1 = 1296k + 40 = 8(162k + 5)`, we have `S^4(n) ≤ 162k + 5 < 256k + 7`.
+- If `r = 15`, the first three odd iterates are `384k + 23`, `576k + 35`, and `864k + 53`. Since `3S^3(n) + 1 = 2592k + 160 = 16(162k + 10)`, we have `S^4(n) ≤ 162k + 10 < 256k + 15`.
+The first four lemmas cover 24 of the 32 odd residue classes modulo 64: all classes `1, 5, 9, 13 (mod 16)`, all of `3 (mod 16)`, and `11, 23, 43, 55 (mod 64)`. Lemma 5 additionally covers `7` and `15 (mod 256)`, two sub-classes inside the remaining modulo-64 families. The other six full classes at this level are `27, 31, 39, 47, 59, 63 (mod 64)`; the three other sub-classes of `7` and of `15 (mod 64)` also remain open.
 
 ## Work plan
 
 1. **Fix the definitions and proof target.** Keep the original map and odd-only map explicit. The descent property above is the global obligation.
 2. **Build exact, reproducible checks.** A small program can verify a finite starting interval with arbitrary-precision integer arithmetic. A finite check is evidence about that interval only; it cannot establish the universal statement.
-3. **Grow the residue-class descent table.** Start with the unresolved classes `7, 15, 27, 31, 39, 47, 59, 63 (mod 64)`. Split classes into finer powers-of-two classes, derive exact formulas for each fixed parity/valuation path, and record which classes provably reach a smaller odd value.
+3. **Grow the residue-class descent table.** Split the remaining classes modulo 64 into finer powers-of-two classes, derive exact formulas for each fixed parity/valuation path, and record which classes provably reach a smaller odd value. The sub-classes `7` and `15 (mod 256)` are already covered.
 4. **Seek a global argument.** Prove that every remaining odd integer has a smaller odd iterate, or find a different well-founded quantity that yields the same strong-induction finish. A shallow residue search that leaves classes uncovered is not a proof.
 5. **Audit all cases.** Check boundary values, exact divisibility, class coverage, and every induction dependency independently. Keep conjectures, experiments, and theorems labeled separately.
 

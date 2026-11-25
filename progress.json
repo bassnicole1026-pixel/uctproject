@@ -2,10 +2,10 @@
   "updatedAt": "Nov 24, 2026",
   "stage": "Collatz · first proof steps",
   "focus": {
-    "status": "Six descent regions proved",
-    "title": "Close the remaining odd classes modulo 64",
-    "summary": "Six residue families now have strict-descent proofs, covering 24 of the 32 odd classes modulo 64. A separate exact computation checked every start through 100,000. These are partial results, not a proof for all integers.",
-    "next": "Find a descent certificate for one of the remaining classes: 7, 15, 27, 31, 39, 47, 59, or 63 modulo 64."
+    "status": "24 of 32 odd classes modulo 64 covered",
+    "title": "Refine the remaining residue classes",
+    "summary": "Six descent regions cover 24 of the 32 odd classes modulo 64. Two further four-step certificates cover n ≡ 7 and 15 mod 256. An exact computation separately checked every start through 100,000. These are partial results, not a proof for all integers.",
+    "next": "Split the remaining modulo-64 families into finer classes and seek another exact descent certificate."
   },
   "accomplishments": [
     {
@@ -35,6 +35,11 @@
     },
     {
       "date": "Nov 24, 2026",
+      "title": "Two mod-256 sub-classes proved",
+      "detail": "For n ≡ 7 or 15 mod 256, four accelerated odd steps produce a value below n."
+    },
+    {
+      "date": "Nov 24, 2026",
       "title": "Exact finite check through 100,000",
       "detail": "All starts reached 1. Maximum stopping time: 350 at 77,031. Maximum value observed: 1,570,824,736 from 77,671. This finite computation is not a general proof."
     }
@@ -48,7 +53,7 @@
     {
       "date": "Nov 24, 2026",
       "speaker": "Codex · research update",
-      "text": "Six descent regions now cover 24 of the 32 odd residue classes modulo 64. The eight classes without a certificate at this level are 7, 15, 27, 31, 39, 47, 59, and 63."
+      "text": "In this chat, we derived four-step strict-descent certificates for n ≡ 7 and 15 (mod 256). The map still covers only 24 of 32 complete odd classes modulo 64; the next small task is to split the remaining families more finely."
     }
   ]
 }
