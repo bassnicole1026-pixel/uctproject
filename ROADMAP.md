@@ -569,7 +569,7 @@ Let a nontrivial cycle have exact period `m` and least value `n`. Its `m` orbit 
 
 `A−m c = Σ_{i=0}^{m−1}log_2(1+1/(3x_i))`,  `c=log_2 3`,
 
-where `A=Σa_i` is an integer strictly greater than `mc`. Define the fractional gap to the next integer by `δ_m=ceil(mc)−mc>0`. Then
+where `A=Σa_i` is an integer strictly greater than `mc`. Define the fractional gap to the next integer by `δ_m=ceil(mc)−mc∈(0,1)`; `mc` is never an integer because `log_2 3` is irrational. Then
 
 `δ_m ≤ A−mc ≤ Σ_{k=0}^{m−1}log_2(1+1/(3(n+2k)))`.
 
@@ -578,6 +578,20 @@ Using `log_2(1+z)≤z/ln 2` and `n+2k≥n` yields the simple necessary bound
 `n ≤ m/(3 ln(2) δ_m)`.
 
 Thus a cycle with a large minimum requires `m log_2 3` to lie unusually close below an integer. The bound narrows possible cycle parameters but does not exclude the exceptional periods where `δ_m` is small.
+
+The same argument gives a period-only exclusion test. Since every nontrivial cycle value is an odd integer at least `3`,
+
+`2^{δ_m} ≤ ∏_{i=0}^{m−1}(1+1/(3x_i)) ≤ P_m`,
+
+where
+
+`P_m=∏_{k=0}^{m−1}(1+1/(3(3+2k)))=∏_{k=0}^{m−1}(k+5/3)/(k+3/2)`.
+
+Consequently any `m` with `2^{δ_m}>P_m` is impossible as a cycle period. The gamma-function form is
+
+`P_m=Γ(m+5/3)Γ(3/2)/(Γ(5/3)Γ(m+3/2)) ~ C m^{1/6}`
+
+for a positive constant `C`, so `P_m` eventually exceeds `2`. Because `2^{δ_m}<2`, this product filter can exclude only finitely many periods; ruling out long cycles requires additional information from the transition congruences.
 
 ## Auxiliary finite congruence certificates
 
