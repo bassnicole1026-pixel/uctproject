@@ -7,9 +7,9 @@
   },
   "focus": {
     "status": "Pure math · global descent theorem open",
-    "title": "Apply the coupled residue class to block drift",
-    "summary": "Intersecting the two-sided residue progression with the exact endpoint equation gives an exact index threshold for contraction when C_k>0; C_k≤0 forces expansion. This remains local and gives no orbit-wide frequency bound.",
-    "next": "Use these thresholds and the transition law to constrain accumulation of non-contracting blocks without assuming statistical randomness."
+    "title": "Use the coupled index to constrain the next run length",
+    "summary": "On the exact residue progression, the next valuation-one run length is 1+v₂(Θ_k+c_kj_k). Large next run lengths occupy a single 2-adic class of candidate indices, giving local thinning but no orbit-wide frequency bound.",
+    "next": "Connect the allowed 2-adic index classes across consecutive blocks to seek a deterministic obstruction to long non-contracting runs."
   },
   "accomplishments": [
     {
@@ -171,9 +171,19 @@
       "date": "Nov 25, 2026",
       "detail": "Writing the coupled class as u_k=Λ_k+P_kj_k and using 3(x_{k+1}−x_k)=B_k−C_ku_k gives, for C_k>0, the exact threshold j_k≥max(0,floor((floor(B_k/C_k)−Λ_k)/P_k)+1) for strict contraction. For C_k≤0 the block expands. This narrows possible non-contracting parameters locally but gives no orbit-wide count.",
       "title": "Exact contraction threshold on the coupled residue progression"
+    },
+    {
+      "date": "Nov 25, 2026",
+      "detail": "With u_k=Λ_k+2^{b_k+1}M_kj_k, the next transition satisfies 2^{t_{k+1}−1}u_{k+1}=Θ_k+c_kj_k, where Θ_k=(3^{t_k}Λ_k+2^{b_k}−1)/2^{b_k+1} and c_k=3^{t_k}M_k is odd. Thus t_{k+1}=1+v₂(Θ_k+c_kj_k); each lower bound on t_{k+1} selects one residue class of j_k modulo a power of 2. This gives only local branch counts.",
+      "title": "The coupled index determines the next run length"
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "text": "Substituting the coupled progression into the transition yields 2^{t_{k+1}−1}u_{k+1}=Θ_k+c_kj_k, with Θ_k=(3^{t_k}Λ_k+2^{b_k}−1)/2^{b_k+1} and odd c_k=3^{t_k}M_k. Hence t_{k+1}≥r+1 is one residue class of j_k mod 2^r; exact equality is one class mod 2^{r+1}. Among the finite non-contracting index range, this bounds candidate counts, not actual orbit frequency. Significance: 24/100.",
+      "speaker": "Codex · 2-adic successor update"
+    },
     {
       "date": "Nov 25, 2026",
       "text": "Intersecting the exact adjacent-transition progression u_k=Λ_k+P_kj with 3(x_{k+1}−x_k)=B_k−C_ku_k yields a precise index threshold: for C_k>0, strict contraction iff j≥max(0,floor((floor(B_k/C_k)−Λ_k)/P_k)+1); for C_k≤0, the block expands. This is local and does not bound the frequency of expanding blocks. Significance: 22/100.",

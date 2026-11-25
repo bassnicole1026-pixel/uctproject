@@ -351,6 +351,18 @@ Write the exact progression as `u_k=Λ_k+P_kj_k`, where `Λ_k=L_k+2^{b_k}M_kδ_k
 
 Consequently, if `Λ_k>H_k` every parameter in this coupled residue class contracts; otherwise only the finite index range `0≤j_k<J_k^{min}` can be non-contracting. This is an exact local test using both neighboring transitions. It does not show that non-contracting blocks are too sparse or that their total drift is bounded along a full orbit.
 
+### The coupled index determines the next run length
+
+For the same progression, define
+
+`Θ_k=(3^{t_k}Λ_k+2^{b_k}−1)/2^{b_k+1}` and `c_k=3^{t_k}M_k`.
+
+The parity choice `δ_k` makes `Θ_k` an integer: using `r_k=(3^{t_k}L_k−1)/2^{b_k}`, it equals `(r_k+3^{t_k}M_kδ_k+1)/2`, whose numerator is even. Substituting `u_k=Λ_k+2^{b_k+1}M_kj_k` into the transition equation gives
+
+`2^{t_{k+1}−1}u_{k+1}=Θ_k+c_kj_k`,
+
+so `t_{k+1}=1+v_2(Θ_k+c_kj_k)`. Since `c_k` is odd, for every `r≥0` the condition `t_{k+1}≥r+1` selects exactly one residue class of `j_k` modulo `2^r`; exact equality `t_{k+1}=r+1` selects one class modulo `2^{r+1}`. Therefore, among the `J_k^{min}` candidate indices for a non-contracting block when `C_k>0`, at most `ceil(J_k^{min}/2^r)` can produce `t_{k+1}≥r+1`. This is a deterministic local branch-counting statement. It does not bound which index an actual orbit follows or prove a global descent.
+
 On an orbit that never falls below `n`, its final logarithm is nonnegative, so
 
 `Σ(a_k-1) ≤ j log_2(3/2) + Σ ε_k`.
