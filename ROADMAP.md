@@ -263,6 +263,28 @@ so `A_j-j = Σ_{k=1}^m (a_k-1)`. If the orbit never falls below its starting val
 
 at every such block boundary. This is a necessary upper bound for a hypothetical non-descending orbit. Proving a contradictory lower bound from the dynamics, while allowing expanding blocks such as the one from 9, is still open.
 
+### Frequency constraints on a hypothetical non-descending orbit
+
+Fix an odd `n>1` and suppose no odd Syracuse iterate falls below `n`. Put
+
+`c_n=log_2((3+1/n)/2)` and `N_s(j)=#{1≤i≤j : a_i≥s}` for integers `s≥2`.
+
+The exact iterate inequality gives `Σ_{i=1}^j(a_i−1)≤j c_n`. Each index counted by `N_s(j)` contributes at least `s−1` to this sum, so for every `j` and `s≥2`,
+
+`N_s(j) ≤ floor(j c_n/(s−1))`.
+
+In particular, if `Z_j=#{1≤i≤j:a_i=1}`, then
+
+`Z_j/j ≥ 1−c_n ≥ log_2(6/5)`,
+
+because `n≥3` implies `c_n≤log_2(5/3)`. Thus any orbit that fails the descent target must have valuation-one steps on a positive lower density of its odd steps, while valuations at least `s` have upper density at most `c_n/(s−1)`.
+
+There is an equivalent constraint on complete return blocks. If `r` is the initial run of valuation-one steps and `j_m=r+Σ_{k=1}^m t_k` is the endpoint after `m` blocks, then the `m` block-start valuations are all at least 2, so `m≤j_m c_n`. Consequently
+
+`(1/m)Σ_{k=1}^m t_k ≥ 1/c_n−r/m`,
+
+and the lower limit of the mean block length is at least `1/c_n`. This is a necessary frequency condition, not a contradiction: the transition law has not yet supplied an incompatible upper bound on these run lengths.
+
 ## No odd-only cycles of period at most four
 
 The only periodic orbit of the odd-only Syracuse map with period at most four is the fixed point `1`.

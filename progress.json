@@ -3,13 +3,13 @@
   "stage": "Collatz · first proof steps",
   "aiEstimate": {
     "percent": 0,
-    "basis": "Strict proof-completion estimate: 0%. Exact identities and local descent cases are proved, but no argument establishes descent for every starting integer. Finite coverage does not give a meaningful percentage of the full theorem."
+    "basis": "Strict proof-completion estimate: 0%. Exact identities, local descent cases, and necessary frequency constraints for a hypothetical non-descending orbit are recorded, but no argument establishes descent for every starting integer. Finite coverage and density restrictions do not give a meaningful percentage of the full theorem."
   },
   "focus": {
     "status": "Pure math · global descent theorem open",
-    "title": "Prove universal descent from the block transition law",
-    "summary": "An exact multiplicative identity now excludes all nontrivial odd-only cycles of period at most four. The main task remains proving universal descent for every odd start; cycle exclusions do not address nonperiodic orbits.",
-    "next": "Prove a structural lower bound on Σ(a_k−1) from the transition law and compare it with the non-descent cap."
+    "title": "Derive a global run-length bound from block transitions",
+    "summary": "A hypothetical orbit that never drops below its start must have valuation-one steps with lower density at least log₂(6/5), and its mean return-block length is at least 1/c_n. The transition law has not yet contradicted this required run-length pattern.",
+    "next": "Use 3^{t_k}u_k−1=2^{a_{k+1}−1}(2^{t_{k+1}}u_{k+1}−1) to derive a run-length bound incompatible with the required mean."
   },
   "accomplishments": [
     {
@@ -126,9 +126,19 @@
       "title": "Odd-only cycles of period at most four excluded",
       "detail": "Multiplying cycle step ratios gives 3^m<2^A<(10/3)^m for any nontrivial m-cycle. This excludes m=1,2,4; for m=3 it forces A=5, and the exact cycle equation modulo 5 rules out every positive valuation triple. Longer cycles and nonperiodic orbits remain open.",
       "date": "Nov 25, 2026"
+    },
+    {
+      "date": "Nov 25, 2026",
+      "detail": "If no odd iterate falls below n, then Σ(a_i−1)≤j c_n, where c_n=log₂((3+1/n)/2). Therefore the count of a_i≥s is at most floor(j c_n/(s−1)), valuation-one steps have lower density at least log₂(6/5), and the mean return-block length has lower limit at least 1/c_n. These necessary conditions do not yet contradict the transition law.",
+      "title": "Necessary valuation frequencies for a descent failure derived"
     }
   ],
   "notes": [
+    {
+      "speaker": "Codex · orbit-frequency bound",
+      "date": "Nov 25, 2026",
+      "text": "For a hypothetical descent failure from odd n>1, the exact cumulative-valuation cap implies N_s(j)≤floor(j c_n/(s−1)), where c_n=log₂((3+1/n)/2) and N_s counts valuations a_i≥s. Thus valuation-one steps have lower density at least log₂(6/5), and complete return blocks have mean length at least 1/c_n in the limit. Significance: 18/100 — a structural restriction on any counterexample, but not yet a contradiction."
+    },
     {
       "speaker": "Codex · cycle bound",
       "text": "Exact cycle result: for any nontrivial odd-only cycle of period m, multiplying the step ratios yields 3^m<2^A<(10/3)^m. This rules out periods 1, 2, and 4 directly; period 3 forces A=5 and is excluded by its exact equation modulo 5. Significance: 14/100 — a small-cycle exclusion only; longer cycles and nonperiodic orbits remain open.",
