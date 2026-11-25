@@ -820,6 +820,60 @@ Every margin is positive, contradicting the necessary cycle condition `qM≤A`. 
 
 A related 2026 preprint claims the stronger result that every nontrivial cycle has at least four runs of valuation-one steps; it uses additional run inequalities and a computational lower bound for cycle length ([Cerdá Bennassar, preprint](https://zenodo.org/records/23190068)). The current project has not independently verified its two- and three-run cases.
 
+### Exact system for two high-valuation blocks
+
+Suppose a nontrivial odd-only cycle has exactly two valuations at least `2`. Index the two blocks cyclically. In block `i`, let `a_i≥2` be its high valuation, let `t_i≥1` count that step together with the following `t_i−1` valuation-one steps, put `b_i=a_i−1`, and let `u_i` be the positive odd parameter after the high step. The transition identities are
+
+`3^{t_1}u_1−1=2^{b_2}(2^{t_2}u_2−1)`,  `3^{t_2}u_2−1=2^{b_1}(2^{t_1}u_1−1)`.
+
+Set `T=t_1+t_2`, `B=b_1+b_2`, and
+
+`η(t,u)=log_2((1−1/(3^t u))/(1−1/(2^t u)))`.
+
+Multiplying the two transitions and cancelling `u_1u_2` gives the exact cycle-excess identity
+
+`B−T log_2(3/2)=η(t_1,u_1)+η(t_2,u_2)`.
+
+Each correction is positive and decreases with `u`. Also
+
+`η(t,u)≤η(t,1)=log_2((1−3^{−t})/(1−2^{−t}))≤log_2(4/3)`,
+
+where equality in the last bound occurs at `t=1`. Hence
+
+`0<B−T log_2(3/2)≤log_2(16/9)<1`,
+
+so the integer sum is fixed by the total block length:
+
+`B=floor(T log_2(3/2))+1`.
+
+The transitions also impose a simple residue restriction. Reducing the transition into block `i` modulo `3` gives
+
+`b_i even ⇒ 3|u_i`,  `b_i odd ⇒ u_i≡(−1)^{t_i+1} (mod 3)`.
+
+Thus an odd `b_i` with even `t_i` forces `u_i≥5`, while an odd `b_i` with odd `t_i` allows `u_i=1` or forces `u_i≥7`. If `u_i=1`, the residue condition makes `t_i` odd, and the transition out of block `i` gives `b_{i+1}=v_2(3^{t_i}−1)=1`. If both block quotients were `1`, this would give `b_1=b_2=1` and `B=2`. Since `T` would be even and `log_2(3/2)>1/2`, the fixed-sum condition forces `T=2`, `t_1=t_2=1`; the reconstructed cycle is only the trivial fixed point `1`. Therefore every nontrivial two-block cycle has at least one `u_i≥3`.
+
+For `u≥1`, `η(t,u)≤log_2(4/3)`. If `u≥3`, then
+
+`(1−(2/3)^t)/(2^t u−1)≤1/15`,
+
+as is seen separately for `t=1`, `t=2`, and `t≥3`; hence `η(t,u)≤log_2(16/15)`. The nontrivial two-block case consequently satisfies the sharper necessary bound
+
+`0<B−T log_2(3/2)≤log_2(64/45)<1`,
+
+or, equivalently,
+
+`{T log_2(3/2)}≥log_2(45/32)`.
+
+This restricts the total period's fractional-part position but still permits infinitely many `T`; the divisibility conditions below are needed for further progress.
+
+The two transitions are a linear system in `u_1,u_2`. Its determinant is `−Q`, where `Q=2^{B+T}−3^T>0`. Solving it yields
+
+`Q u_1=3^{t_2}(2^{b_2}−1)+2^{b_2+t_2}(2^{b_1}−1)`,
+
+`Q u_2=3^{t_1}(2^{b_1}−1)+2^{b_1+t_1}(2^{b_2}−1)`.
+
+Thus any two-block cycle must have `b_1,b_2≥1`, the displayed fixed sum `B`, and both right-hand sides divisible by `Q` with positive odd quotients. Conversely, such positive odd quotients solve the transition system and reconstruct the two high steps and their forced unit-valuation runs. This is an exact arithmetic characterization of the two-block case; the simultaneous divisibilities have not been ruled out for all `T`, and this result excludes no general cycle profile.
+
 ## Auxiliary finite congruence certificates
 
 The following exact congruence arguments establish descent on selected classes. They are valid side results, but extending a residue list is not the active proof strategy and does not address the remaining all-integers argument.
@@ -1038,7 +1092,7 @@ Lemmas 1–4 cover 24 of the 32 odd residue classes modulo 64: all classes `1, 5
 
 1. **Fix the definitions and proof target.** Keep the original map and odd-only map explicit. The descent property above is the global obligation.
 2. **Work from exact identities.** Derive consequences of the Syracuse recurrence symbolically, keeping each equality and inequality justified for arbitrary odd starting values. The iterate identity, exact valuation-one run length, return-block formulas, modulo-3 restriction, transition law, logarithmic block drift, and state-dependent block contraction threshold are proved above.
-3. **Exclude arbitrary nontrivial cycles.** By the cycle-exclusion reduction above, this is sufficient for the full conjecture. Use the exact cycle equation and transition constraints to derive a contradiction uniformly in the period; do not extend finite residue lists as a substitute. The block inequalities remain possible tools, but no local contraction test by itself proves the global claim.
+3. **Exclude cycle profiles by their number of high valuations.** The exactly-one-high profile is excluded above. For exactly two high blocks, the total `b`-sum is fixed and closure is reduced to two simultaneous divisibilities by `Q`; eliminating those divisibilities uniformly in `T` is the current subproblem. Profiles with three or more high blocks still need uniform constraints. Ruling out every nontrivial odd-only cycle is sufficient for the full conjecture.
 4. **Keep the proof uniform in the starting value.** Seek identities and inequalities that apply to every odd `n`. Treat the finite congruence certificates below as supplementary lemmas; do not use more residue enumeration as a substitute for the global argument.
 5. **Audit the complete argument.** Check boundary values, the valuation recurrence, and every induction dependency. Keep conjectures, computational observations, and proved statements labeled separately.
 
@@ -1053,9 +1107,12 @@ flowchart TD
     N --> R["Minimality forces strictly decreasing future records"]
     R --> Y["A record returns to n, giving a nontrivial cycle"]
     Y -.-> Q
-    Q --> O["OPEN: exclude cycles at every period"]
     N --> I["Exact iterate and cycle identities — proved"]
+    Q --> I
     I --> B["Return-block and transition formulas — proved"]
+    B --> H1["One high-valuation block — excluded"]
+    H1 --> H2["Two high-valuation blocks — exact divisibility system"]
+    H2 --> O["OPEN: eliminate two-block divisibilities and control profiles with 3+ high valuations"]
     B --> O
 ```
 

@@ -3,15 +3,20 @@
   "stage": "Collatz · first proof steps",
   "aiEstimate": {
     "percent": 0,
-    "basis": "Strict full-conjecture proof-completion estimate: 0%. A Matveev bound, exact continued-fraction interval certificates, and ten exact integer comparisons exclude nontrivial cycles with exactly one valuation at least 2 and all remaining valuations 1. Cycle profiles with multiple high valuations and unbounded non-descending orbits remain open."
+    "basis": "Strict full-conjecture proof-completion estimate: 0%. The exactly-one-high-valuation cycle profile is excluded. The exactly-two-high-block profile has a fixed exponent sum, explicit mod-3 residue constraints, and an exact two-divisibility closure test, but these conditions are not ruled out for all T. Profiles with more high valuations and unbounded non-descending orbits remain open."
   },
   "focus": {
-    "status": "Pure math · cycle subcase",
-    "title": "Exclude cycles with exactly one high-valuation step",
-    "summary": "An exact logarithmic-form bound and continued-fraction argument reduce the one-high-valuation cycle profile to ten integer inequalities; every margin is positive, so that profile cannot close.",
-    "next": "Study cycles with two or more high-valuation steps using exact block equations and arithmetic constraints, while keeping the separate nonperiodic descent problem in view."
+    "status": "Pure math · two-block cycle equations",
+    "title": "Exploit the exact two-block divisibilities",
+    "summary": "For two high-valuation blocks, b₁+b₂=floor((t₁+t₂) log₂(3/2))+1. Mod-3 constraints rule out both block quotients being 1 in any nontrivial cycle, yielding {T log₂(3/2)}≥log₂(45/32); closure still requires two divisibilities by Q=2^(B+T)−3^T.",
+    "next": "Exploit the mod-3 residues and fractional-part bound to eliminate the simultaneous Q-divisibilities uniformly in T; then extend the analysis to three or more high valuations."
   },
   "accomplishments": [
+    {
+      "date": "Nov 25, 2026",
+      "title": "Two-high-block cycles reduced to exact divisibilities",
+      "detail": "For a cycle with exactly two high-valuation blocks, let T=t₁+t₂ and B=b₁+b₂, with bᵢ=aᵢ−1. Multiplying the exact transitions gives B−T log₂(3/2)=η(t₁,u₁)+η(t₂,u₂), so 0<B−T log₂(3/2)≤log₂(16/9)<1 and B=floor(T log₂(3/2))+1. Modulo 3, bᵢ even forces 3|uᵢ, while odd bᵢ gives uᵢ≡(−1)^{tᵢ+1} mod 3. If both uᵢ=1, LTE and the fixed-sum condition force T=2 and the trivial cycle 1; otherwise at least one uᵢ≥3, sharpening the excess to B−T log₂(3/2)≤log₂(64/45), equivalently {T log₂(3/2)}≥log₂(45/32). Finally Q=2^(B+T)−3^T must divide both explicit transition numerators with positive odd quotients. These are exact necessary conditions, not an exclusion of all two-block cycles."
+    },
     {
       "date": "Nov 25, 2026",
       "title": "Exactly one high-valuation cycle profile excluded",
@@ -319,6 +324,11 @@
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "speaker": "Codex · two-block cycle reduction",
+      "text": "Exact two-block refinement: the transition residues give 3|uᵢ for even bᵢ and uᵢ≡(−1)^{tᵢ+1} mod 3 for odd bᵢ. If both uᵢ=1, LTE and B=floor(T log₂(3/2))+1 force the trivial cycle T=2. Every nontrivial two-block cycle therefore has some uᵢ≥3, sharpening the excess to B−T log₂(3/2)≤log₂(64/45), or {T log₂(3/2)}≥log₂(45/32). The exact two divisibility conditions remain unresolved. Significance: 16/100."
+    },
     {
       "date": "Nov 25, 2026",
       "speaker": "Codex · exact cycle-profile exclusion",
