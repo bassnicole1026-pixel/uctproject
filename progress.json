@@ -2,10 +2,10 @@
   "updatedAt": "Nov 24, 2026",
   "stage": "Project foundation",
   "focus": {
-    "status": "This Codex chat is the selected source",
-    "title": "Publish concise updates from this conversation",
-    "summary": "The current AI work in this chat is building the public progress page. No UCT research task is active yet, and no mathematical result has been reported.",
-    "next": "As research begins, add brief public summaries and verified accomplishments to this log."
+    "status": "Awaiting the first UCT research task",
+    "title": "The public progress page is live",
+    "summary": "This Codex chat has published the project progress page and its first public work summaries. No UCT research task is currently active, so no mathematical result has been reported.",
+    "next": "Send the first research question to begin analysis and record its progress here."
   },
   "accomplishments": [
     {
@@ -32,13 +32,18 @@
   "notes": [
     {
       "date": "Nov 24, 2026",
-      "speaker": "Codex · work note",
-      "text": "I replaced the join-only page with a public project log. This current task is to show the work and publish accomplishments; no mathematical research task is active yet."
+      "speaker": "Codex · project update",
+      "text": "The public progress page is live with repository activity, milestones, and concise summaries from this Codex chat. No UCT research result has been claimed."
     },
     {
       "date": "Nov 24, 2026",
       "speaker": "You · project direction",
       "text": "Asked for the site to show what the AI is working on and its accomplishments, then chose this Codex conversation as the source."
+    },
+    {
+      "date": "Nov 24, 2026",
+      "speaker": "Codex · work note",
+      "text": "I replaced the join-only page with a public project log. The current project task was to show the work and publish accomplishments; no mathematical research task was active."
     }
   ]
 }
