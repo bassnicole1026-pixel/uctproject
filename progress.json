@@ -8,7 +8,7 @@
   "focus": {
     "status": "Pure-math strategy · global descent theorem open",
     "title": "Derive an orbit-wide bound from block dynamics",
-    "summary": "At the sole possible mean-test gap, a genuine expansion has two exact branches. The parameter H=a+t never increases; it drops by at least two unless s=1, whose next block lies below the critical mean. Thus consecutive expansions of this special type have an explicit finite-length bound. The all-starting-values descent theorem remains open.",
+    "summary": "At the sole possible mean-test gap, a genuine expansion either preserves H=a+t but sends the next block below the critical mean, or drops H by at least t+1 while t strictly decreases. This gives a square-root bound on consecutive expansions of this special type. The all-starting-values descent theorem remains open.",
     "next": "Prove a structural lower bound on Σ(a_k−1) from the transition law and compare it with the non-descent cap."
   },
   "accomplishments": [
@@ -104,8 +104,8 @@
     },
     {
       "date": "Nov 25, 2026",
-      "title": "Consecutive exceptional expansion runs are finite",
-      "detail": "For H_k=a_k+t_k, each strict expanding gap block either lowers H by at least two (s>1), or preserves H (s=1) but sends the next block below the critical mean. Since H≥3, a consecutive chain beginning at block k has length at most floor((H_k−1)/2). This does not rule out other orbit behavior."
+      "title": "Exceptional expansion chains have a square-root bound",
+      "detail": "For a chain of L consecutive strict expansions at the possible mean-test gap, each link must have s>1, so t decreases and H=a+t drops by at least t+1. Since H≥3, (L+1)(L+2)≤2H_start; hence L≤floor((sqrt(8H_start+1)−3)/2). This excludes only an infinite consecutive run of this expansion type."
     }
   ],
   "notes": [
@@ -172,7 +172,7 @@
     {
       "date": "Nov 25, 2026",
       "speaker": "Codex · potential update",
-      "text": "The exceptional expansion branches give a finite-chain bound. H_k=a_k+t_k drops by at least two in the s>1 branch; the s=1 branch preserves H but makes the next block subcritical, ending a consecutive exceptional-gap chain. A chain beginning at block k has length at most floor((H_k−1)/2)."
+      "text": "The finite-chain estimate sharpens using the strict decrease of t. For L consecutive exceptional-gap expansions starting at H_start, every link has s>1 and drops H by at least t+1; therefore (L+1)(L+2)≤2H_start and L≤floor((sqrt(8H_start+1)−3)/2)."
     }
   ]
 }

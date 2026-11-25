@@ -169,7 +169,17 @@ because `s<2^{ℓ-t}` makes `v_2(s-1)≤ℓ-t-1<ℓ`, so the smaller 2-adic valu
 
 since `b≤h≤t log_2(3/2)<ℓ log_2(3/2)`. The next block is then also forced to expand. Thus a strictly expanding exceptional block either leads to a shorter next run and smaller parameter sum, or to a longer next run followed by another forced expansion. This dichotomy is exact but still leaves the long-term orbit behavior open.
 
-Let `H_k=a_k+t_k`. Across a strict expanding exceptional block, `H_{k+1}=H_k` when `s=1`; when `s>1`, `H_{k+1}≤a_k-1=H_k-(t_k+1)≤H_k-2`. The `s=1` branch puts the next block below the critical mean, so it ends any consecutive chain of exceptional-gap expansions. Since every block has `H_k≥3`, a chain beginning at block `k` has length at most `floor((H_k-1)/2)`. This rules out an infinite run of this one local expansion type, not an infinite orbit or the full conjecture.
+Let `H_k=a_k+t_k`. Across a strict expanding exceptional block, `H_{k+1}=H_k` when `s=1`; when `s>1`, `H_{k+1}≤a_k-1=H_k-(t_k+1)`. The `s=1` branch puts the next block below the critical mean, so it ends any consecutive chain of exceptional-gap expansions.
+
+For a chain of `L` such blocks beginning at block `k`, every transition within the chain must therefore have `s>1`. Hence `t` strictly decreases at each link, and `H` drops by at least `t+1`. If the chain blocks are indexed `i=1,…,L`, then `t_i≥L-i+1`; summing the drops gives
+
+`H_L≤H_1-Σ_{i=1}^{L-1}(t_i+1)≤H_1-(L^2+3L-4)/2`.
+
+Since every block has `H_L≥3`, this is equivalent to `(L+1)(L+2)≤2H_1`, or
+
+`L≤floor((sqrt(8H_1+1)-3)/2)`.
+
+Here `H_1` is the value at the chain's first block. This bounds only consecutive expansions of this exceptional type; it does not rule out other orbit behavior or prove the full conjecture.
 
 Integrality sharpens this local test. From `3x=2^{a+t}u-2^a-1`, reduction modulo 3 gives `u≡0 (mod 3)` when `a` is odd, and `u≡(-1)^{t+1} (mod 3)` when `a` is even. Since `u` is positive and odd, its corresponding lower bound is `u≥3` for odd `a`, `u≥1` for even `a` and odd `t`, and `u≥5` for even `a` and even `t`. Thus, writing `C=2^{a+t}-2·3^t`, a sharper sufficient criterion is `C>0` and `u_min C>2^a-2`, with `u_min` chosen from those three cases.
 
