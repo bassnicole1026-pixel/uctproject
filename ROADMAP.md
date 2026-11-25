@@ -9,6 +9,8 @@ Define the Collatz map on positive integers by
 
 The conjecture says every positive integer eventually reaches 1.
 
+The active proof strategy is symbolic: derive exact identities for arbitrary odd inputs, then prove orbit-wide inequalities from the valuation dynamics. Finite orbit checks and lists of residue classes are supplementary records, not the route to the global theorem.
+
 For odd inputs, skip the even terms and use the Syracuse map
 
 `S(n) = (3n + 1) / 2^v2(3n + 1)`, for odd `n`,
@@ -181,7 +183,9 @@ so `A_j-j = Σ_{k=1}^m (a_k-1)`. If the orbit never falls below its starting val
 
 at every such block boundary. This is a necessary upper bound for a hypothetical non-descending orbit. Proving a contradictory lower bound from the dynamics, while allowing expanding blocks such as the one from 9, is still open.
 
-## Proved descent regions
+## Auxiliary finite congruence certificates
+
+The following exact congruence arguments establish descent on selected classes. They are valid side results, but extending a residue list is not the active proof strategy and does not address the remaining all-integers argument.
 
 ### Lemma 1: `n ≡ 1 (mod 4)`
 
@@ -398,7 +402,7 @@ Lemmas 1–4 cover 24 of the 32 odd residue classes modulo 64: all classes `1, 5
 1. **Fix the definitions and proof target.** Keep the original map and odd-only map explicit. The descent property above is the global obligation.
 2. **Work from exact identities.** Derive consequences of the Syracuse recurrence symbolically, keeping each equality and inequality justified for arbitrary odd starting values. The iterate identity, exact valuation-one run length, return-block formulas, modulo-3 restriction, transition law, logarithmic block drift, and state-dependent block contraction threshold are proved above.
 3. **Seek a global contradiction.** Under the assumption that an odd orbit never falls below its start, prove a structural lower bound on `Σ(a_k-1)` that contradicts the necessary block-boundary upper bounds above. The local block criterion does not suffice by itself: successive block contractions and expansions must be controlled together. Any proposed bound must follow from the exact dynamics, not from finite samples or residue enumeration.
-4. **Use local descent certificates as supporting lemmas.** The residue classes listed below are valid partial results and may support a broader proof, but extending the table alone does not close the global descent obligation.
+4. **Keep the proof uniform in the starting value.** Seek identities and inequalities that apply to every odd `n`. Treat the finite congruence certificates below as supplementary lemmas; do not use more residue enumeration as a substitute for the global argument.
 5. **Audit the complete argument.** Check boundary values, the valuation recurrence, and every induction dependency. Keep conjectures, computational observations, and proved statements labeled separately.
 
 ## Proof map
@@ -418,12 +422,11 @@ flowchart TD
     U2 --> G
     L --> G
     G -.-> D
-    R["Residue descent certificates for listed classes only"] -.-> D
 ```
 
-## Historical finite check (not a proof strategy)
+## Archived finite computation (not part of the proof strategy)
 
-Reproduce the check with `python collatz_verify.py --limit 100000`. It verifies every starting value from 1 through 100,000 using exact integer arithmetic. The run passed: the largest stopping time was 350 steps at `n = 77,031`, and the largest value observed was 1,570,824,736 from `n = 77,671`. The program memoizes verified tails and stops if it detects a cycle not reaching 1. This is a finite check, not a proof outside the tested interval.
+An earlier exact-integer check covered starting values from 1 through 100,000. Its maximum stopping time was 350 at `n = 77,031`, and its maximum value was 1,570,824,736 from `n = 77,671`. These bounded observations establish no claim about untested inputs and are not used in the proof map.
 
 ## Literature waypoint
 
@@ -433,4 +436,4 @@ A 2026 exploratory paper on burst/gap dynamics explicitly leaves its key orbitwi
 
 ## Status
 
-The exact iterate identity is proved, and Lemmas 1–17 prove strict descent on their listed residue classes. The required global valuation bound remains open; the finite computation is bounded evidence. The full Collatz conjecture has not been proved in this project.
+Several exact iterate, valuation, and return-block identities are proved, along with supplementary descent results on selected congruence classes. The required global orbit-wide inequality remains open. The full Collatz conjecture has not been proved in this project; the strict proof-completion estimate is 0%.

@@ -3,22 +3,13 @@
   "stage": "Collatz · first proof steps",
   "aiEstimate": {
     "percent": 0,
-    "basis": "Strict proof-completion estimate: 0%. No universal proof has been completed; partial results do not support a defensible fractional score for the full conjecture."
-  },
-  "residueCoverage": {
-    "covered": 24,
-    "total": 32,
-    "modulus": 64,
-    "finerCovered": 13,
-    "finerModulus": 256,
-    "deeperClasses": [2587],
-    "deeperModulus": 4096
+    "basis": "Strict proof-completion estimate: 0%. Exact identities and local descent cases are proved, but no argument establishes descent for every starting integer. Finite coverage does not give a meaningful percentage of the full theorem."
   },
   "focus": {
-    "status": "Global proof target remains open",
-    "title": "Use block drift to force a descent",
-    "summary": "A block contracts exactly when q_k>log₂3+ε_k/t_k. Across m blocks, their log drifts sum to log₂((x_{m+1}+1)/(x_1+1)); a sum below −r log₂(3/2) guarantees a block-boundary value below n. The universal reason this must happen is still open.",
-    "next": "Prove that every odd start either has a within-block descent or accumulates enough negative block drift to cross below its start."
+    "status": "Pure-math strategy · global descent theorem open",
+    "title": "Derive an orbit-wide bound from block dynamics",
+    "summary": "Exact identities give each block’s logarithmic drift, while every hypothetical non-descending orbit obeys a cumulative excess cap. The remaining task is to derive an all-starting-values lower bound from the inter-block recurrence.",
+    "next": "Prove a structural lower bound on Σ(a_k−1) from the transition law and compare it with the non-descent cap."
   },
   "accomplishments": [
     {
@@ -80,96 +71,6 @@
       "date": "Nov 24, 2026",
       "title": "Cumulative block-excess constraint derived",
       "detail": "Across m complete blocks, A_j−j=Σ(a_k−1). If the orbit never drops below n, this excess must be at most j log₂((3+1/n)/2) at each block boundary. Proving a contradictory lower bound remains open."
-    },
-    {
-      "date": "Nov 24, 2026",
-      "title": "Descent proved for n ≡ 1 mod 4",
-      "detail": "For every odd n > 1 in this class, one accelerated odd step is strictly smaller than n."
-    },
-    {
-      "date": "Nov 24, 2026",
-      "title": "Descent proved for n ≡ 3 mod 16",
-      "detail": "For every n in this class, two accelerated odd steps produce a value below n."
-    },
-    {
-      "date": "Nov 24, 2026",
-      "title": "Descent proved for n ≡ 11 mod 64",
-      "detail": "For every n in this class, three accelerated odd steps produce a value below n."
-    },
-    {
-      "date": "Nov 24, 2026",
-      "title": "Three more mod-64 classes proved",
-      "detail": "For n ≡ 23, 43, or 55 mod 64, three accelerated odd steps produce a value below n."
-    },
-    {
-      "date": "Nov 24, 2026",
-      "title": "Two mod-256 sub-classes proved",
-      "detail": "For n ≡ 7 or 15 mod 256, four accelerated odd steps produce a value below n."
-    },
-    {
-      "date": "Nov 24, 2026",
-      "title": "Descent proved for n ≡ 143 mod 256",
-      "detail": "Four exact accelerated odd steps produce 162k + 91 from n = 256k + 143, which is strictly smaller for every k ≥ 0."
-    },
-    {
-      "date": "Nov 24, 2026",
-      "title": "Descent proved for n ≡ 187 mod 256",
-      "detail": "Four exact accelerated odd steps produce 162k + 119 from n = 256k + 187, a decrease of 94k + 68."
-    },
-    {
-      "date": "Nov 24, 2026",
-      "title": "Descent proved for n ≡ 39 mod 256",
-      "detail": "Four exact odd steps followed by a fifth step divisible by at least 8 give S^5(n) ≤ 243k + 38 < 256k + 39."
-    },
-    {
-      "date": "Nov 24, 2026",
-      "title": "Descent proved for n ≡ 79 mod 256",
-      "detail": "Four exact odd steps followed by a fifth step divisible by at least 4 give S^5(n) ≤ 243k + 76 < 256k + 79."
-    },
-    {
-      "date": "Nov 24, 2026",
-      "title": "Descent proved for n ≡ 95 mod 256",
-      "detail": "Four exact odd steps followed by a fifth step divisible by at least 16 give S^5(n) ≤ 243k + 91 < 256k + 95."
-    },
-    {
-      "date": "Nov 24, 2026",
-      "title": "Descent proved for n ≡ 123 mod 256",
-      "detail": "Four exact odd steps followed by a fifth step divisible by at least 4 give S^5(n) ≤ 243k + 118 < 256k + 123."
-    },
-    {
-      "date": "Nov 24, 2026",
-      "title": "Descent proved for n ≡ 59 mod 256",
-      "detail": "Three exact odd steps followed by a fourth step divisible by at least 16 give S^4(n) ≤ 81k + 19 < 256k + 59."
-    },
-    {
-      "date": "Nov 24, 2026",
-      "title": "Descent proved for n ≡ 135 mod 256",
-      "detail": "Three exact odd steps followed by a fourth step divisible by at least 16 give S^4(n) ≤ 81k + 43 < 256k + 135."
-    },
-    {
-      "date": "Nov 24, 2026",
-      "title": "Descent proved for n ≡ 199 mod 256",
-      "detail": "Four exact odd steps followed by a fifth step divisible by at least 4 give S^5(n) ≤ 243k + 190 < 256k + 199."
-    },
-    {
-      "date": "Nov 24, 2026",
-      "title": "Descent proved for n ≡ 175 mod 256",
-      "detail": "Four exact odd steps followed by a fifth step divisible by at least 8 give S^5(n) ≤ 243k + 167 < 256k + 175."
-    },
-    {
-      "date": "Nov 24, 2026",
-      "title": "Descent proved for n ≡ 219 mod 256",
-      "detail": "Four exact odd steps followed by a fifth step divisible by at least 8 give S^5(n) ≤ 243k + 209 < 256k + 219."
-    },
-    {
-      "date": "Nov 24, 2026",
-      "title": "Descent proved for n ≡ 2587 mod 4096",
-      "detail": "Six exact odd steps followed by a seventh numerator divisible by 32 give S^7(n) ≤ 2187k + 1382 < 4096k + 2587."
-    },
-    {
-      "date": "Nov 24, 2026",
-      "title": "Exact finite check through 100,000",
-      "detail": "All starts reached 1. Maximum stopping time: 350 at 77,031. Maximum value observed: 1,570,824,736 from 77,671. This finite computation is not a general proof."
     }
   ],
   "notes": [
@@ -196,7 +97,12 @@
     {
       "date": "Nov 24, 2026",
       "speaker": "Codex · dynamics update",
-      "text": "A block contracts exactly when q_k>log₂3+ε_k/t_k. Summed block drifts below −r log₂(3/2) guarantee a return value below n. The open task is to prove every orbit gets such a boundary descent or falls below n inside a block."
+      "text": "A block contracts exactly when q_k>log₂3+ε_k/t_k. Summed block drifts below −r log₂(3/2) guarantee a return value below n. The open task is an orbit-wide inequality forcing such descent for every odd start."
+    },
+    {
+      "date": "Nov 24, 2026",
+      "speaker": "Project direction",
+      "text": "The proof path is centered on exact Syracuse identities, valuation constraints, and inequalities that apply to every odd starting value. Finite orbit checks and growing residue tables are kept outside the proof strategy."
     }
   ]
 }
