@@ -1,8 +1,9 @@
 Collatz Project — A step-by-step effort to prove that every positive integer eventually reaches 1 under the Collatz map.
 
 Current milestone:
-- A strict-descent proof for odd n ≡ 1 (mod 4).
-- A two-step strict-descent proof for n ≡ 3 (mod 16).
+- One-step strict descent for odd n ≡ 1 (mod 4).
+- Two-step strict descent for n ≡ 3 (mod 16).
+- Three-step strict descent for n ≡ 11 (mod 64).
 - Exact computational verification for every starting value from 1 through 100,000.
 
 The full Collatz conjecture has not been proved by this project. Finite computation and partial descent results are not a universal proof.

@@ -49,13 +49,24 @@ If `n = 16k + 3`, where `k ≥ 0`, then `S^2(n) < n`.
 
 so `S^2(n) ≤ 9k + 2 < 16k + 3 = n`. The last inequality follows from `7k + 1 > 0`.
 
-Together these lemmas prove descent for five of the eight odd residue classes modulo 16. The classes 7, 11, and 15 modulo 16 remain unresolved by these two lemmas.
+### Lemma 3: `n ≡ 11 (mod 64)`
+
+If `n = 64k + 11`, where `k ≥ 0`, then `S^3(n) < n`.
+
+**Proof.** The first two odd steps are exact:
+
+- `3n + 1 = 192k + 34 = 2(96k + 17)`, so `S(n) = 96k + 17`;
+- `3S(n) + 1 = 288k + 52 = 4(72k + 13)`, so `S^2(n) = 72k + 13`.
+
+Then `3S^2(n) + 1 = 216k + 40 = 8(27k + 5)`, so `S^3(n) ≤ 27k + 5 < 64k + 11 = n`.
+
+The three lemmas cover all odd classes `1, 5, 9, 13 (mod 16)`, all of `3 (mod 16)`, and the sub-class `11 (mod 64)`. Classes `7` and `15 (mod 16)`, along with `27, 43, 59 (mod 64)`, remain unresolved by these lemmas.
 
 ## Work plan
 
 1. **Fix the definitions and proof target.** Keep the original map and odd-only map explicit. The descent property above is the global obligation.
 2. **Build exact, reproducible checks.** A small program can verify a finite starting interval with arbitrary-precision integer arithmetic. A finite check is evidence about that interval only; it cannot establish the universal statement.
-3. **Grow the residue-class descent table.** Start with the unresolved odd classes 7, 11, and 15 modulo 16. Split classes into finer powers-of-two classes, derive exact formulas for each fixed parity/valuation path, and record which classes provably reach a smaller odd value.
+3. **Grow the residue-class descent table.** Start with the unresolved classes `7` and `15 (mod 16)`, and `27, 43, 59 (mod 64)`. Split classes into finer powers-of-two classes, derive exact formulas for each fixed parity/valuation path, and record which classes provably reach a smaller odd value.
 4. **Seek a global argument.** Prove that every remaining odd integer has a smaller odd iterate, or find a different well-founded quantity that yields the same strong-induction finish. A shallow residue search that leaves classes uncovered is not a proof.
 5. **Audit all cases.** Check boundary values, exact divisibility, class coverage, and every induction dependency independently. Keep conjectures, experiments, and theorems labeled separately.
 
@@ -71,4 +82,4 @@ A 2026 exploratory paper on burst/gap dynamics explicitly leaves its key orbitwi
 
 ## Status
 
-The two local descent lemmas above are proved. The finite computation is bounded evidence. The global descent property—and therefore the full Collatz conjecture—has not been proved in this project.
+The three local descent lemmas above are proved. The finite computation is bounded evidence. The global descent property—and therefore the full Collatz conjecture—has not been proved in this project.
