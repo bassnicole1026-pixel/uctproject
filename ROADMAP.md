@@ -145,11 +145,23 @@ where `q_k=(a_k+t_k-1)/t_k`. Hence, after `m` complete blocks,
 
 `log_2((x_{m+1}+1)/(x_1+1)) = Σ_{k=1}^m (t_k(log_2 3-q_k)+ε_k)`.
 
+In particular, a single block contracts exactly when its mean valuation exceeds its state-dependent threshold:
+
+`q_k > log_2 3 + ε_k/t_k = log_2 3 + (1/t_k)log_2(1+(2^{a_k}-2)/(3(x_k+1)))`.
+
+This is an exact local test; the unresolved issue is to control the sum of these block drifts along every orbit.
+
 Since `Σ t_k q_k=Σ(a_k+t_k-1)`, and after the initial run of `r` valuation-one steps the first block start satisfies `x_1+1=(3/2)^r(n+1)`, this is equivalently
 
 `Σ_{k=1}^m (a_k-1) = j log_2(3/2) + Σ_{k=1}^m ε_k - log_2((x_{m+1}+1)/(n+1))`,
 
-where `j=r+Σ t_k` is the total number of odd steps at that block boundary. This identity is exact. On an orbit that never falls below `n`, its final logarithm is nonnegative, so
+where `j=r+Σ t_k` is the total number of odd steps at that block boundary. This identity is exact. Since `x_1+1=(3/2)^r(n+1)`,
+
+`Σ_{k=1}^m (t_k(log_2 3-q_k)+ε_k) < -r log_2(3/2)`
+
+is exactly the condition that this block-boundary value `x_{m+1}` lies below `n`. Finding such a boundary would prove descent; it is sufficient but not necessary, since an intermediate iterate may fall below `n` before the block ends.
+
+On an orbit that never falls below `n`, its final logarithm is nonnegative, so
 
 `Σ(a_k-1) ≤ j log_2(3/2) + Σ ε_k`.
 
@@ -384,7 +396,7 @@ Lemmas 1–4 cover 24 of the 32 odd residue classes modulo 64: all classes `1, 5
 ## Work plan
 
 1. **Fix the definitions and proof target.** Keep the original map and odd-only map explicit. The descent property above is the global obligation.
-2. **Work from exact identities.** Derive consequences of the Syracuse recurrence symbolically, keeping each equality and inequality justified for arbitrary odd starting values. The iterate identity, exact valuation-one run length, return-block formulas, modulo-3 restriction, transition law, and logarithmic block drift are proved above.
+2. **Work from exact identities.** Derive consequences of the Syracuse recurrence symbolically, keeping each equality and inequality justified for arbitrary odd starting values. The iterate identity, exact valuation-one run length, return-block formulas, modulo-3 restriction, transition law, logarithmic block drift, and state-dependent block contraction threshold are proved above.
 3. **Seek a global contradiction.** Under the assumption that an odd orbit never falls below its start, prove a structural lower bound on `Σ(a_k-1)` that contradicts the necessary block-boundary upper bounds above. The local block criterion does not suffice by itself: successive block contractions and expansions must be controlled together. Any proposed bound must follow from the exact dynamics, not from finite samples or residue enumeration.
 4. **Use local descent certificates as supporting lemmas.** The residue classes listed below are valid partial results and may support a broader proof, but extending the table alone does not close the global descent obligation.
 5. **Audit the complete argument.** Check boundary values, the valuation recurrence, and every induction dependency. Keep conjectures, computational observations, and proved statements labeled separately.

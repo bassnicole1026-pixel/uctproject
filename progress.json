@@ -16,9 +16,9 @@
   },
   "focus": {
     "status": "Global proof target remains open",
-    "title": "Exploit the block log-drift identity",
-    "summary": "At complete block boundaries, Σ(a_k−1)=j log₂(3/2)+Σε_k−log₂((x_{m+1}+1)/(n+1)), with 0<ε_k<−log₂(1−2^{-t_k}). This yields a block-length-sensitive upper cap for any non-descending orbit; the missing lower bound remains open.",
-    "next": "Use the inter-block recurrence to prove a lower bound on cumulative excess that violates one of the necessary caps."
+    "title": "Use block drift to force a descent",
+    "summary": "A block contracts exactly when q_k>log₂3+ε_k/t_k. Across m blocks, their log drifts sum to log₂((x_{m+1}+1)/(x_1+1)); a sum below −r log₂(3/2) guarantees a block-boundary value below n. The universal reason this must happen is still open.",
+    "next": "Prove that every odd start either has a within-block descent or accumulates enough negative block drift to cross below its start."
   },
   "accomplishments": [
     {
@@ -70,6 +70,11 @@
       "date": "Nov 24, 2026",
       "title": "Exact logarithmic block-drift identity derived",
       "detail": "The endpoint ratio telescopes to Σ(a_k−1)=j log₂(3/2)+Σε_k−log₂((x_{m+1}+1)/(n+1)), where each ε_k is positive and bounded by −log₂(1−2^{-t_k}). This gives a block-length-sensitive necessary cap, not a proof of descent."
+    },
+    {
+      "date": "Nov 24, 2026",
+      "title": "Exact state-dependent block contraction test derived",
+      "detail": "A block contracts exactly when q_k exceeds log₂3 plus ε_k/t_k, where ε_k=log₂(1+(2^{a_k}−2)/(3(x_k+1))). Summed block drift below −r log₂(3/2) places a block-boundary iterate below the original n."
     },
     {
       "date": "Nov 24, 2026",
@@ -191,7 +196,7 @@
     {
       "date": "Nov 24, 2026",
       "speaker": "Codex · dynamics update",
-      "text": "We derived an exact block log-drift identity: cumulative excess equals j log₂(3/2), plus positive block corrections, minus endpoint growth. This gives another necessary cap for non-descending orbits; a contradictory lower bound is still the open step."
+      "text": "A block contracts exactly when q_k>log₂3+ε_k/t_k. Summed block drifts below −r log₂(3/2) guarantee a return value below n. The open task is to prove every orbit gets such a boundary descent or falls below n inside a block."
     }
   ]
 }
