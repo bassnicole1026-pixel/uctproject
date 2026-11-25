@@ -43,8 +43,17 @@
     .hero-card { padding: 24px; background: var(--green-dark); color: #eff5e9; border-radius: 22px; box-shadow: var(--shadow); }
     .live-label { display: flex; align-items: center; gap: 9px; color: #d6e7d6; font-size: 11px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
     .live-dot { position: relative; width: 8px; height: 8px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 0 4px rgba(215, 242, 122, .13); }
-    .hero-card h2 { margin: 27px 0 9px; font-family: Georgia, "Times New Roman", serif; font-size: 27px; line-height: 1.12; font-weight: 500; letter-spacing: -.03em; }
     .hero-card p { margin: 0; color: #bdcebf; font-size: 13px; line-height: 1.6; }
+    .estimate-score { display: flex; align-items: baseline; gap: 11px; margin: 22px 0 12px; }
+    .estimate-score strong { color: var(--lime); font-family: Georgia, "Times New Roman", serif; font-size: clamp(44px, 5vw, 58px); font-weight: 500; letter-spacing: -.06em; line-height: 1; }
+    .estimate-score span { color: #eff5e9; font-size: 14px; font-weight: 700; }
+    .estimate-track { height: 7px; overflow: hidden; background: rgba(239, 245, 233, .18); border-radius: 999px; }
+    .estimate-track span { display: block; width: 0; height: 100%; background: var(--lime); border-radius: inherit; transition: width .3s ease; }
+    .hero-card .estimate-note { margin-top: 12px; }
+    .coverage-box { display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 5px 12px; margin-top: 19px; padding: 14px 15px; background: rgba(255, 255, 255, .08); border: 1px solid rgba(239, 245, 233, .14); border-radius: 14px; }
+    .coverage-label { color: #d6e7d6; font-size: 11px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+    .coverage-box strong { grid-column: 2; grid-row: 1 / span 2; color: var(--lime); font-size: 24px; letter-spacing: -.04em; }
+    .hero-card .coverage-detail { grid-column: 1; font-size: 12px; }
     .sync-line { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 24px; padding-top: 15px; border-top: 1px solid rgba(239, 245, 233, .17); color: #cbd9cd; font-size: 11px; }
     .sync-line strong { color: var(--lime); font-weight: 750; }
     .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 18px; }
@@ -130,10 +139,16 @@
           <h1 id="page-title">One step at a time.</h1>
           <p class="hero-copy">A public, careful effort to understand the Collatz map and work toward proving that every positive integer eventually reaches 1.</p>
         </div>
-        <aside class="hero-card" aria-label="Live project status">
-          <div class="live-label"><span class="live-dot" aria-hidden="true"></span><span>Public project status</span></div>
-          <h2 id="stage-title">Project foundation</h2>
-          <p id="stage-copy">Repository activity and public work notes appear here as they are recorded.</p>
+        <aside class="hero-card" aria-label="AI estimate of Collatz conjecture progress">
+          <div class="live-label"><span class="live-dot" aria-hidden="true"></span><span>AI estimate · full conjecture</span></div>
+          <div class="estimate-score"><strong id="proof-estimate">0%</strong><span>proved</span></div>
+          <div class="estimate-track" role="progressbar" aria-label="AI estimate of the full conjecture proved" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="estimate-fill"></span></div>
+          <p class="estimate-note" id="estimate-note">No universal proof has been completed. Partial results do not translate into a reliable fraction of the conjecture solved.</p>
+          <div class="coverage-box">
+            <span class="coverage-label">Partial result · residue coverage</span>
+            <strong id="coverage-percent">75%</strong>
+            <p class="coverage-detail" id="coverage-detail">24 of 32 odd classes modulo 64 have a descent certificate. This is not 75% of the conjecture solved.</p>
+          </div>
           <div class="sync-line"><span>Repository feed</span><strong id="sync-status" aria-live="polite">Connecting…</strong></div>
         </aside>
       </section>
@@ -196,8 +211,21 @@
     }
 
     function renderProgress(data) {
-      setText("stage-title", data.stage || "Project progress");
-      setText("stage-copy", `Last progress note: ${data.updatedAt || "date not recorded"}.`);
+      const estimate = Math.max(0, Math.min(100, Number(data.aiEstimate?.percent) || 0));
+      setText("proof-estimate", `${estimate}%`);
+      setText("estimate-note", data.aiEstimate?.basis || "No universal proof has been completed. Partial results do not translate into a reliable fraction of the conjecture solved.");
+      const estimateBar = document.querySelector(".estimate-track");
+      if (estimateBar) estimateBar.setAttribute("aria-valuenow", String(estimate));
+      const estimateFill = document.getElementById("estimate-fill");
+      if (estimateFill) estimateFill.style.width = `${estimate}%`;
+
+      const coverage = data.residueCoverage || {};
+      const covered = Math.max(0, Number(coverage.covered) || 0);
+      const total = Math.max(0, Number(coverage.total) || 0);
+      const modulus = Number(coverage.modulus) || 64;
+      const coveragePercent = total ? Math.round(100 * covered / total) : 0;
+      setText("coverage-percent", `${coveragePercent}%`);
+      setText("coverage-detail", `${covered} of ${total} odd classes modulo ${modulus} have a descent certificate. This is not ${coveragePercent}% of the conjecture solved.`);
       setText("focus-status", data.focus?.status || "Status not recorded");
       setText("focus-title", data.focus?.title || "No current focus recorded");
       setText("focus-summary", data.focus?.summary || "Check back for a public project update.");

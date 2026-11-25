@@ -1,6 +1,15 @@
 {
   "updatedAt": "Nov 24, 2026",
   "stage": "Collatz · first proof steps",
+  "aiEstimate": {
+    "percent": 0,
+    "basis": "Strict proof-completion estimate: 0%. No universal proof has been completed; partial results do not support a defensible fractional score for the full conjecture."
+  },
+  "residueCoverage": {
+    "covered": 24,
+    "total": 32,
+    "modulus": 64
+  },
   "focus": {
     "status": "24 of 32 odd classes modulo 64 covered",
     "title": "Refine the remaining residue classes",
