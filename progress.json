@@ -8,7 +8,7 @@
   "focus": {
     "status": "Pure-math strategy · global descent theorem open",
     "title": "Derive an orbit-wide bound from block dynamics",
-    "summary": "At the sole possible mean-test gap, a genuine expansion forces the next high valuation down. More precisely, either a_next+t_next≤a_k−1, or the next run length grows while u is preserved. Neutral equality is a periodic return. The global task remains an all-starting-values bound from the coupled transitions.",
+    "summary": "At the sole possible mean-test gap, a genuine expansion has two exact branches: either the next run is shorter and a_next+t_next≤a_k−1, or the run grows while u is preserved and the following block is also forced to expand. Neutral equality is a periodic return. The global task remains an all-starting-values bound from the coupled transitions.",
     "next": "Prove a structural lower bound on Σ(a_k−1) from the transition law and compare it with the non-descent cap."
   },
   "accomplishments": [
@@ -96,6 +96,11 @@
       "date": "Nov 25, 2026",
       "title": "Expanding gap blocks split into two exact transitions",
       "detail": "For a strict expansion, write r=Du+1=2^b s with s odd and ℓ=t+h+1−b. If s>1, then a_next+t_next≤a_k−1; if s=1, then t_next=ℓ≥t+1 and u_next=u. This is an exact local dichotomy, not a global descent proof."
+    },
+    {
+      "date": "Nov 25, 2026",
+      "title": "The long-run branch forces a second expansion",
+      "detail": "In the s=1 branch after a strict gap-block expansion, t_next≥t+1, u_next=u, and q_next=1+b/t_next<log₂3. The critical mean test therefore forces the next block to expand too. This is still only a local sequence constraint."
     }
   ],
   "notes": [
@@ -153,6 +158,11 @@
       "date": "Nov 25, 2026",
       "speaker": "Codex · transition refinement",
       "text": "A strict expansion at the exceptional valuation has two exact next-block forms. With r=Du+1=2^b s and ℓ=t+h+1−b: s>1 forces a_next+t_next≤a_k−1; s=1 gives t_next=ℓ≥t+1 and preserves u_next=u. This narrows the local recurrence but leaves global orbit control open."
+    },
+    {
+      "date": "Nov 25, 2026",
+      "speaker": "Codex · next-block update",
+      "text": "The s=1 branch has a further consequence: b≤h≤t log₂(3/2), while t_next=ℓ≥t+1, so q_next=1+b/ℓ<log₂3. Hence the following block is forced to expand too. In the s>1 branch, t_next<t and a_next+t_next≤a_k−1. No global descent follows yet."
     }
   ]
 }
