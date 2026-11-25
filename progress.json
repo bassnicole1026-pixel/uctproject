@@ -3,15 +3,20 @@
   "stage": "Collatz · first proof steps",
   "aiEstimate": {
     "percent": 0,
-    "basis": "Strict proof-completion estimate: 0%. In the one-high-valuation subcase, prime-order and 2-adic constraints force the odd quotient u to be at least 23 or 27 according to parity, giving a much tighter exponential approximation bound; the resulting condition is still not excluded uniformly. Multi-block cycles and unbounded non-descending orbits also remain open."
+    "basis": "Strict full-conjecture proof-completion estimate: 0%. A Matveev bound, exact continued-fraction interval certificates, and ten exact integer comparisons exclude nontrivial cycles with exactly one valuation at least 2 and all remaining valuations 1. Cycle profiles with multiple high valuations and unbounded non-descending orbits remain open."
   },
   "focus": {
-    "status": "Pure math · parity-sensitive cycle quotient",
-    "title": "Lower-bound the one-block quotient by parity",
-    "summary": "The exact cycle equation gives b=v₂(3^t u−1), while each prime divisor of u has order dividing b. These force u≥23 for odd b and u≥27 for even b, tightening the required upper-integer approximation by factors 23 or 27. The one-block case is not yet excluded.",
-    "next": "Find a bound on u that grows with t, or otherwise contradict the one-block divisibility for every t; then handle multiple high-valuation blocks and unbounded non-descending orbits."
+    "status": "Pure math · cycle subcase",
+    "title": "Exclude cycles with exactly one high-valuation step",
+    "summary": "An exact logarithmic-form bound and continued-fraction argument reduce the one-high-valuation cycle profile to ten integer inequalities; every margin is positive, so that profile cannot close.",
+    "next": "Study cycles with two or more high-valuation steps using exact block equations and arithmetic constraints, while keeping the separate nonperiodic descent problem in view."
   },
   "accomplishments": [
+    {
+      "date": "Nov 25, 2026",
+      "title": "Exactly one high-valuation cycle profile excluded",
+      "detail": "For a nontrivial odd-only cycle with exactly one valuation a≥2 and all other t−1 valuations 1, closure gives M=2^(b+t)−3^t, A=2^b−1, u=A/M and b=floor(t log₂(3/2))+1. The parity-sensitive bound gives u≥23 or 27. Matveev’s two-logarithm lower bound cuts the period to t<30 billion; exact rational continued-fraction intervals cut it to t≤42; Legendre’s criterion leaves t=2, multiples of 5, and t=41. Ten exact integer comparisons contradict qM≤A. This excludes this one cycle profile only; multiple high valuations and nonperiodic non-descending orbits remain open."
+    },
     {
       "date": "Nov 25, 2026",
       "title": "Parity-sensitive lower bound for one-block cycle quotients",
@@ -314,6 +319,11 @@
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "speaker": "Codex · exact cycle-profile exclusion",
+      "text": "Pure-math subcase result: Matveev bounds the period of a hypothetical nontrivial odd cycle with exactly one valuation ≥2 and all others 1; exact continued fractions and Legendre reduce it to ten integer checks, all contradicting the required divisibility. This does not rule out cycles with multiple high valuations or unbounded non-descending orbits. Significance: 20/100."
+    },
     {
       "date": "Nov 25, 2026",
       "text": "Parity-sensitive quotient bound: the one-block equation implies b=v₂(3^t u−1) and p-order constraints for every prime p|u. Exact exclusions force u≥23 for odd b and u≥27 for even b. Hence b−t log₂(3/2)≤log₂((1−1/(q·3^t))/(1−1/(q·2^t)))<2^(1−t)/(q ln 2), q∈{23,27}. The divisibility remains unresolved for unrestricted t. Significance: 16/100.",

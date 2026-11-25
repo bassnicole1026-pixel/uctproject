@@ -775,6 +775,51 @@ Consequently,
 
 This tightens the elementary exponential-approximation bound by a factor of at least `23`, depending on the parity of `b`. It still does not exclude all run lengths, and cycles with multiple high-valuation blocks remain open.
 
+### Exclusion of a cycle with exactly one high valuation
+
+The preceding bound does exclude the special case where a cycle has exactly one valuation `a≥2` and all other `t−1` valuations equal `1`. Put `σ=b+t`, `Λ=σ ln 2−t ln 3=(b−tα)ln 2`, and
+
+`G=2^σ/3^t−1=(2^σ−3^t)/3^t=M/3^t>0`.
+
+Since `u≥23`, we have `G<2/(23·2^t)`. The nonzero linear form `Λ=σ ln 2−t ln 3` is positive. Matveev's two-logarithm lower bound applied to `Λ`, with `B=σ`, gives `Λ>exp(−K(1+ln σ))`. As `G=e^Λ−1>Λ`, this implies
+
+`ln G>−K(1+ln σ)`, where `K=1.4·30^5·2^{4.5} ln 2 ln 3 < 6·10^8` ([Matveev, 2000](https://www.mathnet.ru/links/11696330cc866d273c92c771a63da235/im314_eng.pdf)).
+
+Combining the two bounds and using `σ=b+t≤2t`, any such cycle must satisfy
+
+`t ln 2+ln(23/2)<6·10^8(1+ln(2t))`.
+
+The right side is smaller than the left at `t=30,000,000,000`, and the difference increases thereafter, so `t<30,000,000,000` and `σ<60,000,000,000`.
+
+For the middle range, let `θ=ln 2/ln 3`. Exact rational intervals for the logarithms, using the first 128 terms of
+
+`ln x=2Σ_{j=0}^{127} z^{2j+1}/(2j+1)+r`, `z=(x−1)/(x+1)`, `0<r<2z^{257}/(257(1−z^2))`,
+
+give rational intervals `[ℓ₂,u₂]` and `[ℓ₃,u₃]` for `ln 2` and `ln 3`. Applying the Euclidean continued-fraction algorithm to `[ℓ₂/u₃,u₂/ℓ₃]` gives the common partial quotients through `a_{K+1}`:
+
+`0,1,1,1,2,2,3,1,5,2,23,2,2,1,1,55,1,4,3,1,1,15,1,9,2,5,7,1,1,4`.
+
+The consecutive convergent denominators at that endpoint are `q_K=18,340,740,190,704` and `q_{K+1}=83,130,157,078,217`, with `ln 3/(q_K+q_{K+1})>1.08·10^{−14}`. The continued-fraction best-approximation property then gives `Λ>1.08·10^{−14}` whenever `0<σ<q_{K+1}`. Our Matveev cutoff puts `σ<60,000,000,000<q_{K+1}`. But for `t≥43`, the quotient bound gives `Λ<2^{1−t}/23≤2^{−42}/23<10^{−14}`, a contradiction. Thus `t≤42`.
+
+The case `t=2` is already excluded by its exact margin in the table below. For `3≤t≤42`, `|b/t−α|<2^{1−t}/(23t ln 2)<1/(2t^2)`, so Legendre's criterion makes the reduced fraction `b/t` a convergent of `α`. Exact rational intervals `[ℓ₃/u₂−1,u₃/ℓ₂−1]` give the convergents through denominator `53` as `0/1, 1/1, 1/2, 3/5, 7/12, 24/41, 31/53`. Since `b<t` and `b/t>α`, only denominators `5` and `41` can occur; hence `t` is a multiple of `5` or equals `41`. The remaining exact checks are:
+
+| `t` | `b` | `q` | `qM−A` |
+| ---: | ---: | ---: | ---: |
+| 2 | 2 | 27 | 186 |
+| 5 | 3 | 23 | 292 |
+| 10 | 6 | 27 | 175,086 |
+| 15 | 9 | 23 | 55,850,596 |
+| 20 | 12 | 27 | 21,820,934,070 |
+| 25 | 15 | 23 | 5,801,129,388,892 |
+| 30 | 18 | 27 | 2,040,763,804,370,046 |
+| 35 | 21 | 23 | 506,599,125,593,252,116 |
+| 40 | 24 | 27 | 169,805,122,595,604,038,790 |
+| 41 | 24 | 27 | 11,353,277,796,687,777,168 |
+
+Every margin is positive, contradicting the necessary cycle condition `qM≤A`. Therefore no nontrivial odd-only cycle has exactly one valuation at least `2` and all remaining valuations equal to `1`. This is a cycle subcase only; it does not exclude profiles with multiple high valuations or unbounded non-descending orbits. No Collatz trajectories were enumerated in this argument; the finite part consists of ten exact exponent comparisons.
+
+A related 2026 preprint claims the stronger result that every nontrivial cycle has at least four runs of valuation-one steps; it uses additional run inequalities and a computational lower bound for cycle length ([Cerdá Bennassar, preprint](https://zenodo.org/records/23190068)). The current project has not independently verified its two- and three-run cases.
+
 ## Auxiliary finite congruence certificates
 
 The following exact congruence arguments establish descent on selected classes. They are valid side results, but extending a residue list is not the active proof strategy and does not address the remaining all-integers argument.
