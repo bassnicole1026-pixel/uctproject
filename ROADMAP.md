@@ -55,6 +55,22 @@ If a hypothetical counterexample never drops below its odd starting value `n`, t
 
 This is a necessary constraint on a non-descending orbit, not a proof that one cannot exist. The next global proof obligation is to derive a structural lower bound on the cumulative valuations along any such orbit that contradicts this upper bound, without enumerating residue classes.
 
+## Exact length of a run with valuation one
+
+Let `x_0=n` be odd, set `x_{i+1}=S(x_i)`, and write `a_{i+1}=v_2(3x_i+1)`. For every integer `r ≥ 0`,
+
+`a_1 = ··· = a_r = 1  ⇔  v_2(n+1) ≥ r+1`.
+
+Thus the initial run of valuation-one steps has exactly `v_2(n+1)-1` terms, followed by a step whose valuation is at least 2.
+
+**Proof.** Whenever `a_{i+1}=1`,
+
+`x_{i+1}+1 = (3x_i+1)/2 + 1 = 3(x_i+1)/2`.
+
+So if the first `r` valuations are 1, iteration gives `x_r+1=3^r(n+1)/2^r`. Since `x_r` is odd, `x_r+1` is even; because `3^r` is odd, this forces `v_2(n+1)≥r+1`. Conversely, suppose `v_2(n+1)≥r+1`. Inductively, before each of the first `r` steps, `v_2(x_i+1)=v_2(n+1)-i≥2`. Hence `3x_i+1=3(x_i+1)-2` is divisible by 2 but not by 4, so `a_{i+1}=1` and `v_2(x_{i+1}+1)=v_2(x_i+1)-1`. After those `r` steps the valuation of `x_r+1` is at least 1. Taking `r=v_2(n+1)-1`, it is exactly 1, so `x_r≡1 (mod 4)` and the next `3x_r+1` is divisible by 4. The run therefore ends exactly there.
+
+**Corollary.** Every infinite Syracuse sequence has infinitely many steps with `a_i≥2`: otherwise all sufficiently late valuations would equal 1, contradicting the finite run-length formula at the odd value where that tail begins. This only proves infinitude, not positive density or a lower bound on cumulative valuations. The global descent problem remains open; a useful next step is to control the lengths of these runs together with the sizes of the valuations that end them.
+
 ## Proved descent regions
 
 ### Lemma 1: `n ≡ 1 (mod 4)`
@@ -270,8 +286,8 @@ Lemmas 1–4 cover 24 of the 32 odd residue classes modulo 64: all classes `1, 5
 ## Work plan
 
 1. **Fix the definitions and proof target.** Keep the original map and odd-only map explicit. The descent property above is the global obligation.
-2. **Work from exact identities.** Derive consequences of the Syracuse recurrence symbolically, keeping each equality and inequality justified for arbitrary odd starting values.
-3. **Seek a global contradiction.** Under the assumption that an odd orbit never falls below its start, prove a structural lower bound on `A_j` strong enough to contradict `A_j log 2 ≤ j log(3+1/n)`. Any proposed bound must follow from the exact dynamics, not from finite samples or residue enumeration.
+2. **Work from exact identities.** Derive consequences of the Syracuse recurrence symbolically, keeping each equality and inequality justified for arbitrary odd starting values. The iterate identity and exact valuation-one run length are proved above.
+3. **Seek a global contradiction.** Under the assumption that an odd orbit never falls below its start, prove a structural lower bound on `A_j` strong enough to contradict `A_j log 2 ≤ j log(3+1/n)`. The run-length lemma alone is insufficient: the lengths of the valuation-one runs and the sizes of the valuations ending them must be controlled together. Any proposed bound must follow from the exact dynamics, not from finite samples or residue enumeration.
 4. **Use local descent certificates as supporting lemmas.** The residue classes listed below are valid partial results and may support a broader proof, but extending the table alone does not close the global descent obligation.
 5. **Audit the complete argument.** Check boundary values, the valuation recurrence, and every induction dependency. Keep conjectures, computational observations, and proved statements labeled separately.
 
