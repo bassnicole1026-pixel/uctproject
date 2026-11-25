@@ -225,7 +225,10 @@
       const modulus = Number(coverage.modulus) || 64;
       const coveragePercent = total ? Math.round(100 * covered / total) : 0;
       setText("coverage-percent", `${coveragePercent}%`);
-      setText("coverage-detail", `${covered} of ${total} odd classes modulo ${modulus} have a descent certificate. This is not ${coveragePercent}% of the conjecture solved.`);
+      const finerCovered = Math.max(0, Number(coverage.finerCovered) || 0);
+      const finerModulus = Number(coverage.finerModulus) || 256;
+      const finerNote = finerCovered ? ` Plus ${finerCovered} specific sub-classes modulo ${finerModulus} are covered.` : "";
+      setText("coverage-detail", `${covered} of ${total} odd classes modulo ${modulus} have a descent certificate. This is not ${coveragePercent}% of the conjecture solved.${finerNote}`);
       setText("focus-status", data.focus?.status || "Status not recorded");
       setText("focus-title", data.focus?.title || "No current focus recorded");
       setText("focus-summary", data.focus?.summary || "Check back for a public project update.");

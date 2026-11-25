@@ -8,13 +8,15 @@
   "residueCoverage": {
     "covered": 24,
     "total": 32,
-    "modulus": 64
+    "modulus": 64,
+    "finerCovered": 4,
+    "finerModulus": 256
   },
   "focus": {
     "status": "24 of 32 odd classes modulo 64 covered",
     "title": "Refine the remaining residue classes",
-    "summary": "Six descent regions cover 24 of the 32 odd classes modulo 64. Three finer classes—n ≡ 7, 15, and 143 mod 256—also have four-step descent proofs. An exact computation separately checked every start through 100,000. These are partial results, not a proof for all integers.",
-    "next": "Audit the candidate four-step descent path for n ≡ 187 mod 256, checking every exact valuation and the final strict inequality."
+    "summary": "Six descent regions cover 24 of the 32 odd classes modulo 64. Four finer classes—n ≡ 7, 15, 143, and 187 mod 256—also have four-step descent proofs. An exact computation separately checked every start through 100,000. These are partial results, not a proof for all integers.",
+    "next": "Audit the candidate five-step descent path for n ≡ 39 mod 256, checking every exact valuation and the final strict inequality."
   },
   "accomplishments": [
     {
@@ -54,6 +56,11 @@
     },
     {
       "date": "Nov 24, 2026",
+      "title": "Descent proved for n ≡ 187 mod 256",
+      "detail": "Four exact accelerated odd steps produce 162k + 119 from n = 256k + 187, a decrease of 94k + 68."
+    },
+    {
+      "date": "Nov 24, 2026",
       "title": "Exact finite check through 100,000",
       "detail": "All starts reached 1. Maximum stopping time: 350 at 77,031. Maximum value observed: 1,570,824,736 from 77,671. This finite computation is not a general proof."
     }
@@ -67,7 +74,7 @@
     {
       "date": "Nov 24, 2026",
       "speaker": "Codex · research update",
-      "text": "In this chat, we proved another four-step descent case: n ≡ 143 (mod 256), giving S⁴(n) = 162k + 91 < n. The project still covers only 24 of 32 complete classes modulo 64; the next task is to audit the candidate n ≡ 187 (mod 256) path."
+      "text": "In this chat, we audited n ≡ 187 (mod 256): four exact odd steps give 162k + 119, smaller by 94k + 68. The next task is to audit the candidate five-step path for n ≡ 39 (mod 256)."
     }
   ]
 }
