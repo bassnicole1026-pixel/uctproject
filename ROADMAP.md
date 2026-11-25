@@ -670,6 +670,30 @@ Combining these inequalities yields the necessary denominator condition
 
 or equivalently `q'/q>2r^2−1`. Thus a large-minimum cycle whose reduced mean has denominator `q` and period `m=qr` requires the next continued-fraction denominator to jump by a factor exceeding `2r^2−1`. The condition is automatic when `r=1`, and it does not exclude the small-minimum branch or all large-minimum cycles; it isolates a further Diophantine obstruction without enumerating convergents.
 
+### A block-coordinate identity for the cycle excess
+
+Partition a hypothetical nontrivial cycle at its valuations `a_k≥2` into `K` return blocks, with cyclic indices. Let `t_k` and `u_k` be the block length and odd parameter from the transition law. Then `m=Σ_k t_k`, `A=m+Σ_k(a_k−1)`, and each transition satisfies
+
+`3^{t_k}u_k−1 = 2^{a_{k+1}−1}(2^{t_{k+1}}u_{k+1}−1)`.
+
+Multiplying around the cycle and taking logarithms gives an exact second expression for `D=A−m log_2 3`:
+
+`D = Σ_k η(t_k,u_k)`,
+
+where
+
+`η(t,u)=log_2((1−1/(3^t u))/(1−1/(2^t u)))=log_2(1+(1−(2/3)^t)/(2^t u−1))>0`.
+
+This expresses the same excess as the state-space product, but now in block variables. The incoming transition also forces, cyclically,
+
+`u_k ≡ 2^{−(a_k−1+t_k)}(2^{a_k−1}−1) (mod 3^{t_{k−1}})`.
+
+Let `U_k^*` be the least positive odd representative of this residue class. Then `u_k≥U_k^*`, and `η(t,u)` decreases with `u`, so
+
+`D ≤ Σ_k η(t_k,U_k^*)`.
+
+In the large-minimum convergent branch this combines with the previous lower bound `r/(q+q')<D` and the state-spacing cap `D≤B_{m,n}`. The resulting comparison is a symbolic necessary condition linking continued-fraction gaps to cyclic block carries. It has not yet produced a contradiction, and the small-minimum branch remains open.
+
 ## Auxiliary finite congruence certificates
 
 The following exact congruence arguments establish descent on selected classes. They are valid side results, but extending a residue list is not the active proof strategy and does not address the remaining all-integers argument.

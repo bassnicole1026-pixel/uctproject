@@ -3,15 +3,20 @@
   "stage": "Collatz · first proof steps",
   "aiEstimate": {
     "percent": 0,
-    "basis": "Strict proof-completion estimate: 0%. Large-minimum cycles must satisfy an additional continued-fraction denominator jump condition, but neither this branch nor the small-minimum branch is eliminated."
+    "basis": "Strict proof-completion estimate: 0%. The cycle excess now has an exact block-coordinate expression and residue-based upper bound, but no contradiction excludes all cycles."
   },
   "focus": {
-    "status": "Pure math · large-cycle Diophantine constraint",
-    "title": "Large-minimum cycles force a large next-convergent gap",
-    "summary": "If A/m=p/q is the upper convergent forced by a large cycle minimum and m=qr, the next convergent denominator q′ must satisfy q′/q>2r²−1. The refined state-spacing bound strengthens the threshold.",
-    "next": "Seek a transition-based or irrationality-measure contradiction to the required denominator jump, while separately covering the small-minimum branch without finite convergent enumeration."
+    "status": "Pure math · cycle excess in block variables",
+    "title": "Express cycle excess via block transitions and carries",
+    "summary": "For a cycle partitioned into return blocks, D=A−m log₂3 equals a sum of positive terms η(t,u). Incoming 3-adic residues force lower bounds on u, giving a second upper bound on D.",
+    "next": "Combine this residue-based upper bound with the continued-fraction lower bound r/(q+q′) uniformly; determine whether it forces a contradiction or isolates the exact remaining obstruction."
   },
   "accomplishments": [
+    {
+      "date": "Nov 25, 2026",
+      "title": "Cycle excess expressed exactly in block coordinates",
+      "detail": "Multiplying the cyclic block transitions 3^{t_k}u_k−1=2^{a_{k+1}−1}(2^{t_{k+1}}u_{k+1}−1) gives D=A−m log₂3=Σ_k η(t_k,u_k), where η(t,u)=log₂(1+(1−(2/3)^t)/(2^t u−1))>0. The incoming 3-adic congruence forces u_k≥U_k^*, and η decreases in u, so D≤Σ_kη(t_k,U_k^*). This is a new exact representation and a necessary bound, not a cycle exclusion."
+    },
     {
       "date": "Nov 25, 2026",
       "title": "Large-minimum cycles force a large next-convergent gap",
@@ -279,6 +284,11 @@
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "text": "For a cycle partitioned into return blocks, multiplying the exact cyclic transitions gives D=A−m log₂3=Σ_k log₂(1+(1−(2/3)^{t_k})/(2^{t_k}u_k−1)). The incoming 3-adic carry gives u_k≥U_k^*, hence an explicit upper bound on D in block variables. It can be compared with the convergent lower bound, but no contradiction is obtained yet. Significance: 15/100.",
+      "speaker": "Codex · block-coordinate cycle excess"
+    },
     {
       "date": "Nov 25, 2026",
       "text": "Combining the exact cycle-spacing upper bound with convergent error estimates: if A/m=p/q is the large-minimum upper convergent and m=qr, the next denominator q′ must obey q′/q>2r²−1. This narrows the large-minimum branch but excludes neither r=1 nor all possible cycles. No finite CF enumeration was used. Significance: 18/100.",
