@@ -7,9 +7,9 @@
   },
   "focus": {
     "status": "Pure math · global descent theorem open",
-    "title": "Optimize the power-saving exponent",
-    "summary": "Varying the valuation cutoff α toward log₂3 gives E(X)=O_beta(X^beta) for every beta>beta₀≈0.94996. This improves the fixed-cutoff exponent but still permits infinitely many exceptions.",
-    "next": "Find a pointwise obstruction for an individual non-descending orbit; density exponents alone cannot finish Collatz."
+    "title": "Attain the endpoint power-saving exponent",
+    "summary": "Using the exact iterate correction, the cutoff becomes A_m≥m log₂3+1; this attains E(X)=O(X^β₀), β₀≈0.94996. The bound remains sublinear and permits exceptions.",
+    "next": "Find a pointwise obstruction for an individual non-descending orbit; even the endpoint count cannot finish Collatz."
   },
   "accomplishments": [
     {
@@ -206,9 +206,19 @@
       "date": "Nov 25, 2026",
       "detail": "For any fixed α in (log₂3,2), the number of valuation words with sum <αm is at most κ(α)^m, κ(α)=α^α/(α−1)^{α−1}, while Chernoff gives weighted tail κ(α)^m/2^{αm}. Since 2^α>3, interval counts are O(κ(α)^m), hence E(X)=O(X^{log₃κ(α)}). Letting α↓log₂3 gives E(X)=O_beta(X^beta) for every beta>beta₀≈0.94996. Still no pointwise elimination.",
       "title": "Power-saving exponent optimized toward the drift threshold"
+    },
+    {
+      "date": "Nov 25, 2026",
+      "title": "Endpoint exponent attained using the iterate correction",
+      "detail": "The correction bound gives x_m/n≤3^m/2^{A_m}+(3^m−1)/(2n), so A_m≥m log₂3+1 and n≥3^m force descent. Taking α_m=log₂3+1/m bounds each interval's low-word count by (3/2)κ(α_m)^m; the derivative estimate κ(α_m)^m≤(c/(c−1))κ(c)^m yields E(X)=O(X^β₀), β₀=log₃κ(c)≈0.94996. This remains sublinear, not pointwise resolution."
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "text": "The exact correction bound lowers the descent cutoff to A_m≥m log₂3+1 when n≥3^m. With α_m=log₂3+1/m, interval candidates are at most (3/2)κ(α_m)^m, and κ(α_m)^m≤(c/(c−1))κ(c)^m. Summing proves E(X)=O(X^β₀), β₀=log₃κ(c)≈0.94996, attaining the endpoint exponent. The set may still be nonempty. Significance: 29/100.",
+      "speaker": "Codex · endpoint exponent update"
+    },
     {
       "date": "Nov 25, 2026",
       "text": "Vary the cutoff to any α>c=log₂3. With κ(α)=α^α/(α−1)^{α−1}, composition counting costs κ^m while the Chernoff weighted tail is κ^m/2^{αm}; multiplying by interval scale 3^m leaves a smaller term because 2^α>3. Since κ increases, α↓c yields E(X)=Oβ(X^β) for every β>β₀=log₃κ(c)≈0.94996. Sparse candidates remain; no pointwise proof. Significance: 25/100.",

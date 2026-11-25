@@ -425,6 +425,22 @@ Since `d(ln κ)/dα=ln(α/(α−1))>0`, `κ` increases with `α`. Taking `α` do
 
 This improves the fixed `α=8/5` exponent `0.9635`, but the exponent remains positive; the bound still permits infinitely many non-descending starts.
 
+The additive correction gives an exact endpoint bound. From `c_m≤2^{A_m}(3^m−1)/2`,
+
+`x_m/n≤3^m/2^{A_m}+(3^m−1)/(2n)`.
+
+Thus, for `n≥3^m`, the sharper condition `A_m≥mc+1` already forces `x_m<n`: the two terms are at most `1/2` and strictly less than `1/2`, respectively. Set `α_m=c+1/m`. The low-sum words have `A_m<α_m m`; for `m≥3`, the same residue-class counting bounds their contribution on `[3^m,3^{m+1})` by `3^mκ(α_m)^m/2^{α_m m}+κ(α_m)^m=(3/2)κ(α_m)^m`.
+
+Since `d(ln κ)/dα=ln(α/(α−1))` decreases with `α`,
+
+`κ(α_m)^m≤(c/(c−1))κ(c)^m`.
+
+Summing the interval bounds attains the endpoint exponent itself:
+
+`E(X)=O(X^{β_0})`,  `β_0=log_3(κ(c))≈0.94996`.
+
+This remains a sublinear count, not a proof that the exceptional set is empty.
+
 On an orbit that never falls below `n`, its final logarithm is nonnegative, so
 
 `Σ(a_k-1) ≤ j log_2(3/2) + Σ ε_k`.
