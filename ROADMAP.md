@@ -563,6 +563,22 @@ With `A=5`, this becomes `5x_0=2^a(2^b+3)+9`. Reduction modulo `5` requires `2^a
 
 Thus no nontrivial odd-only cycle has period at most four. This cycle exclusion does not rule out longer cycles or nonperiodic orbits and does not establish the Collatz conjecture.
 
+### A minimum-versus-period constraint for every odd-only cycle
+
+Let a nontrivial cycle have exact period `m` and least value `n`. Its `m` orbit values are distinct odd integers, so when sorted they are at least `n,n+2,…,n+2(m−1)`. The cycle product identity gives
+
+`A−m c = Σ_{i=0}^{m−1}log_2(1+1/(3x_i))`,  `c=log_2 3`,
+
+where `A=Σa_i` is an integer strictly greater than `mc`. Define the fractional gap to the next integer by `δ_m=ceil(mc)−mc>0`. Then
+
+`δ_m ≤ A−mc ≤ Σ_{k=0}^{m−1}log_2(1+1/(3(n+2k)))`.
+
+Using `log_2(1+z)≤z/ln 2` and `n+2k≥n` yields the simple necessary bound
+
+`n ≤ m/(3 ln(2) δ_m)`.
+
+Thus a cycle with a large minimum requires `m log_2 3` to lie unusually close below an integer. The bound narrows possible cycle parameters but does not exclude the exceptional periods where `δ_m` is small.
+
 ## Auxiliary finite congruence certificates
 
 The following exact congruence arguments establish descent on selected classes. They are valid side results, but extending a residue list is not the active proof strategy and does not address the remaining all-integers argument.

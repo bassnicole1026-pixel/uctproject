@@ -7,9 +7,9 @@
   },
   "focus": {
     "status": "Pure math · global descent theorem open",
-    "title": "Separate strict subcritical escape from the critical case",
-    "summary": "If an unbounded non-descender has limsup A_j/j<c, its orbit grows exponentially and the logarithmic correction sum converges. The unresolved boundary case has limsup exactly log₂3.",
-    "next": "Use the block transition law to rule out both strict subcritical escape and critical-mean unbounded orbits; separately eliminate nontrivial cycles."
+    "title": "Constrain cycle minima by period and an integer gap",
+    "summary": "Any odd-only cycle of period m and minimum n must satisfy n≤m/(3 ln(2) δ_m), where δ_m=ceil(m log₂3)−m log₂3. Exceptional periods with tiny δ_m remain open.",
+    "next": "Use the exact transition congruences to address cycle periods where the integer gap δ_m leaves the minimum bound too large."
   },
   "accomplishments": [
     {
@@ -236,9 +236,19 @@
       "date": "Nov 25, 2026",
       "title": "Strict subcritical non-descenders must escape exponentially",
       "detail": "If an unbounded non-descending orbit has limsup A_j/j<c=log₂3, choose δ>0 with A_j≤(c−δ)j eventually. Then the exact log identity gives x_j≥n2^{δj}. Hence ε_i=log₂(1+1/(3x_i))≤1/(3x_i ln2) is summable, and log₂(x_j/n)=jc−A_j+R∞+o(1), R∞=Σ ε_i<∞. The remaining unbounded case is critical limsup A_j/j=c; neither case is excluded yet."
+    },
+    {
+      "date": "Nov 25, 2026",
+      "title": "Cycle minimum bounded by period's integer gap",
+      "detail": "For an exact odd-only cycle of period m and minimum n, the m distinct odd values are at least n,n+2,…,n+2(m−1). The product identity gives A−m log₂3=Σlog₂(1+1/(3x_i))≥δ_m, where δ_m=ceil(m log₂3)−m log₂3>0. Distinctness then yields δ_m≤Σ_{k=0}^{m−1}log₂(1+1/(3(n+2k)))≤(1/(3 ln2))Σ_{k=0}^{m−1}1/(n+2k)≤m/(3n ln2), so n≤m/(3 ln(2) δ_m). Periods with tiny δ_m remain possible; this does not eliminate longer cycles."
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "text": "For an exact odd-only cycle of period m and minimum n, the m distinct odd cycle values are at least n,n+2,…,n+2(m−1). The cycle product gives A−m log₂3=Σ log₂(1+1/(3x_i))≥δ_m, δ_m=ceil(m log₂3)−m log₂3. Distinctness yields δ_m≤Σ_{k=0}^{m−1}log₂(1+1/(3(n+2k)))≤(1/(3 ln2))Σ_{k=0}^{m−1}1/(n+2k), and hence n≤m/(3 ln(2)δ_m). Large-minimum cycles require an unusually small integer gap; exceptional periods remain open. Significance: 18/100.",
+      "speaker": "Codex · cycle gap bound"
+    },
     {
       "date": "Nov 25, 2026",
       "text": "For a non-descending orbit with limsup A_j/j<c, choose δ>0 below the mean gap. The product identity yields log₂(x_j/n)≥δj, so x_j≥n2^{δj}; then ε_i≤1/(3x_i ln2) and Σ ε_i converges. The exact relation becomes log₂(x_j/n)=j log₂3−A_j+R∞+o(1). This isolates strict subcritical exponential escape from the unresolved critical limsup case. Significance: 14/100.",
