@@ -131,6 +131,16 @@ Because `R_t≤R_1=4/3<2`, the width of this inconclusive band, measured in the 
 
 This isolates the local ambiguity to at most one valuation level per block length. It still gives no bound on how often the orbit chooses that level or on the combined drift of successive blocks.
 
+The possible candidate can be tested without logarithms. Set `h=floor(t log_2(3/2))`, `f=t log_2(3/2)-h`, and `a=h+2`. Then
+
+`q-log_2 3 = (1-f)/t`,  while  `λ_t-log_2 3 = (log_2 R_t)/t`.
+
+So the candidate is already guaranteed to contract if `1-f>log_2 R_t`. Otherwise use the exact block criterion: with `D=2^{h+t+1}-3^t>0` (since `h+1>t log_2(3/2)`), it contracts exactly when
+
+`uD > 2^{h+1}-1`.
+
+This is a positive-integer comparison for the sole possible local gap. The orbit-wide problem still requires controlling these `u` values together with the adjacent block transitions.
+
 Integrality sharpens this local test. From `3x=2^{a+t}u-2^a-1`, reduction modulo 3 gives `u≡0 (mod 3)` when `a` is odd, and `u≡(-1)^{t+1} (mod 3)` when `a` is even. Since `u` is positive and odd, its corresponding lower bound is `u≥3` for odd `a`, `u≥1` for even `a` and odd `t`, and `u≥5` for even `a` and even `t`. Thus, writing `C=2^{a+t}-2·3^t`, a sharper sufficient criterion is `C>0` and `u_min C>2^a-2`, with `u_min` chosen from those three cases.
 
 This is only a local block criterion. For example, `9 → 7 → 11 → 17` is a block with `a=2`, `t=3`, and it grows from 9 to 17.
