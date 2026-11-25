@@ -3,13 +3,13 @@
   "stage": "Collatz · first proof steps",
   "aiEstimate": {
     "percent": 0,
-    "basis": "Strict proof-completion estimate: 0%. Exact identities, necessary orbit restrictions, and transition-aware finite-prefix descent criteria are recorded, but no argument proves that every odd starting value has a descending iterate. A stronger certificate does not by itself complete the theorem."
+    "basis": "Strict proof-completion estimate: 0%. Exact identities, necessary orbit restrictions, and residue-sensitive finite-prefix descent criteria are recorded, but no argument proves that every odd starting value has a descending iterate. These local constraints do not quantify full theorem completion."
   },
   "focus": {
     "status": "Pure math · global descent theorem open",
-    "title": "Force a descent prefix using inherited 3-adic divisibility",
-    "summary": "The transition congruence raises lower bounds on u_k, which lowers the correction ε_k in the exact drift formula. A finite prefix satisfying the sharpened drift inequality proves descent; the open step is proving such a prefix exists for every odd start.",
-    "next": "Use the 3-adic transition constraints to show the sharpened cumulative drift inequality is eventually met on every Syracuse orbit."
+    "title": "Exploit exact 3-adic residues in descent certificates",
+    "summary": "The transition fixes u_k modulo 3^{t_{k−1}}; positivity and oddness lift its least residue to a lower bound U_k*. This can reduce the correction ε_k in a prefix test, but no argument yet forces a qualifying prefix on every orbit.",
+    "next": "Control the sequence of least odd representatives U_k* along all block transitions and show the corrected drift eventually crosses the descent threshold."
   },
   "accomplishments": [
     {
@@ -146,9 +146,19 @@
       "date": "Nov 25, 2026",
       "title": "Transition-aware finite-prefix descent certificate sharpened",
       "detail": "Define U_k from the parity/modulo-3 block condition and, for odd a_k after the first block, the inherited bound 3^{min(t_{k−1},1+v₃(a_k−1))}. Then ε_k<−log₂(1−1/(2^{t_k}U_k)). If the sum of t_k(log₂3−q_k)−log₂(1−1/(2^{t_k}U_k)) over a prefix is below −r log₂(3/2), its endpoint is below n. This sharpens a sufficient certificate but does not prove every orbit meets it."
+    },
+    {
+      "date": "Nov 25, 2026",
+      "detail": "The transition determines u_k modulo M_k=3^{t_{k−1}}. Its least positive odd representative U_k* is obtained from the residue R_k by choosing R_k if odd and R_k+M_k if even, so u_k≥U_k*. This replaces a valuation-only lower bound in ε_k<−log₂(1−1/(2^{t_k}U_k*)) and sharpens the finite-prefix descent test. For 9→17 it recovers u_2≥7 exactly. Orbit-wide prefix existence remains open.",
+      "title": "Full 3-adic residues sharpen the block descent certificate"
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "text": "The transition fixes u_k modulo 3^{t_{k−1}}. Because u_k is positive odd and the modulus is odd, its least possible value is R_k when the least residue is odd, or R_k+3^{t_{k−1}} when it is even. This yields a stronger ε_k bound and sharpens the prefix descent certificate; for 9→17 it recovers u_2=7. Significance: 19/100 — a stronger local certificate, with orbit-wide coverage still open.",
+      "speaker": "Codex · exact residue lift"
+    },
     {
       "text": "Using inherited 3-adic divisibility, each block has u_k≥U_k and hence ε_k<Γ_k=−log₂(1−1/(2^{t_k}U_k)). Therefore any prefix with Σ[t_k(log₂3−q_k)+Γ_k]<−r log₂(3/2) certifies descent. Significance: 18/100 — a stronger finite-prefix certificate; existence of such a prefix on every orbit remains open.",
       "speaker": "Codex · sharpened descent test",

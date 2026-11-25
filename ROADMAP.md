@@ -283,19 +283,19 @@ where `j=r+Σ t_k` is the total number of odd steps at that block boundary. This
 
 is exactly the condition that this block-boundary value `x_{m+1}` lies below `n`. Finding such a boundary would prove descent; it is sufficient but not necessary, since an intermediate iterate may fall below `n` before the block ends.
 
-The 3-adic transition constraint gives a sharper sufficient version by bounding each `u_k` from below. Set
+The exact 3-adic residue gives a stronger lower bound on `u_k` than its valuation alone. For `k≥2`, put `M_k=3^{t_{k-1}}` and let `R_k∈{0,…,M_k−1}` be the unique residue satisfying
 
-`U_k = 3` if `k=1` and `a_k` is odd; `U_k = 3^{min(t_{k-1},1+v_3(a_k−1))}` if `k≥2` and `a_k` is odd; `U_k = 1` if `a_k` is even and `t_k` is odd; and `U_k = 5` if `a_k` and `t_k` are both even.
+`R_k ≡ 2^{−(a_k−1+t_k)}(2^{a_k−1}−1) (mod M_k)`.
 
-The modulo-3 block condition and the transition lemma ensure `u_k≥U_k`. Since
+The transition congruence gives `u_k≡R_k (mod M_k)`. Since `u_k` is positive odd and `M_k` is odd, define `U_k^*=R_k` when `R_k` is odd, and `U_k^*=R_k+M_k` when `R_k` is even. Then `u_k≥U_k^*`. For the first block, the modulo-3 condition gives `U_1^*=3` if `a_1` is odd, `U_1^*=1` if `a_1` is even and `t_1` is odd, and `U_1^*=5` if both are even.
 
-`ε_k=−log_2(1−(1−2^{1−a_k})/(2^{t_k}u_k))`,
+For example, the `9→17` return-block transition has `(a_1,t_1,u_1)=(2,3,1)` and `(a_2,t_2)=(2,1)`. It gives `u_2≡7 (mod 27)`, so positivity and oddness force `u_2≥7` (in fact `u_2=7`).
 
-we have `ε_k<Γ_k`, where `Γ_k=−log_2(1−1/(2^{t_k}U_k))`. Therefore the transition-aware inequality
+Since `ε_k=−log_2(1−(1−2^{1−a_k})/(2^{t_k}u_k))`, set `Γ_k^*=−log_2(1−1/(2^{t_k}U_k^*))`; then `ε_k<Γ_k^*`. Therefore the residue-sensitive finite-prefix condition
 
-`Σ_{k=1}^m (t_k(log_2 3-q_k)+Γ_k) < -r log_2(3/2)`
+`Σ_{k=1}^m (t_k(log_2 3-q_k)+Γ_k^*) < -r log_2(3/2)`
 
-also guarantees `x_{m+1}<n`. This improves the available finite-prefix descent certificate when inherited 3-adic divisibility makes `U_k>1`; it still does not show that such a prefix must occur on every orbit.
+also guarantees `x_{m+1}<n`. This can sharpen a descent certificate when the transition residue forces a large least positive odd representative; it still does not show that such a prefix must occur on every orbit.
 
 On an orbit that never falls below `n`, its final logarithm is nonnegative, so
 
