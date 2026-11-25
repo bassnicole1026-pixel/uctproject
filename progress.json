@@ -3,15 +3,20 @@
   "stage": "Collatz · first proof steps",
   "aiEstimate": {
     "percent": 0,
-    "basis": "Strict proof-completion estimate: 0%. Retaining the preceding block parameter sharpens the carry-based upper bound on cycle excess, but the cyclic sum is not controlled uniformly and no proof excludes every cycle."
+    "basis": "Strict proof-completion estimate: 0%. The cycle excess has two complementary positive block decompositions and carry-based upper bounds, but neither cyclic sum is controlled sharply enough to exclude every cycle."
   },
   "focus": {
-    "status": "Pure math · two-sided carry bound",
-    "title": "Use both neighboring carries to bound cycle excess",
-    "summary": "The exact transition rewrites each block correction using the preceding block parameter u_(k−1); incoming and outgoing residues give u_(k−1)≥V_(k−1), strengthening the cycle-excess upper bound.",
-    "next": "Derive a uniform bound on this cyclic sum from the valuation recurrence and compare it with the convergent lower bound, without finite enumeration."
+    "status": "Pure math · dual block bounds",
+    "title": "Combine two block-coordinate bounds on cycle excess",
+    "summary": "The cyclic transition gives two exact positive decompositions of D=A−m log₂3. Two-neighbor carry lower bounds on u produce complementary upper sums, one retaining t and one with a simpler denominator.",
+    "next": "Bound the minimum of these cyclic sums using only the cycle period and minimum, then compare with the convergent lower bound; avoid finite enumeration."
   },
   "accomplishments": [
+    {
+      "date": "Nov 25, 2026",
+      "title": "A second positive block decomposition of cycle excess derived",
+      "detail": "Rearranging the cyclic transition gives 2^{b_k+t_k}u_k=3^{t_{k−1}}u_{k−1}+2^{b_k}−1. Logarithms telescope cyclically to D=A−m log₂3=Σ_k log₂(1+(2^{b_k}−1)/(3^{t_{k−1}}u_{k−1})). With u_{k−1}≥V_{k−1}, this gives a second upper bound complementary to the η(t,u) expression. D is bounded by the smaller sum, but neither is yet strong enough to exclude cycles."
+    },
     {
       "date": "Nov 25, 2026",
       "title": "Two-neighbor carry bounds sharpen the cycle excess estimate",
@@ -294,6 +299,11 @@
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "text": "A second cyclic logarithmic identity is D=Σ_k log₂(1+(2^{b_k}−1)/(3^{t_{k−1}}u_{k−1})); it follows by rearranging the block transition and telescoping Σlog₂u. The two-neighbor lower bounds give a second upper sum alongside the run-sensitive η bound. Taking their minimum may sharpen the cycle/convergent comparison, but does not yet exclude a cycle. Significance: 16/100.",
+      "speaker": "Codex · dual block excess bounds"
+    },
     {
       "date": "Nov 25, 2026",
       "text": "Retaining the full preceding block parameter in the cycle transition gives η_k=log₂(1+2^{b_k}(1−(2/3)^{t_k})/(3^{t_{k−1}}u_{k−1}−1)). The neighboring carry congruences yield u_{k−1}≥V_{k−1}, sharpening the earlier coarse bound. The resulting cyclic sum still has no uniform contradiction. Significance: 15/100.",

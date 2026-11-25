@@ -708,6 +708,24 @@ The incoming and outgoing congruences above give `u_{k−1}≥V_{k−1}`, where 
 
 In the large-minimum convergent branch this combines with `r/(q+q')<D`. Replacing `V_{k−1}` by the weaker bound `1` recovers the previous residue-independent inequality. The strengthened comparison still requires a global bound on the cyclic valuation pattern and does not rule out a cycle by itself.
 
+The same transition has a second positive decomposition. Rearranging it gives
+
+`2^{b_k+t_k}u_k = 3^{t_{k−1}}u_{k−1} + 2^{b_k}−1`.
+
+Taking logarithms and summing cyclically cancels `Σ log_2 u_k` and yields
+
+`D = Σ_k log_2(1 + (2^{b_k}−1)/(3^{t_{k−1}}u_{k−1}))`.
+
+Using `u_{k−1}≥V_{k−1}` gives a second upper bound. Thus `D` is bounded by the smaller of the two cyclic sums
+
+`Σ_k log_2(1 + 2^{b_k}(1−(2/3)^{t_k})/(3^{t_{k−1}}V_{k−1}−1))`
+
+and
+
+`Σ_k log_2(1 + (2^{b_k}−1)/(3^{t_{k−1}}V_{k−1}))`.
+
+The formulas are complementary: the first retains the run-length factor, while the second has a simpler denominator. Neither sum has yet been bounded sharply enough, in terms of only the cycle period and minimum, to contradict the convergent lower bound.
+
 ## Auxiliary finite congruence certificates
 
 The following exact congruence arguments establish descent on selected classes. They are valid side results, but extending a residue list is not the active proof strategy and does not address the remaining all-integers argument.
