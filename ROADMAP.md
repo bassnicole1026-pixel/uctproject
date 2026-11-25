@@ -141,6 +141,20 @@ So the candidate is already guaranteed to contract if `1-f>log_2 R_t`. Otherwise
 
 This is a positive-integer comparison for the sole possible local gap. The orbit-wide problem still requires controlling these `u` values together with the adjacent block transitions.
 
+There is an exact consequence for the next block whenever this candidate fails to contract. Index this candidate as block `k`, so `a_k=h+2`, `t_k=t`, and `u_k=u`. Put `M=2^{h+1}` and suppose `uD≤M-1`. Then `r=Du+1≤M`, and the block endpoint formula gives
+
+`3(x_{k+1}-x_k)=2(M-1-uD)`.
+
+Thus strict inequality `uD<M-1` means this block expands. The transition law also gives
+
+`3^t u-1 = 2^t M u-r`.
+
+Because `r` is even, `r≤2^{h+1}`, and `v_2(2^t M u)=t+h+1>v_2(r)`, taking the 2-adic valuation yields the exact next-valuation relation
+
+`a_{k+1}-1=v_2(Du+1)≤h+1`.
+
+So a genuinely expanding block at the only possible gap forces `a_{k+1}≤h+1=a_k-1`. In the equality case `uD=M-1`, the block returns to its starting point, `S^t(x_k)=x_k`, and gives a periodic orbit with period dividing `t`. This constrains a local transition but does not rule out an arbitrary non-descending orbit.
+
 Integrality sharpens this local test. From `3x=2^{a+t}u-2^a-1`, reduction modulo 3 gives `u≡0 (mod 3)` when `a` is odd, and `u≡(-1)^{t+1} (mod 3)` when `a` is even. Since `u` is positive and odd, its corresponding lower bound is `u≥3` for odd `a`, `u≥1` for even `a` and odd `t`, and `u≥5` for even `a` and even `t`. Thus, writing `C=2^{a+t}-2·3^t`, a sharper sufficient criterion is `C>0` and `u_min C>2^a-2`, with `u_min` chosen from those three cases.
 
 This is only a local block criterion. For example, `9 → 7 → 11 → 17` is a block with `a=2`, `t=3`, and it grows from 9 to 17.
