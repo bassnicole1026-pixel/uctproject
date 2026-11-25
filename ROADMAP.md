@@ -1041,7 +1041,139 @@ There is also an exact local pattern in the one-`1` case. If `u_i=1`, then `t_i`
 
 The left side has 2-adic valuation `2`, so `t_(i+1)=1` and `u_(i+1)=(3^(t_i)+1)/4`. Since two `u` values cannot be `1`, this forces `t_i≥3` and `u_(i+1)≥7`. The next high valuation also satisfies `b_(i+2)=v₂(3u_(i+1)−1)=v₂(t_i+1)`, by the 2-adic LTE formula. Thus the exceptional quotient `1` fixes the next run length and valuation exactly.
 
-In particular, every nontrivial three-high-block cycle must satisfy `B=floor(Tα)+1` and `{Tα}≥log₂(675/512)`. This is a necessary parameter restriction only; it does not yet bound `T` or exclude the exactly-three-high profile.
+In particular, every nontrivial three-high-block cycle must satisfy `B=floor(Tα)+1` and `{Tα}≥log₂(675/512)`.
+
+#### Excluding the branch with a quotient equal to one
+
+Suppose `u_1=1`, and write `t=t_1`, `h=v₂(t+1)`. Since this quotient is unique, `u_2,u_3≥3`. The exact local pattern above gives
+
+`t_2=1`,  `u_2=(3^t+1)/4`,  `b_2=1`,  `b_3=h`.
+
+The fixed sum and closing transition then give
+
+`b_1=floor((t+t_3+1)α)−h`,  `3^(t_3)u_3=2^(b_1)(2^t−1)+1`.
+
+Since `u_3≥3`, comparison of the right side with `2^(b_1+t)` yields `t_3<c t−h−1`, where `c=log₂3`. The lower comparison `2^(b_1)(2^t−1)+1>2^(b_1+t−1)`, together with the fixed-sum formula, gives
+
+`u_3>2^(c t−t_3+α−h−2)`.
+
+For all positive odd `u`,
+
+`η(t,u)<2^(1−t)/(u ln 2)`.
+
+Applying this to the three corrections, using `u_2>3^t/4` and `2^h≤t+1`, gives
+
+`D< [2^(1−t)+4/3^t+(16/3)(t+1)/3^t]/ln 2 < 24(t+1)2^(−t)`.
+
+Matveev's lower bound from the two-block argument gives `D>exp(−H)`, where `H=6·10^8(1+ln(2T))`. Since `T=t+1+t_3<(1+c)t<2.6t`, the bounds imply
+
+`t ln 2−ln(24(t+1)) < 6·10^8(1+ln(5.2t))`.
+
+At `t=3·10^10` the left side exceeds `20.7·10^9`, while the right side is below `16.8·10^9`; the difference is increasing thereafter. Hence `t<3·10^10`, so `T<7.8·10^10` and `σ=B+T<1.56·10^11`.
+
+The certified continued fractions for `θ=ln 2/ln 3` now bootstrap this bound down. At each stage, the best-approximation inequality gives `Λ=σ ln 2−T ln 3>D ln 2` its stated lower bound; the exponentially decreasing upper bound for `D` then shortens `t`:
+
+| Cutoff for `σ` | Lower bound for `Λ` | Result |
+|---:|---:|---:|
+| `83,130,157,078,217` | `1.08·10⁻¹⁴` | `t≤55`, `T≤141` |
+| `485` | `1/600` | `t≤17`, `T≤43` |
+| `84` | `1/150` | `t≤15`, `T≤37` |
+| `65` | `1/84` | `t≤13`, `T≤32` |
+
+Each cutoff is available at the preceding step: `σ<1.56·10^11`, then `σ≤282`, then `σ<84`, then `σ<65`. The parity condition `t` odd is used in the displayed `t` bounds.
+
+Only `t=3,5,7,9,11,13` remain. The transition from block 2 determines `t_3,u_3` uniquely: put `M=(3u_2−1)/2^h`, then `t_3=v₂(M+1)` and `u_3=(M+1)/2^t_3`. The last transition fails in every case:
+
+| `t` | `h` | `t₃` | `u₃` | `T` | `B` | `b₁` | `3^t₃u₃` | `2^b₁(2^t−1)+1` |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 3 | 2 | 1 | 3 | 5 | 3 | 0 | 9 | 8 |
+| 5 | 1 | 2 | 23 | 8 | 5 | 3 | 207 | 249 |
+| 7 | 3 | 1 | 103 | 9 | 6 | 2 | 309 | 509 |
+| 9 | 1 | 1 | 3691 | 11 | 7 | 5 | 11,073 | 16,353 |
+| 11 | 2 | 6 | 519 | 18 | 11 | 8 | 378,351 | 524,033 |
+| 13 | 1 | 4 | 37,367 | 18 | 11 | 9 | 3,026,727 | 4,193,793 |
+
+Therefore a nontrivial three-high-block cycle has no quotient equal to `1`; all three `u_i` are at least `3`.
+
+#### A finite period bound for the three-high-block profile
+
+For this remaining branch, define `w_i=t_i+log₂u_i`. Since `u_i≥3`, the correction satisfies
+
+`η(t_i,u_i)<6·2^(−w_i)/(5 ln 2)`.
+
+Also, the exact transition gives
+
+`2^(w_(i+1))=(3^(t_i)u_i−1)/2^(b_(i+1))+1<3^(t_i)u_i`,
+
+so `w_(i+1)<c w_i−αc`. Matveev gives `D>exp(−H)` as above; at least one of the three corrections is at least `D/3`. It follows that for some cyclic index `j`,
+
+`w_j < W := H/ln 2 + log₂(18/(5 ln 2))`.
+
+Iterating the transition bound twice and using `t_i=w_i−log₂u_i≤w_i−c` gives
+
+`T < S W−C`,  `S=1+c+c²`,  `C=3c+αc(c+2)`.
+
+Exact power comparisons `3^50>2^79` and `3^100<2^159` give `1.58<c<1.59`. Hence `S<5.1181` and `C>8.02`. With `ln 2>56/81`, Matveev's estimate first gives
+
+`T<4.5·10^9(1+ln(2T))+20`,
+
+which implies `T<10^12` by evaluating at `10^12` and noting that the right side has derivative less than `1` thereafter.
+
+We can then apply the same certified continued-fraction bounds successively. If `Λ>D` is bounded below by `L`, the estimate above gives `W<log₂(18/(5L))`:
+
+| Condition on `σ` | `L` | Upper bound for `W` | Result |
+|---:|---:|---:|---:|
+| `σ<83,130,157,078,217` | `1.08·10⁻¹⁴` | `49` | `T≤252` |
+| `σ<485` | `1/600` | `11.75` | `T≤52` |
+| `σ<84` | `1/150` | `9.25` | `T≤39` |
+| `σ<65` | `1/84` | `8.25` | `T≤34` |
+
+These cutoffs follow in order from `σ≤cT+1`, `2^82<3^52<2^83` (so `σ≤83` when `T≤52`), and the exact bound `c<1.59`. Thus every exactly-three-high-block cycle has `T≤34`.
+
+Finally, at least one `t_i≥m:=ceil(T/3)`. The function `η(t,u)` decreases in both `t` and `u`, so
+
+`2^D≤R_T := (16/15)^2 · (1−3^(−m−1))/(1−1/(3·2^m))`.
+
+For `3≤T≤34`, exact integer comparisons with `B=floor(Tα)+1` leave only:
+
+| `T` | `B` | `m` | `R_T` | Exact margin `num(R_T)·3^T−den(R_T)·2^(B+T)` |
+|---:|---:|---:|---:|---:|
+| 3 | 2 | 1 | `4096/3375` | 2,592 |
+| 5 | 3 | 2 | `26624/22275` | 767,232 |
+| 10 | 6 | 4 | `991232/856575` | 2,394,759,168 |
+| 17 | 10 | 6 | `35815424/31328775` | 420,332,691,750,912 |
+| 22 | 13 | 8 | `99221504/87097275` | 121,036,349,952,884,736 |
+| 29 | 17 | 10 | `46437761024/40801382775` | 315,898,996,468,454,134,382,592 |
+| 34 | 20 | 12 | `1671767785472/1469208502575` | 1,413,467,659,060,407,406,342,176,768 |
+
+The margin must be nonnegative because `2^D≤R_T`. The period-`3` row is independently impossible: the three distinct odd cycle values are nonmultiples of `3` and at least `7`, so `2^D≤P_3=2720/2457`; the exact cross-multiplied margin `2^5·2457−3^3·2720=5184>0` contradicts this. Consequently any exactly-three-high-block cycle would have to satisfy
+
+`T∈{5,10,17,22,29,34}`.
+
+This is a finite reduction, not an exclusion of the exactly-three-high-block profile. The six remaining totals still have to satisfy the exact three-block transition numerators; profiles with four or more high valuations remain open.
+
+#### Excluding the `T=5` profile
+
+For `T=5`, the fixed-sum formula gives `B=floor(5α)+1=3`. Since there are three positive integers `b_i`, each `b_i=1`. The transition law becomes
+
+`2^(t_(i+1)+1)u_(i+1)=3^(t_i)u_i+1`.
+
+Compose the three equations cyclically, taking indices modulo `3`. With `t_1+t_2+t_3=5`, this gives
+
+`(2^8−3^5)u_1 = 3^(t_2+t_3)+3^(t_3)2^(t_2+1)+2^(t_2+t_3+2)`,
+
+so `13u_1=N(t_2,t_3)`. Positivity of `t_1` means `t_2+t_3≤4`. The six possible ordered pairs yield:
+
+| `(t_2,t_3)` | `t_1` | `N(t_2,t_3) mod 13` |
+|---:|---:|---:|
+| `(1,1)` | `3` | `11` |
+| `(1,2)` | `2` | `4` |
+| `(2,1)` | `2` | `5` |
+| `(1,3)` | `1` | `6` |
+| `(3,1)` | `1` | `11` |
+| `(2,2)` | `1` | `9` |
+
+None is divisible by `13`, contradicting the required integer `u_1`. Thus no exactly-three-high-block cycle has `T=5`. This is a six-case modular check of the exact cycle equations, not a search through Collatz trajectories. The remaining period totals are `T∈{10,17,22,29,34}`.
 
 ## Auxiliary finite congruence certificates
 
@@ -1261,7 +1393,7 @@ Lemmas 1–4 cover 24 of the 32 odd residue classes modulo 64: all classes `1, 5
 
 1. **Fix the definitions and proof target.** Keep the original map and odd-only map explicit. The descent property above is the global obligation.
 2. **Work from exact identities.** Derive consequences of the Syracuse recurrence symbolically, keeping each equality and inequality justified for arbitrary odd starting values. The iterate identity, exact valuation-one run length, return-block formulas, modulo-3 restriction, transition law, logarithmic block drift, and state-dependent block contraction threshold are proved above.
-3. **Exclude cycle profiles by their number of high valuations.** The exactly-one-high and exactly-two-high profiles are excluded above. For exactly three high blocks, the parameters obey a strict excess and fractional-part bound, but the profile is not excluded. Turn these restrictions into a period bound or contradiction, then handle profiles with four or more high blocks. Ruling out every nontrivial odd-only cycle is sufficient for the full conjecture by the cycle-exclusion reduction.
+3. **Exclude cycle profiles by their number of high valuations.** The exactly-one-high and exactly-two-high profiles are excluded above. An exactly-three-high cycle cannot have a quotient `u_i=1`; its period is at most `34`, and the exact transition equations exclude `T=5`. Exclude the five remaining totals `{10,17,22,29,34}`, then handle profiles with four or more high blocks. Ruling out every nontrivial odd-only cycle is sufficient for the full conjecture by the cycle-exclusion reduction.
 4. **Keep the proof uniform in the starting value.** Seek identities and inequalities that apply to every odd `n`. Treat the finite congruence certificates below as supplementary lemmas; do not use more residue enumeration as a substitute for the global argument.
 5. **Audit the complete argument.** Check boundary values, the valuation recurrence, and every induction dependency. Keep conjectures, computational observations, and proved statements labeled separately.
 
@@ -1281,8 +1413,8 @@ flowchart TD
     I --> B["Return-block and transition formulas — proved"]
     B --> H1["One high-valuation block — excluded"]
     H1 --> H2["Two high-valuation blocks — excluded"]
-    H2 --> H3["Three high-valuation blocks — necessary fractional-part bound"]
-    H3 --> O["OPEN: exclude the three-high profile and control profiles with 4+ high valuations"]
+    H2 --> H3["Three high-valuation blocks — T ≤ 34; T=5 excluded"]
+    H3 --> O["OPEN: eliminate five three-high totals and control profiles with 4+ high valuations"]
     B --> O
 ```
 
@@ -1298,4 +1430,4 @@ A 2026 exploratory paper on burst/gap dynamics explicitly leaves its key orbitwi
 
 ## Status
 
-Several exact iterate, valuation, and return-block identities are proved, along with supplementary descent results on selected congruence classes. The exactly-one-high and exactly-two-high cycle profiles are excluded. The exactly-three-high profile has a necessary fractional-part bound but remains unresolved, as do profiles with four or more high valuations. The full Collatz conjecture has not been proved in this project; the strict proof-completion estimate is 0%.
+Several exact iterate, valuation, and return-block identities are proved, along with supplementary descent results on selected congruence classes. The exactly-one-high and exactly-two-high cycle profiles are excluded. Any exactly-three-high cycle must have all `u_i≥3` and period `T≤34`; the exact transition equations exclude `T=5`, leaving `T∈{10,17,22,29,34}` unresolved. Profiles with four or more high valuations also remain open. The full Collatz conjecture has not been proved in this project; the strict proof-completion estimate is 0%.

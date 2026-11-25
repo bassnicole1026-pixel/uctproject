@@ -1,17 +1,22 @@
 {
   "updatedAt": "Nov 25, 2026",
-  "stage": "Collatz · first proof steps",
+  "stage": "Collatz · exact cycle constraints",
   "aiEstimate": {
     "percent": 0,
-    "basis": "Strict full-conjecture proof-completion estimate: 0%. The exactly-one-high- and exactly-two-high-valuation cycle profiles are excluded. For exactly three high blocks, at most one quotient u_i can equal 1 and the cycle excess has a strict fractional-part bound; that profile is not yet excluded. Profiles with four or more high valuations remain open."
+    "basis": "Strict full-conjecture proof-completion estimate: 0%. Exact cycle-profile arguments exclude one- and two-high-valuation cycles. For exactly three high blocks, all quotients are at least 3, T≤34, and the exact transitions exclude T=5; five period totals remain. Profiles with four or more high valuations and nonperiodic descent failures remain unresolved."
   },
   "focus": {
-    "status": "Pure math · three-block cycle analysis",
-    "title": "Strengthen exactly-three-block constraints",
-    "summary": "For a nontrivial cycle with exactly three high blocks, at most one quotient u_i can equal 1; if it does, the next run has length 1 and the following block parameter is b_(i+2)=v₂(t_i+1). This gives D≤log₂(1024/675), B=floor(T log₂(3/2))+1, and {T log₂(3/2)}≥log₂(675/512). It is a necessary condition, not an exclusion.",
-    "next": "Combine the fractional-part bound with the exact three-block transition equations to derive a period bound or exclude this profile; then address profiles with four or more high valuations."
+    "status": "Pure math · exact cycle equations",
+    "title": "Eliminate the T=5 three-block cycle case",
+    "summary": "Composing the three exact block transitions gives 13u₁=N(t₂,t₃). The six positive ordered pairs with t₂+t₃≤4 all give N nonzero modulo 13, so T=5 is impossible. This is a finite modular proof from the cycle equations, with no Collatz orbit search.",
+    "next": "Derive similarly compact divisibility or congruence obstructions for T=10, then continue through T=17, 22, 29, and 34. After the three-block profile, handle cycles with four or more high valuations."
   },
   "accomplishments": [
+    {
+      "date": "Nov 25, 2026",
+      "title": "Excluded the T=5 three-high-block cycle case",
+      "detail": "For T=5, the fixed-sum law forces B=3 and each b_i=1. Composing the exact transitions gives 13u₁=N(t₂,t₃); the six possible ordered pairs (t₂,t₃) with positive t₁ have residues 11, 4, 5, 6, 11, and 9 modulo 13. None can satisfy the required divisibility. This excludes one cycle-period total without searching Collatz trajectories. Five three-high-block totals remain, along with profiles having four or more high valuations. The full-conjecture completion estimate remains 0%. Significance: 20/100."
+    },
     {
       "date": "Nov 25, 2026",
       "title": "Three-high-block cycle parameters narrowed",
@@ -339,6 +344,11 @@
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "speaker": "Codex · T=5 exact cycle exclusion",
+      "text": "Exact modular subcase result: if a nontrivial cycle has exactly three high-valuation blocks and total run length T=5, then B=3 and all b_i=1. Composing the transitions forces 13u₁=N(t₂,t₃), but all six admissible ordered pairs have nonzero N mod 13. Thus T=5 is excluded by exact cycle algebra, not orbit search. Five totals remain; the full Collatz proof estimate stays 0%. Significance: 20/100."
+    },
     {
       "date": "Nov 25, 2026",
       "speaker": "Codex · three-high-block parameter bound",
