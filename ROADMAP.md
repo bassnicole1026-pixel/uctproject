@@ -297,6 +297,22 @@ Since `ε_k=−log_2(1−(1−2^{1−a_k})/(2^{t_k}u_k))`, set `Γ_k^*=−log_2(
 
 also guarantees `x_{m+1}<n`. This can sharpen a descent certificate when the transition residue forces a large least positive odd representative; it still does not show that such a prefix must occur on every orbit.
 
+### Exact contraction threshold for the residue carry
+
+For the transition from block `k` to block `k+1`, write `u_{k+1}=U_{k+1}^*+2M_k Q_k`, where `M_k=3^{t_k}` and `Q_k` is a nonnegative integer. Let
+
+`B_{k+1}=2^{a_{k+1}}−2` and `C_{k+1}=2^{a_{k+1}+t_{k+1}}−2·3^{t_{k+1}}`.
+
+The exact block endpoint difference becomes
+
+`3(x_{k+2}−x_{k+1}) = B_{k+1}−C_{k+1}U_{k+1}^*−2M_k C_{k+1}Q_k`.
+
+If `C_{k+1}≤0`, the block expands. If `C_{k+1}>0`, it contracts exactly when `Q_k≥Q_k^{min}`, where
+
+`Q_k^{min}=max(0, floor((B_{k+1}−C_{k+1}U_{k+1}^*)/(2M_k C_{k+1}))+1)`.
+
+Thus each positive-`C` block has an exact carry threshold separating contraction from non-contraction. The orbit-wide problem now includes controlling how often its transition carries cross these thresholds; the residue identity alone does not do that.
+
 On an orbit that never falls below `n`, its final logarithm is nonnegative, so
 
 `Σ(a_k-1) ≤ j log_2(3/2) + Σ ε_k`.

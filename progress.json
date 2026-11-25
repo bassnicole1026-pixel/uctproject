@@ -3,13 +3,13 @@
   "stage": "Collatz · first proof steps",
   "aiEstimate": {
     "percent": 0,
-    "basis": "Strict proof-completion estimate: 0%. Exact identities, necessary orbit restrictions, and residue-sensitive finite-prefix descent criteria are recorded, but no argument proves that every odd starting value has a descending iterate. These local constraints do not quantify full theorem completion."
+    "basis": "Strict proof-completion estimate: 0%. Exact identities, necessary orbit restrictions, and residue-sensitive descent tests with local carry thresholds are recorded, but no argument proves descent for every odd starting value. These local conditions do not quantify full theorem completion."
   },
   "focus": {
     "status": "Pure math · global descent theorem open",
-    "title": "Exploit exact 3-adic residues in descent certificates",
-    "summary": "The transition fixes u_k modulo 3^{t_{k−1}}; positivity and oddness lift its least residue to a lower bound U_k*. This can reduce the correction ε_k in a prefix test, but no argument yet forces a qualifying prefix on every orbit.",
-    "next": "Control the sequence of least odd representatives U_k* along all block transitions and show the corrected drift eventually crosses the descent threshold."
+    "title": "Control residue carries across block transitions",
+    "summary": "Each block with C>0 contracts exactly when its residue carry Q_k reaches an explicit threshold. The unresolved step is to prove that the coupled transition sequence crosses enough thresholds for every starting orbit.",
+    "next": "Derive a recurrence or global inequality controlling the frequency of Q_k≥Q_k^{min}, including the C≤0 expansion blocks."
   },
   "accomplishments": [
     {
@@ -151,9 +151,19 @@
       "date": "Nov 25, 2026",
       "detail": "The transition determines u_k modulo M_k=3^{t_{k−1}}. Its least positive odd representative U_k* is obtained from the residue R_k by choosing R_k if odd and R_k+M_k if even, so u_k≥U_k*. This replaces a valuation-only lower bound in ε_k<−log₂(1−1/(2^{t_k}U_k*)) and sharpens the finite-prefix descent test. For 9→17 it recovers u_2≥7 exactly. Orbit-wide prefix existence remains open.",
       "title": "Full 3-adic residues sharpen the block descent certificate"
+    },
+    {
+      "detail": "Writing u_{k+1}=U_{k+1}*+2·3^{t_k}Q_k converts the block endpoint difference to B_{k+1}−C_{k+1}U_{k+1}*−2·3^{t_k}C_{k+1}Q_k. For C≤0 the block expands; for C>0 it contracts exactly when Q_k≥max(0,floor((B−CU*)/(2·3^{t_k}C))+1). This gives a local exact threshold; orbit-wide control of the carries remains open.",
+      "date": "Nov 25, 2026",
+      "title": "Exact carry threshold for block contraction derived"
     }
   ],
   "notes": [
+    {
+      "text": "Using the exact 3-adic residue lift, write u_{k+1}=U_{k+1}*+2·3^{t_k}Q_k. The next block contracts exactly above an explicit integer threshold in Q_k when C_{k+1}>0; if C≤0 it expands. Significance: 17/100 — an exact local dichotomy, with carry-frequency control still open.",
+      "speaker": "Codex · residue-carry threshold",
+      "date": "Nov 25, 2026"
+    },
     {
       "date": "Nov 25, 2026",
       "text": "The transition fixes u_k modulo 3^{t_{k−1}}. Because u_k is positive odd and the modulus is odd, its least possible value is R_k when the least residue is odd, or R_k+3^{t_{k−1}} when it is even. This yields a stronger ε_k bound and sharpens the prefix descent certificate; for 9→17 it recovers u_2=7. Significance: 19/100 — a stronger local certificate, with orbit-wide coverage still open.",
