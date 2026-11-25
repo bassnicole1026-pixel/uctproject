@@ -3,13 +3,13 @@
   "stage": "Collatz · first proof steps",
   "aiEstimate": {
     "percent": 0,
-    "basis": "Strict proof-completion estimate: 0%. Exact identities, local descent cases, and necessary restrictions on hypothetical descent failures are recorded, but no argument establishes descent for every starting integer. Re-expressing existing drift terms does not give a meaningful percentage of the full theorem."
+    "basis": "Strict proof-completion estimate: 0%. Exact identities, local descent cases, necessary restrictions on hypothetical descent failures, and a 3-adic transition constraint are recorded, but no argument establishes descent for every starting integer. Local transition bounds do not give a meaningful percentage of the full theorem."
   },
   "focus": {
     "status": "Pure math · global descent theorem open",
-    "title": "Find independent control of block drift",
-    "summary": "The logarithmic transition correction is exactly ε_{k+1}, the next-block state-dependent drift term. The telescope rewrites existing drift using t and u parameters; an independent bound on cumulative drift or terminal parameters is still missing.",
-    "next": "Derive a transition-law estimate on Σε_k or terminal parameters that is not already implied by the block logarithmic drift identity."
+    "title": "Use higher 3-adic constraints to force block contraction",
+    "summary": "Reducing the block transition modulo 3^{t_k} fixes u_{k+1} modulo that power and gives a stronger lower bound on u_{k+1} when a_{k+1} is odd. The resulting transition-aware contraction test is local; the remaining task is to make it force enough descent orbit-wide.",
+    "next": "Combine the inherited 3-adic lower bound on u_k with the block transition and contraction threshold to control the long-run frequency of expanding blocks."
   },
   "accomplishments": [
     {
@@ -136,9 +136,19 @@
       "date": "Nov 25, 2026",
       "title": "Transition telescope matched to next-block drift correction",
       "detail": "The logarithmic transition correction δ_k equals ε_{k+1} exactly, using x_{k+1}+1=2·3^{t_k−1}u_k. This telescopes the known block-drift correction in (t,u) coordinates and gives a necessary endpoint-parameter inequality under non-descent. It supplies no independent bound or contradiction."
+    },
+    {
+      "detail": "Modulo 3^{t_k}, the transition gives u_{k+1}≡2^{−(b_k+t_{k+1})}(2^{b_k}−1), with b_k=a_{k+1}−1. LTE yields min(v₃(u_{k+1}),t_k)=min(t_k,1+v₃(b_k)) for even b_k and 0 for odd b_k. This strengthens the inherited lower bound on u for odd next valuations and gives a sharper local contraction test, but not an orbit-wide descent proof.",
+      "title": "Higher 3-adic divisibility across block transitions derived",
+      "date": "Nov 25, 2026"
     }
   ],
   "notes": [
+    {
+      "text": "New exact local constraint: reducing 2^{b_k+t_{k+1}}u_{k+1}=3^{t_k}u_k+2^{b_k}−1 modulo 3^{t_k} fixes u_{k+1} mod 3^{t_k}. LTE gives v₃(u_{k+1})≥min(t_k,1+v₃(b_k)) when b_k=a_{k+1}−1 is even. This improves a local contraction test, while orbit-wide control remains open. Significance: 16/100.",
+      "date": "Nov 25, 2026",
+      "speaker": "Codex · 3-adic transition update"
+    },
     {
       "date": "Nov 25, 2026",
       "speaker": "Codex · identity audit",

@@ -209,6 +209,28 @@ and, on writing `y_{k+1}=2^{t_{k+1}}u_{k+1}-1`,
 
 Indeed, `3x_{k+1}+1=2(3^{t_k}u_k-1)`, and dividing by its exact power of 2 gives `y_{k+1}`. Thus adjacent block parameters cannot be chosen independently. This is an exact recurrence, but it does not yet bound their long-run averages.
 
+The recurrence also carries information modulo a high power of 3. Put `b_k=a_{k+1}−1`. Adding `2^{b_k}` to both sides gives
+
+`2^{b_k+t_{k+1}}u_{k+1}=3^{t_k}u_k+2^{b_k}−1`,
+
+so, modulo `3^{t_k}`,
+
+`u_{k+1} ≡ 2^{−(b_k+t_{k+1})}(2^{b_k}−1) (mod 3^{t_k})`.
+
+The inverse power of 2 is taken modulo `3^{t_k}`. In particular,
+
+`min(v_3(u_{k+1}),t_k) = 0` if `b_k` is odd, and `min(v_3(u_{k+1}),t_k)=min(t_k,1+v_3(b_k))` if `b_k` is even.
+
+For even `b_k`, this follows from `v_3(2^{b_k}−1)=1+v_3(b_k)` by LTE; for odd `b_k`, `2^{b_k}−1` is a 3-adic unit. Thus when `a_{k+1}` is odd, the next block parameter satisfies
+
+`u_{k+1} ≥ 3^{min(t_k,1+v_3(a_{k+1}−1))}`.
+
+Inserting this into the exact local contraction test gives a transition-aware sufficient condition: if `a_{k+1}` is odd, `C_{k+1}=2^{a_{k+1}+t_{k+1}}−2·3^{t_{k+1}}>0`, and
+
+`3^{min(t_k,1+v_3(a_{k+1}−1))} C_{k+1} > 2^{a_{k+1}}−2`,
+
+then block `k+1` contracts. This strengthens the earlier modulo-3 lower bound on `u`, but does not yet force enough contractions along every orbit.
+
 Taking logarithms gives a telescoping form of this transition. Put `b_k=a_{k+1}−1` and
 
 `δ_k=log_2(1+(2^{b_k}−1)/(3^{t_k}u_k))`.
