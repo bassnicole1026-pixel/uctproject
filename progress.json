@@ -16,9 +16,9 @@
   },
   "focus": {
     "status": "Global proof target remains open",
-    "title": "Balance expanding and contracting blocks",
-    "summary": "A return block with mean valuation (a+t−1)/t≤log₂3 must expand; strict block descent requires a mean above log₂3 and also depends on u. A hypothetical non-descending orbit has cumulative mean at most log₂(3+1/n), so a narrow gap remains.",
-    "next": "Use the block transition law and integrality constraints to prove a cumulative lower bound that beats the non-descent cap, while tracking the exact descent correction."
+    "title": "Narrow the block-average gap",
+    "summary": "Mean valuation q≤log₂3 forces a block to expand. If q>λ_t=log₂3+η_t, where η_t>0 tends to 0, the block is guaranteed to descend; between these thresholds the coarse test is inconclusive. The global cumulative bound remains open.",
+    "next": "Use the return-block transition law and integrality constraints to control the average across many blocks, not just each block separately."
   },
   "accomplishments": [
     {
@@ -55,6 +55,11 @@
       "date": "Nov 24, 2026",
       "title": "Critical mean for local block descent proved",
       "detail": "If a block's mean valuation (a+t−1)/t is at most log₂3, its endpoint is strictly larger than its start. Therefore a contracting block must exceed this mean, but that condition alone is not sufficient."
+    },
+    {
+      "date": "Nov 24, 2026",
+      "title": "Guaranteed-descent mean threshold derived",
+      "detail": "A block is guaranteed to contract when q=(a+t−1)/t exceeds λ_t=1+(1/t)log₂((3^t−1)/(2^t−1))=log₂3+η_t, with η_t positive and tending to zero. The coarse test is inconclusive in the band between thresholds."
     },
     {
       "date": "Nov 24, 2026",
@@ -176,7 +181,7 @@
     {
       "date": "Nov 24, 2026",
       "speaker": "Codex · dynamics update",
-      "text": "A return block with mean valuation (a+t−1)/t≤log₂3 must expand; contraction requires a mean above log₂3 and still depends on u. A non-descending orbit is capped at log₂(3+1/n) on cumulative means, leaving the key gap: prove a global lower bound."
+      "text": "We derived a guaranteed-contraction threshold λ_t=log₂3+η_t, with η_t>0 tending to zero. Blocks at or below log₂3 expand; blocks above λ_t contract regardless of u. In the middle band, use the exact u-dependent test; the global average remains unresolved."
     }
   ]
 }

@@ -95,6 +95,16 @@ A sufficient condition that guarantees descent for every possible odd `u≥1` is
 
 `2^a(2^t - 1) > 2·3^t - 2`.
 
+Writing the block mean as `q=(a+t-1)/t`, this sufficient condition is equivalently
+
+`q > λ_t := 1 + (1/t) log_2((3^t-1)/(2^t-1))`.
+
+The threshold satisfies
+
+`λ_t = log_2 3 + η_t`,  where  `η_t=(1/t)log_2((1-3^{-t})/(1-2^{-t})) > 0`,
+
+and `η_t → 0` as `t → ∞`. Hence the block-mean ranges are now separated: means at most `log_2 3` force expansion; means above `λ_t` guarantee descent regardless of `u`; between these thresholds the coarse test is inconclusive, and the exact `u`-dependent test or its modulo-3 refinement is needed.
+
 Integrality sharpens this local test. From `3x=2^{a+t}u-2^a-1`, reduction modulo 3 gives `u≡0 (mod 3)` when `a` is odd, and `u≡(-1)^{t+1} (mod 3)` when `a` is even. Since `u` is positive and odd, its corresponding lower bound is `u≥3` for odd `a`, `u≥1` for even `a` and odd `t`, and `u≥5` for even `a` and even `t`. Thus, writing `C=2^{a+t}-2·3^t`, a sharper sufficient criterion is `C>0` and `u_min C>2^a-2`, with `u_min` chosen from those three cases.
 
 This is only a local block criterion. For example, `9 → 7 → 11 → 17` is a block with `a=2`, `t=3`, and it grows from 9 to 17.
