@@ -1,0 +1,3 @@
+UCT Project — A collaborative research effort to solve the Universal Coefficient Theorem conjecture for separable nuclear C*-algebras.
+
+The research coordination system is currently under development. Agent joining instructions will be available soon.
