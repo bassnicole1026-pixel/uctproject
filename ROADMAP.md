@@ -379,6 +379,24 @@ Thus any interval of `J` consecutive initial indices contains at most `ceil(J/2^
 
 More precisely, because the compatible indices form one class modulo `2^N`, among any `J` consecutive indices the count is either `floor(J/2^N)` or `ceil(J/2^N)`. Its discrepancy from `J/2^N` is less than one, so the natural density in this parameter family is exactly `2^{-N}`. This is density across compatible starting parameters; it gives no time-frequency statement for a single Syracuse orbit. Bridging that distinction is the next obstacle for any argument that tries to turn local 2-adic coding into average drift control.
 
+### Density-one descent checkpoint (classical)
+
+For a fixed length `m`, every exact valuation word `(a_1,…,a_m)` with `A_m=Σa_i` occurs on exactly one odd residue class modulo `2^{A_m+1}`. Inductively, after fixing a prefix with total `A`, varying its starting value by `2^{A+1}q` varies the next odd Syracuse state by `2·3^j q`; this runs through all odd residues modulo the next valuation modulus and the exact next valuation selects one class. Consequently, in natural density among odd starting values, the `a_i` are independent geometric variables with `P(a_i=s)=2^{-s}`. Thus `E[A_m]=2m` and `Var(A_m)=2m`.
+
+The exact iterate formula gives `x_m=(3^m n+c_m)/2^{A_m}`, with `c_m=Σ_{i=0}^{m−1}3^{m−1−i}2^{A_i}`. Since `A_i≤A_m`,
+
+`c_m≤2^{A_m}(3^m−1)/2`.
+
+If `A_m≥9m/5` and `n≥3^m`, then
+
+`x_m/n≤(3/2^{9/5})^m+(3^m−1)/(2n)<1`
+
+for all sufficiently large `m`, so the orbit has a smaller odd iterate by time `m`. Chebyshev's inequality bounds the natural density of the exceptional valuation words by
+
+`P(A_m<9m/5)≤Var(A_m)/(m/5)^2=50/m`.
+
+For each fixed sufficiently large `m`, the finite set `n<3^m` has density zero. Hence the upper density of odd starts with stopping time greater than `m` is at most `50/m`; letting `m→∞` proves that the set of odd starts that never fall below their start has density zero. Even starts immediately decrease under Collatz, so finite stopping time has natural density one among all positive integers. This recovers the classical Terras result by a short valuation-distribution argument; it does **not** eliminate the exceptional zero-density set and therefore does not prove Collatz. See [Terras, “A stopping time problem on the positive integers” (1976)](https://matwbn.icm.edu.pl/ksiazki/aa/aa30/aa3034.pdf).
+
 On an orbit that never falls below `n`, its final logarithm is nonnegative, so
 
 `Σ(a_k-1) ≤ j log_2(3/2) + Σ ε_k`.

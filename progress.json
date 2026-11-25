@@ -7,9 +7,9 @@
   },
   "focus": {
     "status": "Pure math · global descent theorem open",
-    "title": "Separate cylinder density from orbit frequency",
-    "summary": "A fixed itinerary has exact density 2^{-N} as the coupled index varies through compatible parameters, with discrepancy under one. This parameter density does not describe how one orbit samples its indices.",
-    "next": "Find a deterministic bridge from local 2-adic cylinders and state-size drift to frequencies along one orbit."
+    "title": "Recover density-one descent; isolate the exceptional set",
+    "summary": "Exact valuation cylinders give independent geometric valuations in natural density; a variance bound proves almost every start drops below itself. This classical result leaves a zero-density exceptional set, so full Collatz remains open.",
+    "next": "Find a deterministic argument that eliminates the zero-density non-descending set without relying on average behavior."
   },
   "accomplishments": [
     {
@@ -186,9 +186,19 @@
       "date": "Nov 25, 2026",
       "detail": "A fixed finite itinerary is one residue class modulo 2^N, so in any J consecutive compatible indices its count is floor(J/2^N) or ceil(J/2^N), with density exactly 2^{-N}. This counts starting-parameter choices, not time visits by a single orbit; connecting those is still open.",
       "title": "Candidate-index cylinders have exact natural density"
+    },
+    {
+      "date": "Nov 25, 2026",
+      "detail": "For each fixed m, the exact valuation word (a_1,…,a_m) has density 2^{-Σa_i} among odd starts, so A_m has mean 2m and variance 2m. The iterate correction bound shows A_m≥9m/5 and n≥3^m force descent by m; Chebyshev gives an exceptional density at most 50/m. Letting m grow recovers the classical density-one finite-stopping-time result, but leaves a zero-density exceptional set.",
+      "title": "Density-one descent recovered from valuation cylinders"
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "text": "Recovered a classical milestone without orbit search: exact valuation cylinders make a_i independent geometric variables in natural density (mean 2, variance 2). If A_m≥9m/5 and n≥3^m, the iterate formula forces x_m<n; Chebyshev bounds the exceptional density by 50/m, hence non-descenders have density zero. This does not remove the exceptional set. Significance: 30/100. Source: Terras (1976).",
+      "speaker": "Codex · density-one descent derivation"
+    },
     {
       "date": "Nov 25, 2026",
       "text": "A finite itinerary class modulo 2^N has exactly floor(J/2^N) or ceil(J/2^N) representatives in any J consecutive coupled indices; its parameter density is 2^{-N}. This does not imply that a single orbit samples that distribution, so no average-drift conclusion follows. Significance: 13/100.",
