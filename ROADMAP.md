@@ -397,10 +397,13 @@ flowchart TD
     D --> H["Assume descent fails for n"]
     H --> N["Every odd iterate stays at or above n"]
     N --> I["Exact iterate identity — proved"]
-    I --> U["Necessary cumulative-valuation upper bounds"]
+    I --> U1["Iterate-based non-descent cap"]
     N --> B["Return blocks — formulas proved"]
     B --> L["Local mean thresholds — proved; u matters in the gap"]
-    U --> G["OPEN: prove a global lower bound that violates the cap"]
+    B --> J["Exact logarithmic block drift — proved"]
+    J --> U2["Block-length-sensitive cap"]
+    U1 --> G["OPEN: prove a global lower bound that violates the caps"]
+    U2 --> G
     L --> G
     G -.-> D
     R["Residue descent certificates for listed classes only"] -.-> D
