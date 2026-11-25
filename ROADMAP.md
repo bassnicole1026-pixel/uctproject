@@ -105,7 +105,15 @@ The threshold satisfies
 
 `λ_t = log_2 3 + η_t`,  where  `η_t=(1/t)log_2((1-3^{-t})/(1-2^{-t})) > 0`,
 
-and `η_t → 0` as `t → ∞`. More quantitatively, define
+and `η_t → 0` as `t → ∞`. In fact, the threshold decreases strictly with `t`. To see this, put `R_t=(1-3^{-t})/(1-2^{-t})`, `x=2^{-t}`, and `y=3^{-t}`. Then
+
+`R_t - R_{t+1} = (3x - 4y + xy)/(6(1-x)(1-x/2)) > 0`,
+
+because `x/y=(3/2)^t ≥ 3/2`, so `3x-4y>0`. Also `R_t>1` and `R_t→1`. Thus `η_t=(log_2 R_t)/t` is positive, strictly decreasing, and tends to zero; consequently `λ_t` decreases to `log_2 3`.
+
+As a uniform corollary, for every fixed `ε>0` there is a length `T` such that every block with `t≥T` and `q≥log_2 3+ε` contracts, regardless of `u`. This does not show that every orbit supplies those means; controlling the actual coupled block parameters remains the global problem.
+
+More quantitatively, define
 
 `δ_t=(2^{-t}-3^{-t})/(1-2^{-t})`,
 

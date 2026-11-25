@@ -71,6 +71,11 @@
       "date": "Nov 24, 2026",
       "title": "Cumulative block-excess constraint derived",
       "detail": "Across m complete blocks, A_j−j=Σ(a_k−1). If the orbit never drops below n, this excess must be at most j log₂((3+1/n)/2) at each block boundary. Proving a contradictory lower bound remains open."
+    },
+    {
+      "date": "Nov 24, 2026",
+      "title": "Monotone block threshold proved",
+      "detail": "The universal sufficient mean λ_t=log₂3+η_t decreases strictly to log₂3. Thus any fixed margin above log₂3 guarantees contraction for sufficiently long blocks; whether every orbit attains the needed means remains open."
     }
   ],
   "notes": [
@@ -103,6 +108,11 @@
       "date": "Nov 24, 2026",
       "speaker": "Project direction",
       "text": "The proof path is centered on exact Syracuse identities, valuation constraints, and inequalities that apply to every odd starting value. Finite orbit checks and growing residue tables are kept outside the proof strategy."
+    },
+    {
+      "date": "Nov 24, 2026",
+      "speaker": "Codex · threshold update",
+      "text": "The universal block threshold λ_t decreases strictly to log₂3. Any fixed positive margin above log₂3 therefore guarantees contraction for sufficiently long blocks. Proving that the coupled parameters of every orbit supply this margin remains open."
     }
   ]
 }
