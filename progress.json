@@ -7,9 +7,9 @@
   },
   "focus": {
     "status": "Pure math · global descent theorem open",
-    "title": "Use transition congruences beyond average bounds",
-    "summary": "The non-descent prefix cap admits abstract Beatty-type schedules A_j=floor(j log₂(3+1/n)); average estimates alone cannot force crossing. The Syracuse transition law must rule out realizable schedules.",
-    "next": "Combine the prefix cap with a_{k+1}−1=v₂(3^{t_k}u_k−1) and carry constraints to force a pointwise crossing."
+    "title": "Derive the critical mean bound for unbounded exceptions",
+    "summary": "Any unbounded Syracuse orbit tends to infinity; if it never drops below n, the exact log identity forces limsup A_j/j≤log₂3. Bounded orbits become cycles with mean valuation >log₂3.",
+    "next": "Rule out realizable unbounded orbits at or below critical mean, and separately eliminate all nontrivial odd cycles."
   },
   "accomplishments": [
     {
@@ -226,9 +226,19 @@
       "date": "Nov 25, 2026",
       "title": "Prefix cap shown insufficient without transition constraints",
       "detail": "For λ_n=log₂(3+1/n)∈(1,2), the abstract schedule A_j=floor(jλ_n), a_j=A_j−A_{j−1} has every a_j∈{1,2}, satisfies A_j≤jλ_n at every prefix, and has mean tending to λ_n. It need not be realized by an orbit; it proves that the necessary average cap alone cannot force crossing. Any proof must use the exact transition and carry congruences."
+    },
+    {
+      "date": "Nov 25, 2026",
+      "title": "Critical mean bound for an unbounded non-descender",
+      "detail": "Any unbounded deterministic Syracuse orbit tends to infinity; otherwise a bounded value repeats and the orbit becomes bounded and eventually periodic. In the exact logarithmic identity, ε_i=log₂(1+1/(3x_i)) then tends to zero; its Cesàro mean vanishes. Since x_j≥n, this yields limsup A_j/j≤log₂3, hence valuation-one steps have lower density at least 2−log₂3≈0.4150. Any eventual cycle instead has mean valuation A/m=mean_i log₂(3+1/x_i)>log₂3. This separates the unbounded and cycle cases."
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "text": "For an unbounded non-descending orbit, determinism implies x_i→∞: returning to any bounded set infinitely often repeats a value and makes the orbit eventually periodic. The exact identity A_j/j=log₂3+(1/j)Σ_{i<j}log₂(1+1/(3x_i))−(1/j)log₂(x_j/n) then gives limsup A_j/j≤log₂3. Thus liminf frequency(a_i=1)≥2−log₂3≈0.4150, and limsup N_s(j)/j≤(log₂3−1)/(s−1). An eventual cycle instead has mean valuation strictly above log₂3. Significance: 20/100.",
+      "speaker": "Codex · critical-mean dichotomy update"
+    },
     {
       "date": "Nov 25, 2026",
       "text": "For λ_n=log₂(3+1/n)∈(1,2), A_j=floor(jλ_n) has increments a_j∈{1,2}, obeys the non-descent cap A_j≤jλ_n for every j, and satisfies A_j/j→λ_n. This is only an abstract schedule, not an asserted Syracuse orbit. It shows why prefix-average bounds alone cannot prove Collatz; the transition congruences must eliminate unrealizable low-mean schedules. Significance: 12/100.",

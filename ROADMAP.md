@@ -75,6 +75,16 @@ The prefix cap alone cannot force a crossing. For any odd `n≥3`, put `λ_n=log
 
 Then every `a_j` is `1` or `2`, `A_j≤jλ_n` for every prefix, and `A_j/j→λ_n`. Thus the necessary non-descent cap admits perfectly regular low-mean valuation schedules. This construction does not claim that the schedule is realized by a Syracuse orbit; it shows why a proof must use the transition congruences, not only a stronger average bound. The next target is to combine the prefix cap with `a_{k+1}−1=v_2(3^{t_k}u_k−1)` and the carry constraints to rule out every realizable schedule that stays below the crossing line.
 
+For an unbounded non-descending orbit, the cap improves asymptotically to the critical slope `c=log_2 3`. Because the Syracuse map is deterministic, any repeated value makes the orbit eventually periodic and hence bounded; therefore every unbounded orbit satisfies `x_i→∞`. With `ε_i=log_2(1+1/(3x_i))`, the exact identity above gives
+
+`A_j/j = c + (1/j)Σ_{i<j}ε_i − (1/j)log_2(x_j/n)`.
+
+Here `ε_i→0`, so its Cesàro mean tends to zero, while the last term is nonnegative. Therefore
+
+`limsup_{j→∞} A_j/j ≤ log_2 3`.
+
+In particular, valuation-one steps have lower density at least `2−log_2 3≈0.4150`, and `limsup N_s(j)/j≤(log_2 3−1)/(s−1)` for `N_s(j)=#{i≤j:a_i≥s}`. A bounded orbit is eventually periodic, and its eventual cycle has the opposite strict inequality: over a period `m`, `2^A=∏_{i=0}^{m−1}(3+1/x_i)>3^m`, so `A/m>log_2 3`. Thus the unresolved cases split into unbounded non-descenders with at most critical asymptotic valuation mean and nontrivial cycles. The abstract schedule `A_j=floor(j log_2 3)` also meets the critical cap, so the exact transition law is still needed.
+
 ## Exact length of a run with valuation one
 
 Let `x_0=n` be odd, set `x_{i+1}=S(x_i)`, and write `a_{i+1}=v_2(3x_i+1)`. For every integer `r ≥ 0`,
