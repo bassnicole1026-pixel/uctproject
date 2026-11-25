@@ -3,13 +3,13 @@
   "stage": "Collatz · first proof steps",
   "aiEstimate": {
     "percent": 0,
-    "basis": "Strict proof-completion estimate: 0%. Exact identities, necessary orbit restrictions, and residue-sensitive descent tests with local carry thresholds are recorded, but no argument proves descent for every odd starting value. These local conditions do not quantify full theorem completion."
+    "basis": "Strict proof-completion estimate: 0%. Exact identities, necessary orbit restrictions, and two-sided residue/carry descent bounds are recorded, but no argument proves descent for every odd starting value. Local transition thresholds do not quantify full theorem completion."
   },
   "focus": {
     "status": "Pure math · global descent theorem open",
-    "title": "Control residue carries across block transitions",
-    "summary": "Each block with C>0 contracts exactly when its residue carry Q_k reaches an explicit threshold. The unresolved step is to prove that the coupled transition sequence crosses enough thresholds for every starting orbit.",
-    "next": "Derive a recurrence or global inequality controlling the frequency of Q_k≥Q_k^{min}, including the C≤0 expansion blocks."
+    "title": "Control two-sided residue carries orbit-wide",
+    "summary": "The residue carry determines both a threshold for the next block to contract and a lower bound on the current odd parameter. This gives a one-step look-ahead correction bound, but no argument controls these carries over every orbit.",
+    "next": "Combine the incoming-parameter bound W_k with carry thresholds to bound the frequency and cumulative drift of noncontracting blocks."
   },
   "accomplishments": [
     {
@@ -156,9 +156,19 @@
       "detail": "Writing u_{k+1}=U_{k+1}*+2·3^{t_k}Q_k converts the block endpoint difference to B_{k+1}−C_{k+1}U_{k+1}*−2·3^{t_k}C_{k+1}Q_k. For C≤0 the block expands; for C>0 it contracts exactly when Q_k≥max(0,floor((B−CU*)/(2·3^{t_k}C))+1). This gives a local exact threshold; orbit-wide control of the carries remains open.",
       "date": "Nov 25, 2026",
       "title": "Exact carry threshold for block contraction derived"
+    },
+    {
+      "date": "Nov 25, 2026",
+      "detail": "Substituting u_{k+1}=U_{k+1}*+2·3^{t_k}Q_k into the transition gives u_k=W_k+2^{b_k+t_{k+1}+1}Q_k, where W_k=(2^{b_k+t_{k+1}}U_{k+1}*−2^{b_k}+1)/3^{t_k} is a positive odd integer. Hence u_k≥W_k, tightening ε_k via V_k=max(U_k*,W_k); the next-block carry threshold is equivalently a threshold on incoming u_k. Orbit-wide carry control remains open.",
+      "title": "Carry gives a two-sided bound across adjacent blocks"
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "text": "Substituting the least odd residue lift into the exact transition gives u_k=W_k+2^{b_k+t_{k+1}+1}Q_k with W_k positive odd. This provides a successor-dependent lower bound on current u_k and tightens its ε_k correction; it also rewrites the next contraction threshold as a threshold on incoming u_k. Significance: 18/100 — exact one-step look-ahead, global carry control still open.",
+      "speaker": "Codex · two-sided carry update"
+    },
     {
       "text": "Using the exact 3-adic residue lift, write u_{k+1}=U_{k+1}*+2·3^{t_k}Q_k. The next block contracts exactly above an explicit integer threshold in Q_k when C_{k+1}>0; if C≤0 it expands. Significance: 17/100 — an exact local dichotomy, with carry-frequency control still open.",
       "speaker": "Codex · residue-carry threshold",

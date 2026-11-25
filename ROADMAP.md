@@ -313,6 +313,16 @@ If `C_{k+1}≤0`, the block expands. If `C_{k+1}>0`, it contracts exactly when `
 
 Thus each positive-`C` block has an exact carry threshold separating contraction from non-contraction. The orbit-wide problem now includes controlling how often its transition carries cross these thresholds; the residue identity alone does not do that.
 
+The same carry also gives a lower bound on the preceding odd parameter. Substituting `u_{k+1}=U_{k+1}^*+2M_kQ_k` into the transition equation yields
+
+`u_k = W_k+2^{b_k+t_{k+1}+1}Q_k`,
+
+where
+
+`W_k=(2^{b_k+t_{k+1}}U_{k+1}^*−2^{b_k}+1)/3^{t_k}`.
+
+The residue defining `U_{k+1}^*` ensures that `W_k` is an integer; its numerator is `2^{b_k}(2^{t_{k+1}}U_{k+1}^*−1)+1`, so `W_k` is positive and odd. Hence `u_k≥W_k`, and the current block's correction can use the stronger lower bound `V_k=max(U_k^*,W_k)`, giving `ε_k<−log_2(1−1/(2^{t_k}V_k))`. Equivalently, the next-block contraction threshold `Q_k≥Q_k^{min}` can be read as the incoming-parameter threshold `u_k≥W_k+2^{b_k+t_{k+1}+1}Q_k^{min}` when `C_{k+1}>0`. This is a one-step look-ahead refinement; the orbit-wide carry frequency remains uncontrolled.
+
 On an orbit that never falls below `n`, its final logarithm is nonnegative, so
 
 `Σ(a_k-1) ≤ j log_2(3/2) + Σ ε_k`.
