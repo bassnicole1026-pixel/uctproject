@@ -3,15 +3,20 @@
   "stage": "Collatz · first proof steps",
   "aiEstimate": {
     "percent": 0,
-    "basis": "Strict full-conjecture proof-completion estimate: 0%. The exactly-one-high-valuation cycle profile is excluded. For exactly two high blocks, Matveev and the exact transition numerators give T<10^11, but simultaneous divisibility conditions remain unresolved below that bound. Profiles with more high valuations and unbounded non-descending orbits remain open."
+    "basis": "Strict full-conjecture proof-completion estimate: 0%. The exactly-one-high- and exactly-two-high-valuation cycle profiles are excluded. Profiles with three or more high valuations remain open; by the cycle-exclusion reduction, excluding every nontrivial odd-only cycle would prove Collatz."
   },
   "focus": {
-    "status": "Pure math · two-block cycle bound",
-    "title": "Eliminate the bounded two-block cases",
-    "summary": "A logarithmic-form lower bound and exact transition numerators show that any cycle with exactly two high-valuation blocks must have total odd period T<10^11. The remaining cases still have to satisfy two explicit divisibilities by Q=2^(B+T)−3^T.",
-    "next": "Find an analytic obstruction to the residual Q-divisibilities for T<10^11 without enumerating Collatz trajectories; then handle profiles with three or more high valuations."
+    "status": "Pure math · cycle profile analysis",
+    "title": "Control cycles with 3+ high valuations",
+    "summary": "A continued-fraction bootstrap reduced the exactly-two-high-block cycle case to T≤23, where exact product bounds and congruences excluded every candidate. The full conjecture remains open.",
+    "next": "Find uniform transition inequalities or congruences that exclude cycle profiles with three or more high-valuation blocks, without searching Collatz trajectories."
   },
   "accomplishments": [
+    {
+      "date": "Nov 25, 2026",
+      "title": "Exactly two high-valuation cycle profile excluded",
+      "detail": "For a nontrivial odd-only cycle with exactly two valuations at least 2, Matveev first bounds T<10^11. Exact continued-fraction lower bounds bootstrap this to T≤23. The remaining candidates are excluded by exact cycle-product bounds, modular divisibility obstructions, and rational numerator inequalities. No Collatz trajectories were searched. Cycles with three or more high valuations remain open; the full-conjecture completion estimate stays 0%. Significance: 24/100."
+    },
     {
       "date": "Nov 25, 2026",
       "title": "Two-high-block cycle period bounded by 10^11",
@@ -329,6 +334,11 @@
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "speaker": "Codex · two-high-block cycle exclusion",
+      "text": "Pure-math subcase breakthrough: for a nontrivial odd-only cycle with exactly two valuations ≥2, exact continued-fraction bounds bootstrap the period to T≤23. Exact product inequalities and congruences then exclude all remaining periods. This is not a proof of Collatz; cycle profiles with three or more high valuations remain open. No Collatz trajectories were searched. Significance: 24/100."
+    },
     {
       "date": "Nov 25, 2026",
       "speaker": "Codex · two-block period bound",

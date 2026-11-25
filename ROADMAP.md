@@ -902,7 +902,106 @@ Here the last estimate follows from `c<8/5` (since `3^5<2^8`), `ln 2>56/81` (the
 
 `T<10^{11}`.
 
-This rules out arbitrarily large periods within the exactly-two-high-valuation profile, without enumerating Collatz orbits. The remaining finite range is still governed by the simultaneous divisibility conditions above; no exclusion of every two-block cycle or of general cycles has been obtained.
+This bound uses no orbit enumeration. The same exact inequalities can be combined with continued-fraction lower bounds in three short bootstrap steps, reducing the two-block period all the way to `T≤23`.
+
+#### Exclusion of exactly two high-valuation blocks
+
+Continue with `θ=ln 2/ln 3`, `σ=B+T`, `c=log₂3`, and `α=c−1`. The exact logarithmic form is `Λ=σ ln 2−T ln 3=D ln 2>0`. The rational logarithm intervals already described above certify the common continued-fraction prefix
+
+`[0;1,1,1,2,2,3,1,5]`,
+
+whose successive denominators include `19, 65, 84, 485`. The best-approximation inequality for `θ` therefore gives these deliberately weakened bounds:
+
+- if `σ<485`, then `Λ>ln 3/(84+485)>1/600`;
+- if `σ<65`, then `Λ>ln 3/(19+65)>1/100`;
+- if `σ<83,130,157,078,217`, the longer certified convergent pair above gives `Λ>1.08·10⁻¹⁴>10⁻¹⁴`.
+
+Since `F=e^Λ−1>Λ`, the same lower bounds hold for `F`.
+
+First use the already proved `T<10¹¹`. Then `σ≤2T<2·10¹¹`, so the last continued-fraction bound applies. Whenever `t_i≥51`,
+
+`2^(D−t_i)<2⁻⁵⁰<10⁻¹⁴/4<F/4`.
+
+In the associated numerator inequality this forces `2^(b_(i+1)−c t_i)>3F/4>2⁻⁴⁷`, hence `b_(i+1)>c t_i−47`. If both lengths are at least `51`, summing gives `B>cT−94`, whereas `B≤αT+1`; thus `T<95`, contradicting `T≥102`. If `T≥102`, exactly one length is at least `51`; the other is at most `50`. The same bound and `b_i≥1` give `T<51c+47<128.6`, hence `T≤128`. Thus in all cases `T<129`.
+
+Now `σ≤256<485`, so `F>1/600`. If `t_i≥13`, then
+
+`2^(D−t_i)<2⁻¹²<1/2400<F/4`,
+
+which forces `b_(i+1)>c t_i−10`. Two lengths at least `13` would imply `T<21`, although their sum is at least `26`. For `T≥26`, one length is at least `13` and the other is at most `12`; consequently `T<13c+10<30.8`, so `T≤30`. This also holds when `T<26`.
+
+Finally `σ≤60<65`, so `F>1/100`. For `t_i≥10`,
+
+`2^(D−t_i)<2⁻⁹<1/400<F/4`,
+
+and hence `b_(i+1)>c t_i−8`. Two such lengths would imply `T<17`, contradicting `T≥20`. If `T≥20`, one length is at least `10` and the other at most `9`, giving `T<10c+8<24`; smaller `T` already satisfies the same conclusion. Therefore every exactly-two-high-valuation cycle must have `2≤T≤23`.
+
+For these 22 possible totals, exact integer comparisons using `B=floor(Tα)+1` and `45·2^(B+T)≤64·3^T` leave only the following candidates. The last column is the exact nonnegative margin in that inequality:
+
+| `T` | `B` | `64·3^T−45·2^(B+T)` |
+|---:|---:|---:|
+| 3 | 2 | 288 |
+| 5 | 3 | 4,032 |
+| 6 | 4 | 576 |
+| 8 | 5 | 51,264 |
+| 10 | 6 | 830,016 |
+| 13 | 8 | 7,664,832 |
+| 15 | 9 | 163,355,328 |
+| 17 | 10 | 2,225,172,672 |
+| 18 | 11 | 635,720,256 |
+| 20 | 12 | 29,880,673,344 |
+| 22 | 13 | 462,199,588,416 |
+
+Three exact arithmetic filters now cover all candidates.
+
+**Cycle-product filter.** A nontrivial odd cycle contains no `1`, `3`, or `5`, and none of its values is divisible by `3`. Its `T` distinct values, in increasing order, are therefore at least `r_j`, where `r_(2k)=6k+7` and `r_(2k+1)=6k+11`. The cycle product identity gives
+
+`2^D = ∏_(j<T)(1+1/(3x_j)) ≤ P_T := ∏_(j<T)(1+1/(3r_j))`.
+
+For five candidates, exact rational multiplication instead gives `2^(B+T)·den(P_T)−3^T·num(P_T)>0`, contradicting that inequality:
+
+| `T` | `P_T` | Exact positive margin |
+|---:|---:|---:|
+| 3 | `2720/2457` | 5,184 |
+| 6 | `371200/318573` | 55,613,952 |
+| 8 | `180224/150903` | 53,747,712 |
+| 13 | `2988131221504/2391983523099` | 252,306,695,972,192,256 |
+| 18 | `58567900625108992/45416203263860751` | 1,692,233,765,963,166,671,437,824 |
+
+**Congruence filters.** For `T=5`, `B=3`, `Q=13`; the first numerator `N₁` modulo `13`, with columns `b₂=1,2`, is
+
+| `t₂` | 1 | 2 |
+|---:|---:|---:|
+| 1 | 2 | 4 |
+| 2 | 7 | 4 |
+| 3 | 10 | 9 |
+| 4 | 8 | 8 |
+
+No entry is zero, so `Q∤N₁`.
+
+For `T=10`, `B=6`, `Q=6487=13·499`. Modulo `13`, put `x=2^b₁`, `y=2^b₂`; since `xy=2^6≡−1`, the condition `13|N₁` requires `y(3^t₂−2^t₂)≡3^t₂+2^t₂`. For `t₂=1,…,9`, the required `y` values are `5,0,8,none,5,0,8,none,5`; the allowed values for `b₂=1,…,5` are `2,4,8,3,6`. Only `(t₂,b₂)=(3,3),(7,3)` survive. Their pairs `(N₁,N₂) mod 499` are `(138,22)` and `(22,138)`, so in neither case does `Q` divide both numerators.
+
+For `T=17`, `B=10`, `Q≡0 (mod 5)` and `2^(b₁+b₂)=2^10≡−1 (mod 5)`. The first numerator satisfies
+
+`N₁≡y(r−s)−(r+s) (mod 5)`, where `y=2^b₂`, `r=3^t₂`, and `s=2^t₂`.
+
+As `t₂` runs through residues `1,2,3,0 (mod 4)`, this expression is respectively `y, 2, 4y, 3`, all nonzero modulo `5`. Thus `Q∤N₁`.
+
+**Product of the exact numerator bounds.** This handles `T=15,20,22`. Set `X=2^D=2^(B+T)/3^T` and `R_i=N_i/3^T`. The exact formulas give `R_i=F u_i` with `u_i≥1`, so
+
+`(X−1)^2=F^2≤R₁R₂ < U_T := (X+X²)/2^T + 2X²·3^(T−1)/2^(2T)`.
+
+Indeed, after dropping negative terms, `R₁<2^(b₂−c t₁)+2^(D−t₁)` and its cyclic counterpart; multiplying, using `b_i≥1`, `t_i≥1`, and `t₁+t₂=T` gives the displayed bound. Exact rational subtraction yields:
+
+| `T` | `B` | `(X−1)^2−U_T` |
+|---:|---:|---:|
+| 15 | 9 | `3373094773433/205891132094649` |
+| 20 | 12 | `204709564784986123/4052555153018976267` |
+| 22 | 13 | `2489341253238856571/328256967394537077627` |
+
+Each difference is positive, contradicting the required inequality. The three filters cover every candidate, so no nontrivial odd-only cycle has exactly two high-valuation blocks.
+
+This is a pure-arithmetic exclusion of one full cycle profile: its only finite checks are small exact integer, rational, and modular comparisons after the analytic bound `T≤23`. It does not exclude cycles with three or more high valuations. By the cycle-exclusion reduction above, completing those remaining cycle cases would prove Collatz; the full conjecture remains open.
 
 ## Auxiliary finite congruence certificates
 
@@ -1122,7 +1221,7 @@ Lemmas 1–4 cover 24 of the 32 odd residue classes modulo 64: all classes `1, 5
 
 1. **Fix the definitions and proof target.** Keep the original map and odd-only map explicit. The descent property above is the global obligation.
 2. **Work from exact identities.** Derive consequences of the Syracuse recurrence symbolically, keeping each equality and inequality justified for arbitrary odd starting values. The iterate identity, exact valuation-one run length, return-block formulas, modulo-3 restriction, transition law, logarithmic block drift, and state-dependent block contraction threshold are proved above.
-3. **Exclude cycle profiles by their number of high valuations.** The exactly-one-high profile is excluded above. For exactly two high blocks, Matveev's estimate gives `T<10^{11}`, and closure is reduced to two simultaneous divisibilities by `Q`; rule out the remaining range analytically, without trajectory enumeration. Profiles with three or more high blocks still need uniform constraints. Ruling out every nontrivial odd-only cycle is sufficient for the full conjecture.
+3. **Exclude cycle profiles by their number of high valuations.** The exactly-one-high and exactly-two-high profiles are excluded above. The remaining cycle task is to control profiles with three or more high blocks. Ruling out every nontrivial odd-only cycle is sufficient for the full conjecture by the cycle-exclusion reduction.
 4. **Keep the proof uniform in the starting value.** Seek identities and inequalities that apply to every odd `n`. Treat the finite congruence certificates below as supplementary lemmas; do not use more residue enumeration as a substitute for the global argument.
 5. **Audit the complete argument.** Check boundary values, the valuation recurrence, and every induction dependency. Keep conjectures, computational observations, and proved statements labeled separately.
 
@@ -1141,8 +1240,8 @@ flowchart TD
     Q --> I
     I --> B["Return-block and transition formulas — proved"]
     B --> H1["One high-valuation block — excluded"]
-    H1 --> H2["Two high-valuation blocks — T < 10^11; exact divisibilities remain"]
-    H2 --> O["OPEN: eliminate two-block divisibilities and control profiles with 3+ high valuations"]
+    H1 --> H2["Two high-valuation blocks — excluded"]
+    H2 --> O["OPEN: control profiles with 3+ high valuations"]
     B --> O
 ```
 
@@ -1158,4 +1257,4 @@ A 2026 exploratory paper on burst/gap dynamics explicitly leaves its key orbitwi
 
 ## Status
 
-Several exact iterate, valuation, and return-block identities are proved, along with supplementary descent results on selected congruence classes. The required global orbit-wide inequality remains open. The full Collatz conjecture has not been proved in this project; the strict proof-completion estimate is 0%.
+Several exact iterate, valuation, and return-block identities are proved, along with supplementary descent results on selected congruence classes. The exactly-one-high and exactly-two-high cycle profiles are excluded, but profiles with three or more high valuations remain open. The full Collatz conjecture has not been proved in this project; the strict proof-completion estimate is 0%.
