@@ -694,6 +694,24 @@ Let `U_k^*` be the least positive odd representative of this residue class. Then
 
 In the large-minimum convergent branch this combines with the previous lower bound `r/(q+q')<D` and the state-spacing cap `D≤B_{m,n}`. The resulting comparison is a symbolic necessary condition linking continued-fraction gaps to cyclic block carries. It has not yet produced a contradiction, and the small-minimum branch remains open.
 
+The incoming congruence gives a residue-independent lower bound as well. Write `M_k=3^{t_{k−1}}`. For some integer `ℓ_k`,
+
+`2^{a_k−1+t_k}u_k = 2^{a_k−1}−1+ℓ_k M_k`.
+
+Because `t_k≥1` and `u_k≥1`, the left side exceeds `2^{a_k−1}−1`, so `ℓ_k≥1`. Hence
+
+`2^{t_k}u_k−1 ≥ (3^{t_{k−1}}−1)/2^{a_k−1}`.
+
+Substitution into `η` yields the explicit cyclic upper bound
+
+`D ≤ Σ_k log_2(1 + 2^{a_k−1}(1−(2/3)^{t_k})/(3^{t_{k−1}}−1))`.
+
+Consequently, in the large-minimum convergent branch,
+
+`r/(q+q') < Σ_k log_2(1 + 2^{a_k−1}(1−(2/3)^{t_k})/(3^{t_{k−1}}−1))`.
+
+This removes the need to evaluate each least residue `U_k^*` for this particular upper bound. The remaining task is to control the cyclic sum from the exact valuation pattern; the inequality alone does not rule out a cycle.
+
 ## Auxiliary finite congruence certificates
 
 The following exact congruence arguments establish descent on selected classes. They are valid side results, but extending a residue list is not the active proof strategy and does not address the remaining all-integers argument.

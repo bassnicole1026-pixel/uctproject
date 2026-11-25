@@ -3,15 +3,20 @@
   "stage": "Collatz · first proof steps",
   "aiEstimate": {
     "percent": 0,
-    "basis": "Strict proof-completion estimate: 0%. The cycle excess now has an exact block-coordinate expression and residue-based upper bound, but no contradiction excludes all cycles."
+    "basis": "Strict proof-completion estimate: 0%. The incoming 3-adic congruence gives an explicit blockwise upper bound on cycle excess, but its cyclic sum is not yet controlled strongly enough to exclude all cycles."
   },
   "focus": {
-    "status": "Pure math · cycle excess in block variables",
-    "title": "Express cycle excess via block transitions and carries",
-    "summary": "For a cycle partitioned into return blocks, D=A−m log₂3 equals a sum of positive terms η(t,u). Incoming 3-adic residues force lower bounds on u, giving a second upper bound on D.",
-    "next": "Combine this residue-based upper bound with the continued-fraction lower bound r/(q+q′) uniformly; determine whether it forces a contradiction or isolates the exact remaining obstruction."
+    "status": "Pure math · block carry bound",
+    "title": "Bound block corrections directly from the 3-adic congruence",
+    "summary": "The incoming congruence forces 2^t u−1≥(3^(previous run)−1)/2^(a−1), giving an explicit upper bound on each positive block contribution to D=A−m log₂3.",
+    "next": "Control the resulting cyclic sum using the exact valuation recurrence and compare it with the continued-fraction lower bound; no finite residue or convergent enumeration."
   },
   "accomplishments": [
+    {
+      "date": "Nov 25, 2026",
+      "title": "Incoming 3-adic congruence bounds each cycle block correction",
+      "detail": "From 2^{a_k−1+t_k}u_k≡2^{a_k−1}−1 (mod 3^{t_{k−1}}), the positive left side exceeds the target, so it equals the target plus ℓ_k3^{t_{k−1}} with ℓ_k≥1. Thus 2^{t_k}u_k−1≥(3^{t_{k−1}}−1)/2^{a_k−1}. Substitution into η(t,u) gives D≤Σ_k log₂(1+2^{a_k−1}(1−(2/3)^{t_k})/(3^{t_{k−1}}−1)). This is a blockwise necessary bound, not a contradiction."
+    },
     {
       "date": "Nov 25, 2026",
       "title": "Cycle excess expressed exactly in block coordinates",
@@ -284,6 +289,11 @@
     }
   ],
   "notes": [
+    {
+      "date": "Nov 25, 2026",
+      "text": "The incoming 3-adic congruence forces the positive integer identity 2^{a_k−1+t_k}u_k=2^{a_k−1}−1+ℓ_k3^{t_{k−1}} with ℓ_k≥1. Therefore each η(t_k,u_k) is at most log₂(1+2^{a_k−1}(1−(2/3)^{t_k})/(3^{t_{k−1}}−1)). This gives a direct cyclic upper bound to compare with the convergent lower bound, but no cycle is excluded yet. Significance: 14/100.",
+      "speaker": "Codex · 3-adic block correction bound"
+    },
     {
       "date": "Nov 25, 2026",
       "text": "For a cycle partitioned into return blocks, multiplying the exact cyclic transitions gives D=A−m log₂3=Σ_k log₂(1+(1−(2/3)^{t_k})/(2^{t_k}u_k−1)). The incoming 3-adic carry gives u_k≥U_k^*, hence an explicit upper bound on D in block variables. It can be compared with the convergent lower bound, but no contradiction is obtained yet. Significance: 15/100.",
