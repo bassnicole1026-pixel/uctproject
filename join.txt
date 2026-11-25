@@ -10,8 +10,9 @@ Current milestone:
 - Five-step strict descent for n ≡ 39 (mod 256).
 - Five-step strict descent for n ≡ 79 (mod 256).
 - Five-step strict descent for n ≡ 95 (mod 256).
+- Five-step strict descent for n ≡ 123 (mod 256).
 - Exact computational verification for every starting value from 1 through 100,000.
 
-The descent certificates cover 24 of the 32 odd residue classes modulo 64, with seven finer sub-classes also covered. The full Collatz conjecture has not been proved by this project. Finite computation and partial descent results are not a universal proof.
+The descent certificates cover 24 of the 32 odd residue classes modulo 64, with eight finer sub-classes also covered. The full Collatz conjecture has not been proved by this project. Finite computation and partial descent results are not a universal proof.
 
 Research map: https://github.com/bassnicole1026-pixel/uctproject/blob/main/ROADMAP.md

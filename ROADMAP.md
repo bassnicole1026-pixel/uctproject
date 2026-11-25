@@ -142,13 +142,26 @@ If `n = 256k + 95`, where `k ≥ 0`, then `S^5(n) < n`.
 
 Each displayed quotient is odd. On the fifth step, `3S^4(n) + 1 = 3888k + 1456 = 16(243k + 91)`, so `S^5(n) ≤ 243k + 91 < 256k + 95 = n`, since the difference is `13k + 4 > 0`.
 
-Lemmas 1–4 cover 24 of the 32 odd residue classes modulo 64: all classes `1, 5, 9, 13 (mod 16)`, all of `3 (mod 16)`, and `11, 23, 43, 55 (mod 64)`. Lemmas 5–10 additionally cover `7`, `15`, `39`, `79`, `95`, `143`, and `187 (mod 256)`. These are seven finer classes within the remaining modulo-64 families. Of the four sub-classes of `7 (mod 64)`, only `7 (mod 256)` is covered; `71`, `135`, and `199` remain. Of the four sub-classes of `15 (mod 64)`, `15`, `79`, and `143` are covered, leaving `207`. Of the four sub-classes of `31 (mod 64)`, only `95` is covered; `31`, `159`, and `223` remain. Of the four sub-classes of `39 (mod 64)`, only `39` is covered, leaving `103`, `167`, and `231`. Of the four sub-classes of `59 (mod 64)`, only `187` is covered, leaving `59`, `123`, and `251`. The three full classes `27, 47, 63 (mod 64)` remain unhandled by these certificates.
+### Lemma 11: `n ≡ 123 (mod 256)`
+
+If `n = 256k + 123`, where `k ≥ 0`, then `S^5(n) < n`.
+
+**Proof.** The first four odd Syracuse iterates are exact:
+
+- `3n + 1 = 768k + 370 = 2(384k + 185)`, so `S(n) = 384k + 185`;
+- `3S(n) + 1 = 1152k + 556 = 4(288k + 139)`, so `S^2(n) = 288k + 139`;
+- `3S^2(n) + 1 = 864k + 418 = 2(432k + 209)`, so `S^3(n) = 432k + 209`;
+- `3S^3(n) + 1 = 1296k + 628 = 4(324k + 157)`, so `S^4(n) = 324k + 157`.
+
+Each displayed quotient is odd. On the fifth step, `3S^4(n) + 1 = 972k + 472 = 4(243k + 118)`, so `S^5(n) ≤ 243k + 118 < 256k + 123 = n`, since the difference is `13k + 5 > 0`.
+
+Lemmas 1–4 cover 24 of the 32 odd residue classes modulo 64: all classes `1, 5, 9, 13 (mod 16)`, all of `3 (mod 16)`, and `11, 23, 43, 55 (mod 64)`. Lemmas 5–11 additionally cover `7`, `15`, `39`, `79`, `95`, `123`, `143`, and `187 (mod 256)`. These are eight finer classes within the remaining modulo-64 families. Of the four sub-classes of `7 (mod 64)`, only `7 (mod 256)` is covered; `71`, `135`, and `199` remain. Of the four sub-classes of `15 (mod 64)`, `15`, `79`, and `143` are covered, leaving `207`. Of the four sub-classes of `31 (mod 64)`, only `95` is covered; `31`, `159`, and `223` remain. Of the four sub-classes of `39 (mod 64)`, only `39` is covered, leaving `103`, `167`, and `231`. Of the four sub-classes of `59 (mod 64)`, `123` and `187` are covered, leaving `59` and `251`. The three full classes `27, 47, 63 (mod 64)` remain unhandled by these certificates.
 
 ## Work plan
 
 1. **Fix the definitions and proof target.** Keep the original map and odd-only map explicit. The descent property above is the global obligation.
 2. **Build exact, reproducible checks.** A small program can verify a finite starting interval with arbitrary-precision integer arithmetic. A finite check is evidence about that interval only; it cannot establish the universal statement.
-3. **Grow the residue-class descent table.** Split the remaining classes modulo 64 into finer powers-of-two classes, derive exact formulas for each fixed parity/valuation path, and record which classes provably reach a smaller odd value. The classes `7`, `15`, `39`, `79`, `95`, `143`, and `187 (mod 256)` are already covered. A next candidate to audit is `123 (mod 256)`.
+3. **Grow the residue-class descent table.** Split the remaining classes modulo 64 into finer powers-of-two classes, derive exact formulas for each fixed parity/valuation path, and record which classes provably reach a smaller odd value. The classes `7`, `15`, `39`, `79`, `95`, `123`, `143`, and `187 (mod 256)` are already covered. A next candidate to audit is `59 (mod 256)`.
 4. **Seek a global argument.** Prove that every remaining odd integer has a smaller odd iterate, or find a different well-founded quantity that yields the same strong-induction finish. A shallow residue search that leaves classes uncovered is not a proof.
 5. **Audit all cases.** Check boundary values, exact divisibility, class coverage, and every induction dependency independently. Keep conjectures, experiments, and theorems labeled separately.
 
@@ -164,4 +177,4 @@ A 2026 exploratory paper on burst/gap dynamics explicitly leaves its key orbitwi
 
 ## Status
 
-Lemmas 1–10 prove strict descent on the listed residue classes. The finite computation is bounded evidence. The global descent property—and therefore the full Collatz conjecture—has not been proved in this project.
+Lemmas 1–11 prove strict descent on the listed residue classes. The finite computation is bounded evidence. The global descent property—and therefore the full Collatz conjecture—has not been proved in this project.
