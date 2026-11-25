@@ -4,7 +4,7 @@ Current pure-math milestone:
 - The exact odd-only transition and cycle identities are recorded in the research roadmap.
 - Nontrivial odd cycles with exactly one or exactly two high-valuation blocks are excluded.
 - For exactly three high-valuation blocks, the quotient-one case is excluded and the total run length satisfies T ≤ 34.
-- The exact transition equations exclude T=5, leaving T ∈ {10, 17, 22, 29, 34} unresolved.
+- Exact modular and rational-product arguments exclude T=5 and T=10, leaving T ∈ {17, 22, 29, 34} unresolved.
 - Cycles with four or more high valuations, and the general descent problem, remain open.
 
 The strict estimate of completed proof is 0%: these partial results do not prove the Collatz conjecture. The active work uses exact identities and pure arithmetic; finite orbit computation is not part of the proof strategy.

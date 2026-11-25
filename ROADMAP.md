@@ -1191,7 +1191,30 @@ since `2^8−3^5=13`. Positivity of `t_1` means `t_2+t_3≤4`. The six possible 
 
 None is divisible by `13`, contradicting the required integer `u_1`. Thus no exactly-three-high-block cycle has `T=5`. This is a six-case modular check of the exact cycle equations, not a search through Collatz trajectories. The remaining period totals are `T∈{10,17,22,29,34}`.
 
-For the next remaining total, `T=10` and `B=6`, so the same identity gives `Q=2^16−3^10=6487=13·499`. Any such cycle must make the exact numerator `N` divisible by both `13` and `499`. This is a necessary modular target only; `T=10` has not been excluded.
+#### Excluding the `T=10` profile by exact excess bounds
+
+For `T=10`, the fixed sum gives `B=6`, so the cycle excess requires
+
+`2^D=2^(B+T)/3^T=2^16/3^10=65536/59049`.
+
+Every odd state in a nontrivial cycle is at least `7` and is not divisible by `3`. The state immediately after block `i` is `2^(t_i)u_i−1`. If `t_i=1`, then `u_i=1` gives state `1`, `u_i=3` gives state `5`, and `u_i=5` gives state `9`, which is divisible by `3`; since `u_i` is odd, this forces `u_i≥7`. For `t_i≥2`, the earlier three-block result gives `u_i≥3`.
+
+Put `R(t,u)=2^η(t,u)=(1−1/(3^t u))/(1−1/(2^t u))`. It decreases with `u`. It also decreases with `t`: writing `R=1+g_t`, `A=2^t u`, and `z=(2/3)^t`,
+
+`g_t−g_(t+1)=[A(1−4z/3)+z/3]/[(A−1)(2A−1)]>0`,
+
+because `z≤2/3` and hence `1−4z/3≥1/9`. Thus `R(t_i,u_i)≤R(1,7)` for `t_i=1`, and `R(t_i,u_i)≤R(t_i,3)` for `t_i≥2`. The possible run-length patterns, grouped only by whether a part equals `1` or `2`, now give these exact rational upper bounds:
+
+| Run-length condition | Upper bound for `∏R(t_i,u_i)` | Exact margin `65536/59049 − upper bound` |
+|---|---:|---:|
+| Two parts equal `1` (the third is `8`) | `12800/11583` | `40448/8444007` |
+| One part equals `1`; the other two sum to `9` | `1490944/1371249` | `278528/12341241` |
+| No part equals `1`; two equal `2` (the third is `6`) | `1513201664/1364681439` | `155648/151631271` |
+| No part equals `1`; one equals `2`, others `3,5` | `310116352/283848543` | `1638400/94616181` |
+| No part equals `1`; one equals `2`, others `4,4` | `141746176/130439241` | `335872/14493249` |
+| All parts are at least `3` (the parts are `3,3,4`) | `1585971200/1468135287` | `14483456/489378429` |
+
+These cases exhaust the positive triples summing to `10`; every exact margin is positive. But the cycle identity requires `2^D=∏R(t_i,u_i)`. Therefore no nontrivial odd-only cycle with exactly three high-valuation blocks has `T=10`. This is a rational inequality argument on the block parameters, not an orbit search. The remaining totals for this profile are `T∈{17,22,29,34}`.
 
 ## Auxiliary finite congruence certificates
 
@@ -1411,7 +1434,7 @@ Lemmas 1–4 cover 24 of the 32 odd residue classes modulo 64: all classes `1, 5
 
 1. **Fix the definitions and proof target.** Keep the original map and odd-only map explicit. The descent property above is the global obligation.
 2. **Work from exact identities.** Derive consequences of the Syracuse recurrence symbolically, keeping each equality and inequality justified for arbitrary odd starting values. The iterate identity, exact valuation-one run length, return-block formulas, modulo-3 restriction, transition law, logarithmic block drift, and state-dependent block contraction threshold are proved above.
-3. **Exclude cycle profiles by their number of high valuations.** The exactly-one-high and exactly-two-high profiles are excluded above. An exactly-three-high cycle cannot have a quotient `u_i=1`; its period is at most `34`, and the exact transition equations exclude `T=5`. Exclude the five remaining totals `{10,17,22,29,34}`, then handle profiles with four or more high blocks. Ruling out every nontrivial odd-only cycle is sufficient for the full conjecture by the cycle-exclusion reduction.
+3. **Exclude cycle profiles by their number of high valuations.** The exactly-one-high and exactly-two-high profiles are excluded above. An exactly-three-high cycle cannot have a quotient `u_i=1`; its period is at most `34`, and exact arguments exclude `T=5` and `T=10`. Exclude the four remaining totals `{17,22,29,34}`, then handle profiles with four or more high blocks. Ruling out every nontrivial odd-only cycle is sufficient for the full conjecture by the cycle-exclusion reduction.
 4. **Keep the proof uniform in the starting value.** Seek identities and inequalities that apply to every odd `n`. Treat the finite congruence certificates below as supplementary lemmas; do not use more residue enumeration as a substitute for the global argument.
 5. **Audit the complete argument.** Check boundary values, the valuation recurrence, and every induction dependency. Keep conjectures, computational observations, and proved statements labeled separately.
 
@@ -1431,8 +1454,8 @@ flowchart TD
     I --> B["Return-block and transition formulas — proved"]
     B --> H1["One high-valuation block — excluded"]
     H1 --> H2["Two high-valuation blocks — excluded"]
-    H2 --> H3["Three high-valuation blocks — T ≤ 34; T=5 excluded"]
-    H3 --> O["OPEN: eliminate five three-high totals and control profiles with 4+ high valuations"]
+    H2 --> H3["Three high-valuation blocks — T ≤ 34; T=5,10 excluded"]
+    H3 --> O["OPEN: eliminate four three-high totals and control profiles with 4+ high valuations"]
     B --> O
 ```
 
@@ -1448,4 +1471,4 @@ A 2026 exploratory paper on burst/gap dynamics explicitly leaves its key orbitwi
 
 ## Status
 
-Several exact iterate, valuation, and return-block identities are proved, along with supplementary descent results on selected congruence classes. The exactly-one-high and exactly-two-high cycle profiles are excluded. Any exactly-three-high cycle must have all `u_i≥3` and period `T≤34`; the exact transition equations exclude `T=5`, leaving `T∈{10,17,22,29,34}` unresolved. Profiles with four or more high valuations also remain open. The full Collatz conjecture has not been proved in this project; the strict proof-completion estimate is 0%.
+Several exact iterate, valuation, and return-block identities are proved, along with supplementary descent results on selected congruence classes. The exactly-one-high and exactly-two-high cycle profiles are excluded. Any exactly-three-high cycle must have all `u_i≥3` and period `T≤34`; exact arguments exclude `T=5` and `T=10`, leaving `T∈{17,22,29,34}` unresolved. Profiles with four or more high valuations also remain open. The full Collatz conjecture has not been proved in this project; the strict proof-completion estimate is 0%.
