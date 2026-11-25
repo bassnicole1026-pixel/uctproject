@@ -228,7 +228,10 @@
       const finerCovered = Math.max(0, Number(coverage.finerCovered) || 0);
       const finerModulus = Number(coverage.finerModulus) || 256;
       const finerNote = finerCovered ? ` Plus ${finerCovered} specific sub-classes modulo ${finerModulus} are covered.` : "";
-      setText("coverage-detail", `${covered} of ${total} odd classes modulo ${modulus} have a descent certificate. This is not ${coveragePercent}% of the conjecture solved.${finerNote}`);
+      const deeperClasses = Array.isArray(coverage.deeperClasses) ? coverage.deeperClasses : [];
+      const deeperModulus = Number(coverage.deeperModulus) || 4096;
+      const deeperNote = deeperClasses.length ? ` Also covered at the finer modulus ${deeperModulus}: n ≡ ${deeperClasses.join(", ")}.` : "";
+      setText("coverage-detail", `${covered} of ${total} odd classes modulo ${modulus} have a descent certificate. This is not ${coveragePercent}% of the conjecture solved.${finerNote}${deeperNote}`);
       setText("focus-status", data.focus?.status || "Status not recorded");
       setText("focus-title", data.focus?.title || "No current focus recorded");
       setText("focus-summary", data.focus?.summary || "Check back for a public project update.");
